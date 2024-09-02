@@ -51,6 +51,10 @@
    * [Coverage](230_coverage_dashboard)
    * [Verification tests](230_verification_dashboard)
    * [Documentation](external:dev/230/docs_rendered/html/index.html)
+ * 232
+   * [Coverage](232_coverage_dashboard)
+   * [Verification tests](232_verification_dashboard)
+   * [Documentation](external:dev/232/docs_rendered/html/index.html)
  * 202
    * [Coverage](202_coverage_dashboard)
    * [Verification tests](202_verification_dashboard)
