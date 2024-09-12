@@ -3,12 +3,8 @@
 
 ## Summary reports (all tests)
  * [all coverage](external:coverage_dashboard/all/index.html)
- * branch coverage (no data)
- * toggle coverage (no data)
- * functional coverage (no data)
 
 ## Individual test reports
-### all coverage
  * [ahb_cmark](external:coverage_dashboard/all_ahb_cmark/index.html)
  * [ahb_cmark_dccm](external:coverage_dashboard/all_ahb_cmark_dccm/index.html)
  * [ahb_cmark_iccm](external:coverage_dashboard/all_ahb_cmark_iccm/index.html)
@@ -71,6 +67,7 @@
  * [lib_axi4_to_ahb_test_axi](external:coverage_dashboard/all_lib_axi4_to_ahb_test_axi/index.html)
  * [lib_axi4_to_ahb_test_axi_read_channel](external:coverage_dashboard/all_lib_axi4_to_ahb_test_axi_read_channel/index.html)
  * [lib_axi4_to_ahb_test_axi_write_channel](external:coverage_dashboard/all_lib_axi4_to_ahb_test_axi_write_channel/index.html)
+ * [lsu_tl_test_lsu_tl](external:coverage_dashboard/all_lsu_tl_test_lsu_tl/index.html)
  * [openocd_ahb_lite](external:coverage_dashboard/all_openocd_ahb_lite/index.html)
  * [openocd_axi4](external:coverage_dashboard/all_openocd_axi4/index.html)
  * [pic_gw_test_gateway](external:coverage_dashboard/all_pic_gw_test_gateway/index.html)
@@ -129,9 +126,3 @@
  * [riscv-dv_u_riscv_unaligned_load_store_test](external:coverage_dashboard/all_riscv-dv_u_riscv_unaligned_load_store_test/index.html)
  * [riscv-dv_u_riscv_user_mode_rand_test](external:coverage_dashboard/all_riscv-dv_u_riscv_user_mode_rand_test/index.html)
  * [test_pyuvm](external:coverage_dashboard/all_test_pyuvm/index.html)
-### branch coverage
-no data
-### toggle coverage
-no data
-### functional coverage
-no data

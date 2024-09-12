@@ -1,57 +1,43 @@
 # Active pull requests
  * 228
    * [Coverage](228_coverage_dashboard)
-   * [Verification tests](228_verification_dashboard)
    * [Documentation](external:dev/228/docs_rendered/html/index.html)
  * 213
    * [Coverage](213_coverage_dashboard)
-   * [Verification tests](213_verification_dashboard)
    * [Documentation](external:dev/213/docs_rendered/html/index.html)
  * 202
    * [Coverage](202_coverage_dashboard)
-   * [Verification tests](202_verification_dashboard)
    * [Documentation](external:dev/202/docs_rendered/html/index.html)
  * 207
    * [Coverage](207_coverage_dashboard)
-   * [Verification tests](207_verification_dashboard)
    * [Documentation](external:dev/207/docs_rendered/html/index.html)
  * 217
    * [Coverage](217_coverage_dashboard)
-   * [Verification tests](217_verification_dashboard)
    * [Documentation](external:dev/217/docs_rendered/html/index.html)
  * 226
    * [Coverage](226_coverage_dashboard)
-   * [Verification tests](226_verification_dashboard)
    * [Documentation](external:dev/226/docs_rendered/html/index.html)
  * 152
    * [Coverage](152_coverage_dashboard)
-   * [Verification tests](152_verification_dashboard)
    * [Documentation](external:dev/152/docs_rendered/html/index.html)
  * 200
    * [Coverage](200_coverage_dashboard)
-   * [Verification tests](200_verification_dashboard)
    * [Documentation](external:dev/200/docs_rendered/html/index.html)
  * 223
    * [Coverage](223_coverage_dashboard)
-   * [Verification tests](223_verification_dashboard)
    * [Documentation](external:dev/223/docs_rendered/html/index.html)
  * 196
    * [Coverage](196_coverage_dashboard)
-   * [Verification tests](196_verification_dashboard)
    * [Documentation](external:dev/196/docs_rendered/html/index.html)
  * 230
    * [Coverage](230_coverage_dashboard)
-   * [Verification tests](230_verification_dashboard)
    * [Documentation](external:dev/230/docs_rendered/html/index.html)
  * 75
    * [Coverage](75_coverage_dashboard)
-   * [Verification tests](75_verification_dashboard)
    * [Documentation](external:dev/75/docs_rendered/html/index.html)
  * 197
    * [Coverage](197_coverage_dashboard)
-   * [Verification tests](197_verification_dashboard)
    * [Documentation](external:dev/197/docs_rendered/html/index.html)
  * 225
    * [Coverage](225_coverage_dashboard)
-   * [Verification tests](225_verification_dashboard)
    * [Documentation](external:dev/225/docs_rendered/html/index.html)
