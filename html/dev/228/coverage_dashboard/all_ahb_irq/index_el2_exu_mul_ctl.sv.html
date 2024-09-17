@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    16-09-2024
+                    17-09-2024
                 </td>
                 <td></td>
                 
@@ -124,9 +124,9 @@
 <span id="L20"><span class="lineNum">      20</span>              : `include "el2_param.vh"</span>
 <span id="L21"><span class="lineNum">      21</span>              :  )</span>
 <span id="L22"><span class="lineNum">      22</span>              :   (</span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">      300896 :    input logic          clk,              // Top level clock</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">      243592 :    input logic          clk,              // Top level clock</span></span>
 <span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           2 :    input logic          rst_l,            // Reset</span></span>
-<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">       12016 :    input logic          scan_mode,        // Scan mode</span></span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">        9820 :    input logic          scan_mode,        // Scan mode</span></span>
 <span id="L26"><span class="lineNum">      26</span>              : </span>
 <span id="L27"><span class="lineNum">      27</span> <span class="tlaUNC tlaBgUNC">           0 :    input el2_mul_pkt_t mul_p,            // {Valid, RS1 signed operand, RS2 signed operand, Select low 32-bits of result}</span></span>
 <span id="L28"><span class="lineNum">      28</span>              : </span>
@@ -157,8 +157,8 @@
 <span id="L53"><span class="lineNum">      53</span>              : </span>
 <span id="L54"><span class="lineNum">      54</span>              : </span>
 <span id="L55"><span class="lineNum">      55</span>              :    // ZBE</span>
-<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC tlaBgGNC">       12016 :    logic                ap_bcompress;</span></span>
-<span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC">       12016 :    logic                ap_bdecompress;</span></span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC tlaBgGNC">        9820 :    logic                ap_bcompress;</span></span>
+<span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC">        9820 :    logic                ap_bdecompress;</span></span>
 <span id="L58"><span class="lineNum">      58</span>              : </span>
 <span id="L59"><span class="lineNum">      59</span>              :    // ZBC</span>
 <span id="L60"><span class="lineNum">      60</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                ap_clmul;</span></span>
@@ -166,24 +166,24 @@
 <span id="L62"><span class="lineNum">      62</span> <span class="tlaUNC">           0 :    logic                ap_clmulr;</span></span>
 <span id="L63"><span class="lineNum">      63</span>              : </span>
 <span id="L64"><span class="lineNum">      64</span>              :    // ZBP</span>
-<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC tlaBgGNC">       12016 :    logic                ap_grev;</span></span>
-<span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC">       12016 :    logic                ap_gorc;</span></span>
-<span id="L67"><span class="lineNum">      67</span> <span class="tlaGNC">       12016 :    logic                ap_shfl;</span></span>
-<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC">       12016 :    logic                ap_unshfl;</span></span>
-<span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC">       12016 :    logic                ap_xperm_n;</span></span>
-<span id="L70"><span class="lineNum">      70</span> <span class="tlaGNC">       12016 :    logic                ap_xperm_b;</span></span>
-<span id="L71"><span class="lineNum">      71</span> <span class="tlaGNC">       12016 :    logic                ap_xperm_h;</span></span>
+<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC tlaBgGNC">        9820 :    logic                ap_grev;</span></span>
+<span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC">        9820 :    logic                ap_gorc;</span></span>
+<span id="L67"><span class="lineNum">      67</span> <span class="tlaGNC">        9820 :    logic                ap_shfl;</span></span>
+<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC">        9820 :    logic                ap_unshfl;</span></span>
+<span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC">        9820 :    logic                ap_xperm_n;</span></span>
+<span id="L70"><span class="lineNum">      70</span> <span class="tlaGNC">        9820 :    logic                ap_xperm_b;</span></span>
+<span id="L71"><span class="lineNum">      71</span> <span class="tlaGNC">        9820 :    logic                ap_xperm_h;</span></span>
 <span id="L72"><span class="lineNum">      72</span>              : </span>
 <span id="L73"><span class="lineNum">      73</span>              :    // ZBR</span>
-<span id="L74"><span class="lineNum">      74</span> <span class="tlaGNC">       12016 :    logic                ap_crc32_b;</span></span>
-<span id="L75"><span class="lineNum">      75</span> <span class="tlaGNC">       12016 :    logic                ap_crc32_h;</span></span>
-<span id="L76"><span class="lineNum">      76</span> <span class="tlaGNC">       12016 :    logic                ap_crc32_w;</span></span>
-<span id="L77"><span class="lineNum">      77</span> <span class="tlaGNC">       12016 :    logic                ap_crc32c_b;</span></span>
-<span id="L78"><span class="lineNum">      78</span> <span class="tlaGNC">       12016 :    logic                ap_crc32c_h;</span></span>
-<span id="L79"><span class="lineNum">      79</span> <span class="tlaGNC">       12016 :    logic                ap_crc32c_w;</span></span>
+<span id="L74"><span class="lineNum">      74</span> <span class="tlaGNC">        9820 :    logic                ap_crc32_b;</span></span>
+<span id="L75"><span class="lineNum">      75</span> <span class="tlaGNC">        9820 :    logic                ap_crc32_h;</span></span>
+<span id="L76"><span class="lineNum">      76</span> <span class="tlaGNC">        9820 :    logic                ap_crc32_w;</span></span>
+<span id="L77"><span class="lineNum">      77</span> <span class="tlaGNC">        9820 :    logic                ap_crc32c_b;</span></span>
+<span id="L78"><span class="lineNum">      78</span> <span class="tlaGNC">        9820 :    logic                ap_crc32c_h;</span></span>
+<span id="L79"><span class="lineNum">      79</span> <span class="tlaGNC">        9820 :    logic                ap_crc32c_w;</span></span>
 <span id="L80"><span class="lineNum">      80</span>              : </span>
 <span id="L81"><span class="lineNum">      81</span>              :    // ZBF</span>
-<span id="L82"><span class="lineNum">      82</span> <span class="tlaGNC">       12016 :    logic                ap_bfp;</span></span>
+<span id="L82"><span class="lineNum">      82</span> <span class="tlaGNC">        9820 :    logic                ap_bfp;</span></span>
 <span id="L83"><span class="lineNum">      83</span>              : </span>
 <span id="L84"><span class="lineNum">      84</span>              : </span>
 <span id="L85"><span class="lineNum">      85</span>              :    if (pt.BITMANIP_ZBE == 1)</span>
@@ -310,7 +310,7 @@
 <span id="L206"><span class="lineNum">     206</span> <span class="tlaGNC">           2 :        for (bcompress_i=0; bcompress_i&lt;32; bcompress_i++)</span></span>
 <span id="L207"><span class="lineNum">     207</span> <span class="tlaGNC">          64 :          begin</span></span>
 <span id="L208"><span class="lineNum">     208</span> <span class="tlaGNC">          64 :              bcompress_test_bit_d              =  rs2_in[bcompress_i];</span></span>
-<span id="L209"><span class="lineNum">     209</span> <span class="tlaGNC">     4396384 :              if (bcompress_test_bit_d)</span></span>
+<span id="L209"><span class="lineNum">     209</span> <span class="tlaGNC">     3348032 :              if (bcompress_test_bit_d)</span></span>
 <span id="L210"><span class="lineNum">     210</span> <span class="tlaUNC tlaBgUNC">           0 :                begin</span></span>
 <span id="L211"><span class="lineNum">     211</span> <span class="tlaUNC">           0 :                   bcompress_d[bcompress_j]     =  rs1_in[bcompress_i];</span></span>
 <span id="L212"><span class="lineNum">     212</span> <span class="tlaUNC">           0 :                   bcompress_j                  =  bcompress_j + 1;</span></span>
@@ -337,7 +337,7 @@
 <span id="L233"><span class="lineNum">     233</span> <span class="tlaGNC">           2 :        for (bdecompress_i=0; bdecompress_i&lt;32; bdecompress_i++)</span></span>
 <span id="L234"><span class="lineNum">     234</span> <span class="tlaGNC">          64 :          begin</span></span>
 <span id="L235"><span class="lineNum">     235</span> <span class="tlaGNC">          64 :              bdecompress_test_bit_d            =  rs2_in[bdecompress_i];</span></span>
-<span id="L236"><span class="lineNum">     236</span> <span class="tlaGNC">     4396384 :              if (bdecompress_test_bit_d)</span></span>
+<span id="L236"><span class="lineNum">     236</span> <span class="tlaGNC">     3348032 :              if (bdecompress_test_bit_d)</span></span>
 <span id="L237"><span class="lineNum">     237</span> <span class="tlaUNC tlaBgUNC">           0 :                begin</span></span>
 <span id="L238"><span class="lineNum">     238</span> <span class="tlaUNC">           0 :                   bdecompress_d[bdecompress_i] =  rs1_in[bdecompress_j];</span></span>
 <span id="L239"><span class="lineNum">     239</span> <span class="tlaUNC">           0 :                   bdecompress_j                =  bdecompress_j + 1;</span></span>
@@ -675,7 +675,7 @@
 <span id="L571"><span class="lineNum">     571</span>              :    // "aaaa"  6a52eeb0      9e9e9e9e   95ad114f</span>
 <span id="L572"><span class="lineNum">     572</span>              : </span>
 <span id="L573"><span class="lineNum">     573</span>              : </span>
-<span id="L574"><span class="lineNum">     574</span> <span class="tlaGNC tlaBgGNC">       12016 :    logic                  crc32_all;</span></span>
+<span id="L574"><span class="lineNum">     574</span> <span class="tlaGNC tlaBgGNC">        9820 :    logic                  crc32_all;</span></span>
 <span id="L575"><span class="lineNum">     575</span> <span class="tlaGNC">           2 :    logic        [31:0]    crc32_poly_rev;</span></span>
 <span id="L576"><span class="lineNum">     576</span> <span class="tlaGNC">           2 :    logic        [31:0]    crc32c_poly_rev;</span></span>
 <span id="L577"><span class="lineNum">     577</span>              :    integer                crc32_bi, crc32_hi, crc32_wi, crc32c_bi, crc32c_hi, crc32c_wi;</span>

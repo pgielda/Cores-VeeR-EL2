@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    16-09-2024
+                    17-09-2024
                 </td>
                 <td></td>
                 
@@ -319,16 +319,16 @@
 <span id="L215"><span class="lineNum">     215</span>              :    endfunction // get_write_addr</span>
 <span id="L216"><span class="lineNum">     216</span>              : </span>
 <span id="L217"><span class="lineNum">     217</span>              :    // Function to get the next byte pointer</span>
-<span id="L218"><span class="lineNum">     218</span> <span class="tlaGNC">        8365 :    function automatic logic [2:0] get_nxtbyte_ptr (logic [2:0] current_byte_ptr, logic [7:0] byteen, logic get_next);</span></span>
+<span id="L218"><span class="lineNum">     218</span> <span class="tlaGNC">        9864 :    function automatic logic [2:0] get_nxtbyte_ptr (logic [2:0] current_byte_ptr, logic [7:0] byteen, logic get_next);</span></span>
 <span id="L219"><span class="lineNum">     219</span>              :       logic [2:0] start_ptr;</span>
 <span id="L220"><span class="lineNum">     220</span>              :       logic       found;</span>
-<span id="L221"><span class="lineNum">     221</span> <span class="tlaGNC">        8365 :       found = '0;</span></span>
-<span id="L222"><span class="lineNum">     222</span> <span class="tlaGNC">        8365 :       get_nxtbyte_ptr[2:0] = 3'd0; </span></span>
-<span id="L223"><span class="lineNum">     223</span> <span class="tlaGNC">        8365 :       start_ptr[2:0] = get_next ? (current_byte_ptr[2:0] + 3'b1) : current_byte_ptr[2:0];</span></span>
-<span id="L224"><span class="lineNum">     224</span> <span class="tlaGNC">        8365 :       for (int j=0; j&lt;8; j++) begin</span></span>
+<span id="L221"><span class="lineNum">     221</span> <span class="tlaGNC">        9864 :       found = '0;</span></span>
+<span id="L222"><span class="lineNum">     222</span> <span class="tlaGNC">        9864 :       get_nxtbyte_ptr[2:0] = 3'd0; </span></span>
+<span id="L223"><span class="lineNum">     223</span> <span class="tlaGNC">        9864 :       start_ptr[2:0] = get_next ? (current_byte_ptr[2:0] + 3'b1) : current_byte_ptr[2:0];</span></span>
+<span id="L224"><span class="lineNum">     224</span> <span class="tlaGNC">        9864 :       for (int j=0; j&lt;8; j++) begin</span></span>
 <span id="L225"><span class="lineNum">     225</span> <span class="tlaUNC tlaBgUNC">           0 :          if (~found) begin</span></span>
-<span id="L226"><span class="lineNum">     226</span> <span class="tlaGNC tlaBgGNC">       57959 :             get_nxtbyte_ptr[2:0] = 3'(j);</span></span>
-<span id="L227"><span class="lineNum">     227</span> <span class="tlaGNC">       57959 :             found |= (byteen[j] &amp; (3'(j) &gt;= start_ptr[2:0])) ;</span></span>
+<span id="L226"><span class="lineNum">     226</span> <span class="tlaGNC tlaBgGNC">       68686 :             get_nxtbyte_ptr[2:0] = 3'(j);</span></span>
+<span id="L227"><span class="lineNum">     227</span> <span class="tlaGNC">       68686 :             found |= (byteen[j] &amp; (3'(j) &gt;= start_ptr[2:0])) ;</span></span>
 <span id="L228"><span class="lineNum">     228</span>              :          end</span>
 <span id="L229"><span class="lineNum">     229</span>              :       end</span>
 <span id="L230"><span class="lineNum">     230</span>              :    endfunction // get_nextbyte_ptr</span>
@@ -389,18 +389,18 @@
 <span id="L285"><span class="lineNum">     285</span> <span class="tlaGNC">           2 :       rd_bypass_idle   = 1'b0;</span></span>
 <span id="L286"><span class="lineNum">     286</span>              : </span>
 <span id="L287"><span class="lineNum">     287</span> <span class="tlaGNC">           2 :       case (buf_state)</span></span>
-<span id="L288"><span class="lineNum">     288</span> <span class="tlaGNC">        8365 :          IDLE: begin</span></span>
-<span id="L289"><span class="lineNum">     289</span> <span class="tlaGNC">        8365 :                   master_ready   = 1'b1;</span></span>
-<span id="L290"><span class="lineNum">     290</span> <span class="tlaGNC">        8365 :                   buf_write_in = (master_opc[2:1] == 2'b01);</span></span>
-<span id="L291"><span class="lineNum">     291</span> <span class="tlaGNC">        8365 :                   buf_nxtstate = buf_write_in ? CMD_WR : CMD_RD;</span></span>
-<span id="L292"><span class="lineNum">     292</span> <span class="tlaGNC">        8365 :                   buf_state_en = master_valid &amp; master_ready;</span></span>
-<span id="L293"><span class="lineNum">     293</span> <span class="tlaGNC">        8365 :                   buf_wr_en    = buf_state_en;</span></span>
-<span id="L294"><span class="lineNum">     294</span> <span class="tlaGNC">        8365 :                   buf_data_wr_en = buf_state_en &amp; (buf_nxtstate == CMD_WR);</span></span>
-<span id="L295"><span class="lineNum">     295</span> <span class="tlaGNC">        8365 :                   buf_cmd_byte_ptr_en   = buf_state_en;</span></span>
-<span id="L296"><span class="lineNum">     296</span> <span class="tlaGNC">        8365 :                   buf_cmd_byte_ptr[2:0] = buf_write_in ? get_nxtbyte_ptr(3'b0,buf_byteen_in[7:0],1'b0) : master_addr[2:0];</span></span>
-<span id="L297"><span class="lineNum">     297</span> <span class="tlaGNC">        8365 :                   bypass_en       = buf_state_en;</span></span>
-<span id="L298"><span class="lineNum">     298</span> <span class="tlaGNC">        8365 :                   rd_bypass_idle  = bypass_en &amp; (buf_nxtstate == CMD_RD);</span></span>
-<span id="L299"><span class="lineNum">     299</span> <span class="tlaGNC">        8365 :                   ahb_htrans[1:0] = {2{bypass_en}} &amp; 2'b10;</span></span>
+<span id="L288"><span class="lineNum">     288</span> <span class="tlaGNC">        9864 :          IDLE: begin</span></span>
+<span id="L289"><span class="lineNum">     289</span> <span class="tlaGNC">        9864 :                   master_ready   = 1'b1;</span></span>
+<span id="L290"><span class="lineNum">     290</span> <span class="tlaGNC">        9864 :                   buf_write_in = (master_opc[2:1] == 2'b01);</span></span>
+<span id="L291"><span class="lineNum">     291</span> <span class="tlaGNC">        9864 :                   buf_nxtstate = buf_write_in ? CMD_WR : CMD_RD;</span></span>
+<span id="L292"><span class="lineNum">     292</span> <span class="tlaGNC">        9864 :                   buf_state_en = master_valid &amp; master_ready;</span></span>
+<span id="L293"><span class="lineNum">     293</span> <span class="tlaGNC">        9864 :                   buf_wr_en    = buf_state_en;</span></span>
+<span id="L294"><span class="lineNum">     294</span> <span class="tlaGNC">        9864 :                   buf_data_wr_en = buf_state_en &amp; (buf_nxtstate == CMD_WR);</span></span>
+<span id="L295"><span class="lineNum">     295</span> <span class="tlaGNC">        9864 :                   buf_cmd_byte_ptr_en   = buf_state_en;</span></span>
+<span id="L296"><span class="lineNum">     296</span> <span class="tlaGNC">        9864 :                   buf_cmd_byte_ptr[2:0] = buf_write_in ? get_nxtbyte_ptr(3'b0,buf_byteen_in[7:0],1'b0) : master_addr[2:0];</span></span>
+<span id="L297"><span class="lineNum">     297</span> <span class="tlaGNC">        9864 :                   bypass_en       = buf_state_en;</span></span>
+<span id="L298"><span class="lineNum">     298</span> <span class="tlaGNC">        9864 :                   rd_bypass_idle  = bypass_en &amp; (buf_nxtstate == CMD_RD);</span></span>
+<span id="L299"><span class="lineNum">     299</span> <span class="tlaGNC">        9864 :                   ahb_htrans[1:0] = {2{bypass_en}} &amp; 2'b10;</span></span>
 <span id="L300"><span class="lineNum">     300</span>              :           end</span>
 <span id="L301"><span class="lineNum">     301</span> <span class="tlaUNC tlaBgUNC">           0 :          CMD_RD: begin</span></span>
 <span id="L302"><span class="lineNum">     302</span> <span class="tlaUNC">           0 :                   buf_nxtstate    = (master_valid &amp; (master_opc[2:0] == 3'b000))? STREAM_RD : DATA_RD;</span></span>

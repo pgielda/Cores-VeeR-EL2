@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    16-09-2024
+                    17-09-2024
                 </td>
                 <td></td>
                 
@@ -79,14 +79,14 @@
     <td class="headerCovSummary rowLeft">
         Branch
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #b0ff00;">
-        65.4%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #adff00;">
+        66.0%
     </td>
     <td class="headerCovSummaryEntry">
-        34
+        35
     </td>
     <td class="headerCovSummaryEntry">
-        52
+        53
     </td>
 
             </tr>
@@ -200,7 +200,7 @@
 <span id="L96"><span class="lineNum">      96</span> <span class="tlaGNC">          96 :     logic result = 1'b0;</span></span>
 <span id="L97"><span class="lineNum">      97</span> <span class="tlaGNC">          96 :     logic unused_cfg = |csr_pmp_cfg.mode;</span></span>
 <span id="L98"><span class="lineNum">      98</span>              : </span>
-<span id="L99"><span class="lineNum">      99</span> <span class="tlaGNC">     3026880 :     if (!csr_pmp_cfg.read &amp;&amp; csr_pmp_cfg.write) begin</span></span>
+<span id="L99"><span class="lineNum">      99</span> <span class="tlaGNC">     5798880 :     if (!csr_pmp_cfg.read &amp;&amp; csr_pmp_cfg.write) begin</span></span>
 <span id="L100"><span class="lineNum">     100</span>              :       // Special-case shared regions where R = 0, W = 1</span>
 <span id="L101"><span class="lineNum">     101</span> <span class="tlaUNC tlaBgUNC">           0 :       unique case ({csr_pmp_cfg.lock, csr_pmp_cfg.execute})</span></span>
 <span id="L102"><span class="lineNum">     102</span>              :         // Read/write in M, read only in U</span>
@@ -219,14 +219,14 @@
 <span id="L115"><span class="lineNum">     115</span> <span class="tlaUNC">           0 :             ((pmp_req_type == READ) &amp; ~priv_mode);</span></span>
 <span id="L116"><span class="lineNum">     116</span> <span class="tlaUNC">           0 :         default: ;</span></span>
 <span id="L117"><span class="lineNum">     117</span>              :       endcase</span>
-<span id="L118"><span class="lineNum">     118</span> <span class="tlaGNC tlaBgGNC">     3026880 :     end else begin</span></span>
-<span id="L119"><span class="lineNum">     119</span> <span class="tlaGNC">     3026880 :       if (csr_pmp_cfg.read &amp; csr_pmp_cfg.write &amp; csr_pmp_cfg.execute &amp; csr_pmp_cfg.lock) begin</span></span>
+<span id="L118"><span class="lineNum">     118</span> <span class="tlaGNC tlaBgGNC">     5798880 :     end else begin</span></span>
+<span id="L119"><span class="lineNum">     119</span> <span class="tlaGNC">     5798880 :       if (csr_pmp_cfg.read &amp; csr_pmp_cfg.write &amp; csr_pmp_cfg.execute &amp; csr_pmp_cfg.lock) begin</span></span>
 <span id="L120"><span class="lineNum">     120</span>              :         // Special-case shared read only region when R = 1, W = 1, X = 1, L = 1</span>
 <span id="L121"><span class="lineNum">     121</span> <span class="tlaUNC tlaBgUNC">           0 :         result = (pmp_req_type == READ);</span></span>
-<span id="L122"><span class="lineNum">     122</span> <span class="tlaGNC tlaBgGNC">     3026880 :       end else begin</span></span>
+<span id="L122"><span class="lineNum">     122</span> <span class="tlaGNC tlaBgGNC">     5798880 :       end else begin</span></span>
 <span id="L123"><span class="lineNum">     123</span>              :         // Otherwise use basic permission check. Permission is always denied if in U mode and</span>
 <span id="L124"><span class="lineNum">     124</span>              :         // L is set or if in M mode and L is unset.</span>
-<span id="L125"><span class="lineNum">     125</span> <span class="tlaGNC">     3026880 :         result = permission_check &amp; (priv_mode ? ~csr_pmp_cfg.lock : csr_pmp_cfg.lock);</span></span>
+<span id="L125"><span class="lineNum">     125</span> <span class="tlaGNC">     5798880 :         result = permission_check &amp; (priv_mode ? ~csr_pmp_cfg.lock : csr_pmp_cfg.lock);</span></span>
 <span id="L126"><span class="lineNum">     126</span>              :       end</span>
 <span id="L127"><span class="lineNum">     127</span>              :     end</span>
 <span id="L128"><span class="lineNum">     128</span> <span class="tlaGNC">          96 :     return result;</span></span>
@@ -255,14 +255,14 @@
 <span id="L151"><span class="lineNum">     151</span>              :   `ifdef RV_SMEPMP</span>
 <span id="L152"><span class="lineNum">     152</span>              :     // When MSECCFG.MMWP is set default deny always, otherwise allow for M-mode, deny for other</span>
 <span id="L153"><span class="lineNum">     153</span>              :     // modes. Also deny unmatched for M-mode when MSECCFG.MML is set and request type is EXEC.</span>
-<span id="L154"><span class="lineNum">     154</span> <span class="tlaGNC">           3 :     logic access_fail = csr_pmp_mseccfg.MMWP | priv_mode |</span></span>
-<span id="L155"><span class="lineNum">     155</span> <span class="tlaGNC">           3 :                        (csr_pmp_mseccfg.MML &amp;&amp; (req_type == EXEC));</span></span>
+<span id="L154"><span class="lineNum">     154</span> <span class="tlaGNC">           6 :     logic access_fail = csr_pmp_mseccfg.MMWP | priv_mode |</span></span>
+<span id="L155"><span class="lineNum">     155</span> <span class="tlaGNC">           6 :                        (csr_pmp_mseccfg.MML &amp;&amp; (req_type == EXEC));</span></span>
 <span id="L156"><span class="lineNum">     156</span>              :   `else</span>
 <span id="L157"><span class="lineNum">     157</span>              :     // When in user mode and at least one PMP region is enabled deny access by default.</span>
 <span id="L158"><span class="lineNum">     158</span>              :     logic access_fail = any_region_enabled &amp; priv_mode;</span>
 <span id="L159"><span class="lineNum">     159</span>              :   `endif</span>
 <span id="L160"><span class="lineNum">     160</span>              : `else</span>
-<span id="L161"><span class="lineNum">     161</span> <span class="tlaGNC">           3 :     logic access_fail = 1'b0;</span></span>
+<span id="L161"><span class="lineNum">     161</span>              :     logic access_fail = 1'b0;</span>
 <span id="L162"><span class="lineNum">     162</span>              : `endif</span>
 <span id="L163"><span class="lineNum">     163</span>              : </span>
 <span id="L164"><span class="lineNum">     164</span> <span class="tlaGNC">           6 :     logic matched = 1'b0;</span></span>
@@ -270,9 +270,9 @@
 <span id="L166"><span class="lineNum">     166</span>              :     // PMP entries are statically prioritized, from 0 to N-1</span>
 <span id="L167"><span class="lineNum">     167</span>              :     // The lowest-numbered PMP entry which matches an address determines accessibility</span>
 <span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC">           6 :     for (int r = 0; r &lt; pt.PMP_ENTRIES; r++) begin</span></span>
-<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">      191484 :       if (!matched &amp;&amp; match_all[r]) begin</span></span>
-<span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">      191484 :         access_fail = ~final_perm_check[r];</span></span>
-<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">      191484 :         matched = 1'b1;</span></span>
+<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">      366150 :       if (!matched &amp;&amp; match_all[r]) begin</span></span>
+<span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">      366150 :         access_fail = ~final_perm_check[r];</span></span>
+<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">      366150 :         matched = 1'b1;</span></span>
 <span id="L172"><span class="lineNum">     172</span>              :       end</span>
 <span id="L173"><span class="lineNum">     173</span>              :     end</span>
 <span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC">           6 :     return access_fail;</span></span>
@@ -348,12 +348,12 @@
 <span id="L244"><span class="lineNum">     244</span> <span class="tlaGNC tlaBgGNC">          96 :       always_comb begin</span></span>
 <span id="L245"><span class="lineNum">     245</span> <span class="tlaGNC">          96 :         region_match_all[c][r] = 1'b0;</span></span>
 <span id="L246"><span class="lineNum">     246</span> <span class="tlaGNC">          96 :         unique case (pmp_pmpcfg[r].mode)</span></span>
-<span id="L247"><span class="lineNum">     247</span> <span class="tlaGNC">     2248206 :           OFF:     region_match_all[c][r] = 1'b0;</span></span>
+<span id="L247"><span class="lineNum">     247</span> <span class="tlaGNC">     4329366 :           OFF:     region_match_all[c][r] = 1'b0;</span></span>
 <span id="L248"><span class="lineNum">     248</span> <span class="tlaUNC tlaBgUNC">           0 :           NA4:     region_match_all[c][r] = region_match_eq[c][r];</span></span>
 <span id="L249"><span class="lineNum">     249</span> <span class="tlaUNC">           0 :           NAPOT:   region_match_all[c][r] = region_match_eq[c][r];</span></span>
-<span id="L250"><span class="lineNum">     250</span> <span class="tlaGNC tlaBgGNC">      149394 :           TOR: begin</span></span>
-<span id="L251"><span class="lineNum">     251</span> <span class="tlaGNC">      149394 :             region_match_all[c][r] = (region_match_eq[c][r] | region_match_gt[c][r]) &amp;</span></span>
-<span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC">      149394 :                                      region_match_lt[c][r];</span></span>
+<span id="L250"><span class="lineNum">     250</span> <span class="tlaGNC tlaBgGNC">      288138 :           TOR: begin</span></span>
+<span id="L251"><span class="lineNum">     251</span> <span class="tlaGNC">      288138 :             region_match_all[c][r] = (region_match_eq[c][r] | region_match_gt[c][r]) &amp;</span></span>
+<span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC">      288138 :                                      region_match_lt[c][r];</span></span>
 <span id="L253"><span class="lineNum">     253</span>              :           end</span>
 <span id="L254"><span class="lineNum">     254</span> <span class="tlaUNC tlaBgUNC">           0 :           default: region_match_all[c][r] = 1'b0;</span></span>
 <span id="L255"><span class="lineNum">     255</span>              :         endcase</span>
