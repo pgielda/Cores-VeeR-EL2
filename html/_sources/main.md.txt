@@ -2,7 +2,5 @@
 
 * [Coverage](main_coverage_dashboard)
 
-* [Verification tests](external:main/verification_dashboard.html)
-
 
 * [Documentation](external:main/docs_rendered/html/index.html)
