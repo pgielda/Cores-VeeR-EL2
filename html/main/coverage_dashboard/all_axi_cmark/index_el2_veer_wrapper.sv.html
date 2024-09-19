@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    18-09-2024
+                    19-09-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff7e00;">
-        24.8%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff7c00;">
+        24.5%
     </td>
     <td class="headerCovSummaryEntry">
-        76
+        75
     </td>
     <td class="headerCovSummaryEntry">
         306
@@ -131,7 +131,7 @@
 <span id="L27"><span class="lineNum">      27</span>              : `include "el2_param.vh"</span>
 <span id="L28"><span class="lineNum">      28</span>              : )</span>
 <span id="L29"><span class="lineNum">      29</span>              : (</span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">    32528790 :    input logic                             clk,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     4132840 :    input logic                             clk,</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           6 :    input logic                             rst_l,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           6 :    input logic                             dbg_rst_l,</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:1]                      rst_vec,</span></span>
@@ -224,7 +224,7 @@
 <span id="L120"><span class="lineNum">     120</span> <span class="tlaUNC">           0 :    input  logic [pt.IFU_BUS_TAG-1:0]       ifu_axi_bid,</span></span>
 <span id="L121"><span class="lineNum">     121</span>              : </span>
 <span id="L122"><span class="lineNum">     122</span>              :    // AXI Read Channels</span>
-<span id="L123"><span class="lineNum">     123</span> <span class="tlaGNC tlaBgGNC">     1214690 :    output logic                            ifu_axi_arvalid,</span></span>
+<span id="L123"><span class="lineNum">     123</span> <span class="tlaGNC tlaBgGNC">        6016 :    output logic                            ifu_axi_arvalid,</span></span>
 <span id="L124"><span class="lineNum">     124</span> <span class="tlaGNC">       47630 :    input  logic                            ifu_axi_arready,</span></span>
 <span id="L125"><span class="lineNum">     125</span> <span class="tlaGNC">        6452 :    output logic [pt.IFU_BUS_TAG-1:0]       ifu_axi_arid,</span></span>
 <span id="L126"><span class="lineNum">     126</span> <span class="tlaGNC">        2804 :    output logic [31:0]                     ifu_axi_araddr,</span></span>
@@ -241,8 +241,8 @@
 <span id="L137"><span class="lineNum">     137</span> <span class="tlaGNC">           6 :    output logic                            ifu_axi_rready,</span></span>
 <span id="L138"><span class="lineNum">     138</span> <span class="tlaGNC">        5878 :    input  logic [pt.IFU_BUS_TAG-1:0]       ifu_axi_rid,</span></span>
 <span id="L139"><span class="lineNum">     139</span> <span class="tlaGNC">        4714 :    input  logic [63:0]                     ifu_axi_rdata,</span></span>
-<span id="L140"><span class="lineNum">     140</span> <span class="tlaGNC">      148632 :    input  logic [1:0]                      ifu_axi_rresp,</span></span>
-<span id="L141"><span class="lineNum">     141</span> <span class="tlaGNC">       47624 :    input  logic                            ifu_axi_rlast,</span></span>
+<span id="L140"><span class="lineNum">     140</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic [1:0]                      ifu_axi_rresp,</span></span>
+<span id="L141"><span class="lineNum">     141</span> <span class="tlaGNC tlaBgGNC">       47624 :    input  logic                            ifu_axi_rlast,</span></span>
 <span id="L142"><span class="lineNum">     142</span>              : </span>
 <span id="L143"><span class="lineNum">     143</span>              :    //-------------------------- SB AXI signals--------------------------</span>
 <span id="L144"><span class="lineNum">     144</span>              :    // AXI Write Channels</span>
@@ -454,8 +454,8 @@
 <span id="L350"><span class="lineNum">     350</span> <span class="tlaUNC">           0 :    input logic                      [31:0] dmi_uncore_rdata</span></span>
 <span id="L351"><span class="lineNum">     351</span>              : );</span>
 <span id="L352"><span class="lineNum">     352</span>              : </span>
-<span id="L353"><span class="lineNum">     353</span> <span class="tlaGNC tlaBgGNC">    32528790 :    logic                             active_l2clk;</span></span>
-<span id="L354"><span class="lineNum">     354</span> <span class="tlaGNC">    32528790 :    logic                             free_l2clk;</span></span>
+<span id="L353"><span class="lineNum">     353</span> <span class="tlaGNC tlaBgGNC">     4132840 :    logic                             active_l2clk;</span></span>
+<span id="L354"><span class="lineNum">     354</span> <span class="tlaGNC">     4132840 :    logic                             free_l2clk;</span></span>
 <span id="L355"><span class="lineNum">     355</span>              : </span>
 <span id="L356"><span class="lineNum">     356</span>              :    // DCCM ports</span>
 <span id="L357"><span class="lineNum">     357</span> <span class="tlaGNC">      127472 :    logic         dccm_wren;</span></span>
@@ -463,7 +463,7 @@
 <span id="L359"><span class="lineNum">     359</span> <span class="tlaGNC">       10388 :    logic [pt.DCCM_BITS-1:0]         dccm_wr_addr_lo;</span></span>
 <span id="L360"><span class="lineNum">     360</span> <span class="tlaGNC">       10388 :    logic [pt.DCCM_BITS-1:0]         dccm_wr_addr_hi;</span></span>
 <span id="L361"><span class="lineNum">     361</span> <span class="tlaGNC">      166196 :    logic [pt.DCCM_BITS-1:0]         dccm_rd_addr_lo;</span></span>
-<span id="L362"><span class="lineNum">     362</span> <span class="tlaGNC">      359740 :    logic [pt.DCCM_BITS-1:0]         dccm_rd_addr_hi;</span></span>
+<span id="L362"><span class="lineNum">     362</span> <span class="tlaGNC">      254672 :    logic [pt.DCCM_BITS-1:0]         dccm_rd_addr_hi;</span></span>
 <span id="L363"><span class="lineNum">     363</span> <span class="tlaGNC">        5164 :    logic [pt.DCCM_FDATA_WIDTH-1:0]  dccm_wr_data_lo;</span></span>
 <span id="L364"><span class="lineNum">     364</span> <span class="tlaGNC">        5164 :    logic [pt.DCCM_FDATA_WIDTH-1:0]  dccm_wr_data_hi;</span></span>
 <span id="L365"><span class="lineNum">     365</span>              : </span>

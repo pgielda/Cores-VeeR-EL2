@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    18-09-2024
+                    19-09-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ffe200;">
-        44.4%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ffdc00;">
+        43.2%
     </td>
     <td class="headerCovSummaryEntry">
-        72
+        70
     </td>
     <td class="headerCovSummaryEntry">
         162
@@ -130,8 +130,8 @@
 <span id="L26"><span class="lineNum">      26</span>              : #(</span>
 <span id="L27"><span class="lineNum">      27</span>              : `include "el2_param.vh"</span>
 <span id="L28"><span class="lineNum">      28</span>              :  )(</span>
-<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC tlaBgGNC">       14644 :    input logic         clk,</span></span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">       14644 :    input logic         free_clk,</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC tlaBgGNC">        9988 :    input logic         clk,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">        9988 :    input logic         free_clk,</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           2 :    input logic         rst_l,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           2 :    input logic         dma_bus_clk_en, // slave bus clock enable</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic         clk_override,</span></span>
@@ -286,8 +286,8 @@
 <span id="L182"><span class="lineNum">     182</span>              : </span>
 <span id="L183"><span class="lineNum">     183</span> <span class="tlaGNC">          52 :    logic                    dma_buffer_c1_clken;</span></span>
 <span id="L184"><span class="lineNum">     184</span> <span class="tlaGNC">          52 :    logic                    dma_free_clken;</span></span>
-<span id="L185"><span class="lineNum">     185</span> <span class="tlaGNC">       14644 :    logic                    dma_buffer_c1_clk;</span></span>
-<span id="L186"><span class="lineNum">     186</span> <span class="tlaGNC">       14644 :    logic                    dma_free_clk;</span></span>
+<span id="L185"><span class="lineNum">     185</span> <span class="tlaGNC">        9988 :    logic                    dma_buffer_c1_clk;</span></span>
+<span id="L186"><span class="lineNum">     186</span> <span class="tlaGNC">        9988 :    logic                    dma_free_clk;</span></span>
 <span id="L187"><span class="lineNum">     187</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                    dma_bus_clk;</span></span>
 <span id="L188"><span class="lineNum">     188</span>              : </span>
 <span id="L189"><span class="lineNum">     189</span> <span class="tlaGNC tlaBgGNC">          52 :    logic                    bus_rsp_valid, bus_rsp_sent;</span></span>
@@ -296,7 +296,7 @@
 <span id="L192"><span class="lineNum">     192</span> <span class="tlaGNC tlaBgGNC">          24 :    logic [7:0]              bus_cmd_byteen;</span></span>
 <span id="L193"><span class="lineNum">     193</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [2:0]              bus_cmd_sz;</span></span>
 <span id="L194"><span class="lineNum">     194</span> <span class="tlaUNC">           0 :    logic [31:0]             bus_cmd_addr;</span></span>
-<span id="L195"><span class="lineNum">     195</span> <span class="tlaGNC tlaBgGNC">           8 :    logic [63:0]             bus_cmd_wdata;</span></span>
+<span id="L195"><span class="lineNum">     195</span> <span class="tlaGNC tlaBgGNC">           4 :    logic [63:0]             bus_cmd_wdata;</span></span>
 <span id="L196"><span class="lineNum">     196</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [pt.DMA_BUS_TAG-1:0]  bus_cmd_tag;</span></span>
 <span id="L197"><span class="lineNum">     197</span> <span class="tlaUNC">           0 :    logic [pt.DMA_BUS_ID-1:0]   bus_cmd_mid;</span></span>
 <span id="L198"><span class="lineNum">     198</span> <span class="tlaUNC">           0 :    logic [pt.DMA_BUS_PRTY-1:0] bus_cmd_prty;</span></span>
@@ -313,18 +313,18 @@
 <span id="L209"><span class="lineNum">     209</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [pt.DMA_BUS_TAG-1:0]  wrbuf_tag;</span></span>
 <span id="L210"><span class="lineNum">     210</span> <span class="tlaUNC">           0 :    logic [2:0]                 wrbuf_sz;</span></span>
 <span id="L211"><span class="lineNum">     211</span> <span class="tlaUNC">           0 :    logic [31:0]                wrbuf_addr;</span></span>
-<span id="L212"><span class="lineNum">     212</span> <span class="tlaGNC tlaBgGNC">           8 :    logic [63:0]                wrbuf_data;</span></span>
+<span id="L212"><span class="lineNum">     212</span> <span class="tlaGNC tlaBgGNC">           4 :    logic [63:0]                wrbuf_data;</span></span>
 <span id="L213"><span class="lineNum">     213</span> <span class="tlaGNC">          24 :    logic [7:0]                 wrbuf_byteen;</span></span>
 <span id="L214"><span class="lineNum">     214</span>              : </span>
 <span id="L215"><span class="lineNum">     215</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                       rdbuf_en;</span></span>
 <span id="L216"><span class="lineNum">     216</span> <span class="tlaUNC">           0 :    logic                       rdbuf_cmd_sent, rdbuf_rst;</span></span>
 <span id="L217"><span class="lineNum">     217</span> <span class="tlaUNC">           0 :    logic                       rdbuf_vld;</span></span>
 <span id="L218"><span class="lineNum">     218</span> <span class="tlaUNC">           0 :    logic [pt.DMA_BUS_TAG-1:0]  rdbuf_tag;</span></span>
-<span id="L219"><span class="lineNum">     219</span> <span class="tlaGNC tlaBgGNC">         428 :    logic [2:0]                 rdbuf_sz;</span></span>
-<span id="L220"><span class="lineNum">     220</span> <span class="tlaGNC">         182 :    logic [31:0]                rdbuf_addr;</span></span>
+<span id="L219"><span class="lineNum">     219</span> <span class="tlaUNC">           0 :    logic [2:0]                 rdbuf_sz;</span></span>
+<span id="L220"><span class="lineNum">     220</span> <span class="tlaUNC">           0 :    logic [31:0]                rdbuf_addr;</span></span>
 <span id="L221"><span class="lineNum">     221</span>              : </span>
-<span id="L222"><span class="lineNum">     222</span> <span class="tlaGNC">          46 :    logic                       axi_mstr_prty_in, axi_mstr_prty_en;</span></span>
-<span id="L223"><span class="lineNum">     223</span> <span class="tlaGNC">          36 :    logic                       axi_mstr_priority;</span></span>
+<span id="L222"><span class="lineNum">     222</span> <span class="tlaGNC tlaBgGNC">          28 :    logic                       axi_mstr_prty_in, axi_mstr_prty_en;</span></span>
+<span id="L223"><span class="lineNum">     223</span> <span class="tlaGNC">          26 :    logic                       axi_mstr_priority;</span></span>
 <span id="L224"><span class="lineNum">     224</span> <span class="tlaGNC">          52 :    logic                       axi_mstr_sel;</span></span>
 <span id="L225"><span class="lineNum">     225</span>              : </span>
 <span id="L226"><span class="lineNum">     226</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                       axi_rsp_valid, axi_rsp_sent;</span></span>

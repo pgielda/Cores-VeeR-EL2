@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    18-09-2024
+                    19-09-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff9500;">
-        29.3%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff7400;">
+        22.9%
     </td>
     <td class="headerCovSummaryEntry">
-        41
+        32
     </td>
     <td class="headerCovSummaryEntry">
         140
@@ -127,8 +127,8 @@
 <span id="L23"><span class="lineNum">      23</span>              : `include "el2_param.vh"</span>
 <span id="L24"><span class="lineNum">      24</span>              :  )</span>
 <span id="L25"><span class="lineNum">      25</span>              :   (</span>
-<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC tlaBgGNC">      292576 :       input logic                                   clk,                // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
-<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">      292576 :       input logic                                   active_clk,         // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC tlaBgGNC">      583434 :       input logic                                   clk,                // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">      583434 :       input logic                                   active_clk,         // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
 <span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">           2 :       input logic                                   rst_l,              // reset, active low</span></span>
 <span id="L29"><span class="lineNum">      29</span> <span class="tlaUNC tlaBgUNC">           0 :       input logic                                   clk_override,       // Override non-functional clock gating</span></span>
 <span id="L30"><span class="lineNum">      30</span> <span class="tlaUNC">           0 :       input logic                                   dec_tlu_core_ecc_disable,  // Disable ECC checking</span></span>
@@ -151,14 +151,14 @@
 <span id="L47"><span class="lineNum">      47</span> <span class="tlaUNC">           0 :       input logic  [70:0]                           ic_debug_wr_data,   // Debug wr cache.</span></span>
 <span id="L48"><span class="lineNum">      48</span>              : </span>
 <span id="L49"><span class="lineNum">      49</span> <span class="tlaUNC">           0 :       output logic [pt.ICACHE_BANKS_WAY-1:0]        ic_eccerr,          // ecc error per bank</span></span>
-<span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC tlaBgGNC">       12688 :       output logic [pt.ICACHE_BANKS_WAY-1:0]        ic_parerr,          // ecc error per bank</span></span>
-<span id="L51"><span class="lineNum">      51</span> <span class="tlaUNC tlaBgUNC">           0 :       input logic [pt.ICACHE_NUM_WAYS-1:0]          ic_tag_valid,       // Valid from the I$ tag valid outside (in flops).</span></span>
-<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC tlaBgGNC">       12688 :       input el2_ic_data_ext_in_pkt_t [pt.ICACHE_NUM_WAYS-1:0][pt.ICACHE_BANKS_WAY-1:0] ic_data_ext_in_pkt,   // this is being driven by the top level for soc testing/etc</span></span>
-<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">       12688 :       input el2_ic_tag_ext_in_pkt_t  [pt.ICACHE_NUM_WAYS-1:0]                          ic_tag_ext_in_pkt,    // this is being driven by the top level for soc testing/etc</span></span>
+<span id="L50"><span class="lineNum">      50</span> <span class="tlaUNC">           0 :       output logic [pt.ICACHE_BANKS_WAY-1:0]        ic_parerr,          // ecc error per bank</span></span>
+<span id="L51"><span class="lineNum">      51</span> <span class="tlaUNC">           0 :       input logic [pt.ICACHE_NUM_WAYS-1:0]          ic_tag_valid,       // Valid from the I$ tag valid outside (in flops).</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaUNC">           0 :       input el2_ic_data_ext_in_pkt_t [pt.ICACHE_NUM_WAYS-1:0][pt.ICACHE_BANKS_WAY-1:0] ic_data_ext_in_pkt,   // this is being driven by the top level for soc testing/etc</span></span>
+<span id="L53"><span class="lineNum">      53</span> <span class="tlaUNC">           0 :       input el2_ic_tag_ext_in_pkt_t  [pt.ICACHE_NUM_WAYS-1:0]                          ic_tag_ext_in_pkt,    // this is being driven by the top level for soc testing/etc</span></span>
 <span id="L54"><span class="lineNum">      54</span>              : </span>
-<span id="L55"><span class="lineNum">      55</span> <span class="tlaUNC tlaBgUNC">           0 :       output logic [pt.ICACHE_NUM_WAYS-1:0]         ic_rd_hit,          // ic_rd_hit[3:0]</span></span>
+<span id="L55"><span class="lineNum">      55</span> <span class="tlaUNC">           0 :       output logic [pt.ICACHE_NUM_WAYS-1:0]         ic_rd_hit,          // ic_rd_hit[3:0]</span></span>
 <span id="L56"><span class="lineNum">      56</span> <span class="tlaUNC">           0 :       output logic                                  ic_tag_perr,        // Tag Parity error</span></span>
-<span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC tlaBgGNC">       12688 :       input  logic                                  scan_mode           // Flop scan mode control</span></span>
+<span id="L57"><span class="lineNum">      57</span> <span class="tlaUNC">           0 :       input  logic                                  scan_mode           // Flop scan mode control</span></span>
 <span id="L58"><span class="lineNum">      58</span>              :       ) ;</span>
 <span id="L59"><span class="lineNum">      59</span>              : </span>
 <span id="L60"><span class="lineNum">      60</span>              : </span>
@@ -192,8 +192,8 @@
 <span id="L88"><span class="lineNum">      88</span>              : `include "el2_param.vh"</span>
 <span id="L89"><span class="lineNum">      89</span>              :  )</span>
 <span id="L90"><span class="lineNum">      90</span>              :      (</span>
-<span id="L91"><span class="lineNum">      91</span> <span class="tlaGNC">      292576 :       input logic clk,</span></span>
-<span id="L92"><span class="lineNum">      92</span> <span class="tlaGNC">      292576 :       input logic active_clk,</span></span>
+<span id="L91"><span class="lineNum">      91</span> <span class="tlaGNC tlaBgGNC">      583434 :       input logic clk,</span></span>
+<span id="L92"><span class="lineNum">      92</span> <span class="tlaGNC">      583434 :       input logic active_clk,</span></span>
 <span id="L93"><span class="lineNum">      93</span> <span class="tlaGNC">           2 :       input logic rst_l,</span></span>
 <span id="L94"><span class="lineNum">      94</span> <span class="tlaUNC tlaBgUNC">           0 :       input logic clk_override,</span></span>
 <span id="L95"><span class="lineNum">      95</span>              : </span>
@@ -205,8 +205,8 @@
 <span id="L101"><span class="lineNum">     101</span> <span class="tlaGNC">        7972 :       output logic [63:0]                             ic_rd_data ,                                 // Data read from Icache. 2x64bits + parity bits. F2 stage. With ECC</span></span>
 <span id="L102"><span class="lineNum">     102</span> <span class="tlaUNC tlaBgUNC">           0 :       input  logic [70:0]                             ic_debug_wr_data,   // Debug wr cache.</span></span>
 <span id="L103"><span class="lineNum">     103</span> <span class="tlaUNC">           0 :       output logic [70:0]                             ic_debug_rd_data ,  // Data read from Icache. 2x64bits + parity bits. F2 stage. With ECC</span></span>
-<span id="L104"><span class="lineNum">     104</span> <span class="tlaGNC tlaBgGNC">       12688 :       output logic [pt.ICACHE_BANKS_WAY-1:0] ic_parerr,</span></span>
-<span id="L105"><span class="lineNum">     105</span> <span class="tlaUNC tlaBgUNC">           0 :       output logic [pt.ICACHE_BANKS_WAY-1:0] ic_eccerr,    // ecc error per bank</span></span>
+<span id="L104"><span class="lineNum">     104</span> <span class="tlaUNC">           0 :       output logic [pt.ICACHE_BANKS_WAY-1:0] ic_parerr,</span></span>
+<span id="L105"><span class="lineNum">     105</span> <span class="tlaUNC">           0 :       output logic [pt.ICACHE_BANKS_WAY-1:0] ic_eccerr,    // ecc error per bank</span></span>
 <span id="L106"><span class="lineNum">     106</span> <span class="tlaUNC">           0 :       input logic [pt.ICACHE_INDEX_HI:3]     ic_debug_addr,     // Read/Write addresss to the Icache.</span></span>
 <span id="L107"><span class="lineNum">     107</span> <span class="tlaUNC">           0 :       input logic                            ic_debug_rd_en,      // Icache debug rd</span></span>
 <span id="L108"><span class="lineNum">     108</span> <span class="tlaUNC">           0 :       input logic                            ic_debug_wr_en,      // Icache debug wr</span></span>
@@ -216,12 +216,12 @@
 <span id="L112"><span class="lineNum">     112</span> <span class="tlaGNC">       28098 :       input logic                            ic_sel_premux_data,  // Select the pre_muxed data</span></span>
 <span id="L113"><span class="lineNum">     113</span>              : </span>
 <span id="L114"><span class="lineNum">     114</span> <span class="tlaUNC tlaBgUNC">           0 :       input logic [pt.ICACHE_NUM_WAYS-1:0]ic_rd_hit,</span></span>
-<span id="L115"><span class="lineNum">     115</span> <span class="tlaGNC tlaBgGNC">       12688 :       input el2_ic_data_ext_in_pkt_t  [pt.ICACHE_NUM_WAYS-1:0][pt.ICACHE_BANKS_WAY-1:0] ic_data_ext_in_pkt,   // this is being driven by the top level for soc testing/etc</span></span>
-<span id="L116"><span class="lineNum">     116</span> <span class="tlaGNC">       12688 :       input  logic                         scan_mode</span></span>
+<span id="L115"><span class="lineNum">     115</span> <span class="tlaUNC">           0 :       input el2_ic_data_ext_in_pkt_t  [pt.ICACHE_NUM_WAYS-1:0][pt.ICACHE_BANKS_WAY-1:0] ic_data_ext_in_pkt,   // this is being driven by the top level for soc testing/etc</span></span>
+<span id="L116"><span class="lineNum">     116</span> <span class="tlaUNC">           0 :       input  logic                         scan_mode</span></span>
 <span id="L117"><span class="lineNum">     117</span>              : </span>
 <span id="L118"><span class="lineNum">     118</span>              :       ) ;</span>
 <span id="L119"><span class="lineNum">     119</span>              : </span>
-<span id="L120"><span class="lineNum">     120</span> <span class="tlaGNC">        1142 :    logic [pt.ICACHE_TAG_INDEX_LO-1:1]                                             ic_rw_addr_ff;</span></span>
+<span id="L120"><span class="lineNum">     120</span> <span class="tlaGNC tlaBgGNC">        1142 :    logic [pt.ICACHE_TAG_INDEX_LO-1:1]                                             ic_rw_addr_ff;</span></span>
 <span id="L121"><span class="lineNum">     121</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [pt.ICACHE_BANKS_WAY-1:0][pt.ICACHE_NUM_WAYS-1:0]                        ic_b_sb_wren;    //bank x ways</span></span>
 <span id="L122"><span class="lineNum">     122</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_BANKS_WAY-1:0][pt.ICACHE_NUM_WAYS-1:0]                        ic_b_sb_rden;    //bank x ways</span></span>
 <span id="L123"><span class="lineNum">     123</span>              : </span>
@@ -904,8 +904,8 @@
 <span id="L800"><span class="lineNum">     800</span>              : `include "el2_param.vh"</span>
 <span id="L801"><span class="lineNum">     801</span>              :  )</span>
 <span id="L802"><span class="lineNum">     802</span>              :      (</span>
-<span id="L803"><span class="lineNum">     803</span> <span class="tlaGNC">      292576 :       input logic                                                   clk,</span></span>
-<span id="L804"><span class="lineNum">     804</span> <span class="tlaGNC">      292576 :       input logic                                                   active_clk,</span></span>
+<span id="L803"><span class="lineNum">     803</span> <span class="tlaGNC">      583434 :       input logic                                                   clk,</span></span>
+<span id="L804"><span class="lineNum">     804</span> <span class="tlaGNC">      583434 :       input logic                                                   active_clk,</span></span>
 <span id="L805"><span class="lineNum">     805</span> <span class="tlaGNC">           2 :       input logic                                                   rst_l,</span></span>
 <span id="L806"><span class="lineNum">     806</span> <span class="tlaUNC tlaBgUNC">           0 :       input logic                                                   clk_override,</span></span>
 <span id="L807"><span class="lineNum">     807</span> <span class="tlaUNC">           0 :       input logic                                                   dec_tlu_core_ecc_disable,</span></span>
@@ -921,17 +921,17 @@
 <span id="L817"><span class="lineNum">     817</span> <span class="tlaUNC">           0 :       input logic                                                  ic_debug_wr_en,       // Icache debug wr</span></span>
 <span id="L818"><span class="lineNum">     818</span> <span class="tlaUNC">           0 :       input logic                                                  ic_debug_tag_array,   // Debug tag array</span></span>
 <span id="L819"><span class="lineNum">     819</span> <span class="tlaUNC">           0 :       input logic [pt.ICACHE_NUM_WAYS-1:0]                         ic_debug_way,         // Debug way. Rd or Wr.</span></span>
-<span id="L820"><span class="lineNum">     820</span> <span class="tlaGNC tlaBgGNC">       12688 :       input el2_ic_tag_ext_in_pkt_t   [pt.ICACHE_NUM_WAYS-1:0]    ic_tag_ext_in_pkt,</span></span>
+<span id="L820"><span class="lineNum">     820</span> <span class="tlaUNC">           0 :       input el2_ic_tag_ext_in_pkt_t   [pt.ICACHE_NUM_WAYS-1:0]    ic_tag_ext_in_pkt,</span></span>
 <span id="L821"><span class="lineNum">     821</span>              : </span>
-<span id="L822"><span class="lineNum">     822</span> <span class="tlaUNC tlaBgUNC">           0 :       output logic [25:0]                                          ictag_debug_rd_data,</span></span>
+<span id="L822"><span class="lineNum">     822</span> <span class="tlaUNC">           0 :       output logic [25:0]                                          ictag_debug_rd_data,</span></span>
 <span id="L823"><span class="lineNum">     823</span> <span class="tlaUNC">           0 :       input  logic [70:0]                                          ic_debug_wr_data,     // Debug wr cache.</span></span>
 <span id="L824"><span class="lineNum">     824</span>              : </span>
 <span id="L825"><span class="lineNum">     825</span> <span class="tlaUNC">           0 :       output logic [pt.ICACHE_NUM_WAYS-1:0]                        ic_rd_hit,</span></span>
 <span id="L826"><span class="lineNum">     826</span> <span class="tlaUNC">           0 :       output logic                                                 ic_tag_perr,</span></span>
-<span id="L827"><span class="lineNum">     827</span> <span class="tlaGNC tlaBgGNC">       12688 :       input  logic                                                 scan_mode</span></span>
+<span id="L827"><span class="lineNum">     827</span> <span class="tlaUNC">           0 :       input  logic                                                 scan_mode</span></span>
 <span id="L828"><span class="lineNum">     828</span>              :    ) ;</span>
 <span id="L829"><span class="lineNum">     829</span>              : </span>
-<span id="L830"><span class="lineNum">     830</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [pt.ICACHE_NUM_WAYS-1:0] [25:0]                           ic_tag_data_raw;</span></span>
+<span id="L830"><span class="lineNum">     830</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_NUM_WAYS-1:0] [25:0]                           ic_tag_data_raw;</span></span>
 <span id="L831"><span class="lineNum">     831</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_NUM_WAYS-1:0] [25:0]                           ic_tag_data_raw_pre;</span></span>
 <span id="L832"><span class="lineNum">     832</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_NUM_WAYS-1:0] [36:pt.ICACHE_TAG_LO]            w_tout;</span></span>
 <span id="L833"><span class="lineNum">     833</span> <span class="tlaUNC">           0 :    logic [25:0]                                                    ic_tag_wr_data ;</span></span>
@@ -945,7 +945,7 @@
 <span id="L841"><span class="lineNum">     841</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_NUM_WAYS-1:0]                                  ic_debug_rd_way_en ;</span></span>
 <span id="L842"><span class="lineNum">     842</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_NUM_WAYS-1:0]                                  ic_debug_rd_way_en_ff ;</span></span>
 <span id="L843"><span class="lineNum">     843</span>              : </span>
-<span id="L844"><span class="lineNum">     844</span> <span class="tlaGNC tlaBgGNC">         536 :    logic [pt.ICACHE_INDEX_HI: pt.ICACHE_TAG_INDEX_LO]              ic_rw_addr_q;</span></span>
+<span id="L844"><span class="lineNum">     844</span> <span class="tlaGNC tlaBgGNC">         268 :    logic [pt.ICACHE_INDEX_HI: pt.ICACHE_TAG_INDEX_LO]              ic_rw_addr_q;</span></span>
 <span id="L845"><span class="lineNum">     845</span> <span class="tlaGNC">           2 :    logic [31:pt.ICACHE_TAG_LO]                                     ic_rw_addr_ff;</span></span>
 <span id="L846"><span class="lineNum">     846</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [pt.ICACHE_NUM_WAYS-1:0]                                  ic_tag_rden_q;          // way</span></span>
 <span id="L847"><span class="lineNum">     847</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_NUM_WAYS-1:0]                                  ic_tag_wren;          // way</span></span>

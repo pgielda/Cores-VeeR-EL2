@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    18-09-2024
+                    19-09-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #72ff00;">
-        77.6%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #7aff00;">
+        76.0%
     </td>
     <td class="headerCovSummaryEntry">
-        97
+        95
     </td>
     <td class="headerCovSummaryEntry">
         125
@@ -129,10 +129,10 @@
 <span id="L25"><span class="lineNum">      25</span>              :  )</span>
 <span id="L26"><span class="lineNum">      26</span>              :   (</span>
 <span id="L27"><span class="lineNum">      27</span>              : </span>
-<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC tlaBgGNC">      146816 :    input logic                                    scan_mode,                // Flop scan mode control</span></span>
-<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">           2 :    input logic                                    rst_l,                    // reset, active low</span></span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">     8229604 :    input logic                                    clk,                      // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
-<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">     8229604 :    input logic                                    active_clk,               // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                                    scan_mode,                // Flop scan mode control</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC tlaBgGNC">           2 :    input logic                                    rst_l,                    // reset, active low</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">    13749480 :    input logic                                    clk,                      // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">    13749480 :    input logic                                    active_clk,               // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
 <span id="L32"><span class="lineNum">      32</span>              : </span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                                    ifu_async_error_start,    // ecc/parity related errors with current fetch - not sent down the pipe</span></span>
 <span id="L34"><span class="lineNum">      34</span>              : </span>
@@ -159,7 +159,7 @@
 <span id="L55"><span class="lineNum">      55</span>              : </span>
 <span id="L56"><span class="lineNum">      56</span> <span class="tlaUNC">           0 :    output logic                                   ifu_i0_dbecc,             // Instruction 0 has double bit ecc error</span></span>
 <span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC tlaBgGNC">       53568 :    output logic [31:0]                            ifu_i0_instr,             // Instruction 0</span></span>
-<span id="L58"><span class="lineNum">      58</span> <span class="tlaGNC">          12 :    output logic [31:1]                            ifu_i0_pc,                // Instruction 0 PC</span></span>
+<span id="L58"><span class="lineNum">      58</span> <span class="tlaGNC">          10 :    output logic [31:1]                            ifu_i0_pc,                // Instruction 0 PC</span></span>
 <span id="L59"><span class="lineNum">      59</span> <span class="tlaGNC">      464178 :    output logic                                   ifu_i0_pc4,</span></span>
 <span id="L60"><span class="lineNum">      60</span>              : </span>
 <span id="L61"><span class="lineNum">      61</span> <span class="tlaGNC">      667126 :    output logic                                   ifu_fb_consume1,          // Consumed one buffer. To fetch control fetch for buffer mass balance</span></span>
@@ -184,9 +184,9 @@
 <span id="L80"><span class="lineNum">      80</span> <span class="tlaGNC">      117562 :    output logic [pt.BHT_GHR_SIZE-1:0]             ifu_i0_bp_fghr,           // BP FGHR</span></span>
 <span id="L81"><span class="lineNum">      81</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [pt.BTB_BTAG_SIZE-1:0]            ifu_i0_bp_btag,           // BP tag</span></span>
 <span id="L82"><span class="lineNum">      82</span>              : </span>
-<span id="L83"><span class="lineNum">      83</span> <span class="tlaGNC tlaBgGNC">      146816 :    output logic [$clog2(pt.BTB_SIZE)-1:0]         ifu_i0_fa_index,          // Fully associt btb index</span></span>
+<span id="L83"><span class="lineNum">      83</span> <span class="tlaUNC">           0 :    output logic [$clog2(pt.BTB_SIZE)-1:0]         ifu_i0_fa_index,          // Fully associt btb index</span></span>
 <span id="L84"><span class="lineNum">      84</span>              : </span>
-<span id="L85"><span class="lineNum">      85</span> <span class="tlaGNC">      814158 :    output logic                                   ifu_pmu_instr_aligned,    // number of inst aligned this cycle</span></span>
+<span id="L85"><span class="lineNum">      85</span> <span class="tlaGNC tlaBgGNC">      814158 :    output logic                                   ifu_pmu_instr_aligned,    // number of inst aligned this cycle</span></span>
 <span id="L86"><span class="lineNum">      86</span>              : </span>
 <span id="L87"><span class="lineNum">      87</span> <span class="tlaGNC">      144212 :    output logic [15:0]                            ifu_i0_cinst              // 16b compress inst for i0</span></span>
 <span id="L88"><span class="lineNum">      88</span>              :    );</span>
@@ -581,7 +581,7 @@
 <span id="L477"><span class="lineNum">     477</span>              : </span>
 <span id="L478"><span class="lineNum">     478</span>              :    assign q1final[15:0]      = ({16{q1sel[0]}} &amp; q1eff[15:0] ) |</span>
 <span id="L479"><span class="lineNum">     479</span>              :                                ({16{q1sel[1]}} &amp; q1eff[31:16]);</span>
-<span id="L480"><span class="lineNum">     480</span> <span class="tlaGNC">          12 :    logic [31:1] q0pceff, q0pcfinal;</span></span>
+<span id="L480"><span class="lineNum">     480</span> <span class="tlaGNC">          10 :    logic [31:1] q0pceff, q0pcfinal;</span></span>
 <span id="L481"><span class="lineNum">     481</span> <span class="tlaGNC">           2 :    logic [31:1] q1pceff;</span></span>
 <span id="L482"><span class="lineNum">     482</span>              : </span>
 <span id="L483"><span class="lineNum">     483</span>              :    assign {q1pceff[31:1],q0pceff[31:1]} = (({62{qren[0]}} &amp; {q1pc[31:1],q0pc[31:1]}) |</span>

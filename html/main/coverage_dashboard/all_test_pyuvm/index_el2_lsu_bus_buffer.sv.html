@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    18-09-2024
+                    19-09-2024
                 </td>
                 <td></td>
                 
@@ -445,15 +445,15 @@
 <span id="L341"><span class="lineNum">     341</span>              :    //------------------------------------------------------------------------------</span>
 <span id="L342"><span class="lineNum">     342</span>              : </span>
 <span id="L343"><span class="lineNum">     343</span>              :    // Function to do 8 to 3 bit encoding</span>
-<span id="L344"><span class="lineNum">     344</span> <span class="tlaGNC tlaBgGNC">           6 :    function automatic logic [2:0] f_Enc8to3;</span></span>
+<span id="L344"><span class="lineNum">     344</span> <span class="tlaGNC tlaBgGNC">         458 :    function automatic logic [2:0] f_Enc8to3;</span></span>
 <span id="L345"><span class="lineNum">     345</span>              :       input logic [7:0] Dec_value;</span>
 <span id="L346"><span class="lineNum">     346</span>              : </span>
 <span id="L347"><span class="lineNum">     347</span>              :       logic [2:0]       Enc_value;</span>
-<span id="L348"><span class="lineNum">     348</span> <span class="tlaGNC">           6 :       Enc_value[0] = Dec_value[1] | Dec_value[3] | Dec_value[5] | Dec_value[7];</span></span>
-<span id="L349"><span class="lineNum">     349</span> <span class="tlaGNC">           6 :       Enc_value[1] = Dec_value[2] | Dec_value[3] | Dec_value[6] | Dec_value[7];</span></span>
-<span id="L350"><span class="lineNum">     350</span> <span class="tlaGNC">           6 :       Enc_value[2] = Dec_value[4] | Dec_value[5] | Dec_value[6] | Dec_value[7];</span></span>
+<span id="L348"><span class="lineNum">     348</span> <span class="tlaGNC">         458 :       Enc_value[0] = Dec_value[1] | Dec_value[3] | Dec_value[5] | Dec_value[7];</span></span>
+<span id="L349"><span class="lineNum">     349</span> <span class="tlaGNC">         458 :       Enc_value[1] = Dec_value[2] | Dec_value[3] | Dec_value[6] | Dec_value[7];</span></span>
+<span id="L350"><span class="lineNum">     350</span> <span class="tlaGNC">         458 :       Enc_value[2] = Dec_value[4] | Dec_value[5] | Dec_value[6] | Dec_value[7];</span></span>
 <span id="L351"><span class="lineNum">     351</span>              : </span>
-<span id="L352"><span class="lineNum">     352</span> <span class="tlaGNC">           6 :       return Enc_value[2:0];</span></span>
+<span id="L352"><span class="lineNum">     352</span> <span class="tlaGNC">         458 :       return Enc_value[2:0];</span></span>
 <span id="L353"><span class="lineNum">     353</span>              :    endfunction // f_Enc8to3</span>
 <span id="L354"><span class="lineNum">     354</span>              : </span>
 <span id="L355"><span class="lineNum">     355</span>              :    // Buffer hit logic for bus load forwarding</span>

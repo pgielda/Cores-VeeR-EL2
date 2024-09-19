@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    18-09-2024
+                    19-09-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff9400;">
-        29.2%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff6a00;">
+        20.8%
     </td>
     <td class="headerCovSummaryEntry">
-        14
+        10
     </td>
     <td class="headerCovSummaryEntry">
         48
@@ -126,7 +126,7 @@
 <span id="L22"><span class="lineNum">      22</span>              : `include "el2_param.vh"</span>
 <span id="L23"><span class="lineNum">      23</span>              :  )</span>
 <span id="L24"><span class="lineNum">      24</span>              : (</span>
-<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC tlaBgGNC">        2962 :    input logic         clk,</span></span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC tlaBgGNC">        1540 :    input logic         clk,</span></span>
 <span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">           2 :    input logic         rst_l,</span></span>
 <span id="L27"><span class="lineNum">      27</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic         dccm_clk_override,</span></span>
 <span id="L28"><span class="lineNum">      28</span> <span class="tlaUNC">           0 :    input logic         icm_clk_override,</span></span>
@@ -166,10 +166,10 @@
 <span id="L62"><span class="lineNum">      62</span> <span class="tlaGNC tlaBgGNC">         166 :    input  logic         ic_rd_en,</span></span>
 <span id="L63"><span class="lineNum">      63</span> <span class="tlaGNC">           4 :    input  logic [63:0] ic_premux_data,      // Premux data to be muxed with each way of the Icache.</span></span>
 <span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC">          52 :    input  logic         ic_sel_premux_data, // Premux data sel</span></span>
-<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC">         112 :    input el2_ic_data_ext_in_pkt_t   [pt.ICACHE_NUM_WAYS-1:0][pt.ICACHE_BANKS_WAY-1:0]         ic_data_ext_in_pkt,</span></span>
-<span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC">         112 :    input el2_ic_tag_ext_in_pkt_t    [pt.ICACHE_NUM_WAYS-1:0]           ic_tag_ext_in_pkt,</span></span>
+<span id="L65"><span class="lineNum">      65</span> <span class="tlaUNC tlaBgUNC">           0 :    input el2_ic_data_ext_in_pkt_t   [pt.ICACHE_NUM_WAYS-1:0][pt.ICACHE_BANKS_WAY-1:0]         ic_data_ext_in_pkt,</span></span>
+<span id="L66"><span class="lineNum">      66</span> <span class="tlaUNC">           0 :    input el2_ic_tag_ext_in_pkt_t    [pt.ICACHE_NUM_WAYS-1:0]           ic_tag_ext_in_pkt,</span></span>
 <span id="L67"><span class="lineNum">      67</span>              : </span>
-<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC">           8 :    input  logic [pt.ICACHE_BANKS_WAY-1:0][70:0]               ic_wr_data,         // Data to fill to the Icache. With ECC</span></span>
+<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC tlaBgGNC">           8 :    input  logic [pt.ICACHE_BANKS_WAY-1:0][70:0]               ic_wr_data,         // Data to fill to the Icache. With ECC</span></span>
 <span id="L69"><span class="lineNum">      69</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic [70:0]               ic_debug_wr_data,   // Debug wr cache.</span></span>
 <span id="L70"><span class="lineNum">      70</span> <span class="tlaGNC tlaBgGNC">         126 :    output logic [70:0]               ic_debug_rd_data ,  // Data read from Icache. 2x64bits + parity bits. F2 stage. With ECC</span></span>
 <span id="L71"><span class="lineNum">      71</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic [pt.ICACHE_INDEX_HI:3]               ic_debug_addr,      // Read/Write addresss to the Icache.</span></span>
@@ -183,17 +183,17 @@
 <span id="L79"><span class="lineNum">      79</span>              : </span>
 <span id="L80"><span class="lineNum">      80</span>              : </span>
 <span id="L81"><span class="lineNum">      81</span> <span class="tlaUNC">           0 :    output logic [pt.ICACHE_BANKS_WAY-1:0] ic_eccerr,    // ecc error per bank</span></span>
-<span id="L82"><span class="lineNum">      82</span> <span class="tlaGNC tlaBgGNC">         112 :    output logic [pt.ICACHE_BANKS_WAY-1:0] ic_parerr,          // parity error per bank</span></span>
-<span id="L83"><span class="lineNum">      83</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [pt.ICACHE_NUM_WAYS-1:0]   ic_rd_hit,</span></span>
+<span id="L82"><span class="lineNum">      82</span> <span class="tlaUNC">           0 :    output logic [pt.ICACHE_BANKS_WAY-1:0] ic_parerr,          // parity error per bank</span></span>
+<span id="L83"><span class="lineNum">      83</span> <span class="tlaUNC">           0 :    output logic [pt.ICACHE_NUM_WAYS-1:0]   ic_rd_hit,</span></span>
 <span id="L84"><span class="lineNum">      84</span> <span class="tlaUNC">           0 :    output logic         ic_tag_perr,        // Icache Tag parity error</span></span>
 <span id="L85"><span class="lineNum">      85</span>              : </span>
 <span id="L86"><span class="lineNum">      86</span>              :    el2_mem_if.veer_sram_src mem_export,</span>
 <span id="L87"><span class="lineNum">      87</span>              : </span>
-<span id="L88"><span class="lineNum">      88</span> <span class="tlaGNC tlaBgGNC">         112 :    input  logic         scan_mode</span></span>
+<span id="L88"><span class="lineNum">      88</span> <span class="tlaUNC">           0 :    input  logic         scan_mode</span></span>
 <span id="L89"><span class="lineNum">      89</span>              : </span>
 <span id="L90"><span class="lineNum">      90</span>              : );</span>
 <span id="L91"><span class="lineNum">      91</span>              : </span>
-<span id="L92"><span class="lineNum">      92</span> <span class="tlaGNC">        2962 :    logic active_clk;</span></span>
+<span id="L92"><span class="lineNum">      92</span> <span class="tlaGNC tlaBgGNC">        1540 :    logic active_clk;</span></span>
 <span id="L93"><span class="lineNum">      93</span>              :    rvoclkhdr active_cg   ( .en(1'b1),         .l1clk(active_clk), .* );</span>
 <span id="L94"><span class="lineNum">      94</span>              : </span>
 <span id="L95"><span class="lineNum">      95</span>              :    el2_mem_if mem_export_local ();</span>

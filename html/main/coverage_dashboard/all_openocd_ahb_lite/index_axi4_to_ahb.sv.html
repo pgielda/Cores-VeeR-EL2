@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    18-09-2024
+                    19-09-2024
                 </td>
                 <td></td>
                 
@@ -79,11 +79,11 @@
     <td class="headerCovSummary rowLeft">
         Branch
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #71ff00;">
-        77.7%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #85ff00;">
+        73.8%
     </td>
     <td class="headerCovSummaryEntry">
-        101
+        96
     </td>
     <td class="headerCovSummaryEntry">
         130
@@ -131,8 +131,8 @@
 <span id="L27"><span class="lineNum">      27</span>              : `include "el2_param.vh"</span>
 <span id="L28"><span class="lineNum">      28</span>              : ,parameter TAG  = 1) (</span>
 <span id="L29"><span class="lineNum">      29</span>              : </span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">      185906 :    input                   clk,</span></span>
-<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">      185906 :    input                   free_clk,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">       90604 :    input                   clk,</span></span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">       90604 :    input                   free_clk,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           2 :    input                   rst_l,</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :    input                   scan_mode,</span></span>
 <span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC tlaBgGNC">           2 :    input                   bus_clk_en,</span></span>
@@ -141,17 +141,17 @@
 <span id="L37"><span class="lineNum">      37</span>              : </span>
 <span id="L38"><span class="lineNum">      38</span>              :    // AXI signals</span>
 <span id="L39"><span class="lineNum">      39</span>              :    // AXI Write Channels</span>
-<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC tlaBgGNC">          20 :    input  logic            axi_awvalid,</span></span>
-<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">          26 :    output logic            axi_awready,</span></span>
+<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC tlaBgGNC">           4 :    input  logic            axi_awvalid,</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">          28 :    output logic            axi_awready,</span></span>
 <span id="L42"><span class="lineNum">      42</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic [TAG-1:0]  axi_awid,</span></span>
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC tlaBgGNC">           4 :    input  logic [31:0]     axi_awaddr,</span></span>
 <span id="L44"><span class="lineNum">      44</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic [2:0]      axi_awsize,</span></span>
 <span id="L45"><span class="lineNum">      45</span> <span class="tlaUNC">           0 :    input  logic [2:0]      axi_awprot,</span></span>
 <span id="L46"><span class="lineNum">      46</span>              : </span>
-<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC tlaBgGNC">          20 :    input  logic            axi_wvalid,</span></span>
-<span id="L48"><span class="lineNum">      48</span> <span class="tlaGNC">          26 :    output logic            axi_wready,</span></span>
-<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">           6 :    input  logic [63:0]     axi_wdata,</span></span>
-<span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC">          24 :    input  logic [7:0]      axi_wstrb,</span></span>
+<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC tlaBgGNC">           4 :    input  logic            axi_wvalid,</span></span>
+<span id="L48"><span class="lineNum">      48</span> <span class="tlaGNC">          28 :    output logic            axi_wready,</span></span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">           4 :    input  logic [63:0]     axi_wdata,</span></span>
+<span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC">           4 :    input  logic [7:0]      axi_wstrb,</span></span>
 <span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC">           2 :    input  logic            axi_wlast,</span></span>
 <span id="L52"><span class="lineNum">      52</span>              : </span>
 <span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">          20 :    output logic            axi_bvalid,</span></span>
@@ -161,7 +161,7 @@
 <span id="L57"><span class="lineNum">      57</span>              : </span>
 <span id="L58"><span class="lineNum">      58</span>              :    // AXI Read Channels</span>
 <span id="L59"><span class="lineNum">      59</span> <span class="tlaGNC tlaBgGNC">          16 :    input  logic            axi_arvalid,</span></span>
-<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC">          26 :    output logic            axi_arready,</span></span>
+<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC">          28 :    output logic            axi_arready,</span></span>
 <span id="L61"><span class="lineNum">      61</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic [TAG-1:0]  axi_arid,</span></span>
 <span id="L62"><span class="lineNum">      62</span> <span class="tlaGNC tlaBgGNC">           4 :    input  logic [31:0]     axi_araddr,</span></span>
 <span id="L63"><span class="lineNum">      63</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic [2:0]      axi_arsize,</span></span>
@@ -211,7 +211,7 @@
 <span id="L107"><span class="lineNum">     107</span> <span class="tlaGNC tlaBgGNC">           8 :    logic [63:0]      slave_rdata;</span></span>
 <span id="L108"><span class="lineNum">     108</span> <span class="tlaGNC">          14 :    logic [3:0]       slave_opc;</span></span>
 <span id="L109"><span class="lineNum">     109</span>              : </span>
-<span id="L110"><span class="lineNum">     110</span> <span class="tlaGNC">          20 :    logic             wrbuf_en, wrbuf_data_en;</span></span>
+<span id="L110"><span class="lineNum">     110</span> <span class="tlaGNC">           4 :    logic             wrbuf_en, wrbuf_data_en;</span></span>
 <span id="L111"><span class="lineNum">     111</span> <span class="tlaGNC">          20 :    logic             wrbuf_cmd_sent, wrbuf_rst;</span></span>
 <span id="L112"><span class="lineNum">     112</span> <span class="tlaGNC">          20 :    logic             wrbuf_vld;</span></span>
 <span id="L113"><span class="lineNum">     113</span> <span class="tlaGNC">          20 :    logic             wrbuf_data_vld;</span></span>
@@ -250,9 +250,9 @@
 <span id="L146"><span class="lineNum">     146</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [2:0]                 buf_size_in;</span></span>
 <span id="L147"><span class="lineNum">     147</span>              : </span>
 <span id="L148"><span class="lineNum">     148</span> <span class="tlaGNC tlaBgGNC">          48 :    logic                       buf_state_en;</span></span>
-<span id="L149"><span class="lineNum">     149</span> <span class="tlaGNC">          36 :    logic                       buf_wr_en;</span></span>
+<span id="L149"><span class="lineNum">     149</span> <span class="tlaGNC">          24 :    logic                       buf_wr_en;</span></span>
 <span id="L150"><span class="lineNum">     150</span> <span class="tlaGNC">          24 :    logic                       buf_data_wr_en;</span></span>
-<span id="L151"><span class="lineNum">     151</span> <span class="tlaGNC">          36 :    logic                       slvbuf_error_en;</span></span>
+<span id="L151"><span class="lineNum">     151</span> <span class="tlaGNC">          24 :    logic                       slvbuf_error_en;</span></span>
 <span id="L152"><span class="lineNum">     152</span> <span class="tlaGNC">          20 :    logic                       wr_cmd_vld;</span></span>
 <span id="L153"><span class="lineNum">     153</span>              : </span>
 <span id="L154"><span class="lineNum">     154</span> <span class="tlaGNC">          36 :    logic                       cmd_done_rst, cmd_done, cmd_doneQ;</span></span>
@@ -292,43 +292,43 @@
 <span id="L188"><span class="lineNum">     188</span> <span class="tlaUNC">           0 :    logic                       dec_tlu_force_halt_bus, dec_tlu_force_halt_bus_ns, dec_tlu_force_halt_bus_q;</span></span>
 <span id="L189"><span class="lineNum">     189</span>              : </span>
 <span id="L190"><span class="lineNum">     190</span>              :    // Function to get the length from byte enable</span>
-<span id="L191"><span class="lineNum">     191</span> <span class="tlaGNC tlaBgGNC">           2 :    function automatic logic [1:0] get_write_size;</span></span>
+<span id="L191"><span class="lineNum">     191</span> <span class="tlaUNC">           0 :    function automatic logic [1:0] get_write_size;</span></span>
 <span id="L192"><span class="lineNum">     192</span>              :       input logic [7:0] byteen;</span>
 <span id="L193"><span class="lineNum">     193</span>              : </span>
 <span id="L194"><span class="lineNum">     194</span>              :       logic [1:0]       size;</span>
 <span id="L195"><span class="lineNum">     195</span>              : </span>
-<span id="L196"><span class="lineNum">     196</span> <span class="tlaGNC">           2 :       size[1:0] = (2'b11 &amp; {2{(byteen[7:0] == 8'hff)}}) |</span></span>
-<span id="L197"><span class="lineNum">     197</span> <span class="tlaGNC">           2 :                   (2'b10 &amp; {2{((byteen[7:0] == 8'hf0) | (byteen[7:0] == 8'h0f))}}) |</span></span>
-<span id="L198"><span class="lineNum">     198</span> <span class="tlaGNC">           2 :                   (2'b01 &amp; {2{((byteen[7:0] == 8'hc0) | (byteen[7:0] == 8'h30) | (byteen[7:0] == 8'h0c) | (byteen[7:0] == 8'h03))}});</span></span>
+<span id="L196"><span class="lineNum">     196</span> <span class="tlaUNC">           0 :       size[1:0] = (2'b11 &amp; {2{(byteen[7:0] == 8'hff)}}) |</span></span>
+<span id="L197"><span class="lineNum">     197</span> <span class="tlaUNC">           0 :                   (2'b10 &amp; {2{((byteen[7:0] == 8'hf0) | (byteen[7:0] == 8'h0f))}}) |</span></span>
+<span id="L198"><span class="lineNum">     198</span> <span class="tlaUNC">           0 :                   (2'b01 &amp; {2{((byteen[7:0] == 8'hc0) | (byteen[7:0] == 8'h30) | (byteen[7:0] == 8'h0c) | (byteen[7:0] == 8'h03))}});</span></span>
 <span id="L199"><span class="lineNum">     199</span>              : </span>
-<span id="L200"><span class="lineNum">     200</span> <span class="tlaGNC">           2 :       return size[1:0];</span></span>
+<span id="L200"><span class="lineNum">     200</span> <span class="tlaUNC">           0 :       return size[1:0];</span></span>
 <span id="L201"><span class="lineNum">     201</span>              :    endfunction // get_write_size</span>
 <span id="L202"><span class="lineNum">     202</span>              : </span>
 <span id="L203"><span class="lineNum">     203</span>              :    // Function to get the length from byte enable</span>
-<span id="L204"><span class="lineNum">     204</span> <span class="tlaGNC">           2 :    function automatic logic [2:0] get_write_addr;</span></span>
+<span id="L204"><span class="lineNum">     204</span> <span class="tlaGNC tlaBgGNC">          10 :    function automatic logic [2:0] get_write_addr;</span></span>
 <span id="L205"><span class="lineNum">     205</span>              :       input logic [7:0] byteen;</span>
 <span id="L206"><span class="lineNum">     206</span>              : </span>
 <span id="L207"><span class="lineNum">     207</span>              :       logic [2:0]       addr;</span>
 <span id="L208"><span class="lineNum">     208</span>              : </span>
-<span id="L209"><span class="lineNum">     209</span> <span class="tlaGNC">           2 :       addr[2:0] = (3'h0 &amp; {3{((byteen[7:0] == 8'hff) | (byteen[7:0] == 8'h0f) | (byteen[7:0] == 8'h03))}}) |</span></span>
-<span id="L210"><span class="lineNum">     210</span> <span class="tlaGNC">           2 :                   (3'h2 &amp; {3{(byteen[7:0] == 8'h0c)}})                                                     |</span></span>
-<span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC">           2 :                   (3'h4 &amp; {3{((byteen[7:0] == 8'hf0) | (byteen[7:0] == 8'h03))}})                          |</span></span>
-<span id="L212"><span class="lineNum">     212</span> <span class="tlaGNC">           2 :                   (3'h6 &amp; {3{(byteen[7:0] == 8'hc0)}});</span></span>
+<span id="L209"><span class="lineNum">     209</span> <span class="tlaGNC">          10 :       addr[2:0] = (3'h0 &amp; {3{((byteen[7:0] == 8'hff) | (byteen[7:0] == 8'h0f) | (byteen[7:0] == 8'h03))}}) |</span></span>
+<span id="L210"><span class="lineNum">     210</span> <span class="tlaGNC">          10 :                   (3'h2 &amp; {3{(byteen[7:0] == 8'h0c)}})                                                     |</span></span>
+<span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC">          10 :                   (3'h4 &amp; {3{((byteen[7:0] == 8'hf0) | (byteen[7:0] == 8'h03))}})                          |</span></span>
+<span id="L212"><span class="lineNum">     212</span> <span class="tlaGNC">          10 :                   (3'h6 &amp; {3{(byteen[7:0] == 8'hc0)}});</span></span>
 <span id="L213"><span class="lineNum">     213</span>              : </span>
-<span id="L214"><span class="lineNum">     214</span> <span class="tlaGNC">           2 :       return addr[2:0];</span></span>
+<span id="L214"><span class="lineNum">     214</span> <span class="tlaGNC">          10 :       return addr[2:0];</span></span>
 <span id="L215"><span class="lineNum">     215</span>              :    endfunction // get_write_addr</span>
 <span id="L216"><span class="lineNum">     216</span>              : </span>
 <span id="L217"><span class="lineNum">     217</span>              :    // Function to get the next byte pointer</span>
-<span id="L218"><span class="lineNum">     218</span> <span class="tlaGNC">       89692 :    function automatic logic [2:0] get_nxtbyte_ptr (logic [2:0] current_byte_ptr, logic [7:0] byteen, logic get_next);</span></span>
+<span id="L218"><span class="lineNum">     218</span> <span class="tlaGNC">          60 :    function automatic logic [2:0] get_nxtbyte_ptr (logic [2:0] current_byte_ptr, logic [7:0] byteen, logic get_next);</span></span>
 <span id="L219"><span class="lineNum">     219</span>              :       logic [2:0] start_ptr;</span>
 <span id="L220"><span class="lineNum">     220</span>              :       logic       found;</span>
-<span id="L221"><span class="lineNum">     221</span> <span class="tlaGNC">       89692 :       found = '0;</span></span>
-<span id="L222"><span class="lineNum">     222</span> <span class="tlaGNC">       89692 :       get_nxtbyte_ptr[2:0] = 3'd0; </span></span>
-<span id="L223"><span class="lineNum">     223</span> <span class="tlaGNC">       89692 :       start_ptr[2:0] = get_next ? (current_byte_ptr[2:0] + 3'b1) : current_byte_ptr[2:0];</span></span>
-<span id="L224"><span class="lineNum">     224</span> <span class="tlaGNC">       89692 :       for (int j=0; j&lt;8; j++) begin</span></span>
-<span id="L225"><span class="lineNum">     225</span> <span class="tlaGNC">      178941 :          if (~found) begin</span></span>
-<span id="L226"><span class="lineNum">     226</span> <span class="tlaGNC">      539295 :             get_nxtbyte_ptr[2:0] = 3'(j);</span></span>
-<span id="L227"><span class="lineNum">     227</span> <span class="tlaGNC">      539295 :             found |= (byteen[j] &amp; (3'(j) &gt;= start_ptr[2:0])) ;</span></span>
+<span id="L221"><span class="lineNum">     221</span> <span class="tlaGNC">          60 :       found = '0;</span></span>
+<span id="L222"><span class="lineNum">     222</span> <span class="tlaGNC">          60 :       get_nxtbyte_ptr[2:0] = 3'd0; </span></span>
+<span id="L223"><span class="lineNum">     223</span> <span class="tlaGNC">          60 :       start_ptr[2:0] = get_next ? (current_byte_ptr[2:0] + 3'b1) : current_byte_ptr[2:0];</span></span>
+<span id="L224"><span class="lineNum">     224</span> <span class="tlaGNC">         480 :       for (int j=0; j&lt;8; j++) begin</span></span>
+<span id="L225"><span class="lineNum">     225</span> <span class="tlaGNC">         260 :          if (~found) begin</span></span>
+<span id="L226"><span class="lineNum">     226</span> <span class="tlaGNC">         220 :             get_nxtbyte_ptr[2:0] = 3'(j);</span></span>
+<span id="L227"><span class="lineNum">     227</span> <span class="tlaGNC">         220 :             found |= (byteen[j] &amp; (3'(j) &gt;= start_ptr[2:0])) ;</span></span>
 <span id="L228"><span class="lineNum">     228</span>              :          end</span>
 <span id="L229"><span class="lineNum">     229</span>              :       end</span>
 <span id="L230"><span class="lineNum">     230</span>              :    endfunction // get_nextbyte_ptr</span>
@@ -389,18 +389,18 @@
 <span id="L285"><span class="lineNum">     285</span> <span class="tlaGNC">           2 :       rd_bypass_idle   = 1'b0;</span></span>
 <span id="L286"><span class="lineNum">     286</span>              : </span>
 <span id="L287"><span class="lineNum">     287</span> <span class="tlaGNC">           2 :       case (buf_state)</span></span>
-<span id="L288"><span class="lineNum">     288</span> <span class="tlaGNC">       89642 :          IDLE: begin</span></span>
-<span id="L289"><span class="lineNum">     289</span> <span class="tlaGNC">       89642 :                   master_ready   = 1'b1;</span></span>
-<span id="L290"><span class="lineNum">     290</span> <span class="tlaGNC">       89642 :                   buf_write_in = (master_opc[2:1] == 2'b01);</span></span>
-<span id="L291"><span class="lineNum">     291</span> <span class="tlaGNC">       89642 :                   buf_nxtstate = buf_write_in ? CMD_WR : CMD_RD;</span></span>
-<span id="L292"><span class="lineNum">     292</span> <span class="tlaGNC">       89642 :                   buf_state_en = master_valid &amp; master_ready;</span></span>
-<span id="L293"><span class="lineNum">     293</span> <span class="tlaGNC">       89642 :                   buf_wr_en    = buf_state_en;</span></span>
-<span id="L294"><span class="lineNum">     294</span> <span class="tlaGNC">       89642 :                   buf_data_wr_en = buf_state_en &amp; (buf_nxtstate == CMD_WR);</span></span>
-<span id="L295"><span class="lineNum">     295</span> <span class="tlaGNC">       89642 :                   buf_cmd_byte_ptr_en   = buf_state_en;</span></span>
-<span id="L296"><span class="lineNum">     296</span> <span class="tlaGNC">       89642 :                   buf_cmd_byte_ptr[2:0] = buf_write_in ? get_nxtbyte_ptr(3'b0,buf_byteen_in[7:0],1'b0) : master_addr[2:0];</span></span>
-<span id="L297"><span class="lineNum">     297</span> <span class="tlaGNC">       89642 :                   bypass_en       = buf_state_en;</span></span>
-<span id="L298"><span class="lineNum">     298</span> <span class="tlaGNC">       89642 :                   rd_bypass_idle  = bypass_en &amp; (buf_nxtstate == CMD_RD);</span></span>
-<span id="L299"><span class="lineNum">     299</span> <span class="tlaGNC">       89642 :                   ahb_htrans[1:0] = {2{bypass_en}} &amp; 2'b10;</span></span>
+<span id="L288"><span class="lineNum">     288</span> <span class="tlaGNC">      128317 :          IDLE: begin</span></span>
+<span id="L289"><span class="lineNum">     289</span> <span class="tlaGNC">      128317 :                   master_ready   = 1'b1;</span></span>
+<span id="L290"><span class="lineNum">     290</span> <span class="tlaGNC">      128317 :                   buf_write_in = (master_opc[2:1] == 2'b01);</span></span>
+<span id="L291"><span class="lineNum">     291</span> <span class="tlaGNC">      128317 :                   buf_nxtstate = buf_write_in ? CMD_WR : CMD_RD;</span></span>
+<span id="L292"><span class="lineNum">     292</span> <span class="tlaGNC">      128317 :                   buf_state_en = master_valid &amp; master_ready;</span></span>
+<span id="L293"><span class="lineNum">     293</span> <span class="tlaGNC">      128317 :                   buf_wr_en    = buf_state_en;</span></span>
+<span id="L294"><span class="lineNum">     294</span> <span class="tlaGNC">      128317 :                   buf_data_wr_en = buf_state_en &amp; (buf_nxtstate == CMD_WR);</span></span>
+<span id="L295"><span class="lineNum">     295</span> <span class="tlaGNC">      128317 :                   buf_cmd_byte_ptr_en   = buf_state_en;</span></span>
+<span id="L296"><span class="lineNum">     296</span> <span class="tlaGNC">      128317 :                   buf_cmd_byte_ptr[2:0] = buf_write_in ? get_nxtbyte_ptr(3'b0,buf_byteen_in[7:0],1'b0) : master_addr[2:0];</span></span>
+<span id="L297"><span class="lineNum">     297</span> <span class="tlaGNC">      128317 :                   bypass_en       = buf_state_en;</span></span>
+<span id="L298"><span class="lineNum">     298</span> <span class="tlaGNC">      128317 :                   rd_bypass_idle  = bypass_en &amp; (buf_nxtstate == CMD_RD);</span></span>
+<span id="L299"><span class="lineNum">     299</span> <span class="tlaGNC">      128317 :                   ahb_htrans[1:0] = {2{bypass_en}} &amp; 2'b10;</span></span>
 <span id="L300"><span class="lineNum">     300</span>              :           end</span>
 <span id="L301"><span class="lineNum">     301</span> <span class="tlaGNC">           8 :          CMD_RD: begin</span></span>
 <span id="L302"><span class="lineNum">     302</span> <span class="tlaGNC">           8 :                   buf_nxtstate    = (master_valid &amp; (master_opc[2:0] == 3'b000))? STREAM_RD : DATA_RD;</span></span>

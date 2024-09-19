@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    18-09-2024
+                    19-09-2024
                 </td>
                 <td></td>
                 
@@ -200,7 +200,7 @@
 <span id="L96"><span class="lineNum">      96</span> <span class="tlaUNC">           0 :    output logic [pt.DCCM_BITS-1:0]         dccm_wr_addr_lo, // DCCM write address low bank</span></span>
 <span id="L97"><span class="lineNum">      97</span> <span class="tlaUNC">           0 :    output logic [pt.DCCM_BITS-1:0]         dccm_wr_addr_hi, // DCCM write address hi bank</span></span>
 <span id="L98"><span class="lineNum">      98</span> <span class="tlaGNC tlaBgGNC">        3292 :    output logic [pt.DCCM_BITS-1:0]         dccm_rd_addr_lo, // DCCM read address low bank</span></span>
-<span id="L99"><span class="lineNum">      99</span> <span class="tlaGNC">        6584 :    output logic [pt.DCCM_BITS-1:0]         dccm_rd_addr_hi, // DCCM read address hi bank (hi and low same if aligned read)</span></span>
+<span id="L99"><span class="lineNum">      99</span> <span class="tlaGNC">        3292 :    output logic [pt.DCCM_BITS-1:0]         dccm_rd_addr_hi, // DCCM read address hi bank (hi and low same if aligned read)</span></span>
 <span id="L100"><span class="lineNum">     100</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [pt.DCCM_FDATA_WIDTH-1:0]  dccm_wr_data_lo, // DCCM write data for lo bank</span></span>
 <span id="L101"><span class="lineNum">     101</span> <span class="tlaUNC">           0 :    output logic [pt.DCCM_FDATA_WIDTH-1:0]  dccm_wr_data_hi, // DCCM write data for hi bank</span></span>
 <span id="L102"><span class="lineNum">     102</span>              : </span>
@@ -283,8 +283,8 @@
 <span id="L179"><span class="lineNum">     179</span> <span class="tlaUNC">           0 :    output logic                            lsu_dccm_rd_ecc_double_err,</span></span>
 <span id="L180"><span class="lineNum">     180</span>              : </span>
 <span id="L181"><span class="lineNum">     181</span> <span class="tlaUNC">           0 :    input logic                             scan_mode,           // scan mode</span></span>
-<span id="L182"><span class="lineNum">     182</span> <span class="tlaGNC tlaBgGNC">      426036 :    input logic                             clk,                 // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
-<span id="L183"><span class="lineNum">     183</span> <span class="tlaGNC">      426036 :    input logic                             active_clk,          // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L182"><span class="lineNum">     182</span> <span class="tlaGNC tlaBgGNC">      379800 :    input logic                             clk,                 // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L183"><span class="lineNum">     183</span> <span class="tlaGNC">      379800 :    input logic                             active_clk,          // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
 <span id="L184"><span class="lineNum">     184</span> <span class="tlaGNC">           6 :     input logic                             rst_l,               // reset, active low</span></span>
 <span id="L185"><span class="lineNum">     185</span>              : </span>
 <span id="L186"><span class="lineNum">     186</span> <span class="tlaGNC">        6652 :     output logic [31:0] lsu_pmp_addr_start,</span></span>
@@ -382,15 +382,15 @@
 <span id="L278"><span class="lineNum">     278</span>              : </span>
 <span id="L279"><span class="lineNum">     279</span>              :    // Clocks</span>
 <span id="L280"><span class="lineNum">     280</span> <span class="tlaGNC tlaBgGNC">        9302 :    logic        lsu_busm_clken;</span></span>
-<span id="L281"><span class="lineNum">     281</span> <span class="tlaGNC">       19872 :    logic        lsu_bus_obuf_c1_clken;</span></span>
-<span id="L282"><span class="lineNum">     282</span> <span class="tlaGNC">      426036 :    logic        lsu_c1_m_clk, lsu_c1_r_clk;</span></span>
-<span id="L283"><span class="lineNum">     283</span> <span class="tlaGNC">      426036 :    logic        lsu_c2_m_clk, lsu_c2_r_clk;</span></span>
-<span id="L284"><span class="lineNum">     284</span> <span class="tlaGNC">      426036 :    logic        lsu_store_c1_m_clk, lsu_store_c1_r_clk;</span></span>
+<span id="L281"><span class="lineNum">     281</span> <span class="tlaGNC">       15296 :    logic        lsu_bus_obuf_c1_clken;</span></span>
+<span id="L282"><span class="lineNum">     282</span> <span class="tlaGNC">      379800 :    logic        lsu_c1_m_clk, lsu_c1_r_clk;</span></span>
+<span id="L283"><span class="lineNum">     283</span> <span class="tlaGNC">      379800 :    logic        lsu_c2_m_clk, lsu_c2_r_clk;</span></span>
+<span id="L284"><span class="lineNum">     284</span> <span class="tlaGNC">      379800 :    logic        lsu_store_c1_m_clk, lsu_store_c1_r_clk;</span></span>
 <span id="L285"><span class="lineNum">     285</span>              : </span>
-<span id="L286"><span class="lineNum">     286</span> <span class="tlaGNC">      426036 :    logic        lsu_stbuf_c1_clk;</span></span>
-<span id="L287"><span class="lineNum">     287</span> <span class="tlaGNC">      426036 :    logic        lsu_bus_ibuf_c1_clk, lsu_bus_obuf_c1_clk, lsu_bus_buf_c1_clk;</span></span>
+<span id="L286"><span class="lineNum">     286</span> <span class="tlaGNC">      379800 :    logic        lsu_stbuf_c1_clk;</span></span>
+<span id="L287"><span class="lineNum">     287</span> <span class="tlaGNC">      379800 :    logic        lsu_bus_ibuf_c1_clk, lsu_bus_obuf_c1_clk, lsu_bus_buf_c1_clk;</span></span>
 <span id="L288"><span class="lineNum">     288</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        lsu_busm_clk;</span></span>
-<span id="L289"><span class="lineNum">     289</span> <span class="tlaGNC tlaBgGNC">      426036 :    logic        lsu_free_c2_clk;</span></span>
+<span id="L289"><span class="lineNum">     289</span> <span class="tlaGNC tlaBgGNC">      379800 :    logic        lsu_free_c2_clk;</span></span>
 <span id="L290"><span class="lineNum">     290</span>              : </span>
 <span id="L291"><span class="lineNum">     291</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        lsu_raw_fwd_lo_m, lsu_raw_fwd_hi_m;</span></span>
 <span id="L292"><span class="lineNum">     292</span> <span class="tlaUNC">           0 :    logic        lsu_raw_fwd_lo_r, lsu_raw_fwd_hi_r;</span></span>

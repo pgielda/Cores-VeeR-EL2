@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    18-09-2024
+                    19-09-2024
                 </td>
                 <td></td>
                 
@@ -79,14 +79,14 @@
     <td class="headerCovSummary rowLeft">
         Branch
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #adff00;">
-        66.0%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ffff00;">
+        50.0%
     </td>
     <td class="headerCovSummaryEntry">
-        35
+        26
     </td>
     <td class="headerCovSummaryEntry">
-        53
+        52
     </td>
 
             </tr>
@@ -127,7 +127,7 @@
 <span id="L23"><span class="lineNum">      23</span>              :     parameter PMP_GRANULARITY = 0,  // TODO: Move to veer.config</span>
 <span id="L24"><span class="lineNum">      24</span>              :     `include "el2_param.vh"</span>
 <span id="L25"><span class="lineNum">      25</span>              : ) (</span>
-<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC tlaBgGNC">      252322 :     input logic clk,       // Top level clock</span></span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC tlaBgGNC">      229216 :     input logic clk,       // Top level clock</span></span>
 <span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">           6 :     input logic rst_l,     // Reset</span></span>
 <span id="L28"><span class="lineNum">      28</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic scan_mode, // Scan mode</span></span>
 <span id="L29"><span class="lineNum">      29</span>              : </span>
@@ -193,16 +193,16 @@
 <span id="L89"><span class="lineNum">      89</span>              :   endfunction</span>
 <span id="L90"><span class="lineNum">      90</span>              : </span>
 <span id="L91"><span class="lineNum">      91</span>              :   // Compute permissions checks that apply when MSECCFG.MML is set. Added for Smepmp support.</span>
-<span id="L92"><span class="lineNum">      92</span> <span class="tlaGNC">         288 :   function automatic logic mml_perm_check(el2_pmp_cfg_pkt_t   csr_pmp_cfg,</span></span>
+<span id="L92"><span class="lineNum">      92</span> <span class="tlaUNC tlaBgUNC">           0 :   function automatic logic mml_perm_check(el2_pmp_cfg_pkt_t   csr_pmp_cfg,</span></span>
 <span id="L93"><span class="lineNum">      93</span>              :                                           el2_pmp_type_pkt_t  pmp_req_type,</span>
 <span id="L94"><span class="lineNum">      94</span>              :                                           logic               priv_mode,</span>
 <span id="L95"><span class="lineNum">      95</span>              :                                           logic               permission_check);</span>
-<span id="L96"><span class="lineNum">      96</span> <span class="tlaGNC">         288 :     logic result = 1'b0;</span></span>
-<span id="L97"><span class="lineNum">      97</span> <span class="tlaGNC">         288 :     logic unused_cfg = |csr_pmp_cfg.mode;</span></span>
+<span id="L96"><span class="lineNum">      96</span>              :     logic result;</span>
+<span id="L97"><span class="lineNum">      97</span> <span class="tlaUNC">           0 :     logic unused_cfg = |csr_pmp_cfg.mode;</span></span>
 <span id="L98"><span class="lineNum">      98</span>              : </span>
-<span id="L99"><span class="lineNum">      99</span> <span class="tlaGNC">     6399552 :     if (!csr_pmp_cfg.read &amp;&amp; csr_pmp_cfg.write) begin</span></span>
+<span id="L99"><span class="lineNum">      99</span> <span class="tlaUNC">           0 :     if (!csr_pmp_cfg.read &amp;&amp; csr_pmp_cfg.write) begin</span></span>
 <span id="L100"><span class="lineNum">     100</span>              :       // Special-case shared regions where R = 0, W = 1</span>
-<span id="L101"><span class="lineNum">     101</span> <span class="tlaUNC tlaBgUNC">           0 :       unique case ({csr_pmp_cfg.lock, csr_pmp_cfg.execute})</span></span>
+<span id="L101"><span class="lineNum">     101</span> <span class="tlaUNC">           0 :       unique case ({csr_pmp_cfg.lock, csr_pmp_cfg.execute})</span></span>
 <span id="L102"><span class="lineNum">     102</span>              :         // Read/write in M, read only in U</span>
 <span id="L103"><span class="lineNum">     103</span> <span class="tlaUNC">           0 :         2'b00: result =</span></span>
 <span id="L104"><span class="lineNum">     104</span> <span class="tlaUNC">           0 :              (pmp_req_type == READ) |</span></span>
@@ -219,28 +219,28 @@
 <span id="L115"><span class="lineNum">     115</span> <span class="tlaUNC">           0 :             ((pmp_req_type == READ) &amp; ~priv_mode);</span></span>
 <span id="L116"><span class="lineNum">     116</span> <span class="tlaUNC">           0 :         default: ;</span></span>
 <span id="L117"><span class="lineNum">     117</span>              :       endcase</span>
-<span id="L118"><span class="lineNum">     118</span> <span class="tlaGNC tlaBgGNC">     6399552 :     end else begin</span></span>
-<span id="L119"><span class="lineNum">     119</span> <span class="tlaGNC">     6399552 :       if (csr_pmp_cfg.read &amp; csr_pmp_cfg.write &amp; csr_pmp_cfg.execute &amp; csr_pmp_cfg.lock) begin</span></span>
+<span id="L118"><span class="lineNum">     118</span> <span class="tlaUNC">           0 :     end else begin</span></span>
+<span id="L119"><span class="lineNum">     119</span> <span class="tlaUNC">           0 :       if (csr_pmp_cfg.read &amp; csr_pmp_cfg.write &amp; csr_pmp_cfg.execute &amp; csr_pmp_cfg.lock) begin</span></span>
 <span id="L120"><span class="lineNum">     120</span>              :         // Special-case shared read only region when R = 1, W = 1, X = 1, L = 1</span>
-<span id="L121"><span class="lineNum">     121</span> <span class="tlaUNC tlaBgUNC">           0 :         result = (pmp_req_type == READ);</span></span>
-<span id="L122"><span class="lineNum">     122</span> <span class="tlaGNC tlaBgGNC">     6399552 :       end else begin</span></span>
+<span id="L121"><span class="lineNum">     121</span> <span class="tlaUNC">           0 :         result = (pmp_req_type == READ);</span></span>
+<span id="L122"><span class="lineNum">     122</span> <span class="tlaUNC">           0 :       end else begin</span></span>
 <span id="L123"><span class="lineNum">     123</span>              :         // Otherwise use basic permission check. Permission is always denied if in U mode and</span>
 <span id="L124"><span class="lineNum">     124</span>              :         // L is set or if in M mode and L is unset.</span>
-<span id="L125"><span class="lineNum">     125</span> <span class="tlaGNC">     6399552 :         result = permission_check &amp; (priv_mode ? ~csr_pmp_cfg.lock : csr_pmp_cfg.lock);</span></span>
+<span id="L125"><span class="lineNum">     125</span> <span class="tlaUNC">           0 :         result = permission_check &amp; (priv_mode ? ~csr_pmp_cfg.lock : csr_pmp_cfg.lock);</span></span>
 <span id="L126"><span class="lineNum">     126</span>              :       end</span>
 <span id="L127"><span class="lineNum">     127</span>              :     end</span>
-<span id="L128"><span class="lineNum">     128</span> <span class="tlaGNC">         288 :     return result;</span></span>
+<span id="L128"><span class="lineNum">     128</span> <span class="tlaUNC">           0 :     return result;</span></span>
 <span id="L129"><span class="lineNum">     129</span>              :   endfunction</span>
 <span id="L130"><span class="lineNum">     130</span>              : </span>
 <span id="L131"><span class="lineNum">     131</span>              :   // Compute permissions checks that apply when MSECCFG.MML is unset. This is the original PMP</span>
 <span id="L132"><span class="lineNum">     132</span>              :   // behaviour before Smepmp was added.</span>
-<span id="L133"><span class="lineNum">     133</span> <span class="tlaGNC">         288 :   function automatic logic orig_perm_check(logic pmp_cfg_lock,</span></span>
+<span id="L133"><span class="lineNum">     133</span> <span class="tlaGNC tlaBgGNC">     6399552 :   function automatic logic orig_perm_check(logic pmp_cfg_lock,</span></span>
 <span id="L134"><span class="lineNum">     134</span>              :                                            logic priv_mode,</span>
 <span id="L135"><span class="lineNum">     135</span>              :                                            logic permission_check);</span>
 <span id="L136"><span class="lineNum">     136</span>              :     // For M-mode, any region which matches with the L-bit clear, or with sufficient</span>
 <span id="L137"><span class="lineNum">     137</span>              :     // access permissions will be allowed.</span>
 <span id="L138"><span class="lineNum">     138</span>              :     // For other modes, the lock bit doesn't matter</span>
-<span id="L139"><span class="lineNum">     139</span> <span class="tlaGNC">         288 :     return priv_mode ? (permission_check) : (~pmp_cfg_lock | permission_check);</span></span>
+<span id="L139"><span class="lineNum">     139</span> <span class="tlaGNC">     6399552 :     return priv_mode ? (permission_check) : (~pmp_cfg_lock | permission_check);</span></span>
 <span id="L140"><span class="lineNum">     140</span>              :   endfunction</span>
 <span id="L141"><span class="lineNum">     141</span>              : </span>
 <span id="L142"><span class="lineNum">     142</span>              :   // Access fault determination / prioritization</span>
@@ -270,9 +270,9 @@
 <span id="L166"><span class="lineNum">     166</span>              :     // PMP entries are statically prioritized, from 0 to N-1</span>
 <span id="L167"><span class="lineNum">     167</span>              :     // The lowest-numbered PMP entry which matches an address determines accessibility</span>
 <span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC">          18 :     for (int r = 0; r &lt; pt.PMP_ENTRIES; r++) begin</span></span>
-<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">      259766 :       if (!matched &amp;&amp; match_all[r]) begin</span></span>
-<span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">      259766 :         access_fail = ~final_perm_check[r];</span></span>
-<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">      259766 :         matched = 1'b1;</span></span>
+<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">      261676 :       if (!matched &amp;&amp; match_all[r]) begin</span></span>
+<span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">      261676 :         access_fail = ~final_perm_check[r];</span></span>
+<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">      261676 :         matched = 1'b1;</span></span>
 <span id="L172"><span class="lineNum">     172</span>              :       end</span>
 <span id="L173"><span class="lineNum">     173</span>              :     end</span>
 <span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC">          18 :     return access_fail;</span></span>

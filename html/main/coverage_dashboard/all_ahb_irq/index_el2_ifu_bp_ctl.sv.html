@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    18-09-2024
+                    19-09-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #58ff00;">
-        82.7%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #61ff00;">
+        80.9%
     </td>
     <td class="headerCovSummaryEntry">
-        91
+        89
     </td>
     <td class="headerCovSummaryEntry">
         110
@@ -135,7 +135,7 @@
 <span id="L31"><span class="lineNum">      31</span>              :  )</span>
 <span id="L32"><span class="lineNum">      32</span>              :   (</span>
 <span id="L33"><span class="lineNum">      33</span>              : </span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC tlaBgGNC">      300896 :    input logic clk,</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC tlaBgGNC">      584906 :    input logic clk,</span></span>
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">           2 :    input logic rst_l,</span></span>
 <span id="L36"><span class="lineNum">      36</span>              : </span>
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">       36488 :    input logic ic_hit_f,      // Icache hit, enables F address capture</span></span>
@@ -147,9 +147,9 @@
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">        2454 :    input logic [pt.BHT_GHR_SIZE-1:0] exu_i0_br_fghr_r, // fghr to bp</span></span>
 <span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">         172 :    input logic [pt.BTB_ADDR_HI:pt.BTB_ADDR_LO] exu_i0_br_index_r, // bp index</span></span>
 <span id="L45"><span class="lineNum">      45</span>              : </span>
-<span id="L46"><span class="lineNum">      46</span> <span class="tlaGNC">       12016 :    input logic [$clog2(pt.BTB_SIZE)-1:0] dec_fa_error_index, // Fully associative btb error index</span></span>
+<span id="L46"><span class="lineNum">      46</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [$clog2(pt.BTB_SIZE)-1:0] dec_fa_error_index, // Fully associative btb error index</span></span>
 <span id="L47"><span class="lineNum">      47</span>              : </span>
-<span id="L48"><span class="lineNum">      48</span> <span class="tlaGNC">          64 :    input logic dec_tlu_flush_lower_wb, // used to move EX4 RS to EX1 and F</span></span>
+<span id="L48"><span class="lineNum">      48</span> <span class="tlaGNC tlaBgGNC">          64 :    input logic dec_tlu_flush_lower_wb, // used to move EX4 RS to EX1 and F</span></span>
 <span id="L49"><span class="lineNum">      49</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic dec_tlu_flush_leak_one_wb, // don't hit for leak one fetches</span></span>
 <span id="L50"><span class="lineNum">      50</span>              : </span>
 <span id="L51"><span class="lineNum">      51</span> <span class="tlaUNC">           0 :    input logic dec_tlu_bpred_disable, // disable all branch prediction</span></span>
@@ -179,7 +179,7 @@
 <span id="L75"><span class="lineNum">      75</span>              : </span>
 <span id="L76"><span class="lineNum">      76</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [1:0] [$clog2(pt.BTB_SIZE)-1:0]    ifu_bp_fa_index_f, // predicted branch index (fully associative option)</span></span>
 <span id="L77"><span class="lineNum">      77</span>              : </span>
-<span id="L78"><span class="lineNum">      78</span> <span class="tlaGNC tlaBgGNC">       12016 :    input  logic       scan_mode</span></span>
+<span id="L78"><span class="lineNum">      78</span> <span class="tlaUNC">           0 :    input  logic       scan_mode</span></span>
 <span id="L79"><span class="lineNum">      79</span>              :    );</span>
 <span id="L80"><span class="lineNum">      80</span>              : </span>
 <span id="L81"><span class="lineNum">      81</span>              : </span>
@@ -205,7 +205,7 @@
 <span id="L101"><span class="lineNum">     101</span>              :    localparam BHT_NO_ADDR_MATCH  = ( pt.BHT_ARRAY_DEPTH &lt;= 16 );</span>
 <span id="L102"><span class="lineNum">     102</span>              : </span>
 <span id="L103"><span class="lineNum">     103</span>              : </span>
-<span id="L104"><span class="lineNum">     104</span> <span class="tlaGNC">         228 :    logic exu_mp_valid_write;</span></span>
+<span id="L104"><span class="lineNum">     104</span> <span class="tlaGNC tlaBgGNC">         228 :    logic exu_mp_valid_write;</span></span>
 <span id="L105"><span class="lineNum">     105</span> <span class="tlaGNC">        1196 :    logic exu_mp_ataken;</span></span>
 <span id="L106"><span class="lineNum">     106</span> <span class="tlaGNC">        1280 :    logic exu_mp_valid; // conditional branch mispredict</span></span>
 <span id="L107"><span class="lineNum">     107</span> <span class="tlaGNC">         788 :    logic exu_mp_boffset; // branch offsett</span></span>
@@ -237,7 +237,7 @@
 <span id="L133"><span class="lineNum">     133</span> <span class="tlaGNC">         220 :    logic              rs_push, rs_pop, rs_hold;</span></span>
 <span id="L134"><span class="lineNum">     134</span> <span class="tlaGNC">         212 :    logic [pt.BTB_ADDR_HI:pt.BTB_ADDR_LO] btb_rd_addr_p1_f, btb_wr_addr, btb_rd_addr_f;</span></span>
 <span id="L135"><span class="lineNum">     135</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [pt.BTB_BTAG_SIZE-1:0] btb_wr_tag, fetch_rd_tag_f, fetch_rd_tag_p1_f;</span></span>
-<span id="L136"><span class="lineNum">     136</span> <span class="tlaGNC tlaBgGNC">           4 :    logic [BTB_DWIDTH-1:0]        btb_wr_data;</span></span>
+<span id="L136"><span class="lineNum">     136</span> <span class="tlaGNC tlaBgGNC">         108 :    logic [BTB_DWIDTH-1:0]        btb_wr_data;</span></span>
 <span id="L137"><span class="lineNum">     137</span> <span class="tlaGNC">           4 :    logic               btb_wr_en_way0, btb_wr_en_way1;</span></span>
 <span id="L138"><span class="lineNum">     138</span>              : </span>
 <span id="L139"><span class="lineNum">     139</span>              : </span>

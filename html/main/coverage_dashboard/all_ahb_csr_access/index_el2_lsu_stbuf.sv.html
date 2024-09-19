@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    18-09-2024
+                    19-09-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff9300;">
-        28.9%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff8c00;">
+        27.6%
     </td>
     <td class="headerCovSummaryEntry">
-        22
+        21
     </td>
     <td class="headerCovSummaryEntry">
         76
@@ -137,11 +137,11 @@
 <span id="L33"><span class="lineNum">      33</span>              : `include "el2_param.vh"</span>
 <span id="L34"><span class="lineNum">      34</span>              :  )</span>
 <span id="L35"><span class="lineNum">      35</span>              : (</span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">     9349532 :    input logic                           clk,                         // core clock</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">    17330648 :    input logic                           clk,                         // core clock</span></span>
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">           2 :    input logic                           rst_l,                       // reset</span></span>
 <span id="L38"><span class="lineNum">      38</span>              : </span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">     9349532 :    input logic                           lsu_stbuf_c1_clk,            // stbuf clock</span></span>
-<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">     9349532 :    input logic                           lsu_free_c2_clk,             // free clk</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">    17330648 :    input logic                           lsu_stbuf_c1_clk,            // stbuf clock</span></span>
+<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">    17330648 :    input logic                           lsu_free_c2_clk,             // free clk</span></span>
 <span id="L41"><span class="lineNum">      41</span>              : </span>
 <span id="L42"><span class="lineNum">      42</span>              :    // Store Buffer input</span>
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                           store_stbuf_reqvld_r,        // core instruction goes to stbuf</span></span>
@@ -167,7 +167,7 @@
 <span id="L63"><span class="lineNum">      63</span> <span class="tlaGNC">       31880 :    input logic [31:0]                    lsu_addr_m,                  // lsu address M-stage</span></span>
 <span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC">       31880 :    input logic [31:0]                    lsu_addr_r,                  // lsu address R-stage</span></span>
 <span id="L65"><span class="lineNum">      65</span>              : </span>
-<span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC">       76696 :    input logic [pt.LSU_SB_BITS-1:0]      end_addr_d,                  // lsu end address D-stage - needed to check unaligned</span></span>
+<span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC">       41428 :    input logic [pt.LSU_SB_BITS-1:0]      end_addr_d,                  // lsu end address D-stage - needed to check unaligned</span></span>
 <span id="L67"><span class="lineNum">      67</span> <span class="tlaGNC">       31880 :    input logic [31:0]                    end_addr_m,                  // lsu end address M-stage - needed to check unaligned</span></span>
 <span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC">       31880 :    input logic [31:0]                    end_addr_r,                  // lsu end address R-stage - needed to check unaligned</span></span>
 <span id="L69"><span class="lineNum">      69</span>              : </span>
@@ -185,7 +185,7 @@
 <span id="L81"><span class="lineNum">      81</span> <span class="tlaUNC">           0 :    output logic [pt.DCCM_BYTE_WIDTH-1:0] stbuf_fwdbyteen_hi_m,        // stbuf data</span></span>
 <span id="L82"><span class="lineNum">      82</span> <span class="tlaUNC">           0 :    output logic [pt.DCCM_BYTE_WIDTH-1:0] stbuf_fwdbyteen_lo_m,        // stbuf data</span></span>
 <span id="L83"><span class="lineNum">      83</span>              : </span>
-<span id="L84"><span class="lineNum">      84</span> <span class="tlaGNC tlaBgGNC">      165760 :    input  logic       scan_mode                                       // Scan mode</span></span>
+<span id="L84"><span class="lineNum">      84</span> <span class="tlaUNC">           0 :    input  logic       scan_mode                                       // Scan mode</span></span>
 <span id="L85"><span class="lineNum">      85</span>              : </span>
 <span id="L86"><span class="lineNum">      86</span>              : );</span>
 <span id="L87"><span class="lineNum">      87</span>              : </span>
@@ -196,7 +196,7 @@
 <span id="L92"><span class="lineNum">      92</span>              :    localparam DEPTH_LOG2 = $clog2(DEPTH);</span>
 <span id="L93"><span class="lineNum">      93</span>              : </span>
 <span id="L94"><span class="lineNum">      94</span>              :    // These are the fields in the store queue</span>
-<span id="L95"><span class="lineNum">      95</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [DEPTH-1:0]                     stbuf_vld;</span></span>
+<span id="L95"><span class="lineNum">      95</span> <span class="tlaUNC">           0 :    logic [DEPTH-1:0]                     stbuf_vld;</span></span>
 <span id="L96"><span class="lineNum">      96</span> <span class="tlaUNC">           0 :    logic [DEPTH-1:0]                     stbuf_dma_kill;</span></span>
 <span id="L97"><span class="lineNum">      97</span> <span class="tlaUNC">           0 :    logic [DEPTH-1:0][pt.LSU_SB_BITS-1:0] stbuf_addr;</span></span>
 <span id="L98"><span class="lineNum">      98</span> <span class="tlaUNC">           0 :    logic [DEPTH-1:0][BYTE_WIDTH-1:0]     stbuf_byteen;</span></span>

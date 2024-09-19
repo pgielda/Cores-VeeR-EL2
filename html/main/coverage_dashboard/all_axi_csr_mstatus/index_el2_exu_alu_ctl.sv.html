@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    18-09-2024
+                    19-09-2024
                 </td>
                 <td></td>
                 
@@ -124,7 +124,7 @@
 <span id="L20"><span class="lineNum">      20</span>              : `include "el2_param.vh"</span>
 <span id="L21"><span class="lineNum">      21</span>              : )</span>
 <span id="L22"><span class="lineNum">      22</span>              :   (</span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">       56770 :    input  logic                  clk,                // Top level clock</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">       50292 :    input  logic                  clk,                // Top level clock</span></span>
 <span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           2 :    input  logic                  rst_l,              // Reset</span></span>
 <span id="L25"><span class="lineNum">      25</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic                  scan_mode,          // Scan control</span></span>
 <span id="L26"><span class="lineNum">      26</span>              : </span>
@@ -137,7 +137,7 @@
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">          88 :    input  logic        [31:0]    csr_rddata_in,      // CSR data</span></span>
 <span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">          16 :    input  logic signed [31:0]    a_in,               // A operand</span></span>
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">         708 :    input  logic        [31:0]    b_in,               // B operand</span></span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">          12 :    input  logic        [31:1]    pc_in,              // for pc=pc+2,4 calculations</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">          10 :    input  logic        [31:1]    pc_in,              // for pc=pc+2,4 calculations</span></span>
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">         452 :    input  el2_predict_pkt_t     pp_in,              // Predicted branch structure</span></span>
 <span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">         468 :    input  logic        [12:1]    brimm_in,           // Branch offset</span></span>
 <span id="L39"><span class="lineNum">      39</span>              : </span>
@@ -443,8 +443,8 @@
 <span id="L339"><span class="lineNum">     339</span>              : </span>
 <span id="L340"><span class="lineNum">     340</span> <span class="tlaGNC">           2 :         for (int i=0; i&lt;32; i++) begin</span></span>
 <span id="L341"><span class="lineNum">     341</span> <span class="tlaUNC tlaBgUNC">           0 :           if (bitmanip_lzd_os[31] == 1'b0 &amp;&amp; found == 0) begin</span></span>
-<span id="L342"><span class="lineNum">     342</span> <span class="tlaGNC tlaBgGNC">      876352 :               bitmanip_dw_lzd_enc[5:0]=  bitmanip_dw_lzd_enc[5:0] + 6'b00_0001;</span></span>
-<span id="L343"><span class="lineNum">     343</span> <span class="tlaGNC">      876352 :               bitmanip_lzd_os[31:0]   =  bitmanip_lzd_os[31:0] &lt;&lt; 1;</span></span>
+<span id="L342"><span class="lineNum">     342</span> <span class="tlaGNC tlaBgGNC">      497664 :               bitmanip_dw_lzd_enc[5:0]=  bitmanip_dw_lzd_enc[5:0] + 6'b00_0001;</span></span>
+<span id="L343"><span class="lineNum">     343</span> <span class="tlaGNC">      497664 :               bitmanip_lzd_os[31:0]   =  bitmanip_lzd_os[31:0] &lt;&lt; 1;</span></span>
 <span id="L344"><span class="lineNum">     344</span>              :            end</span>
 <span id="L345"><span class="lineNum">     345</span>              :            else</span>
 <span id="L346"><span class="lineNum">     346</span> <span class="tlaUNC tlaBgUNC">           0 :               found=1'b1;</span></span>

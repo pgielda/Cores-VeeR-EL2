@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    18-09-2024
+                    19-09-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ffdd00;">
-        43.4%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff6400;">
+        19.7%
     </td>
     <td class="headerCovSummaryEntry">
-        33
+        15
     </td>
     <td class="headerCovSummaryEntry">
         76
@@ -124,11 +124,11 @@
 <span id="L20"><span class="lineNum">      20</span>              : `include "el2_param.vh"</span>
 <span id="L21"><span class="lineNum">      21</span>              :  )</span>
 <span id="L22"><span class="lineNum">      22</span>              :   (</span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">     8544332 :    input logic          clk,              // Top level clock</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">    15233024 :    input logic          clk,              // Top level clock</span></span>
 <span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           2 :    input logic          rst_l,            // Reset</span></span>
-<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">      280984 :    input logic          scan_mode,        // Scan mode</span></span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic          scan_mode,        // Scan mode</span></span>
 <span id="L26"><span class="lineNum">      26</span>              : </span>
-<span id="L27"><span class="lineNum">      27</span> <span class="tlaUNC tlaBgUNC">           0 :    input el2_mul_pkt_t mul_p,            // {Valid, RS1 signed operand, RS2 signed operand, Select low 32-bits of result}</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaUNC">           0 :    input el2_mul_pkt_t mul_p,            // {Valid, RS1 signed operand, RS2 signed operand, Select low 32-bits of result}</span></span>
 <span id="L28"><span class="lineNum">      28</span>              : </span>
 <span id="L29"><span class="lineNum">      29</span> <span class="tlaUNC">           0 :    input logic [31:0]   rs1_in,           // A operand</span></span>
 <span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">         168 :    input logic [31:0]   rs2_in,           // B operand</span></span>
@@ -157,33 +157,33 @@
 <span id="L53"><span class="lineNum">      53</span>              : </span>
 <span id="L54"><span class="lineNum">      54</span>              : </span>
 <span id="L55"><span class="lineNum">      55</span>              :    // ZBE</span>
-<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC tlaBgGNC">      280984 :    logic                ap_bcompress;</span></span>
-<span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC">      280984 :    logic                ap_bdecompress;</span></span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaUNC">           0 :    logic                ap_bcompress;</span></span>
+<span id="L57"><span class="lineNum">      57</span> <span class="tlaUNC">           0 :    logic                ap_bdecompress;</span></span>
 <span id="L58"><span class="lineNum">      58</span>              : </span>
 <span id="L59"><span class="lineNum">      59</span>              :    // ZBC</span>
-<span id="L60"><span class="lineNum">      60</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                ap_clmul;</span></span>
+<span id="L60"><span class="lineNum">      60</span> <span class="tlaUNC">           0 :    logic                ap_clmul;</span></span>
 <span id="L61"><span class="lineNum">      61</span> <span class="tlaUNC">           0 :    logic                ap_clmulh;</span></span>
 <span id="L62"><span class="lineNum">      62</span> <span class="tlaUNC">           0 :    logic                ap_clmulr;</span></span>
 <span id="L63"><span class="lineNum">      63</span>              : </span>
 <span id="L64"><span class="lineNum">      64</span>              :    // ZBP</span>
-<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC tlaBgGNC">      280984 :    logic                ap_grev;</span></span>
-<span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC">      280984 :    logic                ap_gorc;</span></span>
-<span id="L67"><span class="lineNum">      67</span> <span class="tlaGNC">      280984 :    logic                ap_shfl;</span></span>
-<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC">      280984 :    logic                ap_unshfl;</span></span>
-<span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC">      280984 :    logic                ap_xperm_n;</span></span>
-<span id="L70"><span class="lineNum">      70</span> <span class="tlaGNC">      280984 :    logic                ap_xperm_b;</span></span>
-<span id="L71"><span class="lineNum">      71</span> <span class="tlaGNC">      280984 :    logic                ap_xperm_h;</span></span>
+<span id="L65"><span class="lineNum">      65</span> <span class="tlaUNC">           0 :    logic                ap_grev;</span></span>
+<span id="L66"><span class="lineNum">      66</span> <span class="tlaUNC">           0 :    logic                ap_gorc;</span></span>
+<span id="L67"><span class="lineNum">      67</span> <span class="tlaUNC">           0 :    logic                ap_shfl;</span></span>
+<span id="L68"><span class="lineNum">      68</span> <span class="tlaUNC">           0 :    logic                ap_unshfl;</span></span>
+<span id="L69"><span class="lineNum">      69</span> <span class="tlaUNC">           0 :    logic                ap_xperm_n;</span></span>
+<span id="L70"><span class="lineNum">      70</span> <span class="tlaUNC">           0 :    logic                ap_xperm_b;</span></span>
+<span id="L71"><span class="lineNum">      71</span> <span class="tlaUNC">           0 :    logic                ap_xperm_h;</span></span>
 <span id="L72"><span class="lineNum">      72</span>              : </span>
 <span id="L73"><span class="lineNum">      73</span>              :    // ZBR</span>
-<span id="L74"><span class="lineNum">      74</span> <span class="tlaGNC">      280984 :    logic                ap_crc32_b;</span></span>
-<span id="L75"><span class="lineNum">      75</span> <span class="tlaGNC">      280984 :    logic                ap_crc32_h;</span></span>
-<span id="L76"><span class="lineNum">      76</span> <span class="tlaGNC">      280984 :    logic                ap_crc32_w;</span></span>
-<span id="L77"><span class="lineNum">      77</span> <span class="tlaGNC">      280984 :    logic                ap_crc32c_b;</span></span>
-<span id="L78"><span class="lineNum">      78</span> <span class="tlaGNC">      280984 :    logic                ap_crc32c_h;</span></span>
-<span id="L79"><span class="lineNum">      79</span> <span class="tlaGNC">      280984 :    logic                ap_crc32c_w;</span></span>
+<span id="L74"><span class="lineNum">      74</span> <span class="tlaUNC">           0 :    logic                ap_crc32_b;</span></span>
+<span id="L75"><span class="lineNum">      75</span> <span class="tlaUNC">           0 :    logic                ap_crc32_h;</span></span>
+<span id="L76"><span class="lineNum">      76</span> <span class="tlaUNC">           0 :    logic                ap_crc32_w;</span></span>
+<span id="L77"><span class="lineNum">      77</span> <span class="tlaUNC">           0 :    logic                ap_crc32c_b;</span></span>
+<span id="L78"><span class="lineNum">      78</span> <span class="tlaUNC">           0 :    logic                ap_crc32c_h;</span></span>
+<span id="L79"><span class="lineNum">      79</span> <span class="tlaUNC">           0 :    logic                ap_crc32c_w;</span></span>
 <span id="L80"><span class="lineNum">      80</span>              : </span>
 <span id="L81"><span class="lineNum">      81</span>              :    // ZBF</span>
-<span id="L82"><span class="lineNum">      82</span> <span class="tlaGNC">      280984 :    logic                ap_bfp;</span></span>
+<span id="L82"><span class="lineNum">      82</span> <span class="tlaUNC">           0 :    logic                ap_bfp;</span></span>
 <span id="L83"><span class="lineNum">      83</span>              : </span>
 <span id="L84"><span class="lineNum">      84</span>              : </span>
 <span id="L85"><span class="lineNum">      85</span>              :    if (pt.BITMANIP_ZBE == 1)</span>
@@ -278,7 +278,7 @@
 <span id="L174"><span class="lineNum">     174</span>              :    // --------------------------- Multiply       ----------------------------------</span>
 <span id="L175"><span class="lineNum">     175</span>              : </span>
 <span id="L176"><span class="lineNum">     176</span>              : </span>
-<span id="L177"><span class="lineNum">     177</span> <span class="tlaUNC tlaBgUNC">           0 :    logic signed [32:0]  rs1_x;</span></span>
+<span id="L177"><span class="lineNum">     177</span> <span class="tlaUNC">           0 :    logic signed [32:0]  rs1_x;</span></span>
 <span id="L178"><span class="lineNum">     178</span> <span class="tlaGNC tlaBgGNC">         168 :    logic signed [32:0]  rs2_x;</span></span>
 <span id="L179"><span class="lineNum">     179</span>              : </span>
 <span id="L180"><span class="lineNum">     180</span>              :    rvdffe #(34) i_a_x_ff         (.*, .clk(clk),  .din({mul_p.low,rs1_ext_in[32:0]}),        .dout({low_x,rs1_x[32:0]}),                 .en(mul_x_enable));</span>
@@ -675,8 +675,8 @@
 <span id="L571"><span class="lineNum">     571</span>              :    // "aaaa"  6a52eeb0      9e9e9e9e   95ad114f</span>
 <span id="L572"><span class="lineNum">     572</span>              : </span>
 <span id="L573"><span class="lineNum">     573</span>              : </span>
-<span id="L574"><span class="lineNum">     574</span> <span class="tlaGNC tlaBgGNC">      280984 :    logic                  crc32_all;</span></span>
-<span id="L575"><span class="lineNum">     575</span> <span class="tlaGNC">           2 :    logic        [31:0]    crc32_poly_rev;</span></span>
+<span id="L574"><span class="lineNum">     574</span> <span class="tlaUNC">           0 :    logic                  crc32_all;</span></span>
+<span id="L575"><span class="lineNum">     575</span> <span class="tlaGNC tlaBgGNC">           2 :    logic        [31:0]    crc32_poly_rev;</span></span>
 <span id="L576"><span class="lineNum">     576</span> <span class="tlaGNC">           2 :    logic        [31:0]    crc32c_poly_rev;</span></span>
 <span id="L577"><span class="lineNum">     577</span>              :    integer                crc32_bi, crc32_hi, crc32_wi, crc32c_bi, crc32c_hi, crc32c_wi;</span>
 <span id="L578"><span class="lineNum">     578</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        [31:0]    crc32_bd, crc32_hd, crc32_wd, crc32c_bd, crc32c_hd, crc32c_wd;</span></span>
