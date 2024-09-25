@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    19-09-2024
+                    25-09-2024
                 </td>
                 <td></td>
                 
@@ -133,14 +133,14 @@
 <span id="L29"><span class="lineNum">      29</span>              : `include "el2_param.vh"</span>
 <span id="L30"><span class="lineNum">      30</span>              :  )</span>
 <span id="L31"><span class="lineNum">      31</span>              :   (</span>
-<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC tlaBgGNC">    61843746 :    input logic clk,</span></span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">    61843746 :    input logic free_l2clk,</span></span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">    61843746 :    input logic csr_wr_clk,</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC tlaBgGNC">    61251245 :    input logic clk,</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">    61251245 :    input logic free_l2clk,</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">    61251245 :    input logic csr_wr_clk,</span></span>
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">         316 :    input logic rst_l,</span></span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">       41826 :    input logic        dec_csr_wen_r_mod,  // csr write enable at wb</span></span>
-<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">         406 :    input logic [11:0] dec_csr_wraddr_r,   // write address for csr</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">       41778 :    input logic        dec_csr_wen_r_mod,  // csr write enable at wb</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">         412 :    input logic [11:0] dec_csr_wraddr_r,   // write address for csr</span></span>
 <span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">        1640 :    input logic [31:0] dec_csr_wrdata_r,   // csr write data at wb</span></span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">         906 :    input logic [11:0] dec_csr_rdaddr_d,   // read address for csr</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">         910 :    input logic [11:0] dec_csr_rdaddr_d,   // read address for csr</span></span>
 <span id="L40"><span class="lineNum">      40</span>              : </span>
 <span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">         896 :    input logic csr_pmpcfg,</span></span>
 <span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">         802 :    input logic csr_pmpaddr0,</span></span>
@@ -248,10 +248,10 @@
 <span id="L144"><span class="lineNum">     144</span>              :    for (genvar entry_idx = 0; entry_idx &lt; pt.PMP_ENTRIES; entry_idx++) begin : gen_pmpaddr_ff</span>
 <span id="L145"><span class="lineNum">     145</span>              :       logic pmpaddr_lock;</span>
 <span id="L146"><span class="lineNum">     146</span>              :       logic pmpaddr_lock_next;</span>
-<span id="L147"><span class="lineNum">     147</span>              :       assign pmpaddr_lock_next = ((entry_idx+1 &lt; pt.PMP_ENTRIES)</span>
-<span id="L148"><span class="lineNum">     148</span>              :                                   ? (entry_lock_eff[entry_idx+1]</span>
-<span id="L149"><span class="lineNum">     149</span>              :                                      &amp; pmp_pmpcfg[entry_idx+1].mode == TOR)</span>
-<span id="L150"><span class="lineNum">     150</span>              :                                   : 1'b0);</span>
+<span id="L147"><span class="lineNum">     147</span>              :       if (entry_idx+1 &lt; pt.PMP_ENTRIES)</span>
+<span id="L148"><span class="lineNum">     148</span>              :          assign pmpaddr_lock_next = entry_lock_eff[entry_idx+1] &amp; pmp_pmpcfg[entry_idx+1].mode == TOR;</span>
+<span id="L149"><span class="lineNum">     149</span>              :       else</span>
+<span id="L150"><span class="lineNum">     150</span>              :          assign pmpaddr_lock_next = 1'b0;</span>
 <span id="L151"><span class="lineNum">     151</span>              :       assign pmpaddr_lock = entry_lock_eff[entry_idx] | pmpaddr_lock_next;</span>
 <span id="L152"><span class="lineNum">     152</span>              :       assign pmp_pmpaddr[entry_idx][31:30] = 2'b00;</span>
 <span id="L153"><span class="lineNum">     153</span>              :       rvdffe #(30) pmpaddr_ff (.*, .clk(free_l2clk),</span>

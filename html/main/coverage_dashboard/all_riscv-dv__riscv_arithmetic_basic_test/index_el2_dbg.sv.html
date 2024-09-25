@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    19-09-2024
+                    25-09-2024
                 </td>
                 <td></td>
                 
@@ -575,10 +575,10 @@
 <span id="L471"><span class="lineNum">     471</span> <span class="tlaGNC">           6 :       sb_abmem_data_done_en   = 1'b0;</span></span>
 <span id="L472"><span class="lineNum">     472</span>              : </span>
 <span id="L473"><span class="lineNum">     473</span> <span class="tlaGNC">           6 :        case (dbg_state)</span></span>
-<span id="L474"><span class="lineNum">     474</span> <span class="tlaGNC">      399600 :             IDLE: begin</span></span>
-<span id="L475"><span class="lineNum">     475</span> <span class="tlaGNC">      399600 :                      dbg_nxtstate         = (dmstatus_reg[9] | dec_tlu_mpc_halted_only) ? HALTED : HALTING;         // initiate the halt command to the core</span></span>
-<span id="L476"><span class="lineNum">     476</span> <span class="tlaGNC">      399600 :                      dbg_state_en         = dmcontrol_reg[31] | dmstatus_reg[9] | dec_tlu_mpc_halted_only;      // when the jtag writes the halt bit in the DM register, OR when the status indicates H</span></span>
-<span id="L477"><span class="lineNum">     477</span> <span class="tlaGNC">      399600 :                      dbg_halt_req         = dmcontrol_reg[31];               // only when jtag has written the halt_req bit in the control. Removed debug mode qualification during MPC changes</span></span>
+<span id="L474"><span class="lineNum">     474</span> <span class="tlaGNC">      286295 :             IDLE: begin</span></span>
+<span id="L475"><span class="lineNum">     475</span> <span class="tlaGNC">      286295 :                      dbg_nxtstate         = (dmstatus_reg[9] | dec_tlu_mpc_halted_only) ? HALTED : HALTING;         // initiate the halt command to the core</span></span>
+<span id="L476"><span class="lineNum">     476</span> <span class="tlaGNC">      286295 :                      dbg_state_en         = dmcontrol_reg[31] | dmstatus_reg[9] | dec_tlu_mpc_halted_only;      // when the jtag writes the halt bit in the DM register, OR when the status indicates H</span></span>
+<span id="L477"><span class="lineNum">     477</span> <span class="tlaGNC">      286295 :                      dbg_halt_req         = dmcontrol_reg[31];               // only when jtag has written the halt_req bit in the control. Removed debug mode qualification during MPC changes</span></span>
 <span id="L478"><span class="lineNum">     478</span>              :             end</span>
 <span id="L479"><span class="lineNum">     479</span> <span class="tlaUNC tlaBgUNC">           0 :             HALTING : begin</span></span>
 <span id="L480"><span class="lineNum">     480</span> <span class="tlaUNC">           0 :                      dbg_nxtstate         = HALTED;                                 // Goto HALTED once the core sends an ACK</span></span>
@@ -705,13 +705,13 @@
 <span id="L601"><span class="lineNum">     601</span> <span class="tlaGNC">           6 :       sbcs_sberror_din[2:0]  = 3'b0;</span></span>
 <span id="L602"><span class="lineNum">     602</span> <span class="tlaGNC">           6 :       sbaddress0_reg_wren1   = 1'b0;</span></span>
 <span id="L603"><span class="lineNum">     603</span> <span class="tlaGNC">           6 :       case (sb_state)</span></span>
-<span id="L604"><span class="lineNum">     604</span> <span class="tlaGNC">      399600 :             SBIDLE: begin</span></span>
-<span id="L605"><span class="lineNum">     605</span> <span class="tlaGNC">      399600 :                      sb_nxtstate            = sbdata0wr_access ? WAIT_WR : WAIT_RD;</span></span>
-<span id="L606"><span class="lineNum">     606</span> <span class="tlaGNC">      399600 :                      sb_state_en            = (sbdata0wr_access | sbreadondata_access | sbreadonaddr_access) &amp; ~(|sbcs_reg[14:12]) &amp; ~sbcs_reg[22];</span></span>
-<span id="L607"><span class="lineNum">     607</span> <span class="tlaGNC">      399600 :                      sbcs_sbbusy_wren       = sb_state_en;                                                 // set the single read bit if it is a singlread command</span></span>
-<span id="L608"><span class="lineNum">     608</span> <span class="tlaGNC">      399600 :                      sbcs_sbbusy_din        = 1'b1;</span></span>
-<span id="L609"><span class="lineNum">     609</span> <span class="tlaGNC">      399600 :                      sbcs_sberror_wren      = sbcs_wren &amp; (|dmi_reg_wdata[14:12]);                                            // write to clear the error bits</span></span>
-<span id="L610"><span class="lineNum">     610</span> <span class="tlaGNC">      399600 :                      sbcs_sberror_din[2:0]  = ~dmi_reg_wdata[14:12] &amp; sbcs_reg[14:12];</span></span>
+<span id="L604"><span class="lineNum">     604</span> <span class="tlaGNC">      286295 :             SBIDLE: begin</span></span>
+<span id="L605"><span class="lineNum">     605</span> <span class="tlaGNC">      286295 :                      sb_nxtstate            = sbdata0wr_access ? WAIT_WR : WAIT_RD;</span></span>
+<span id="L606"><span class="lineNum">     606</span> <span class="tlaGNC">      286295 :                      sb_state_en            = (sbdata0wr_access | sbreadondata_access | sbreadonaddr_access) &amp; ~(|sbcs_reg[14:12]) &amp; ~sbcs_reg[22];</span></span>
+<span id="L607"><span class="lineNum">     607</span> <span class="tlaGNC">      286295 :                      sbcs_sbbusy_wren       = sb_state_en;                                                 // set the single read bit if it is a singlread command</span></span>
+<span id="L608"><span class="lineNum">     608</span> <span class="tlaGNC">      286295 :                      sbcs_sbbusy_din        = 1'b1;</span></span>
+<span id="L609"><span class="lineNum">     609</span> <span class="tlaGNC">      286295 :                      sbcs_sberror_wren      = sbcs_wren &amp; (|dmi_reg_wdata[14:12]);                                            // write to clear the error bits</span></span>
+<span id="L610"><span class="lineNum">     610</span> <span class="tlaGNC">      286295 :                      sbcs_sberror_din[2:0]  = ~dmi_reg_wdata[14:12] &amp; sbcs_reg[14:12];</span></span>
 <span id="L611"><span class="lineNum">     611</span>              :             end</span>
 <span id="L612"><span class="lineNum">     612</span> <span class="tlaUNC tlaBgUNC">           0 :             WAIT_RD: begin</span></span>
 <span id="L613"><span class="lineNum">     613</span> <span class="tlaUNC">           0 :                      sb_nxtstate           = (sbcs_unaligned | sbcs_illegal_size) ? DONE : CMD_RD;</span></span>
