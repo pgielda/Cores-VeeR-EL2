@@ -127,7 +127,7 @@ jobs:
     env:
       DEBIAN_FRONTEND: "noninteractive"
       CCACHE_DIR: "/opt/riscv-dv/.cache/"
-      VERILATOR_VERSION: v5.010
+      VERILATOR_VERSION: v5.024
       SPIKE_VERSION: d70ea67d
       RENODE_VERSION: latest
       CACHE_HASH: ${{ needs.generate-config.outputs.hash }}
@@ -155,7 +155,7 @@ jobs:
           date=$(date +"%Y_%m_%d")
           time=$(date +"%Y%m%d_%H%M%S_%N")
           cache_verilator_restore_key=cache_verilator_
-          cache_verilator_key=${cache_verilator_restore_key}${{ env.VERILATOR_VERSION }}
+          cache_verilator_key=${cache_verilator_restore_key}${{ env.VERILATOR_VERSION }}_${{ env.VERILATOR_COMMIT }}
           cache_spike_restore_key=cache_spike_
           cache_spike_key=${cache_spike_restore_key}${{ env.SPIKE_VERSION }}
           cache_renode_restore_key=cache_renode_
@@ -212,6 +212,14 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: recursive
+
+      - name: install SiteSpawner package
+        run: |
+          python3 -m venv .venv
+          .venv/bin/python3 -m pip install tools/SiteSpawner
+          source .venv/bin/activate
+          echo "PATH=$PATH" >> $GITHUB_ENV
+          python3 -m pip install tools/SiteSpawner
 
       - name: Install Python deps
         run: |
@@ -271,8 +279,7 @@ jobs:
 
       - name: Prepare coverage data
         run: |
-          .github/scripts/convert_coverage_data.sh ${RV_ROOT}/tools/riscv-dv/work/
-          echo "convert_coverage_data.sh exited with RET_CODE = "$?
+          sis -d convert --dat-dir ${RV_ROOT}/tools/riscv-dv/work/
           mkdir -p results
           mv ${RV_ROOT}/tools/riscv-dv/work/coverage.info \
              results/coverage_riscv-dv_${{matrix.priv}}_${{ matrix.test }}_${{ matrix.coverage }}.info
@@ -306,7 +313,7 @@ jobs:
     env:
       DEBIAN_FRONTEND: "noninteractive"
       CCACHE_DIR: "/opt/riscv-dv/.cache/"
-      VERILATOR_VERSION: v5.010
+      VERILATOR_VERSION: v5.024
       SPIKE_VERSION: d70ea67d
       GHA_EXTERNAL_DISK: additional-tools
       GHA_SA: gh-sa-veer-uploader

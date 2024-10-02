@@ -594,6 +594,38 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="simulation-debugging.html" class="md-nav__link">
+        <span class="md-ellipsis">Interactive Debugging in Simulation</span>
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tock.html" class="md-nav__link">
+        <span class="md-ellipsis">Running Tock OS</span>
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -619,7 +651,7 @@
 Unless otherwise noted, all read/write control/status registers must have WARL (Write Any value, Read Legal value) behavior.</p>
 <h2 id="machine-interrupt-enable-mie-and-machine-interrupt-pending-mip-registers"><span class="section-number">12.1. </span>Machine Interrupt Enable (mie) and Machine Interrupt Pending (mip) Registers<a class="headerlink" href="#machine-interrupt-enable-mie-and-machine-interrupt-pending-mip-registers" title="Link to this heading">¶</a></h2>
 <p>The standard RISC-V <code class="docutils literal notranslate"><span class="pre">mie</span></code> and <code class="docutils literal notranslate"><span class="pre">mip</span></code> registers hold the machine interrupt enable and interrupt pending bits, respectively.
-Since VeeR EL2 only supports machine mode, all supervisor- and user-specific bits are not implemented.
+Since VeeR EL2 only supports machine and user mode, all supervisor-specific bits are not implemented.
 In addition, the <code class="docutils literal notranslate"><span class="pre">mie/mip</span></code> registers also host the platform-specific local interrupt enable/pending bits (shown with a gray background in <a class="reference internal" href="#tab-machine-interrupt-enable-register"><span class="std std-numref">Table 12.1</span></a> and <a class="reference internal" href="#tab-machine-interrupt-pending-register"><span class="std std-numref">Table 12.2</span></a> below).</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">mie</span></code> register is a standard read/write CSR.</p>
 <table class="docutils data align-default" id="tab-machine-interrupt-enable-register">
@@ -981,7 +1013,7 @@ Each hardware thread of the core has a unique, hardwired thread ID which is refl
   <small>
     
       Last update:
-      2024-09-10
+      2024-10-02
     
   </small>
 </div>
