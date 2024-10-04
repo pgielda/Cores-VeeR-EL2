@@ -124,7 +124,7 @@
 <span id="L20"><span class="lineNum">      20</span>              : `include "el2_param.vh"</span>
 <span id="L21"><span class="lineNum">      21</span>              : )</span>
 <span id="L22"><span class="lineNum">      22</span>              :   (</span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">     6085504 :    input  logic                  clk,                // Top level clock</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">     6085406 :    input  logic                  clk,                // Top level clock</span></span>
 <span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           2 :    input  logic                  rst_l,              // Reset</span></span>
 <span id="L25"><span class="lineNum">      25</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic                  scan_mode,          // Scan control</span></span>
 <span id="L26"><span class="lineNum">      26</span>              : </span>
@@ -136,7 +136,7 @@
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaUNC">           0 :    input  logic                  csr_ren_in,         // CSR select</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC">           0 :    input  logic        [31:0]    csr_rddata_in,      // CSR data</span></span>
 <span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC tlaBgGNC">       12056 :    input  logic signed [31:0]    a_in,               // A operand</span></span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">     2993922 :    input  logic        [31:0]    b_in,               // B operand</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">     2993873 :    input  logic        [31:0]    b_in,               // B operand</span></span>
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic        [31:1]    pc_in,              // for pc=pc+2,4 calculations</span></span>
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaUNC">           0 :    input  el2_predict_pkt_t     pp_in,              // Predicted branch structure</span></span>
 <span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC tlaBgGNC">          64 :    input  logic        [12:1]    brimm_in,           // Branch offset</span></span>
@@ -147,7 +147,7 @@
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">       24416 :    output logic                  flush_final_out,    // Branch flush or flush entire pipeline</span></span>
 <span id="L44"><span class="lineNum">      44</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic        [31:1]    flush_path_out,     // Branch flush PC</span></span>
 <span id="L45"><span class="lineNum">      45</span> <span class="tlaUNC">           0 :    output logic        [31:1]    pc_ff,              // flopped PC</span></span>
-<span id="L46"><span class="lineNum">      46</span> <span class="tlaGNC tlaBgGNC">     2969516 :    output logic                  pred_correct_out,   // NPC control</span></span>
+<span id="L46"><span class="lineNum">      46</span> <span class="tlaGNC tlaBgGNC">     2969467 :    output logic                  pred_correct_out,   // NPC control</span></span>
 <span id="L47"><span class="lineNum">      47</span> <span class="tlaUNC tlaBgUNC">           0 :    output el2_predict_pkt_t     predict_p_out       // Predicted branch structure</span></span>
 <span id="L48"><span class="lineNum">      48</span>              :   );</span>
 <span id="L49"><span class="lineNum">      49</span>              : </span>
@@ -160,13 +160,13 @@
 <span id="L56"><span class="lineNum">      56</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                         sel_shift;</span></span>
 <span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC tlaBgGNC">       24414 :    logic                         sel_adder;</span></span>
 <span id="L58"><span class="lineNum">      58</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                         slt_one;</span></span>
-<span id="L59"><span class="lineNum">      59</span> <span class="tlaGNC tlaBgGNC">     2993920 :    logic                         actual_taken;</span></span>
+<span id="L59"><span class="lineNum">      59</span> <span class="tlaGNC tlaBgGNC">     2993871 :    logic                         actual_taken;</span></span>
 <span id="L60"><span class="lineNum">      60</span> <span class="tlaUNC tlaBgUNC">           0 :    logic               [31:1]    pcout;</span></span>
 <span id="L61"><span class="lineNum">      61</span> <span class="tlaGNC tlaBgGNC">       24408 :    logic                         cond_mispredict;</span></span>
 <span id="L62"><span class="lineNum">      62</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                         target_mispredict;</span></span>
 <span id="L63"><span class="lineNum">      63</span> <span class="tlaGNC tlaBgGNC">           2 :    logic                         eq, ne, lt, ge;</span></span>
 <span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC">       24340 :    logic                         any_jal;</span></span>
-<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC">      220010 :    logic               [1:0]     newhist;</span></span>
+<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC">      219995 :    logic               [1:0]     newhist;</span></span>
 <span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC">       24340 :    logic                         sel_pc;</span></span>
 <span id="L67"><span class="lineNum">      67</span> <span class="tlaGNC">       12056 :    logic               [31:0]    csr_write_data;</span></span>
 <span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC">       12060 :    logic               [31:0]    result;</span></span>
@@ -443,8 +443,8 @@
 <span id="L339"><span class="lineNum">     339</span>              : </span>
 <span id="L340"><span class="lineNum">     340</span> <span class="tlaGNC">           2 :         for (int i=0; i&lt;32; i++) begin</span></span>
 <span id="L341"><span class="lineNum">     341</span> <span class="tlaUNC tlaBgUNC">           0 :           if (bitmanip_lzd_os[31] == 1'b0 &amp;&amp; found == 0) begin</span></span>
-<span id="L342"><span class="lineNum">     342</span> <span class="tlaGNC tlaBgGNC">    99784960 :               bitmanip_dw_lzd_enc[5:0]=  bitmanip_dw_lzd_enc[5:0] + 6'b00_0001;</span></span>
-<span id="L343"><span class="lineNum">     343</span> <span class="tlaGNC">    99784960 :               bitmanip_lzd_os[31:0]   =  bitmanip_lzd_os[31:0] &lt;&lt; 1;</span></span>
+<span id="L342"><span class="lineNum">     342</span> <span class="tlaGNC tlaBgGNC">    99803552 :               bitmanip_dw_lzd_enc[5:0]=  bitmanip_dw_lzd_enc[5:0] + 6'b00_0001;</span></span>
+<span id="L343"><span class="lineNum">     343</span> <span class="tlaGNC">    99803552 :               bitmanip_lzd_os[31:0]   =  bitmanip_lzd_os[31:0] &lt;&lt; 1;</span></span>
 <span id="L344"><span class="lineNum">     344</span>              :            end</span>
 <span id="L345"><span class="lineNum">     345</span>              :            else</span>
 <span id="L346"><span class="lineNum">     346</span> <span class="tlaUNC tlaBgUNC">           0 :               found=1'b1;</span></span>
