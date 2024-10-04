@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    03-10-2024
+                    04-10-2024
                 </td>
                 <td></td>
                 
@@ -475,7 +475,7 @@
 <span id="L371"><span class="lineNum">     371</span> <span class="tlaGNC">           2 :    input   logic                 dbg_bus_clk_en,</span></span>
 <span id="L372"><span class="lineNum">     372</span> <span class="tlaGNC">           2 :    input   logic                 dma_bus_clk_en,</span></span>
 <span id="L373"><span class="lineNum">     373</span>              : </span>
-<span id="L374"><span class="lineNum">     374</span> <span class="tlaGNC">        2622 :    input logic                  dmi_reg_en,                // read or write</span></span>
+<span id="L374"><span class="lineNum">     374</span> <span class="tlaGNC">        2620 :    input logic                  dmi_reg_en,                // read or write</span></span>
 <span id="L375"><span class="lineNum">     375</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [6:0]            dmi_reg_addr,              // address of DM register</span></span>
 <span id="L376"><span class="lineNum">     376</span> <span class="tlaGNC tlaBgGNC">         904 :    input logic                  dmi_reg_wr_en,             // write instruction</span></span>
 <span id="L377"><span class="lineNum">     377</span> <span class="tlaGNC">          12 :    input logic [31:0]           dmi_reg_wdata,             // write data</span></span>
@@ -653,7 +653,7 @@
 <span id="L549"><span class="lineNum">     549</span> <span class="tlaUNC">           0 :    logic [3:0]             lsu_trigger_match_m;</span></span>
 <span id="L550"><span class="lineNum">     550</span>              : </span>
 <span id="L551"><span class="lineNum">     551</span>              : </span>
-<span id="L552"><span class="lineNum">     552</span> <span class="tlaGNC tlaBgGNC">       38156 :    logic [31:0] dec_i0_immed_d;</span></span>
+<span id="L552"><span class="lineNum">     552</span> <span class="tlaGNC tlaBgGNC">       38242 :    logic [31:0] dec_i0_immed_d;</span></span>
 <span id="L553"><span class="lineNum">     553</span> <span class="tlaGNC">          64 :    logic [12:1] dec_i0_br_immed_d;</span></span>
 <span id="L554"><span class="lineNum">     554</span> <span class="tlaGNC">         308 :    logic         dec_i0_select_pc_d;</span></span>
 <span id="L555"><span class="lineNum">     555</span>              : </span>
@@ -662,7 +662,7 @@
 <span id="L558"><span class="lineNum">     558</span> <span class="tlaUNC">           0 :    logic [3:0]  dec_i0_rs2_bypass_en_d;</span></span>
 <span id="L559"><span class="lineNum">     559</span>              : </span>
 <span id="L560"><span class="lineNum">     560</span> <span class="tlaGNC tlaBgGNC">         796 :    logic         dec_i0_alu_decode_d;</span></span>
-<span id="L561"><span class="lineNum">     561</span> <span class="tlaGNC">       38460 :    logic         dec_i0_branch_d;</span></span>
+<span id="L561"><span class="lineNum">     561</span> <span class="tlaGNC">       38550 :    logic         dec_i0_branch_d;</span></span>
 <span id="L562"><span class="lineNum">     562</span>              : </span>
 <span id="L563"><span class="lineNum">     563</span> <span class="tlaGNC">          26 :    logic         ifu_miss_state_idle;</span></span>
 <span id="L564"><span class="lineNum">     564</span> <span class="tlaGNC">           8 :    logic         dec_tlu_flush_noredir_r;</span></span>
@@ -725,7 +725,7 @@
 <span id="L621"><span class="lineNum">     621</span> <span class="tlaUNC">           0 :    logic [31:1] dec_tlu_flush_path_r;</span></span>
 <span id="L622"><span class="lineNum">     622</span> <span class="tlaUNC">           0 :    logic [31:0] dec_tlu_mrac_ff;        // CSR for memory region control</span></span>
 <span id="L623"><span class="lineNum">     623</span>              : </span>
-<span id="L624"><span class="lineNum">     624</span> <span class="tlaGNC tlaBgGNC">       38788 :    logic        ifu_i0_pc4;</span></span>
+<span id="L624"><span class="lineNum">     624</span> <span class="tlaGNC tlaBgGNC">       38878 :    logic        ifu_i0_pc4;</span></span>
 <span id="L625"><span class="lineNum">     625</span>              : </span>
 <span id="L626"><span class="lineNum">     626</span> <span class="tlaUNC tlaBgUNC">           0 :    el2_mul_pkt_t  mul_p;</span></span>
 <span id="L627"><span class="lineNum">     627</span>              : </span>
@@ -748,13 +748,13 @@
 <span id="L644"><span class="lineNum">     644</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [pt.BTB_ADDR_HI:pt.BTB_ADDR_LO] exu_mp_index;</span></span>
 <span id="L645"><span class="lineNum">     645</span> <span class="tlaUNC">           0 :    logic [pt.BTB_BTAG_SIZE-1:0]          exu_mp_btag;</span></span>
 <span id="L646"><span class="lineNum">     646</span>              : </span>
-<span id="L647"><span class="lineNum">     647</span> <span class="tlaGNC tlaBgGNC">         310 :    logic [pt.BHT_GHR_SIZE-1:0]  exu_i0_br_fghr_r;</span></span>
-<span id="L648"><span class="lineNum">     648</span> <span class="tlaGNC">       38082 :    logic [1:0]  exu_i0_br_hist_r;</span></span>
+<span id="L647"><span class="lineNum">     647</span> <span class="tlaGNC tlaBgGNC">         308 :    logic [pt.BHT_GHR_SIZE-1:0]  exu_i0_br_fghr_r;</span></span>
+<span id="L648"><span class="lineNum">     648</span> <span class="tlaGNC">       38166 :    logic [1:0]  exu_i0_br_hist_r;</span></span>
 <span id="L649"><span class="lineNum">     649</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        exu_i0_br_error_r;</span></span>
 <span id="L650"><span class="lineNum">     650</span> <span class="tlaUNC">           0 :    logic        exu_i0_br_start_error_r;</span></span>
-<span id="L651"><span class="lineNum">     651</span> <span class="tlaGNC tlaBgGNC">       38146 :    logic        exu_i0_br_valid_r;</span></span>
+<span id="L651"><span class="lineNum">     651</span> <span class="tlaGNC tlaBgGNC">       38230 :    logic        exu_i0_br_valid_r;</span></span>
 <span id="L652"><span class="lineNum">     652</span> <span class="tlaGNC">         372 :    logic        exu_i0_br_mp_r;</span></span>
-<span id="L653"><span class="lineNum">     653</span> <span class="tlaGNC">         321 :    logic        exu_i0_br_middle_r;</span></span>
+<span id="L653"><span class="lineNum">     653</span> <span class="tlaGNC">         323 :    logic        exu_i0_br_middle_r;</span></span>
 <span id="L654"><span class="lineNum">     654</span>              : </span>
 <span id="L655"><span class="lineNum">     655</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        exu_i0_br_way_r;</span></span>
 <span id="L656"><span class="lineNum">     656</span>              : </span>
@@ -894,8 +894,8 @@
 <span id="L790"><span class="lineNum">     790</span>              : </span>
 <span id="L791"><span class="lineNum">     791</span>              :    // PMU Signals</span>
 <span id="L792"><span class="lineNum">     792</span> <span class="tlaGNC">         372 :    logic                   exu_pmu_i0_br_misp;</span></span>
-<span id="L793"><span class="lineNum">     793</span> <span class="tlaGNC">       38150 :    logic                   exu_pmu_i0_br_ataken;</span></span>
-<span id="L794"><span class="lineNum">     794</span> <span class="tlaGNC">       38470 :    logic                   exu_pmu_i0_pc4;</span></span>
+<span id="L793"><span class="lineNum">     793</span> <span class="tlaGNC">       38234 :    logic                   exu_pmu_i0_br_ataken;</span></span>
+<span id="L794"><span class="lineNum">     794</span> <span class="tlaGNC">       38554 :    logic                   exu_pmu_i0_pc4;</span></span>
 <span id="L795"><span class="lineNum">     795</span>              : </span>
 <span id="L796"><span class="lineNum">     796</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                   lsu_pmu_load_external_m;</span></span>
 <span id="L797"><span class="lineNum">     797</span> <span class="tlaUNC">           0 :    logic                   lsu_pmu_store_external_m;</span></span>

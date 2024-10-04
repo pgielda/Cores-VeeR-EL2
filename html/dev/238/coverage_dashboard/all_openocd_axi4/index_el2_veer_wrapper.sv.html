@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    03-10-2024
+                    04-10-2024
                 </td>
                 <td></td>
                 
@@ -131,7 +131,7 @@
 <span id="L27"><span class="lineNum">      27</span>              : `include "el2_param.vh"</span>
 <span id="L28"><span class="lineNum">      28</span>              : )</span>
 <span id="L29"><span class="lineNum">      29</span>              : (</span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     6085330 :    input logic                             clk,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     6085402 :    input logic                             clk,</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           2 :    input logic                             rst_l,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           2 :    input logic                             dbg_rst_l,</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:1]                      rst_vec,</span></span>
@@ -142,7 +142,7 @@
 <span id="L38"><span class="lineNum">      38</span>              : </span>
 <span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC tlaBgGNC">           2 :    output logic [31:0]                     trace_rv_i_insn_ip,</span></span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [31:0]                     trace_rv_i_address_ip,</span></span>
-<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">       24432 :    output logic                            trace_rv_i_valid_ip,</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">       24434 :    output logic                            trace_rv_i_valid_ip,</span></span>
 <span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">           4 :    output logic                            trace_rv_i_exception_ip,</span></span>
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [4:0]                      trace_rv_i_ecause_ip,</span></span>
 <span id="L44"><span class="lineNum">      44</span> <span class="tlaUNC">           0 :    output logic                            trace_rv_i_interrupt_ip,</span></span>
@@ -475,8 +475,8 @@
 <span id="L371"><span class="lineNum">     371</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                      [31:0] dmi_uncore_rdata</span></span>
 <span id="L372"><span class="lineNum">     372</span>              : );</span>
 <span id="L373"><span class="lineNum">     373</span>              : </span>
-<span id="L374"><span class="lineNum">     374</span> <span class="tlaGNC tlaBgGNC">     6085330 :    logic                             active_l2clk;</span></span>
-<span id="L375"><span class="lineNum">     375</span> <span class="tlaGNC">     6085330 :    logic                             free_l2clk;</span></span>
+<span id="L374"><span class="lineNum">     374</span> <span class="tlaGNC tlaBgGNC">     6085402 :    logic                             active_l2clk;</span></span>
+<span id="L375"><span class="lineNum">     375</span> <span class="tlaGNC">     6085402 :    logic                             free_l2clk;</span></span>
 <span id="L376"><span class="lineNum">     376</span>              : </span>
 <span id="L377"><span class="lineNum">     377</span>              :    // DCCM ports</span>
 <span id="L378"><span class="lineNum">     378</span> <span class="tlaUNC tlaBgUNC">           0 :    logic         dccm_wren;</span></span>
@@ -496,7 +496,7 @@
 <span id="L392"><span class="lineNum">     392</span>              :    // Icache &amp; Itag ports</span>
 <span id="L393"><span class="lineNum">     393</span> <span class="tlaUNC">           0 :    logic [31:1]  ic_rw_addr;</span></span>
 <span id="L394"><span class="lineNum">     394</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_NUM_WAYS-1:0]   ic_wr_en  ;     // Which way to write</span></span>
-<span id="L395"><span class="lineNum">     395</span> <span class="tlaGNC tlaBgGNC">       24348 :    logic         ic_rd_en ;</span></span>
+<span id="L395"><span class="lineNum">     395</span> <span class="tlaGNC tlaBgGNC">       24350 :    logic         ic_rd_en ;</span></span>
 <span id="L396"><span class="lineNum">     396</span>              : </span>
 <span id="L397"><span class="lineNum">     397</span>              : </span>
 <span id="L398"><span class="lineNum">     398</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [pt.ICACHE_NUM_WAYS-1:0]   ic_tag_valid;   // Valid from the I$ tag valid outside (in flops).</span></span>
@@ -513,7 +513,7 @@
 <span id="L409"><span class="lineNum">     409</span> <span class="tlaUNC">           0 :    logic [25:0]  ictag_debug_rd_data;               // Debug icache tag.</span></span>
 <span id="L410"><span class="lineNum">     410</span> <span class="tlaGNC tlaBgGNC">           4 :    logic [pt.ICACHE_BANKS_WAY-1:0][70:0]  ic_wr_data;</span></span>
 <span id="L411"><span class="lineNum">     411</span> <span class="tlaGNC">         496 :    logic [63:0]  ic_rd_data;</span></span>
-<span id="L412"><span class="lineNum">     412</span> <span class="tlaGNC">       24342 :    logic [70:0]  ic_debug_rd_data;                  // Data read from Icache. 2x64bits + parity bits. F2 stage. With ECC</span></span>
+<span id="L412"><span class="lineNum">     412</span> <span class="tlaGNC">       24344 :    logic [70:0]  ic_debug_rd_data;                  // Data read from Icache. 2x64bits + parity bits. F2 stage. With ECC</span></span>
 <span id="L413"><span class="lineNum">     413</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [70:0]  ic_debug_wr_data;                  // Debug wr cache.</span></span>
 <span id="L414"><span class="lineNum">     414</span>              : </span>
 <span id="L415"><span class="lineNum">     415</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_BANKS_WAY-1:0] ic_eccerr;       // ecc error per bank</span></span>
