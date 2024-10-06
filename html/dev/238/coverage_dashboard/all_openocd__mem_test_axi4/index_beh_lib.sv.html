@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    04-10-2024
+                    06-10-2024
                 </td>
                 <td></td>
                 
@@ -582,13 +582,13 @@
 <span id="L478"><span class="lineNum">     478</span>              : module rvbradder</span>
 <span id="L479"><span class="lineNum">     479</span>              :   (</span>
 <span id="L480"><span class="lineNum">     480</span> <span class="tlaUNC tlaBgUNC">           0 :     input [31:1] pc,</span></span>
-<span id="L481"><span class="lineNum">     481</span> <span class="tlaGNC tlaBgGNC">       38348 :     input [12:1] offset,</span></span>
+<span id="L481"><span class="lineNum">     481</span> <span class="tlaGNC tlaBgGNC">       38594 :     input [12:1] offset,</span></span>
 <span id="L482"><span class="lineNum">     482</span>              : </span>
 <span id="L483"><span class="lineNum">     483</span> <span class="tlaGNC">           8 :     output [31:1] dout</span></span>
 <span id="L484"><span class="lineNum">     484</span>              :     );</span>
 <span id="L485"><span class="lineNum">     485</span>              : </span>
-<span id="L486"><span class="lineNum">     486</span> <span class="tlaGNC">       38676 :    logic          cout;</span></span>
-<span id="L487"><span class="lineNum">     487</span> <span class="tlaGNC">       38676 :    logic          sign;</span></span>
+<span id="L486"><span class="lineNum">     486</span> <span class="tlaGNC">       38922 :    logic          cout;</span></span>
+<span id="L487"><span class="lineNum">     487</span> <span class="tlaGNC">       38922 :    logic          sign;</span></span>
 <span id="L488"><span class="lineNum">     488</span>              : </span>
 <span id="L489"><span class="lineNum">     489</span> <span class="tlaGNC">          16 :    logic [31:13]  pc_inc;</span></span>
 <span id="L490"><span class="lineNum">     490</span> <span class="tlaGNC">           8 :    logic [31:13]  pc_dec;</span></span>
@@ -825,7 +825,7 @@
 <span id="L721"><span class="lineNum">     721</span>              : </span>
 <span id="L722"><span class="lineNum">     722</span>              : </span>
 <span id="L723"><span class="lineNum">     723</span>              : module rvecc_decode_64  (</span>
-<span id="L724"><span class="lineNum">     724</span> <span class="tlaGNC">       37962 :                       input         en,</span></span>
+<span id="L724"><span class="lineNum">     724</span> <span class="tlaGNC">       38208 :                       input         en,</span></span>
 <span id="L725"><span class="lineNum">     725</span> <span class="tlaGNC">         680 :                       input [63:0]  din,</span></span>
 <span id="L726"><span class="lineNum">     726</span> <span class="tlaGNC">         680 :                       input [6:0]   ecc_in,</span></span>
 <span id="L727"><span class="lineNum">     727</span> <span class="tlaUNC tlaBgUNC">           0 :                       output        ecc_error</span></span>
@@ -896,7 +896,7 @@
 <span id="L792"><span class="lineNum">     792</span>              : </span>
 <span id="L793"><span class="lineNum">     793</span>              : module rvoclkhdr</span>
 <span id="L794"><span class="lineNum">     794</span>              :   (</span>
-<span id="L795"><span class="lineNum">     795</span> <span class="tlaGNC tlaBgGNC">        3986 :    input  logic en,</span></span>
+<span id="L795"><span class="lineNum">     795</span> <span class="tlaGNC tlaBgGNC">        3988 :    input  logic en,</span></span>
 <span id="L796"><span class="lineNum">     796</span> <span class="tlaGNC">   216000108 :    input  logic clk,</span></span>
 <span id="L797"><span class="lineNum">     797</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic scan_mode,</span></span>
 <span id="L798"><span class="lineNum">     798</span> <span class="tlaGNC tlaBgGNC">   216000108 :    output logic l1clk</span></span>

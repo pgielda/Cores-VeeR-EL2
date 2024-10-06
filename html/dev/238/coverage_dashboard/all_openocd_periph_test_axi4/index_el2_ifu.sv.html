@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    04-10-2024
+                    06-10-2024
                 </td>
                 <td></td>
                 
@@ -284,7 +284,7 @@
 <span id="L180"><span class="lineNum">     180</span> <span class="tlaUNC">           0 :    output logic  iccm_dma_sb_error,   // Single Bit ECC error from a DMA access</span></span>
 <span id="L181"><span class="lineNum">     181</span> <span class="tlaGNC tlaBgGNC">         308 :    output logic[31:0] ifu_i0_instr,   // Instruction 0 . From Aligner to Decode</span></span>
 <span id="L182"><span class="lineNum">     182</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic[31:1] ifu_i0_pc,      // Instruction 0 pc. From Aligner to Decode</span></span>
-<span id="L183"><span class="lineNum">     183</span> <span class="tlaGNC tlaBgGNC">       38838 :    output logic ifu_i0_pc4,           // Instruction 0 is 4 byte. From Aligner to Decode</span></span>
+<span id="L183"><span class="lineNum">     183</span> <span class="tlaGNC tlaBgGNC">       38854 :    output logic ifu_i0_pc4,           // Instruction 0 is 4 byte. From Aligner to Decode</span></span>
 <span id="L184"><span class="lineNum">     184</span>              : </span>
 <span id="L185"><span class="lineNum">     185</span> <span class="tlaGNC">          26 :    output logic ifu_miss_state_idle,   // There is no outstanding miss. Cache miss state is idle.</span></span>
 <span id="L186"><span class="lineNum">     186</span>              : </span>
@@ -295,7 +295,7 @@
 <span id="L191"><span class="lineNum">     191</span> <span class="tlaUNC">           0 :    output logic [$clog2(pt.BTB_SIZE)-1:0]         ifu_i0_fa_index,          // Fully associt btb index</span></span>
 <span id="L192"><span class="lineNum">     192</span>              : </span>
 <span id="L193"><span class="lineNum">     193</span> <span class="tlaUNC">           0 :    input el2_predict_pkt_t  exu_mp_pkt, // mispredict packet</span></span>
-<span id="L194"><span class="lineNum">     194</span> <span class="tlaGNC tlaBgGNC">         346 :    input logic [pt.BHT_GHR_SIZE-1:0] exu_mp_eghr, // execute ghr</span></span>
+<span id="L194"><span class="lineNum">     194</span> <span class="tlaGNC tlaBgGNC">         344 :    input logic [pt.BHT_GHR_SIZE-1:0] exu_mp_eghr, // execute ghr</span></span>
 <span id="L195"><span class="lineNum">     195</span> <span class="tlaGNC">         310 :    input logic [pt.BHT_GHR_SIZE-1:0]  exu_mp_fghr,                    // Mispredict fghr</span></span>
 <span id="L196"><span class="lineNum">     196</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [pt.BTB_ADDR_HI:pt.BTB_ADDR_LO]  exu_mp_index,         // Mispredict index</span></span>
 <span id="L197"><span class="lineNum">     197</span> <span class="tlaUNC">           0 :    input logic [pt.BTB_BTAG_SIZE-1:0]  exu_mp_btag,                   // Mispredict btag</span></span>
@@ -348,22 +348,22 @@
 <span id="L244"><span class="lineNum">     244</span> <span class="tlaGNC">         716 :    logic ic_hit_f;</span></span>
 <span id="L245"><span class="lineNum">     245</span>              : </span>
 <span id="L246"><span class="lineNum">     246</span> <span class="tlaGNC">         798 :    logic [1:0] ifu_bp_way_f; // way indication; right justified</span></span>
-<span id="L247"><span class="lineNum">     247</span> <span class="tlaGNC">       38474 :    logic       ifu_bp_hit_taken_f; // kill next fetch; taken target found</span></span>
+<span id="L247"><span class="lineNum">     247</span> <span class="tlaGNC">       38492 :    logic       ifu_bp_hit_taken_f; // kill next fetch; taken target found</span></span>
 <span id="L248"><span class="lineNum">     248</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [31:1] ifu_bp_btb_target_f; //  predicted target PC</span></span>
-<span id="L249"><span class="lineNum">     249</span> <span class="tlaGNC tlaBgGNC">       37860 :    logic        ifu_bp_inst_mask_f; // tell ic which valids to kill because of a taken branch; right justified</span></span>
-<span id="L250"><span class="lineNum">     250</span> <span class="tlaGNC">         620 :    logic [1:0]  ifu_bp_hist1_f; // history counters for all 4 potential branches; right justified</span></span>
-<span id="L251"><span class="lineNum">     251</span> <span class="tlaGNC">         604 :    logic [1:0]  ifu_bp_hist0_f; // history counters for all 4 potential branches; right justified</span></span>
-<span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC">       38144 :    logic [11:0] ifu_bp_poffset_f; // predicted target</span></span>
+<span id="L249"><span class="lineNum">     249</span> <span class="tlaGNC tlaBgGNC">       37880 :    logic        ifu_bp_inst_mask_f; // tell ic which valids to kill because of a taken branch; right justified</span></span>
+<span id="L250"><span class="lineNum">     250</span> <span class="tlaGNC">         618 :    logic [1:0]  ifu_bp_hist1_f; // history counters for all 4 potential branches; right justified</span></span>
+<span id="L251"><span class="lineNum">     251</span> <span class="tlaGNC">         602 :    logic [1:0]  ifu_bp_hist0_f; // history counters for all 4 potential branches; right justified</span></span>
+<span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC">       38164 :    logic [11:0] ifu_bp_poffset_f; // predicted target</span></span>
 <span id="L253"><span class="lineNum">     253</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [1:0]  ifu_bp_ret_f; // predicted ret ; right justified</span></span>
-<span id="L254"><span class="lineNum">     254</span> <span class="tlaGNC tlaBgGNC">         616 :    logic [1:0]  ifu_bp_pc4_f; // pc4 indication; right justified</span></span>
-<span id="L255"><span class="lineNum">     255</span> <span class="tlaGNC">         616 :    logic [1:0]  ifu_bp_valid_f; // branch valid, right justified</span></span>
+<span id="L254"><span class="lineNum">     254</span> <span class="tlaGNC tlaBgGNC">         614 :    logic [1:0]  ifu_bp_pc4_f; // pc4 indication; right justified</span></span>
+<span id="L255"><span class="lineNum">     255</span> <span class="tlaGNC">         614 :    logic [1:0]  ifu_bp_valid_f; // branch valid, right justified</span></span>
 <span id="L256"><span class="lineNum">     256</span> <span class="tlaGNC">         310 :    logic [pt.BHT_GHR_SIZE-1:0] ifu_bp_fghr_f;</span></span>
 <span id="L257"><span class="lineNum">     257</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [1:0] [$clog2(pt.BTB_SIZE)-1:0] ifu_bp_fa_index_f;</span></span>
 <span id="L258"><span class="lineNum">     258</span>              : </span>
 <span id="L259"><span class="lineNum">     259</span>              : </span>
 <span id="L260"><span class="lineNum">     260</span> <span class="tlaGNC tlaBgGNC">         716 :    logic [1:0]   ic_fetch_val_f;</span></span>
-<span id="L261"><span class="lineNum">     261</span> <span class="tlaGNC">         342 :    logic [31:0] ic_data_f;</span></span>
-<span id="L262"><span class="lineNum">     262</span> <span class="tlaGNC">         342 :    logic [31:0] ifu_fetch_data_f;</span></span>
+<span id="L261"><span class="lineNum">     261</span> <span class="tlaGNC">         340 :    logic [31:0] ic_data_f;</span></span>
+<span id="L262"><span class="lineNum">     262</span> <span class="tlaGNC">         340 :    logic [31:0] ifu_fetch_data_f;</span></span>
 <span id="L263"><span class="lineNum">     263</span> <span class="tlaGNC">         340 :    logic ifc_fetch_req_f;</span></span>
 <span id="L264"><span class="lineNum">     264</span> <span class="tlaUNC tlaBgUNC">           0 :    logic ifc_fetch_req_f_raw;</span></span>
 <span id="L265"><span class="lineNum">     265</span> <span class="tlaUNC">           0 :    logic iccm_dma_rd_ecc_double_err;</span></span>
