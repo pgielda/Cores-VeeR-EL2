@@ -131,8 +131,8 @@
 <span id="L27"><span class="lineNum">      27</span>              : </span>
 <span id="L28"><span class="lineNum">      28</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                                    scan_mode,                // Flop scan mode control</span></span>
 <span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC tlaBgGNC">           2 :    input logic                                    rst_l,                    // reset, active low</span></span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">     1205452 :    input logic                                    clk,                      // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
-<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">     1205452 :    input logic                                    active_clk,               // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">     1205536 :    input logic                                    clk,                      // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">     1205536 :    input logic                                    active_clk,               // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
 <span id="L32"><span class="lineNum">      32</span>              : </span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                                    ifu_async_error_start,    // ecc/parity related errors with current fetch - not sent down the pipe</span></span>
 <span id="L34"><span class="lineNum">      34</span>              : </span>
@@ -141,14 +141,14 @@
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaUNC">           0 :    input logic [1:0]                              ic_access_fault_f,        // Instruction access fault for the current fetch.</span></span>
 <span id="L38"><span class="lineNum">      38</span> <span class="tlaUNC">           0 :    input logic [1:0]                              ic_access_fault_type_f,   // Instruction access fault types</span></span>
 <span id="L39"><span class="lineNum">      39</span>              : </span>
-<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC tlaBgGNC">       34532 :    input logic                                    exu_flush_final,          // Flush from the pipeline.</span></span>
+<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC tlaBgGNC">       34548 :    input logic                                    exu_flush_final,          // Flush from the pipeline.</span></span>
 <span id="L41"><span class="lineNum">      41</span>              : </span>
 <span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">       43726 :    input logic                                    dec_i0_decode_d,          // Valid instruction at D-stage and not blocked</span></span>
 <span id="L43"><span class="lineNum">      43</span>              : </span>
 <span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">      137988 :    input logic [31:0]                             ifu_fetch_data_f,         // fetch data in memory format - not right justified</span></span>
 <span id="L45"><span class="lineNum">      45</span>              : </span>
 <span id="L46"><span class="lineNum">      46</span> <span class="tlaGNC">      146346 :    input logic [1:0]                              ifu_fetch_val,            // valids on a 2B boundary, right justified</span></span>
-<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC">           2 :    input logic [31:1]                             ifu_fetch_pc,             // starting pc of fetch</span></span>
+<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC">          10 :    input logic [31:1]                             ifu_fetch_pc,             // starting pc of fetch</span></span>
 <span id="L48"><span class="lineNum">      48</span>              : </span>
 <span id="L49"><span class="lineNum">      49</span>              : </span>
 <span id="L50"><span class="lineNum">      50</span>              : </span>

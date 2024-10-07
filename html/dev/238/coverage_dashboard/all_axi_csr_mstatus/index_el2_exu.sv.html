@@ -58,11 +58,11 @@
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #99ff00;">
-        70.0%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #75ff00;">
+        77.0%
     </td>
     <td class="headerCovSummaryEntry">
-        70
+        77
     </td>
     <td class="headerCovSummaryEntry">
         100
@@ -124,7 +124,7 @@
 <span id="L20"><span class="lineNum">      20</span>              : `include "el2_param.vh"</span>
 <span id="L21"><span class="lineNum">      21</span>              : )</span>
 <span id="L22"><span class="lineNum">      22</span>              :   (</span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">       28396 :    input logic          clk,                                           // Top level clock</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">       28480 :    input logic          clk,                                           // Top level clock</span></span>
 <span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           2 :    input logic          rst_l,                                         // Reset</span></span>
 <span id="L25"><span class="lineNum">      25</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic          scan_mode,                                     // Scan control</span></span>
 <span id="L26"><span class="lineNum">      26</span>              : </span>
@@ -165,7 +165,7 @@
 <span id="L61"><span class="lineNum">      61</span>              : </span>
 <span id="L62"><span class="lineNum">      62</span> <span class="tlaGNC tlaBgGNC">         257 :    input logic  [31:1]  pred_correct_npc_x,                            // DEC NPC for correctly predicted branch</span></span>
 <span id="L63"><span class="lineNum">      63</span>              : </span>
-<span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC">           4 :    input logic          dec_tlu_flush_lower_r,                         // Flush divide and secondary ALUs</span></span>
+<span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC">          20 :    input logic          dec_tlu_flush_lower_r,                         // Flush divide and secondary ALUs</span></span>
 <span id="L65"><span class="lineNum">      65</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic  [31:1]  dec_tlu_flush_path_r,                          // Redirect target</span></span>
 <span id="L66"><span class="lineNum">      66</span>              : </span>
 <span id="L67"><span class="lineNum">      67</span>              : </span>
@@ -176,7 +176,7 @@
 <span id="L72"><span class="lineNum">      72</span> <span class="tlaGNC tlaBgGNC">         140 :    output logic [31:0]  exu_lsu_rs1_d,                                 // LSU operand</span></span>
 <span id="L73"><span class="lineNum">      73</span> <span class="tlaGNC">           6 :    output logic [31:0]  exu_lsu_rs2_d,                                 // LSU operand</span></span>
 <span id="L74"><span class="lineNum">      74</span>              : </span>
-<span id="L75"><span class="lineNum">      75</span> <span class="tlaGNC">         346 :    output logic         exu_flush_final,                               // Pipe is being flushed this cycle</span></span>
+<span id="L75"><span class="lineNum">      75</span> <span class="tlaGNC">         362 :    output logic         exu_flush_final,                               // Pipe is being flushed this cycle</span></span>
 <span id="L76"><span class="lineNum">      76</span> <span class="tlaGNC">         112 :    output logic [31:1]  exu_flush_path_final,                          // Target for the oldest flush source</span></span>
 <span id="L77"><span class="lineNum">      77</span>              : </span>
 <span id="L78"><span class="lineNum">      78</span> <span class="tlaGNC">         110 :    output logic [31:0]  exu_i0_result_x,                               // Primary ALU result to DEC</span></span>

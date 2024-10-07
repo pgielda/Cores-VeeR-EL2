@@ -58,11 +58,11 @@
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff7100;">
-        22.3%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff8500;">
+        26.2%
     </td>
     <td class="headerCovSummaryEntry">
-        23
+        27
     </td>
     <td class="headerCovSummaryEntry">
         103
@@ -155,10 +155,10 @@
 <span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC tlaBgGNC">           4 :    input logic                          dec_lsu_valid_raw_d,               // Raw valid for address computation</span></span>
 <span id="L52"><span class="lineNum">      52</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                          lsu_busreq_m,                      // bus request is in m</span></span>
 <span id="L53"><span class="lineNum">      53</span>              : </span>
-<span id="L54"><span class="lineNum">      54</span> <span class="tlaUNC">           0 :    input                                el2_lsu_pkt_t lsu_pkt_m,          // lsu packet flowing down the pipe</span></span>
-<span id="L55"><span class="lineNum">      55</span> <span class="tlaUNC">           0 :    input                                el2_lsu_pkt_t lsu_pkt_r,          // lsu packet flowing down the pipe</span></span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC tlaBgGNC">           4 :    input                                el2_lsu_pkt_t lsu_pkt_m,          // lsu packet flowing down the pipe</span></span>
+<span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">           4 :    input                                el2_lsu_pkt_t lsu_pkt_r,          // lsu packet flowing down the pipe</span></span>
 <span id="L56"><span class="lineNum">      56</span>              : </span>
-<span id="L57"><span class="lineNum">      57</span> <span class="tlaUNC">           0 :    input logic [31:0]                   lsu_addr_m,                        // lsu address flowing down the pipe</span></span>
+<span id="L57"><span class="lineNum">      57</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:0]                   lsu_addr_m,                        // lsu address flowing down the pipe</span></span>
 <span id="L58"><span class="lineNum">      58</span> <span class="tlaUNC">           0 :    input logic [31:0]                   lsu_addr_r,                        // lsu address flowing down the pipe</span></span>
 <span id="L59"><span class="lineNum">      59</span>              : </span>
 <span id="L60"><span class="lineNum">      60</span> <span class="tlaUNC">           0 :    input logic [31:0]                   end_addr_m,                        // lsu address flowing down the pipe</span></span>
@@ -277,11 +277,11 @@
 <span id="L173"><span class="lineNum">     173</span>              : </span>
 <span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC">           2 :    logic              lsu_bus_clk_en_q;</span></span>
 <span id="L175"><span class="lineNum">     175</span>              : </span>
-<span id="L176"><span class="lineNum">     176</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [3:0]        ldst_byteen_m, ldst_byteen_r;</span></span>
-<span id="L177"><span class="lineNum">     177</span> <span class="tlaUNC">           0 :    logic [7:0]        ldst_byteen_ext_m, ldst_byteen_ext_r;</span></span>
+<span id="L176"><span class="lineNum">     176</span> <span class="tlaGNC">           2 :    logic [3:0]        ldst_byteen_m, ldst_byteen_r;</span></span>
+<span id="L177"><span class="lineNum">     177</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [7:0]        ldst_byteen_ext_m, ldst_byteen_ext_r;</span></span>
 <span id="L178"><span class="lineNum">     178</span> <span class="tlaUNC">           0 :    logic [3:0]        ldst_byteen_hi_m, ldst_byteen_hi_r;</span></span>
-<span id="L179"><span class="lineNum">     179</span> <span class="tlaUNC">           0 :    logic [3:0]        ldst_byteen_lo_m, ldst_byteen_lo_r;</span></span>
-<span id="L180"><span class="lineNum">     180</span> <span class="tlaUNC">           0 :    logic              is_sideeffects_r;</span></span>
+<span id="L179"><span class="lineNum">     179</span> <span class="tlaGNC tlaBgGNC">           2 :    logic [3:0]        ldst_byteen_lo_m, ldst_byteen_lo_r;</span></span>
+<span id="L180"><span class="lineNum">     180</span> <span class="tlaUNC tlaBgUNC">           0 :    logic              is_sideeffects_r;</span></span>
 <span id="L181"><span class="lineNum">     181</span>              : </span>
 <span id="L182"><span class="lineNum">     182</span> <span class="tlaUNC">           0 :    logic [63:0]       store_data_ext_r;</span></span>
 <span id="L183"><span class="lineNum">     183</span> <span class="tlaUNC">           0 :    logic [31:0]       store_data_hi_r;</span></span>

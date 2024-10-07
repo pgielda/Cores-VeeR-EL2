@@ -58,11 +58,11 @@
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #94ff00;">
-        71.0%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #83ff00;">
+        74.2%
     </td>
     <td class="headerCovSummaryEntry">
-        44
+        46
     </td>
     <td class="headerCovSummaryEntry">
         62
@@ -132,7 +132,7 @@
 <span id="L28"><span class="lineNum">      28</span>              : )</span>
 <span id="L29"><span class="lineNum">      29</span>              : //   ,TAG  = 1)</span>
 <span id="L30"><span class="lineNum">      30</span>              : (</span>
-<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC tlaBgGNC">    42686643 :    input                   clk,</span></span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC tlaBgGNC">    43279982 :    input                   clk,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">          36 :    input                   rst_l,</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :    input                   scan_mode,</span></span>
 <span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC tlaBgGNC">          24 :    input                   bus_clk_en,</span></span>
@@ -169,8 +169,8 @@
 <span id="L65"><span class="lineNum">      65</span>              :    /*verilator coverage_off*/</span>
 <span id="L66"><span class="lineNum">      66</span>              :    output logic            axi_bready,</span>
 <span id="L67"><span class="lineNum">      67</span>              :    /*verilator coverage_on*/</span>
-<span id="L68"><span class="lineNum">      68</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic [1:0]      axi_bresp,</span></span>
-<span id="L69"><span class="lineNum">      69</span> <span class="tlaUNC">           0 :    input  logic [TAG-1:0]  axi_bid,</span></span>
+<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC">           2 :    input  logic [1:0]      axi_bresp,</span></span>
+<span id="L69"><span class="lineNum">      69</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic [TAG-1:0]  axi_bid,</span></span>
 <span id="L70"><span class="lineNum">      70</span>              : </span>
 <span id="L71"><span class="lineNum">      71</span>              :    // AXI Read Channels</span>
 <span id="L72"><span class="lineNum">      72</span> <span class="tlaGNC tlaBgGNC">         202 :    output logic            axi_arvalid,</span></span>
@@ -195,10 +195,10 @@
 <span id="L91"><span class="lineNum">      91</span>              :    /*verilator coverage_on*/</span>
 <span id="L92"><span class="lineNum">      92</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic [TAG-1:0]  axi_rid,</span></span>
 <span id="L93"><span class="lineNum">      93</span> <span class="tlaGNC tlaBgGNC">          38 :    input  logic [63:0]     axi_rdata,</span></span>
-<span id="L94"><span class="lineNum">      94</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic [1:0]      axi_rresp,</span></span>
+<span id="L94"><span class="lineNum">      94</span> <span class="tlaGNC">           2 :    input  logic [1:0]      axi_rresp,</span></span>
 <span id="L95"><span class="lineNum">      95</span>              : </span>
 <span id="L96"><span class="lineNum">      96</span>              :    // AHB-Lite signals</span>
-<span id="L97"><span class="lineNum">      97</span> <span class="tlaGNC tlaBgGNC">           2 :    input logic [31:0]      ahb_haddr,     // ahb bus address</span></span>
+<span id="L97"><span class="lineNum">      97</span> <span class="tlaGNC">           2 :    input logic [31:0]      ahb_haddr,     // ahb bus address</span></span>
 <span id="L98"><span class="lineNum">      98</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [2:0]       ahb_hburst,    // tied to 0</span></span>
 <span id="L99"><span class="lineNum">      99</span> <span class="tlaUNC">           0 :    input logic             ahb_hmastlock, // tied to 0</span></span>
 <span id="L100"><span class="lineNum">     100</span> <span class="tlaUNC">           0 :    input logic [3:0]       ahb_hprot,     // tied to 4'b0011</span></span>
@@ -263,9 +263,9 @@
 <span id="L159"><span class="lineNum">     159</span> <span class="tlaGNC">          24 :       buf_read_error_in = 1'b0;              // signal indicating that an error came back with the read from the core</span></span>
 <span id="L160"><span class="lineNum">     160</span> <span class="tlaGNC">          24 :       cmdbuf_wr_en      = 1'b0;              // all clear from the gasket to load the buffer with the command for reads, command/dat for writes</span></span>
 <span id="L161"><span class="lineNum">     161</span> <span class="tlaGNC">          24 :       case (buf_state)</span></span>
-<span id="L162"><span class="lineNum">     162</span> <span class="tlaGNC">    14860698 :          IDLE: begin  // No commands recieved</span></span>
-<span id="L163"><span class="lineNum">     163</span> <span class="tlaGNC">    14860698 :                   buf_nxtstate      = ahb_hwrite ? WR : RD;</span></span>
-<span id="L164"><span class="lineNum">     164</span> <span class="tlaGNC">    14860698 :                   buf_state_en      = ahb_hready &amp; ahb_htrans[1] &amp; ahb_hsel;                 // only transition on a valid hrtans</span></span>
+<span id="L162"><span class="lineNum">     162</span> <span class="tlaGNC">    14863261 :          IDLE: begin  // No commands recieved</span></span>
+<span id="L163"><span class="lineNum">     163</span> <span class="tlaGNC">    14863261 :                   buf_nxtstate      = ahb_hwrite ? WR : RD;</span></span>
+<span id="L164"><span class="lineNum">     164</span> <span class="tlaGNC">    14863261 :                   buf_state_en      = ahb_hready &amp; ahb_htrans[1] &amp; ahb_hsel;                 // only transition on a valid hrtans</span></span>
 <span id="L165"><span class="lineNum">     165</span>              :           end</span>
 <span id="L166"><span class="lineNum">     166</span> <span class="tlaGNC">        2210 :          WR: begin // Write command recieved last cycle</span></span>
 <span id="L167"><span class="lineNum">     167</span> <span class="tlaGNC">        2210 :                   buf_nxtstate      = (ahb_hresp | (ahb_htrans[1:0] == 2'b0) | ~ahb_hsel) ? IDLE : ahb_hwrite  ? WR : RD;</span></span>
