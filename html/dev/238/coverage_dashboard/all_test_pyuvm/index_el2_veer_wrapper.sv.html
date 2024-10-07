@@ -135,7 +135,7 @@
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                             rst_l,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaUNC">           0 :    input logic                             dbg_rst_l,</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC">           0 :    input logic [31:1]                      rst_vec,</span></span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC tlaBgGNC">           8 :    input logic                             nmi_int,</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC tlaBgGNC">          12 :    input logic                             nmi_int,</span></span>
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:1]                      nmi_vec,</span></span>
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaUNC">           0 :    input logic [31:1]                      jtag_id,</span></span>
 <span id="L37"><span class="lineNum">      37</span>              : </span>
@@ -478,8 +478,8 @@
 <span id="L374"><span class="lineNum">     374</span> <span class="tlaUNC">           0 :    input                                   el2_ic_data_ext_in_pkt_t  [pt.ICACHE_NUM_WAYS-1:0][pt.ICACHE_BANKS_WAY-1:0] ic_data_ext_in_pkt,</span></span>
 <span id="L375"><span class="lineNum">     375</span> <span class="tlaUNC">           0 :    input                                   el2_ic_tag_ext_in_pkt_t  [pt.ICACHE_NUM_WAYS-1:0] ic_tag_ext_in_pkt,</span></span>
 <span id="L376"><span class="lineNum">     376</span>              : </span>
-<span id="L377"><span class="lineNum">     377</span> <span class="tlaGNC tlaBgGNC">           7 :    input logic                             timer_int,</span></span>
-<span id="L378"><span class="lineNum">     378</span> <span class="tlaGNC">           7 :    input logic                             soft_int,</span></span>
+<span id="L377"><span class="lineNum">     377</span> <span class="tlaGNC tlaBgGNC">           8 :    input logic                             timer_int,</span></span>
+<span id="L378"><span class="lineNum">     378</span> <span class="tlaGNC">           8 :    input logic                             soft_int,</span></span>
 <span id="L379"><span class="lineNum">     379</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [pt.PIC_TOTAL_INT:1]        extintsrc_req,</span></span>
 <span id="L380"><span class="lineNum">     380</span>              : </span>
 <span id="L381"><span class="lineNum">     381</span> <span class="tlaUNC">           0 :    output logic                            dec_tlu_perfcnt0, // toggles when slot0 perf counter 0 has an event inc</span></span>
