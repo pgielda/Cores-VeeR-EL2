@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    07-10-2024
+                    08-10-2024
                 </td>
                 <td></td>
                 
@@ -150,9 +150,9 @@
 <span id="L46"><span class="lineNum">      46</span> <span class="tlaUNC">           0 :    input logic                       ifc_region_acc_fault_bf,       // Access fault. in ICCM region but offset is outside defined ICCM.</span></span>
 <span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC tlaBgGNC">         406 :    input logic                       ifc_dma_access_ok,             // It is OK to give dma access to the ICCM. (ICCM is not busy this cycle).</span></span>
 <span id="L48"><span class="lineNum">      48</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                       dec_tlu_fence_i_wb,            // Fence.i instruction is committing. Clear all Icache valids.</span></span>
-<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC tlaBgGNC">       39390 :    input logic                       ifu_bp_hit_taken_f,            // Branch is predicted taken. Kill the fetch next cycle.</span></span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC tlaBgGNC">       39382 :    input logic                       ifu_bp_hit_taken_f,            // Branch is predicted taken. Kill the fetch next cycle.</span></span>
 <span id="L50"><span class="lineNum">      50</span>              : </span>
-<span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC">       38762 :    input logic                       ifu_bp_inst_mask_f,            // tell ic which valids to kill because of a taken branch, right justified</span></span>
+<span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC">       38752 :    input logic                       ifu_bp_inst_mask_f,            // tell ic which valids to kill because of a taken branch, right justified</span></span>
 <span id="L52"><span class="lineNum">      52</span>              : </span>
 <span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">          26 :    output logic                      ifu_miss_state_idle,           // No icache misses are outstanding.</span></span>
 <span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">          30 :    output logic                      ifu_ic_mb_empty,               // Continue with normal fetching. This does not mean that miss is finished.</span></span>
@@ -532,7 +532,7 @@
 <span id="L428"><span class="lineNum">     428</span>              : </span>
 <span id="L429"><span class="lineNum">     429</span> <span class="tlaUNC tlaBgUNC">           0 :    logic   iccm_correct_ecc;</span></span>
 <span id="L430"><span class="lineNum">     430</span> <span class="tlaUNC">           0 :    logic   dma_sb_err_state, dma_sb_err_state_ff;</span></span>
-<span id="L431"><span class="lineNum">     431</span> <span class="tlaGNC tlaBgGNC">         708 :    logic   two_byte_instr;</span></span>
+<span id="L431"><span class="lineNum">     431</span> <span class="tlaGNC tlaBgGNC">         710 :    logic   two_byte_instr;</span></span>
 <span id="L432"><span class="lineNum">     432</span>              : </span>
 <span id="L433"><span class="lineNum">     433</span>              :    typedef enum logic [2:0] {IDLE=3'b000, CRIT_BYP_OK=3'b001, HIT_U_MISS=3'b010, MISS_WAIT=3'b011,CRIT_WRD_RDY=3'b100,SCND_MISS=3'b101,STREAM=3'b110 , STALL_SCND_MISS=3'b111} miss_state_t;</span>
 <span id="L434"><span class="lineNum">     434</span> <span class="tlaGNC">           8 :    miss_state_t miss_state, miss_nxtstate;</span></span>
@@ -544,7 +544,7 @@
 <span id="L440"><span class="lineNum">     440</span>              : </span>
 <span id="L441"><span class="lineNum">     441</span> <span class="tlaGNC tlaBgGNC">          24 :    logic   ic_crit_wd_rdy;         // Critical fetch is ready to be bypassed.</span></span>
 <span id="L442"><span class="lineNum">     442</span>              : </span>
-<span id="L443"><span class="lineNum">     443</span> <span class="tlaGNC">       39362 :    logic   ifu_bp_hit_taken_q_f;</span></span>
+<span id="L443"><span class="lineNum">     443</span> <span class="tlaGNC">       39352 :    logic   ifu_bp_hit_taken_q_f;</span></span>
 <span id="L444"><span class="lineNum">     444</span> <span class="tlaGNC">          72 :    logic   ifu_bus_rvalid_unq;</span></span>
 <span id="L445"><span class="lineNum">     445</span> <span class="tlaGNC">          72 :    logic   bus_cmd_beat_en;</span></span>
 <span id="L446"><span class="lineNum">     446</span>              : </span>
