@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    08-10-2024
+                    09-10-2024
                 </td>
                 <td></td>
                 
@@ -234,13 +234,13 @@
 <span id="L130"><span class="lineNum">     130</span>              : </span>
 <span id="L131"><span class="lineNum">     131</span>              :   // Compute permissions checks that apply when MSECCFG.MML is unset. This is the original PMP</span>
 <span id="L132"><span class="lineNum">     132</span>              :   // behaviour before Smepmp was added.</span>
-<span id="L133"><span class="lineNum">     133</span> <span class="tlaGNC tlaBgGNC">    19854720 :   function automatic logic orig_perm_check(logic pmp_cfg_lock,</span></span>
+<span id="L133"><span class="lineNum">     133</span> <span class="tlaGNC tlaBgGNC">    47038080 :   function automatic logic orig_perm_check(logic pmp_cfg_lock,</span></span>
 <span id="L134"><span class="lineNum">     134</span>              :                                            logic priv_mode,</span>
 <span id="L135"><span class="lineNum">     135</span>              :                                            logic permission_check);</span>
 <span id="L136"><span class="lineNum">     136</span>              :     // For M-mode, any region which matches with the L-bit clear, or with sufficient</span>
 <span id="L137"><span class="lineNum">     137</span>              :     // access permissions will be allowed.</span>
 <span id="L138"><span class="lineNum">     138</span>              :     // For other modes, the lock bit doesn't matter</span>
-<span id="L139"><span class="lineNum">     139</span> <span class="tlaGNC">    19854720 :     return priv_mode ? (permission_check) : (~pmp_cfg_lock | permission_check);</span></span>
+<span id="L139"><span class="lineNum">     139</span> <span class="tlaGNC">    47038080 :     return priv_mode ? (permission_check) : (~pmp_cfg_lock | permission_check);</span></span>
 <span id="L140"><span class="lineNum">     140</span>              :   endfunction</span>
 <span id="L141"><span class="lineNum">     141</span>              : </span>
 <span id="L142"><span class="lineNum">     142</span>              :   // Access fault determination / prioritization</span>
@@ -270,9 +270,9 @@
 <span id="L166"><span class="lineNum">     166</span>              :     // PMP entries are statically prioritized, from 0 to N-1</span>
 <span id="L167"><span class="lineNum">     167</span>              :     // The lowest-numbered PMP entry which matches an address determines accessibility</span>
 <span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC">          18 :     for (int r = 0; r &lt; pt.PMP_ENTRIES; r++) begin</span></span>
-<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">      795896 :       if (!matched &amp;&amp; match_all[r]) begin</span></span>
-<span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">      795896 :         access_fail = ~final_perm_check[r];</span></span>
-<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">      795896 :         matched = 1'b1;</span></span>
+<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">     1828352 :       if (!matched &amp;&amp; match_all[r]) begin</span></span>
+<span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">     1828352 :         access_fail = ~final_perm_check[r];</span></span>
+<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">     1828352 :         matched = 1'b1;</span></span>
 <span id="L172"><span class="lineNum">     172</span>              :       end</span>
 <span id="L173"><span class="lineNum">     173</span>              :     end</span>
 <span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC">          18 :     return access_fail;</span></span>
