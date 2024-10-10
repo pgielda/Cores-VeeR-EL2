@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    09-10-2024
+                    10-10-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ffa900;">
-        33.3%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ffab00;">
+        33.6%
     </td>
     <td class="headerCovSummaryEntry">
-        125
+        126
     </td>
     <td class="headerCovSummaryEntry">
         375
@@ -197,7 +197,7 @@
 <span id="L93"><span class="lineNum">      93</span> <span class="tlaGNC">          76 :    input logic        dec_csr_wen_r,      // csr write enable at wb</span></span>
 <span id="L94"><span class="lineNum">      94</span> <span class="tlaGNC">        3056 :    input logic [11:0] dec_csr_rdaddr_r,      // read address for csr</span></span>
 <span id="L95"><span class="lineNum">      95</span> <span class="tlaGNC">          16 :    input logic [11:0] dec_csr_wraddr_r,      // write address for csr</span></span>
-<span id="L96"><span class="lineNum">      96</span> <span class="tlaGNC">           8 :    input logic [31:0] dec_csr_wrdata_r,   // csr write data at wb</span></span>
+<span id="L96"><span class="lineNum">      96</span> <span class="tlaGNC">          12 :    input logic [31:0] dec_csr_wrdata_r,   // csr write data at wb</span></span>
 <span id="L97"><span class="lineNum">      97</span>              : </span>
 <span id="L98"><span class="lineNum">      98</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic        dec_csr_stall_int_ff, // csr is mie/mstatus</span></span>
 <span id="L99"><span class="lineNum">      99</span>              : </span>
@@ -284,7 +284,7 @@
 <span id="L180"><span class="lineNum">     180</span> <span class="tlaUNC">           0 :    output logic [3:0] dec_tlu_meipt, // to PIC</span></span>
 <span id="L181"><span class="lineNum">     181</span>              : </span>
 <span id="L182"><span class="lineNum">     182</span>              : </span>
-<span id="L183"><span class="lineNum">     183</span> <span class="tlaGNC tlaBgGNC">         234 :    output logic [31:0] dec_csr_rddata_d,      // csr read data at wb</span></span>
+<span id="L183"><span class="lineNum">     183</span> <span class="tlaGNC tlaBgGNC">         250 :    output logic [31:0] dec_csr_rddata_d,      // csr read data at wb</span></span>
 <span id="L184"><span class="lineNum">     184</span> <span class="tlaGNC">         144 :    output logic dec_csr_legal_d,              // csr indicates legal operation</span></span>
 <span id="L185"><span class="lineNum">     185</span>              : </span>
 <span id="L186"><span class="lineNum">     186</span> <span class="tlaGNC">        2736 :    output el2_br_tlu_pkt_t dec_tlu_br0_r_pkt, // branch pkt to bp</span></span>
@@ -502,8 +502,8 @@
 <span id="L398"><span class="lineNum">     398</span> <span class="tlaUNC">           0 :    logic dec_timer_read_d, dec_timer_t0_pulse, dec_timer_t1_pulse;</span></span>
 <span id="L399"><span class="lineNum">     399</span>              : </span>
 <span id="L400"><span class="lineNum">     400</span>              :    // PMP unit, isolated for size reasons</span>
-<span id="L401"><span class="lineNum">     401</span> <span class="tlaUNC">           0 :    logic [31:0] dec_pmp_rddata_d;</span></span>
-<span id="L402"><span class="lineNum">     402</span> <span class="tlaGNC tlaBgGNC">          44 :    logic dec_pmp_read_d;</span></span>
+<span id="L401"><span class="lineNum">     401</span> <span class="tlaGNC tlaBgGNC">          24 :    logic [31:0] dec_pmp_rddata_d;</span></span>
+<span id="L402"><span class="lineNum">     402</span> <span class="tlaGNC">          44 :    logic dec_pmp_read_d;</span></span>
 <span id="L403"><span class="lineNum">     403</span>              : </span>
 <span id="L404"><span class="lineNum">     404</span> <span class="tlaGNC">           4 :    logic nmi_int_sync, timer_int_sync, soft_int_sync, i_cpu_halt_req_sync, i_cpu_run_req_sync, mpc_debug_halt_req_sync, mpc_debug_run_req_sync, mpc_debug_halt_req_sync_raw;</span></span>
 <span id="L405"><span class="lineNum">     405</span> <span class="tlaGNC">      380976 :    logic csr_wr_clk;</span></span>
@@ -517,7 +517,7 @@
 <span id="L413"><span class="lineNum">     413</span> <span class="tlaGNC">       24164 :    logic minstret_enable_f;</span></span>
 <span id="L414"><span class="lineNum">     414</span> <span class="tlaGNC">          12 :    logic sel_exu_npc_r, sel_flush_npc_r, sel_hold_npc_r;</span></span>
 <span id="L415"><span class="lineNum">     415</span> <span class="tlaGNC">       24164 :    logic pc0_valid_r;</span></span>
-<span id="L416"><span class="lineNum">     416</span> <span class="tlaGNC">           8 :    logic [15:0] mfdc_int, mfdc_ns;</span></span>
+<span id="L416"><span class="lineNum">     416</span> <span class="tlaGNC">          12 :    logic [15:0] mfdc_int, mfdc_ns;</span></span>
 <span id="L417"><span class="lineNum">     417</span> <span class="tlaGNC">           4 :    logic [31:0] mrac_in;</span></span>
 <span id="L418"><span class="lineNum">     418</span> <span class="tlaGNC">           8 :    logic [31:27] csr_sat;</span></span>
 <span id="L419"><span class="lineNum">     419</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [8:6] dcsr_cause;</span></span>
@@ -586,7 +586,7 @@
 <span id="L482"><span class="lineNum">     482</span>              : </span>
 <span id="L483"><span class="lineNum">     483</span> <span class="tlaUNC">           0 :    logic  csr_acc_r;    // CSR access error</span></span>
 <span id="L484"><span class="lineNum">     484</span> <span class="tlaGNC tlaBgGNC">          78 :    logic  csr_wr_usr_r; // Write to an unprivileged/user-level CSR</span></span>
-<span id="L485"><span class="lineNum">     485</span> <span class="tlaGNC">       14262 :    logic  csr_rd_usr_r; // REad from an unprivileged/user-level CSR</span></span>
+<span id="L485"><span class="lineNum">     485</span> <span class="tlaGNC">       14266 :    logic  csr_rd_usr_r; // REad from an unprivileged/user-level CSR</span></span>
 <span id="L486"><span class="lineNum">     486</span>              : </span>
 <span id="L487"><span class="lineNum">     487</span>              : `else</span>
 <span id="L488"><span class="lineNum">     488</span>              : </span>
@@ -2834,7 +2834,7 @@
 <span id="L2730"><span class="lineNum">    2730</span> <span class="tlaGNC">           2 :    input logic rst_l,</span></span>
 <span id="L2731"><span class="lineNum">    2731</span> <span class="tlaGNC">          76 :    input logic        dec_csr_wen_r_mod,      // csr write enable at wb</span></span>
 <span id="L2732"><span class="lineNum">    2732</span> <span class="tlaGNC">          16 :    input logic [11:0] dec_csr_wraddr_r,      // write address for csr</span></span>
-<span id="L2733"><span class="lineNum">    2733</span> <span class="tlaGNC">           8 :    input logic [31:0] dec_csr_wrdata_r,   // csr write data at wb</span></span>
+<span id="L2733"><span class="lineNum">    2733</span> <span class="tlaGNC">          12 :    input logic [31:0] dec_csr_wrdata_r,   // csr write data at wb</span></span>
 <span id="L2734"><span class="lineNum">    2734</span>              : </span>
 <span id="L2735"><span class="lineNum">    2735</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic csr_mitctl0,</span></span>
 <span id="L2736"><span class="lineNum">    2736</span> <span class="tlaUNC">           0 :    input logic csr_mitctl1,</span></span>

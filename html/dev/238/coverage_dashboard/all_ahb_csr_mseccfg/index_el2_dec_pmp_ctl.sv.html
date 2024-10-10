@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    09-10-2024
+                    10-10-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #f7ff00;">
-        51.5%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #d8ff00;">
+        57.6%
     </td>
     <td class="headerCovSummaryEntry">
-        17
+        19
     </td>
     <td class="headerCovSummaryEntry">
         33
@@ -139,7 +139,7 @@
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">           2 :    input logic rst_l,</span></span>
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">          76 :    input logic        dec_csr_wen_r_mod,  // csr write enable at wb</span></span>
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">          16 :    input logic [11:0] dec_csr_wraddr_r,   // write address for csr</span></span>
-<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">           8 :    input logic [31:0] dec_csr_wrdata_r,   // csr write data at wb</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">          12 :    input logic [31:0] dec_csr_wrdata_r,   // csr write data at wb</span></span>
 <span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">          16 :    input logic [11:0] dec_csr_rdaddr_d,   // read address for csr</span></span>
 <span id="L40"><span class="lineNum">      40</span>              : </span>
 <span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">          28 :    input logic csr_pmpcfg,</span></span>
@@ -156,8 +156,8 @@
 <span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">           2 :    input el2_mseccfg_pkt_t mseccfg,</span></span>
 <span id="L53"><span class="lineNum">      53</span>              : `endif</span>
 <span id="L54"><span class="lineNum">      54</span>              : </span>
-<span id="L55"><span class="lineNum">      55</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [31:0] dec_pmp_rddata_d,  // pmp CSR read data</span></span>
-<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC tlaBgGNC">          44 :    output logic        dec_pmp_read_d,    // pmp CSR address match</span></span>
+<span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">          24 :    output logic [31:0] dec_pmp_rddata_d,  // pmp CSR read data</span></span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">          44 :    output logic        dec_pmp_read_d,    // pmp CSR address match</span></span>
 <span id="L57"><span class="lineNum">      57</span>              : </span>
 <span id="L58"><span class="lineNum">      58</span> <span class="tlaUNC tlaBgUNC">           0 :    output el2_pmp_cfg_pkt_t pmp_pmpcfg  [pt.PMP_ENTRIES],</span></span>
 <span id="L59"><span class="lineNum">      59</span>              :    output logic [31:0]      pmp_pmpaddr [pt.PMP_ENTRIES],</span>
@@ -177,11 +177,11 @@
 <span id="L73"><span class="lineNum">      73</span> <span class="tlaUNC">           0 :    logic [5:0] wr_pmpaddr_address;</span></span>
 <span id="L74"><span class="lineNum">      74</span>              : </span>
 <span id="L75"><span class="lineNum">      75</span> <span class="tlaUNC">           0 :    logic [3:0] pmp_quarter_rdaddr;</span></span>
-<span id="L76"><span class="lineNum">      76</span> <span class="tlaUNC">           0 :    logic [31:0] pmp_pmpcfg_rddata;</span></span>
+<span id="L76"><span class="lineNum">      76</span> <span class="tlaGNC tlaBgGNC">          70 :    logic [31:0] pmp_pmpcfg_rddata;</span></span>
 <span id="L77"><span class="lineNum">      77</span>              : </span>
 <span id="L78"><span class="lineNum">      78</span>              :    // ----------------------------------------------------------------------</span>
 <span id="L79"><span class="lineNum">      79</span>              : </span>
-<span id="L80"><span class="lineNum">      80</span> <span class="tlaUNC">           0 :    logic [pt.PMP_ENTRIES-1:0] entry_lock_eff;  // Effective entry lock</span></span>
+<span id="L80"><span class="lineNum">      80</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [pt.PMP_ENTRIES-1:0] entry_lock_eff;  // Effective entry lock</span></span>
 <span id="L81"><span class="lineNum">      81</span>              :    for (genvar r = 0; r &lt; pt.PMP_ENTRIES; r++) begin : g_pmpcfg_lock</span>
 <span id="L82"><span class="lineNum">      82</span>              : `ifdef RV_SMEPMP</span>
 <span id="L83"><span class="lineNum">      83</span>              :    // Smepmp allow modifying locked entries when mseccfg.RLB is set</span>
