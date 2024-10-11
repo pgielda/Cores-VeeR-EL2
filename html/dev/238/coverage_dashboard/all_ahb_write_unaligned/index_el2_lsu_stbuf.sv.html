@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    10-10-2024
+                    11-10-2024
                 </td>
                 <td></td>
                 
@@ -137,11 +137,11 @@
 <span id="L33"><span class="lineNum">      33</span>              : `include "el2_param.vh"</span>
 <span id="L34"><span class="lineNum">      34</span>              :  )</span>
 <span id="L35"><span class="lineNum">      35</span>              : (</span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">       37140 :    input logic                           clk,                         // core clock</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">       40204 :    input logic                           clk,                         // core clock</span></span>
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">           2 :    input logic                           rst_l,                       // reset</span></span>
 <span id="L38"><span class="lineNum">      38</span>              : </span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">       37140 :    input logic                           lsu_stbuf_c1_clk,            // stbuf clock</span></span>
-<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">       37140 :    input logic                           lsu_free_c2_clk,             // free clk</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">       40204 :    input logic                           lsu_stbuf_c1_clk,            // stbuf clock</span></span>
+<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">       40204 :    input logic                           lsu_free_c2_clk,             // free clk</span></span>
 <span id="L41"><span class="lineNum">      41</span>              : </span>
 <span id="L42"><span class="lineNum">      42</span>              :    // Store Buffer input</span>
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                           store_stbuf_reqvld_r,        // core instruction goes to stbuf</span></span>
@@ -212,7 +212,7 @@
 <span id="L108"><span class="lineNum">     108</span>              : </span>
 <span id="L109"><span class="lineNum">     109</span> <span class="tlaUNC">           0 :    logic [7:0]             store_byteen_ext_r;</span></span>
 <span id="L110"><span class="lineNum">     110</span> <span class="tlaUNC">           0 :    logic [BYTE_WIDTH-1:0]  store_byteen_hi_r;</span></span>
-<span id="L111"><span class="lineNum">     111</span> <span class="tlaGNC tlaBgGNC">           4 :    logic [BYTE_WIDTH-1:0]  store_byteen_lo_r;</span></span>
+<span id="L111"><span class="lineNum">     111</span> <span class="tlaGNC tlaBgGNC">           8 :    logic [BYTE_WIDTH-1:0]  store_byteen_lo_r;</span></span>
 <span id="L112"><span class="lineNum">     112</span>              : </span>
 <span id="L113"><span class="lineNum">     113</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                   WrPtrEn, RdPtrEn;</span></span>
 <span id="L114"><span class="lineNum">     114</span> <span class="tlaUNC">           0 :    logic [DEPTH_LOG2-1:0]  WrPtr, RdPtr;</span></span>
