@@ -132,7 +132,7 @@
 <span id="L28"><span class="lineNum">      28</span>              : )</span>
 <span id="L29"><span class="lineNum">      29</span>              : //   ,TAG  = 1)</span>
 <span id="L30"><span class="lineNum">      30</span>              : (</span>
-<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC tlaBgGNC">       66308 :    input                   clk,</span></span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC tlaBgGNC">      117756 :    input                   clk,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           2 :    input                   rst_l,</span></span>
 <span id="L33"><span class="lineNum">      33</span>              :    /* verilator coverage_off */</span>
 <span id="L34"><span class="lineNum">      34</span>              :    input                   scan_mode,</span>
@@ -274,9 +274,9 @@
 <span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">           2 :       buf_read_error_in = 1'b0;              // signal indicating that an error came back with the read from the core</span></span>
 <span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">           2 :       cmdbuf_wr_en      = 1'b0;              // all clear from the gasket to load the buffer with the command for reads, command/dat for writes</span></span>
 <span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">           2 :       case (buf_state)</span></span>
-<span id="L173"><span class="lineNum">     173</span> <span class="tlaGNC">       28594 :          IDLE: begin  // No commands recieved</span></span>
-<span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC">       28594 :                   buf_nxtstate      = ahb_hwrite ? WR : RD;</span></span>
-<span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC">       28594 :                   buf_state_en      = ahb_hready &amp; ahb_htrans[1] &amp; ahb_hsel;                 // only transition on a valid hrtans</span></span>
+<span id="L173"><span class="lineNum">     173</span> <span class="tlaGNC">       16178 :          IDLE: begin  // No commands recieved</span></span>
+<span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC">       16178 :                   buf_nxtstate      = ahb_hwrite ? WR : RD;</span></span>
+<span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC">       16178 :                   buf_state_en      = ahb_hready &amp; ahb_htrans[1] &amp; ahb_hsel;                 // only transition on a valid hrtans</span></span>
 <span id="L176"><span class="lineNum">     176</span>              :           end</span>
 <span id="L177"><span class="lineNum">     177</span> <span class="tlaUNC tlaBgUNC">           0 :          WR: begin // Write command recieved last cycle</span></span>
 <span id="L178"><span class="lineNum">     178</span> <span class="tlaUNC">           0 :                   buf_nxtstate      = (ahb_hresp | (ahb_htrans[1:0] == 2'b0) | ~ahb_hsel) ? IDLE : ahb_hwrite  ? WR : RD;</span></span>
