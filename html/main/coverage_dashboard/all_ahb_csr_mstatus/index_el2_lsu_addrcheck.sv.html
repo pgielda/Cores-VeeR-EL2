@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    11-10-2024
+                    14-10-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff7a00;">
-        24.0%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff6600;">
+        20.0%
     </td>
     <td class="headerCovSummaryEntry">
-        12
+        10
     </td>
     <td class="headerCovSummaryEntry">
         50
@@ -131,16 +131,16 @@
 <span id="L27"><span class="lineNum">      27</span>              : #(</span>
 <span id="L28"><span class="lineNum">      28</span>              : `include "el2_param.vh"</span>
 <span id="L29"><span class="lineNum">      29</span>              :  )(</span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">      117756 :    input logic          lsu_c2_m_clk,              // clock</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">       66308 :    input logic          lsu_c2_m_clk,              // clock</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           2 :    input logic          rst_l,                     // reset</span></span>
 <span id="L32"><span class="lineNum">      32</span>              : </span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">          40 :    input logic [31:0]   start_addr_d,              // start address for lsu</span></span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">          40 :    input logic [31:0]   end_addr_d,                // end address for lsu</span></span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">         764 :    input el2_lsu_pkt_t lsu_pkt_d,                 // packet in d</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">         140 :    input logic [31:0]   start_addr_d,              // start address for lsu</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">         140 :    input logic [31:0]   end_addr_d,                // end address for lsu</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">         394 :    input el2_lsu_pkt_t lsu_pkt_d,                 // packet in d</span></span>
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:0]   dec_tlu_mrac_ff,           // CSR read</span></span>
-<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC tlaBgGNC">         732 :    input logic [3:0]    rs1_region_d,              // address rs operand [31:28]</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC tlaBgGNC">         476 :    input logic [3:0]    rs1_region_d,              // address rs operand [31:28]</span></span>
 <span id="L38"><span class="lineNum">      38</span>              : </span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">          40 :    input logic [31:0]   rs1_d,                     // address rs operand</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">         140 :    input logic [31:0]   rs1_d,                     // address rs operand</span></span>
 <span id="L40"><span class="lineNum">      40</span>              : </span>
 <span id="L41"><span class="lineNum">      41</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic         is_sideeffects_m,          // is sideffects space</span></span>
 <span id="L42"><span class="lineNum">      42</span> <span class="tlaUNC">           0 :    output logic         addr_in_dccm_d,            // address in dccm</span></span>
@@ -154,8 +154,8 @@
 <span id="L50"><span class="lineNum">      50</span> <span class="tlaUNC">           0 :    output logic         fir_dccm_access_error_d,   // Fast interrupt dccm access error</span></span>
 <span id="L51"><span class="lineNum">      51</span> <span class="tlaUNC">           0 :    output logic         fir_nondccm_access_error_d,// Fast interrupt dccm access error</span></span>
 <span id="L52"><span class="lineNum">      52</span>              : </span>
-<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC tlaBgGNC">         380 :     input logic lsu_pmp_error_start,</span></span>
-<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">         380 :     input logic lsu_pmp_error_end,</span></span>
+<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC tlaBgGNC">         190 :     input logic lsu_pmp_error_start,</span></span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">         190 :     input logic lsu_pmp_error_end,</span></span>
 <span id="L55"><span class="lineNum">      55</span>              : </span>
 <span id="L56"><span class="lineNum">      56</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic         scan_mode                  // Scan mode</span></span>
 <span id="L57"><span class="lineNum">      57</span>              : );</span>
@@ -167,7 +167,7 @@
 <span id="L63"><span class="lineNum">      63</span> <span class="tlaUNC">           0 :    logic        start_addr_in_dccm_region_d, end_addr_in_dccm_region_d;</span></span>
 <span id="L64"><span class="lineNum">      64</span> <span class="tlaUNC">           0 :    logic        start_addr_in_pic_d, end_addr_in_pic_d;</span></span>
 <span id="L65"><span class="lineNum">      65</span> <span class="tlaUNC">           0 :    logic        start_addr_in_pic_region_d, end_addr_in_pic_region_d;</span></span>
-<span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC tlaBgGNC">         732 :    logic [4:0]  csr_idx;</span></span>
+<span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC tlaBgGNC">         476 :    logic [4:0]  csr_idx;</span></span>
 <span id="L67"><span class="lineNum">      67</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        addr_in_iccm;</span></span>
 <span id="L68"><span class="lineNum">      68</span> <span class="tlaUNC">           0 :    logic        start_addr_dccm_or_pic;</span></span>
 <span id="L69"><span class="lineNum">      69</span> <span class="tlaUNC">           0 :    logic        base_reg_dccm_or_pic;</span></span>

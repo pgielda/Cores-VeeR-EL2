@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    11-10-2024
+                    14-10-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff3c00;">
-        11.8%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff4700;">
+        14.0%
     </td>
     <td class="headerCovSummaryEntry">
-        22
+        26
     </td>
     <td class="headerCovSummaryEntry">
         186
@@ -137,7 +137,7 @@
 <span id="L33"><span class="lineNum">      33</span>              : (</span>
 <span id="L34"><span class="lineNum">      34</span>              : </span>
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                             clk_override,             // Override non-functional clock gating</span></span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">          16 :    input logic                             dec_tlu_flush_lower_r,    // I0/I1 writeback flush. This is used to flush the old packets only</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">          20 :    input logic                             dec_tlu_flush_lower_r,    // I0/I1 writeback flush. This is used to flush the old packets only</span></span>
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                             dec_tlu_i0_kill_writeb_r, // I0 is flushed, don't writeback any results to arch state</span></span>
 <span id="L38"><span class="lineNum">      38</span> <span class="tlaUNC">           0 :    input logic                             dec_tlu_force_halt,       // This will be high till TLU goes to debug halt</span></span>
 <span id="L39"><span class="lineNum">      39</span>              : </span>
@@ -282,19 +282,19 @@
 <span id="L178"><span class="lineNum">     178</span>              :    output logic                            lsu_axi_rready,</span>
 <span id="L179"><span class="lineNum">     179</span>              :    /*verilator coverage_on*/</span>
 <span id="L180"><span class="lineNum">     180</span> <span class="tlaUNC">           0 :    input  logic [pt.LSU_BUS_TAG-1:0]       lsu_axi_rid,</span></span>
-<span id="L181"><span class="lineNum">     181</span> <span class="tlaUNC">           0 :    input  logic [63:0]                     lsu_axi_rdata,</span></span>
-<span id="L182"><span class="lineNum">     182</span> <span class="tlaUNC">           0 :    input  logic [1:0]                      lsu_axi_rresp,</span></span>
-<span id="L183"><span class="lineNum">     183</span> <span class="tlaUNC">           0 :    input  logic                            lsu_axi_rlast,</span></span>
+<span id="L181"><span class="lineNum">     181</span> <span class="tlaGNC tlaBgGNC">          50 :    input  logic [63:0]                     lsu_axi_rdata,</span></span>
+<span id="L182"><span class="lineNum">     182</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic [1:0]                      lsu_axi_rresp,</span></span>
+<span id="L183"><span class="lineNum">     183</span> <span class="tlaGNC tlaBgGNC">        1136 :    input  logic                            lsu_axi_rlast,</span></span>
 <span id="L184"><span class="lineNum">     184</span>              : </span>
-<span id="L185"><span class="lineNum">     185</span> <span class="tlaGNC tlaBgGNC">           2 :    input logic                             lsu_bus_clk_en,    // external drives a clock_en to control bus ratio</span></span>
+<span id="L185"><span class="lineNum">     185</span> <span class="tlaGNC">           2 :    input logic                             lsu_bus_clk_en,    // external drives a clock_en to control bus ratio</span></span>
 <span id="L186"><span class="lineNum">     186</span>              : </span>
 <span id="L187"><span class="lineNum">     187</span>              :    // DMA slave</span>
 <span id="L188"><span class="lineNum">     188</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                             dma_dccm_req,       // DMA read/write to dccm</span></span>
 <span id="L189"><span class="lineNum">     189</span> <span class="tlaUNC">           0 :    input logic [2:0]                       dma_mem_tag,        // DMA request tag</span></span>
 <span id="L190"><span class="lineNum">     190</span> <span class="tlaUNC">           0 :    input logic [31:0]                      dma_mem_addr,       // DMA address</span></span>
 <span id="L191"><span class="lineNum">     191</span> <span class="tlaUNC">           0 :    input logic [2:0]                       dma_mem_sz,         // DMA access size</span></span>
-<span id="L192"><span class="lineNum">     192</span> <span class="tlaUNC">           0 :    input logic                             dma_mem_write,      // DMA access is a write</span></span>
-<span id="L193"><span class="lineNum">     193</span> <span class="tlaUNC">           0 :    input logic [63:0]                      dma_mem_wdata,      // DMA write data</span></span>
+<span id="L192"><span class="lineNum">     192</span> <span class="tlaGNC tlaBgGNC">           4 :    input logic                             dma_mem_write,      // DMA access is a write</span></span>
+<span id="L193"><span class="lineNum">     193</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [63:0]                      dma_mem_wdata,      // DMA write data</span></span>
 <span id="L194"><span class="lineNum">     194</span>              : </span>
 <span id="L195"><span class="lineNum">     195</span> <span class="tlaUNC">           0 :    output logic                            dccm_dma_rvalid,     // lsu data valid for DMA dccm read</span></span>
 <span id="L196"><span class="lineNum">     196</span> <span class="tlaUNC">           0 :    output logic                            dccm_dma_ecc_error,  // DMA load had ecc error</span></span>
@@ -353,8 +353,8 @@
 <span id="L249"><span class="lineNum">     249</span>              :   assign lsu_pmp_addr_start = lsu_addr_d;</span>
 <span id="L250"><span class="lineNum">     250</span>              :   assign lsu_pmp_addr_end   = end_addr_d;</span>
 <span id="L251"><span class="lineNum">     251</span>              : </span>
-<span id="L252"><span class="lineNum">     252</span> <span class="tlaUNC">           0 :    el2_lsu_pkt_t    lsu_pkt_d, lsu_pkt_m, lsu_pkt_r;</span></span>
-<span id="L253"><span class="lineNum">     253</span> <span class="tlaUNC">           0 :    logic        lsu_i0_valid_d, lsu_i0_valid_m, lsu_i0_valid_r;</span></span>
+<span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC tlaBgGNC">           4 :    el2_lsu_pkt_t    lsu_pkt_d, lsu_pkt_m, lsu_pkt_r;</span></span>
+<span id="L253"><span class="lineNum">     253</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        lsu_i0_valid_d, lsu_i0_valid_m, lsu_i0_valid_r;</span></span>
 <span id="L254"><span class="lineNum">     254</span>              :   assign lsu_pmp_we = lsu_pkt_d.store &amp; lsu_pkt_d.valid;</span>
 <span id="L255"><span class="lineNum">     255</span>              :   assign lsu_pmp_re = lsu_pkt_d.load &amp; lsu_pkt_d.valid;</span>
 <span id="L256"><span class="lineNum">     256</span>              : </span>

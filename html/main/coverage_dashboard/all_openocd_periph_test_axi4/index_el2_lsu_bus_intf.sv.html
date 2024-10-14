@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    11-10-2024
+                    14-10-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff6700;">
-        20.4%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff6c00;">
+        21.4%
     </td>
     <td class="headerCovSummaryEntry">
-        21
+        22
     </td>
     <td class="headerCovSummaryEntry">
         103
@@ -169,7 +169,7 @@
 <span id="L65"><span class="lineNum">      65</span>              : </span>
 <span id="L66"><span class="lineNum">      66</span> <span class="tlaUNC">           0 :    input logic                          lsu_commit_r,                      // lsu instruction in r commits</span></span>
 <span id="L67"><span class="lineNum">      67</span> <span class="tlaUNC">           0 :    input logic                          is_sideeffects_m,                  // lsu attribute is side_effects</span></span>
-<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC tlaBgGNC">          16 :    input logic                          flush_m_up,                        // flush</span></span>
+<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC tlaBgGNC">          20 :    input logic                          flush_m_up,                        // flush</span></span>
 <span id="L69"><span class="lineNum">      69</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                          flush_r,                           // flush</span></span>
 <span id="L70"><span class="lineNum">      70</span> <span class="tlaUNC">           0 :    input logic                          ldst_dual_d, ldst_dual_m, ldst_dual_r,</span></span>
 <span id="L71"><span class="lineNum">      71</span>              : </span>
@@ -266,8 +266,8 @@
 <span id="L162"><span class="lineNum">     162</span>              :    output logic                        lsu_axi_rready,</span>
 <span id="L163"><span class="lineNum">     163</span>              :    /*verilator coverage_on*/</span>
 <span id="L164"><span class="lineNum">     164</span> <span class="tlaUNC">           0 :    input  logic [pt.LSU_BUS_TAG-1:0]   lsu_axi_rid,</span></span>
-<span id="L165"><span class="lineNum">     165</span> <span class="tlaUNC">           0 :    input  logic [63:0]                 lsu_axi_rdata,</span></span>
-<span id="L166"><span class="lineNum">     166</span> <span class="tlaUNC">           0 :    input  logic [1:0]                  lsu_axi_rresp,</span></span>
+<span id="L165"><span class="lineNum">     165</span> <span class="tlaGNC tlaBgGNC">          16 :    input  logic [63:0]                 lsu_axi_rdata,</span></span>
+<span id="L166"><span class="lineNum">     166</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic [1:0]                  lsu_axi_rresp,</span></span>
 <span id="L167"><span class="lineNum">     167</span>              : </span>
 <span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC tlaBgGNC">           2 :    input logic                         lsu_bus_clk_en</span></span>
 <span id="L169"><span class="lineNum">     169</span>              : </span>
