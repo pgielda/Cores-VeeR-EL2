@@ -685,6 +685,9 @@ This second core will be referred to as a Shadow Core in this chapter.</p>
 <p>The Shadow Core is delayed by a constant, configurable <code class="docutils literal notranslate"><span class="pre">DELAY</span></code> number of clock cycles with regards to the main core.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">DCCM</span></code> and <code class="docutils literal notranslate"><span class="pre">ICCM</span></code> memories are not duplicated, and only the main VeeR EL2 CPU core has access to them.
 The Shadow Core is only supplied with the delayed inputs of the main core, including the relevant <code class="docutils literal notranslate"><span class="pre">DCCM</span></code> and <code class="docutils literal notranslate"><span class="pre">ICCM</span></code> data, without any ability to read from or write to those memories by itself.</p>
+<p>Similarly, <code class="docutils literal notranslate"><span class="pre">Icache</span></code> is not duplicated with only the main VeeR EL2 CPU core having direct access.
+Shadow Core will receive a delayed copy of main core’s <code class="docutils literal notranslate"><span class="pre">Icache</span></code> inputs.
+The copy of main core’s <code class="docutils literal notranslate"><span class="pre">Icache</span></code> outputs will be passed into the <code class="docutils literal notranslate"><span class="pre">Equivalency</span> <span class="pre">Checker</span></code> to be validated against Shadow Core’s <code class="docutils literal notranslate"><span class="pre">Icache</span></code> outputs.</p>
 <p>Both cores operate on separate register files.</p>
 <p>The Shadow Core’s register file can be monitored via the exposed <code class="docutils literal notranslate"><span class="pre">Register</span> <span class="pre">File</span> <span class="pre">Interface</span></code>.</p>
 <p>The diagram below outlines the architecture of the proposed solution.</p>
@@ -692,7 +695,7 @@ The Shadow Core is only supplied with the delayed inputs of the main core, inclu
 <p>Outputs and the register file from the main core are delayed by <code class="docutils literal notranslate"><span class="pre">DELAY</span></code> cycles and passed to the <code class="docutils literal notranslate"><span class="pre">Equivalency</span> <span class="pre">Checker</span></code> for verification against the outputs and the register file of the Shadow Core.</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">Equivalency</span> <span class="pre">Checker</span></code> detects a mismatch between the cores, the logic will assert a panic signal.</p>
 <p>It is up to the integrator to provide the error handling for the corruption detection.</p>
-<p><a class="reference internal" href="#monitored-registers">Monitored registers</a> are exposed for comparison purposes from the <a class="reference external" href="https://github.com/chipsalliance/Cores-VeeR-EL2/blob/795eb588e34b6815033b769d54fcf7cfac4aae3a/design/dec/el2_dec_tlu_ctl.sv">el2_dec_tlu_ctl</a> module through the <a class="reference external" href="https://github.com/chipsalliance/Cores-VeeR-EL2/blob/795eb588e34b6815033b769d54fcf7cfac4aae3a/design/dec/el2_dec.sv">el2_dec</a> instantiated in the <a class="reference external" href="https://github.com/chipsalliance/Cores-VeeR-EL2/blob/795eb588e34b6815033b769d54fcf7cfac4aae3a/design/el2_veer.sv#L924">el2_veer</a> module.</p>
+<p><a class="reference internal" href="#monitored-registers">Monitored registers</a> are exposed for comparison purposes from the <a class="reference external" href="https://github.com/chipsalliance/Cores-VeeR-EL2/blob/795eb588e34b6815033b769d54fcf7cfac4aae3a/design/dec/el2_dec_tlu_ctl.sv">el2_dec_tlu_ctl</a> and <a class="reference external" href="https://github.com/chipsalliance/Cores-VeeR-EL2/blob/795eb588e34b6815033b769d54fcf7cfac4aae3a/design/dec/el2_dec_gpr_ctl.sv">el2_dec_gpr_ctl</a> modules through the <a class="reference external" href="https://github.com/chipsalliance/Cores-VeeR-EL2/blob/795eb588e34b6815033b769d54fcf7cfac4aae3a/design/dec/el2_dec.sv">el2_dec</a> instantiated in <a class="reference external" href="https://github.com/chipsalliance/Cores-VeeR-EL2/blob/795eb588e34b6815033b769d54fcf7cfac4aae3a/design/el2_veer.sv#L924">el2_veer</a> module.</p>
 <h3 id="error-policy"><span class="section-number">5.1.1. </span>Error Policy<a class="headerlink" href="#error-policy" title="Link to this heading">¶</a></h3>
 <p>Depending on the application and its security requirements, one of the following error policies can be configured:</p>
 <ul class="simple">
@@ -700,7 +703,7 @@ The Shadow Core is only supplied with the delayed inputs of the main core, inclu
 <li><p>Detected error will trigger an interrupt and halt the execution until the interrupt is handled.</p></li>
 <li><p>Detected error will escalate the problem to the external controller and await the reset of the system.</p></li>
 </ul>
-<p>Upon receiving the panic signal it is assumed that the VeeR Core’s state is corrupted, and the system is expected to perform a full reset.</p>
+<p>It is up to the integrator to choose the error policy and provide a handler logic (e.g. external reset block).</p>
 <h3 id="monitored-registers"><span class="section-number">5.1.2. </span>Monitored Registers<a class="headerlink" href="#monitored-registers" title="Link to this heading">¶</a></h3>
 <p>To determine whether a discrepancy has occurred, the outputs from both cores will be compared taking into account a reasonable subset of the VeeR EL2 registers, as defined in the table below:</p>
 <table class="docutils data align-center" id="tab-dcls-monitored-veer-el2-registers">
@@ -709,77 +712,59 @@ The Shadow Core is only supplied with the delayed inputs of the main core, inclu
 <tr class="row-odd"><td><p><strong>Name</strong></p></td>
 <td><p><strong>Description</strong></p></td>
 </tr>
-<tr class="row-even"><td><p>pc</p></td>
+<tr class="row-even"><td><p>x1 (ra)</p></td>
+<td><p>Return address</p></td>
+</tr>
+<tr class="row-odd"><td><p>x2 (sp)</p></td>
+<td><p>Stack pointer</p></td>
+</tr>
+<tr class="row-even"><td><p>x8 (s0/fp)</p></td>
+<td><p>Saved register / frame pointer</p></td>
+</tr>
+<tr class="row-odd"><td><p>x10-x11 (a0-a1)</p></td>
+<td><p>Function arguments / return values</p></td>
+</tr>
+<tr class="row-even"><td><p>x12-17 (a2-7)</p></td>
+<td><p>Function arguments</p></td>
+</tr>
+<tr class="row-odd"><td><p>pc</p></td>
 <td><p>Program Counter</p></td>
 </tr>
-<tr class="row-odd"><td><p>npc</p></td>
+<tr class="row-even"><td><p>npc</p></td>
 <td><p>Next Program Counter</p></td>
 </tr>
-<tr class="row-even"><td><p>mstatus</p></td>
+<tr class="row-odd"><td><p>mstatus</p></td>
 <td><p>Machine status</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="adaptations.html#machine-interrupt-enable-mie-and-machine-interrupt-pending-mip-registers"><span class="std std-ref">mie</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="adaptations.html#machine-interrupt-enable-mie-and-machine-interrupt-pending-mip-registers"><span class="std std-ref">mie</span></a></p></td>
 <td><p>Machine interrupt enable</p></td>
 </tr>
-<tr class="row-even"><td><p>mtvec</p></td>
+<tr class="row-odd"><td><p>mtvec</p></td>
 <td><p>Machine trap-handler base address</p></td>
 </tr>
-<tr class="row-odd"><td><p>mscratch</p></td>
+<tr class="row-even"><td><p>mscratch</p></td>
 <td><p>Scratch register for machine trap handlers</p></td>
 </tr>
-<tr class="row-even"><td><p>mepc</p></td>
+<tr class="row-odd"><td><p>mepc</p></td>
 <td><p>Machine exception program counter</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="adaptations.html#machine-cause-register-mcause"><span class="std std-ref">mcause</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="adaptations.html#machine-cause-register-mcause"><span class="std std-ref">mcause</span></a></p></td>
 <td><p>Machine trap cause</p></td>
 </tr>
-<tr class="row-even"><td><p>mtval</p></td>
+<tr class="row-odd"><td><p>mtval</p></td>
 <td><p>Machine bad address or instruction</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="adaptations.html#machine-interrupt-enable-mie-and-machine-interrupt-pending-mip-registers"><span class="std std-ref">mip</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="adaptations.html#machine-interrupt-enable-mie-and-machine-interrupt-pending-mip-registers"><span class="std std-ref">mip</span></a></p></td>
 <td><p>Machine interrupt pending</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="debugging.html#trigger-select-register-tselect"><span class="std std-ref">tselect</span></a></p></td>
-<td><p>Debug/Trace trigger register select</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="debugging.html#trigger-data-1-register-tdata1"><span class="std std-ref">tdata1</span></a></p></td>
-<td><p>First Debug/Trace trigger data</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="debugging.html#match-control-register-mcontrol"><span class="std std-ref">mcontrol</span></a></p></td>
-<td><p>Match control</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="debugging.html#trigger-data-2-register-tdata2"><span class="std std-ref">tdata2</span></a></p></td>
-<td><p>Second Debug/Trace trigger data</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="debugging.html#debug-control-and-status-register-dcsr"><span class="std std-ref">dcsr</span></a></p></td>
-<td><p>Debug control and status register</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="debugging.html#debug-pc-register-dpc"><span class="std std-ref">dpc</span></a></p></td>
-<td><p>Debug PC</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="performance.html#standard-risc-v-registers"><span class="std std-ref">mcycle</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="performance.html#standard-risc-v-registers"><span class="std std-ref">mcycle</span></a></p></td>
 <td><p>Machine cycle counter</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="performance.html#standard-risc-v-registers"><span class="std std-ref">minstret</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="performance.html#standard-risc-v-registers"><span class="std std-ref">minstret</span></a></p></td>
 <td><p>Machine instructions-retired counter</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="memory-map.html#region-access-control-register-mrac"><span class="std std-ref">mrac</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="memory-map.html#region-access-control-register-mrac"><span class="std std-ref">mrac</span></a></p></td>
 <td><p>Region access control</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="cache.html#i-cache-array-way-index-selection-register-dicawics"><span class="std std-ref">dicawics</span></a></p></td>
-<td><p>I-cache array/way/index selection (Debug Mode only)</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="cache.html#i-cache-array-data-0-register-dicad0"><span class="std std-ref">dicad0</span></a></p></td>
-<td><p>I-cache array data 0 (Debug Mode only)</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="cache.html#i-cache-array-data-1-register-dicad1"><span class="std std-ref">dicad1</span></a></p></td>
-<td><p>I-cache array data 1 (Debug Mode only)</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="cache.html#i-cache-array-data-0-high-register-dicad0h"><span class="std std-ref">dicad0h</span></a></p></td>
-<td><p>I-cache array data 0 high (Debug Mode only)</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="interrupts.html#external-interrupt-handler-address-pointer-register-meihap"><span class="std std-ref">meihap</span></a></p></td>
-<td><p>External interrupt handler address pointer</p></td>
 </tr>
 </tbody>
 </table>
@@ -788,11 +773,16 @@ The Shadow Core is only supplied with the delayed inputs of the main core, inclu
 <p>Should the monitored registers be dependent on the VeeR configuration?</p>
 </div>
 <h2 id="configuration"><span class="section-number">5.2. </span>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The DCLS feature is not supported in the Debug Mode.
+Entering the Debug Mode with DCLS configured will disable the DCLS until the next reset.</p>
+</div>
 <p>The DCLS feature can be enabled via: <code class="docutils literal notranslate"><span class="pre">--set=dcls_enable</span></code> option.</p>
-<p>The delay can be specified with <code class="docutils literal notranslate"><span class="pre">--set=dcls_delay</span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span> <span class="pre">cycles</span></code>, with the delay between 2 and 4 cycles</p>
+<p>The delay can be specified with <code class="docutils literal notranslate"><span class="pre">--set=dcls_delay</span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4</span> <span class="pre">}</span></code>, with the delay between 2 and 4 cycles.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The range of allowed delays can be discussed in detail and anjusted later.</p>
+<p>The range of allowed delays can be discussed in detail and adjusted later.</p>
 </div>
 <h2 id="validation-plan"><span class="section-number">5.3. </span>Validation Plan<a class="headerlink" href="#validation-plan" title="Link to this heading">¶</a></h2>
 <p>The DCLS feature will be tested within:</p>
@@ -810,7 +800,7 @@ The Shadow Core is only supplied with the delayed inputs of the main core, inclu
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>Check description</p></td>
-<td><p>Verify the panic signal is raised only upon core states’ mismatch. Introduce corruption via VeeR EL2 CPU core inputs directed to the shadow core.</p></td>
+<td><p>Verify the panic signal is raised only upon core states’ mismatch. Introduce corruption via VeeR EL2 CPU core inputs directed to the Shadow Core.</p></td>
 </tr>
 <tr class="row-even"><td><p>Coverage groups</p></td>
 <td><p>Each output of the VeeR EL2 CPU Core is reached when detecting the mismatch by <code class="docutils literal notranslate"><span class="pre">Equivalence</span> <span class="pre">Checker</span></code>. All bounds of configurable delay are reached.</p></td>
@@ -834,7 +824,7 @@ The Shadow Core is only supplied with the delayed inputs of the main core, inclu
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>Check description</p></td>
-<td><p>Verify the panic signal is raised only upon core states’ mismatch. Introduce corruption via the outputs of the main VeeR CPU core directed to <code class="docutils literal notranslate"><span class="pre">Equivalence</span> <span class="pre">Checker</span></code> in the shadow core.</p></td>
+<td><p>Verify the panic signal is raised only upon core states’ mismatch. Introduce corruption via the outputs of the main VeeR CPU core directed to <code class="docutils literal notranslate"><span class="pre">Equivalence</span> <span class="pre">Checker</span></code> in the Shadow Core.</p></td>
 </tr>
 <tr class="row-even"><td><p>Coverage groups</p></td>
 <td><p>Each output of the VeeR EL2 CPU Core is reached when detecting the mismatch by <code class="docutils literal notranslate"><span class="pre">Equivalence</span> <span class="pre">Checker</span></code>. All bounds of configurable delay are reached.</p></td>
@@ -858,7 +848,7 @@ The Shadow Core is only supplied with the delayed inputs of the main core, inclu
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>Check description</p></td>
-<td><p>Verify the panic signal is raised only upon core states’ mismatch. Introduce corruption via exposed registers of the shadow core.</p></td>
+<td><p>Verify the panic signal is raised only upon core states’ mismatch. Introduce corruption via exposed registers of the Shadow Core.</p></td>
 </tr>
 <tr class="row-even"><td><p>Coverage groups</p></td>
 <td><p>Each <a class="reference internal" href="#monitored-registers">monitored register</a> is detected by the <code class="docutils literal notranslate"><span class="pre">Equivalence</span> <span class="pre">Checker</span></code>. All bounds of configurable delay are reached.</p></td>
