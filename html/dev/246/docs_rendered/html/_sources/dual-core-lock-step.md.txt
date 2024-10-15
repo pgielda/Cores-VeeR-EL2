@@ -13,10 +13,6 @@ The Shadow Core is delayed by a constant, configurable `DELAY` number of clock c
 The `DCCM` and `ICCM` memories are not duplicated, and only the main VeeR EL2 CPU core has access to them.
 The Shadow Core is only supplied with the delayed inputs of the main core, including the relevant `DCCM` and `ICCM` data, without any ability to read from or write to those memories by itself.
 
-Similarly, `Icache` is not duplicated with only the main VeeR EL2 CPU core having direct access.
-Shadow Core will receive a delayed copy of main core's `Icache` inputs.
-The copy of main core's `Icache` outputs will be passed into the `Equivalency Checker` to be validated against Shadow Core's `Icache` outputs.
-
 Both cores operate on separate register files.
 
 The Shadow Core's register file can be monitored via the exposed `Register File Interface`.
@@ -31,7 +27,7 @@ If the `Equivalency Checker` detects a mismatch between the cores, the logic wil
 
 It is up to the integrator to provide the error handling for the corruption detection.
 
-[Monitored registers](#monitored-registers) are exposed for comparison purposes from the [el2_dec_tlu_ctl](https://github.com/chipsalliance/Cores-VeeR-EL2/blob/795eb588e34b6815033b769d54fcf7cfac4aae3a/design/dec/el2_dec_tlu_ctl.sv) and [el2_dec_gpr_ctl](https://github.com/chipsalliance/Cores-VeeR-EL2/blob/795eb588e34b6815033b769d54fcf7cfac4aae3a/design/dec/el2_dec_gpr_ctl.sv) modules through the [el2_dec](https://github.com/chipsalliance/Cores-VeeR-EL2/blob/795eb588e34b6815033b769d54fcf7cfac4aae3a/design/dec/el2_dec.sv) instantiated in [el2_veer](https://github.com/chipsalliance/Cores-VeeR-EL2/blob/795eb588e34b6815033b769d54fcf7cfac4aae3a/design/el2_veer.sv#L924) module.
+[Monitored registers](#monitored-registers) are exposed for comparison purposes from the [el2_dec_tlu_ctl](https://github.com/chipsalliance/Cores-VeeR-EL2/blob/795eb588e34b6815033b769d54fcf7cfac4aae3a/design/dec/el2_dec_tlu_ctl.sv) module through the [el2_dec](https://github.com/chipsalliance/Cores-VeeR-EL2/blob/795eb588e34b6815033b769d54fcf7cfac4aae3a/design/dec/el2_dec.sv) instantiated in the [el2_veer](https://github.com/chipsalliance/Cores-VeeR-EL2/blob/795eb588e34b6815033b769d54fcf7cfac4aae3a/design/el2_veer.sv#L924) module.
 
 ### Error Policy
 
@@ -41,7 +37,7 @@ Depending on the application and its security requirements, one of the following
 * Detected error will trigger an interrupt and halt the execution until the interrupt is handled.
 * Detected error will escalate the problem to the external controller and await the reset of the system.
 
-It is up to the integrator to choose the error policy and provide a handler logic (e.g. external reset block).
+Upon receiving the panic signal it is assumed that the VeeR Core's state is corrupted, and the system is expected to perform a full reset.
 
 ### Monitored Registers
 
@@ -54,16 +50,6 @@ To determine whether a discrepancy has occurred, the outputs from both cores wil
 
 * - **Name**
   - **Description**
-* - x1 (ra)
-  - Return address
-* - x2 (sp)
-  - Stack pointer
-* - x8 (s0/fp)
-  - Saved register / frame pointer
-* - x10-x11 (a0-a1)
-  - Function arguments / return values
-* - x12-17 (a2-7)
-  - Function arguments
 * - pc
   - Program Counter
 * - npc
@@ -84,12 +70,34 @@ To determine whether a discrepancy has occurred, the outputs from both cores wil
   - Machine bad address or instruction
 * - [mip](adaptations.md#machine-interrupt-enable-mie-and-machine-interrupt-pending-mip-registers)
   - Machine interrupt pending
+* - [tselect](debugging.md#trigger-select-register-tselect)
+  - Debug/Trace trigger register select
+* - [tdata1](debugging.md#trigger-data-1-register-tdata1)
+  - First Debug/Trace trigger data
+* - [mcontrol](debugging.md#match-control-register-mcontrol)
+  - Match control
+* - [tdata2](debugging.md#trigger-data-2-register-tdata2)
+  - Second Debug/Trace trigger data
+* - [dcsr](debugging.md#debug-control-and-status-register-dcsr)
+  - Debug control and status register
+* - [dpc](debugging.md#debug-pc-register-dpc)
+  - Debug PC
 * - [mcycle](performance.md#standard-risc-v-registers)
   - Machine cycle counter
 * - [minstret](performance.md#standard-risc-v-registers)
   - Machine instructions-retired counter
 * - [mrac](memory-map.md#region-access-control-register-mrac)
   - Region access control
+* - [dicawics](cache.md#i-cache-arraywayindex-selection-register-dicawics)
+  - I-cache array/way/index selection (Debug Mode only)
+* - [dicad0](cache.md#i-cache-array-data-0-register-dicad0)
+  - I-cache array data 0 (Debug Mode only)
+* - [dicad1](cache.md#i-cache-array-data-1-register-dicad1)
+  - I-cache array data 1 (Debug Mode only)
+* - [dicad0h](cache.md#i-cache-array-data-0-high-register-dicad0h)
+  - I-cache array data 0 high (Debug Mode only)
+* - [meihap](interrupts.md#external-interrupt-handler-address-pointer-register-meihap)
+  - External interrupt handler address pointer
 :::
 
 ```{note}
@@ -98,17 +106,12 @@ Should the monitored registers be dependent on the VeeR configuration?
 
 ## Configuration
 
-```{warning}
-The DCLS feature is not supported in the Debug Mode.
-Entering the Debug Mode with DCLS configured will result in a non-recoverable error.
-```
-
 The DCLS feature can be enabled via: `--set=dcls_enable` option.
 
-The delay can be specified with `--set=dcls_delay = { 2, 3, 4 }`, with the delay between 2 and 4 cycles.
+The delay can be specified with `--set=dcls_delay = { ... } cycles`, with the delay between 2 and 4 cycles
 
 ```{note}
-The range of allowed delays can be discussed in detail and adjusted later.
+The range of allowed delays can be discussed in detail and anjusted later.
 ```
 
 ## Validation Plan
@@ -128,7 +131,7 @@ The DCLS feature will be tested within:
 * - Reference Document
   -
 * - Check description
-  - Verify the panic signal is raised only upon core states' mismatch. Introduce corruption via VeeR EL2 CPU core inputs directed to the Shadow Core.
+  - Verify the panic signal is raised only upon core states' mismatch. Introduce corruption via VeeR EL2 CPU core inputs directed to the shadow core.
 * - Coverage groups
   - Each output of the VeeR EL2 CPU Core is reached when detecting the mismatch by `Equivalence Checker`. All bounds of configurable delay are reached.
 * - Assertions
@@ -144,7 +147,7 @@ The DCLS feature will be tested within:
 * - Reference Document
   -
 * - Check description
-  - Verify the panic signal is raised only upon core states' mismatch. Introduce corruption via the outputs of the main VeeR CPU core directed to `Equivalence Checker` in the Shadow Core.
+  - Verify the panic signal is raised only upon core states' mismatch. Introduce corruption via the outputs of the main VeeR CPU core directed to `Equivalence Checker` in the shadow core.
 * - Coverage groups
   - Each output of the VeeR EL2 CPU Core is reached when detecting the mismatch by `Equivalence Checker`. All bounds of configurable delay are reached.
 * - Assertions
@@ -160,7 +163,7 @@ The DCLS feature will be tested within:
 * - Reference Document
   -
 * - Check description
-  - Verify the panic signal is raised only upon core states' mismatch. Introduce corruption via exposed registers of the Shadow Core.
+  - Verify the panic signal is raised only upon core states' mismatch. Introduce corruption via exposed registers of the shadow core.
 * - Coverage groups
   - Each [monitored register](#monitored-registers) is detected by the `Equivalence Checker`. All bounds of configurable delay are reached.
 * - Assertions
