@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    14-10-2024
+                    15-10-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff7100;">
-        22.3%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff8500;">
+        26.2%
     </td>
     <td class="headerCovSummaryEntry">
-        23
+        27
     </td>
     <td class="headerCovSummaryEntry">
         103
@@ -131,7 +131,7 @@
 <span id="L27"><span class="lineNum">      27</span>              : #(</span>
 <span id="L28"><span class="lineNum">      28</span>              : `include "el2_param.vh"</span>
 <span id="L29"><span class="lineNum">      29</span>              :  )(</span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     9693588 :    input logic                          clk,                                // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     8000004 :    input logic                          clk,                                // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                          clk_override,                       // Override non-functional clock gating</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC tlaBgGNC">           2 :    input logic                          rst_l,                              // reset, active low</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                          scan_mode,                          // scan mode</span></span>
@@ -143,22 +143,22 @@
 <span id="L39"><span class="lineNum">      39</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                          lsu_bus_obuf_c1_clken,              // obuf clock enable</span></span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC">           0 :    input logic                          lsu_busm_clken,                     // bus clock enable</span></span>
 <span id="L41"><span class="lineNum">      41</span>              : </span>
-<span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC tlaBgGNC">     9693588 :    input logic                          lsu_c1_r_clk,                       // r pipe single pulse clock</span></span>
-<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">     9693588 :    input logic                          lsu_c2_r_clk,                       // r pipe double pulse clock</span></span>
-<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">     9693588 :    input logic                          lsu_bus_ibuf_c1_clk,                // ibuf single pulse clock</span></span>
+<span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC tlaBgGNC">     8000004 :    input logic                          lsu_c1_r_clk,                       // r pipe single pulse clock</span></span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">     8000004 :    input logic                          lsu_c2_r_clk,                       // r pipe double pulse clock</span></span>
+<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">     8000004 :    input logic                          lsu_bus_ibuf_c1_clk,                // ibuf single pulse clock</span></span>
 <span id="L45"><span class="lineNum">      45</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                          lsu_bus_obuf_c1_clk,                // obuf single pulse clock</span></span>
-<span id="L46"><span class="lineNum">      46</span> <span class="tlaGNC tlaBgGNC">     9693588 :    input logic                          lsu_bus_buf_c1_clk,                 // buf  single pulse clock</span></span>
-<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC">     9693588 :    input logic                          lsu_free_c2_clk,                    // free clock double pulse clock</span></span>
-<span id="L48"><span class="lineNum">      48</span> <span class="tlaGNC">     9693588 :    input logic                          active_clk,                         // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L46"><span class="lineNum">      46</span> <span class="tlaGNC tlaBgGNC">     8000004 :    input logic                          lsu_bus_buf_c1_clk,                 // buf  single pulse clock</span></span>
+<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC">     8000004 :    input logic                          lsu_free_c2_clk,                    // free clock double pulse clock</span></span>
+<span id="L48"><span class="lineNum">      48</span> <span class="tlaGNC">     8000004 :    input logic                          active_clk,                         // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
 <span id="L49"><span class="lineNum">      49</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                          lsu_busm_clk,                       // bus clock</span></span>
 <span id="L50"><span class="lineNum">      50</span>              : </span>
 <span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC tlaBgGNC">           4 :    input logic                          dec_lsu_valid_raw_d,               // Raw valid for address computation</span></span>
 <span id="L52"><span class="lineNum">      52</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                          lsu_busreq_m,                      // bus request is in m</span></span>
 <span id="L53"><span class="lineNum">      53</span>              : </span>
-<span id="L54"><span class="lineNum">      54</span> <span class="tlaUNC">           0 :    input                                el2_lsu_pkt_t lsu_pkt_m,          // lsu packet flowing down the pipe</span></span>
-<span id="L55"><span class="lineNum">      55</span> <span class="tlaUNC">           0 :    input                                el2_lsu_pkt_t lsu_pkt_r,          // lsu packet flowing down the pipe</span></span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC tlaBgGNC">           4 :    input                                el2_lsu_pkt_t lsu_pkt_m,          // lsu packet flowing down the pipe</span></span>
+<span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">           4 :    input                                el2_lsu_pkt_t lsu_pkt_r,          // lsu packet flowing down the pipe</span></span>
 <span id="L56"><span class="lineNum">      56</span>              : </span>
-<span id="L57"><span class="lineNum">      57</span> <span class="tlaUNC">           0 :    input logic [31:0]                   lsu_addr_m,                        // lsu address flowing down the pipe</span></span>
+<span id="L57"><span class="lineNum">      57</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:0]                   lsu_addr_m,                        // lsu address flowing down the pipe</span></span>
 <span id="L58"><span class="lineNum">      58</span> <span class="tlaUNC">           0 :    input logic [31:0]                   lsu_addr_r,                        // lsu address flowing down the pipe</span></span>
 <span id="L59"><span class="lineNum">      59</span>              : </span>
 <span id="L60"><span class="lineNum">      60</span> <span class="tlaUNC">           0 :    input logic [31:0]                   end_addr_m,                        // lsu address flowing down the pipe</span></span>
@@ -169,7 +169,7 @@
 <span id="L65"><span class="lineNum">      65</span>              : </span>
 <span id="L66"><span class="lineNum">      66</span> <span class="tlaUNC">           0 :    input logic                          lsu_commit_r,                      // lsu instruction in r commits</span></span>
 <span id="L67"><span class="lineNum">      67</span> <span class="tlaUNC">           0 :    input logic                          is_sideeffects_m,                  // lsu attribute is side_effects</span></span>
-<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC tlaBgGNC">          28 :    input logic                          flush_m_up,                        // flush</span></span>
+<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC tlaBgGNC">          36 :    input logic                          flush_m_up,                        // flush</span></span>
 <span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC">           4 :    input logic                          flush_r,                           // flush</span></span>
 <span id="L70"><span class="lineNum">      70</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                          ldst_dual_d, ldst_dual_m, ldst_dual_r,</span></span>
 <span id="L71"><span class="lineNum">      71</span>              : </span>
@@ -266,7 +266,7 @@
 <span id="L162"><span class="lineNum">     162</span>              :    output logic                        lsu_axi_rready,</span>
 <span id="L163"><span class="lineNum">     163</span>              :    /*verilator coverage_on*/</span>
 <span id="L164"><span class="lineNum">     164</span> <span class="tlaUNC">           0 :    input  logic [pt.LSU_BUS_TAG-1:0]   lsu_axi_rid,</span></span>
-<span id="L165"><span class="lineNum">     165</span> <span class="tlaGNC tlaBgGNC">           4 :    input  logic [63:0]                 lsu_axi_rdata,</span></span>
+<span id="L165"><span class="lineNum">     165</span> <span class="tlaGNC tlaBgGNC">           8 :    input  logic [63:0]                 lsu_axi_rdata,</span></span>
 <span id="L166"><span class="lineNum">     166</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic [1:0]                  lsu_axi_rresp,</span></span>
 <span id="L167"><span class="lineNum">     167</span>              : </span>
 <span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC tlaBgGNC">           2 :    input logic                         lsu_bus_clk_en</span></span>
@@ -277,11 +277,11 @@
 <span id="L173"><span class="lineNum">     173</span>              : </span>
 <span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC">           2 :    logic              lsu_bus_clk_en_q;</span></span>
 <span id="L175"><span class="lineNum">     175</span>              : </span>
-<span id="L176"><span class="lineNum">     176</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [3:0]        ldst_byteen_m, ldst_byteen_r;</span></span>
-<span id="L177"><span class="lineNum">     177</span> <span class="tlaUNC">           0 :    logic [7:0]        ldst_byteen_ext_m, ldst_byteen_ext_r;</span></span>
+<span id="L176"><span class="lineNum">     176</span> <span class="tlaGNC">           2 :    logic [3:0]        ldst_byteen_m, ldst_byteen_r;</span></span>
+<span id="L177"><span class="lineNum">     177</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [7:0]        ldst_byteen_ext_m, ldst_byteen_ext_r;</span></span>
 <span id="L178"><span class="lineNum">     178</span> <span class="tlaUNC">           0 :    logic [3:0]        ldst_byteen_hi_m, ldst_byteen_hi_r;</span></span>
-<span id="L179"><span class="lineNum">     179</span> <span class="tlaUNC">           0 :    logic [3:0]        ldst_byteen_lo_m, ldst_byteen_lo_r;</span></span>
-<span id="L180"><span class="lineNum">     180</span> <span class="tlaUNC">           0 :    logic              is_sideeffects_r;</span></span>
+<span id="L179"><span class="lineNum">     179</span> <span class="tlaGNC tlaBgGNC">           2 :    logic [3:0]        ldst_byteen_lo_m, ldst_byteen_lo_r;</span></span>
+<span id="L180"><span class="lineNum">     180</span> <span class="tlaUNC tlaBgUNC">           0 :    logic              is_sideeffects_r;</span></span>
 <span id="L181"><span class="lineNum">     181</span>              : </span>
 <span id="L182"><span class="lineNum">     182</span> <span class="tlaUNC">           0 :    logic [63:0]       store_data_ext_r;</span></span>
 <span id="L183"><span class="lineNum">     183</span> <span class="tlaUNC">           0 :    logic [31:0]       store_data_hi_r;</span></span>

@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    14-10-2024
+                    15-10-2024
                 </td>
                 <td></td>
                 
@@ -131,7 +131,7 @@
 <span id="L27"><span class="lineNum">      27</span>              : `include "el2_param.vh"</span>
 <span id="L28"><span class="lineNum">      28</span>              : )</span>
 <span id="L29"><span class="lineNum">      29</span>              : (</span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     4675496 :    input logic                             clk,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     8000120 :    input logic                             clk,</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           2 :    input logic                             rst_l,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           2 :    input logic                             dbg_rst_l,</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:1]                      rst_vec,</span></span>
@@ -449,9 +449,9 @@
 <span id="L345"><span class="lineNum">     345</span>              :    /*verilator coverage_on*/</span>
 <span id="L346"><span class="lineNum">     346</span> <span class="tlaUNC">           0 :    output logic [3:0]                      sb_hprot,</span></span>
 <span id="L347"><span class="lineNum">     347</span> <span class="tlaUNC">           0 :    output logic [2:0]                      sb_hsize,</span></span>
-<span id="L348"><span class="lineNum">     348</span> <span class="tlaGNC tlaBgGNC">        1916 :    output logic [1:0]                      sb_htrans,</span></span>
-<span id="L349"><span class="lineNum">     349</span> <span class="tlaGNC">         226 :    output logic                            sb_hwrite,</span></span>
-<span id="L350"><span class="lineNum">     350</span> <span class="tlaGNC">          66 :    output logic [63:0]                     sb_hwdata,</span></span>
+<span id="L348"><span class="lineNum">     348</span> <span class="tlaGNC tlaBgGNC">        1912 :    output logic [1:0]                      sb_htrans,</span></span>
+<span id="L349"><span class="lineNum">     349</span> <span class="tlaGNC">         224 :    output logic                            sb_hwrite,</span></span>
+<span id="L350"><span class="lineNum">     350</span> <span class="tlaGNC">          64 :    output logic [63:0]                     sb_hwdata,</span></span>
 <span id="L351"><span class="lineNum">     351</span>              : </span>
 <span id="L352"><span class="lineNum">     352</span>              :    /* exclude signals that are tied to constant value in this file */</span>
 <span id="L353"><span class="lineNum">     353</span>              :    /*verilator coverage_off*/</span>
@@ -506,12 +506,12 @@
 <span id="L402"><span class="lineNum">     402</span> <span class="tlaUNC">           0 :    output logic                            dec_tlu_perfcnt3,</span></span>
 <span id="L403"><span class="lineNum">     403</span>              : </span>
 <span id="L404"><span class="lineNum">     404</span>              :    // ports added by the soc team</span>
-<span id="L405"><span class="lineNum">     405</span> <span class="tlaGNC tlaBgGNC">     1610342 :    input logic                             jtag_tck,    // JTAG clk</span></span>
-<span id="L406"><span class="lineNum">     406</span> <span class="tlaGNC">       96716 :    input logic                             jtag_tms,    // JTAG TMS</span></span>
-<span id="L407"><span class="lineNum">     407</span> <span class="tlaGNC">      124504 :    input logic                             jtag_tdi,    // JTAG tdi</span></span>
+<span id="L405"><span class="lineNum">     405</span> <span class="tlaGNC tlaBgGNC">     1610724 :    input logic                             jtag_tck,    // JTAG clk</span></span>
+<span id="L406"><span class="lineNum">     406</span> <span class="tlaGNC">       96736 :    input logic                             jtag_tms,    // JTAG TMS</span></span>
+<span id="L407"><span class="lineNum">     407</span> <span class="tlaGNC">      124520 :    input logic                             jtag_tdi,    // JTAG tdi</span></span>
 <span id="L408"><span class="lineNum">     408</span> <span class="tlaGNC">           2 :    input logic                             jtag_trst_n, // JTAG Reset</span></span>
-<span id="L409"><span class="lineNum">     409</span> <span class="tlaGNC">      122108 :    output logic                            jtag_tdo,    // JTAG TDO</span></span>
-<span id="L410"><span class="lineNum">     410</span> <span class="tlaGNC">       48354 :    output logic                            jtag_tdoEn,  // JTAG Test Data Output enable</span></span>
+<span id="L409"><span class="lineNum">     409</span> <span class="tlaGNC">      122168 :    output logic                            jtag_tdo,    // JTAG TDO</span></span>
+<span id="L410"><span class="lineNum">     410</span> <span class="tlaGNC">       48364 :    output logic                            jtag_tdoEn,  // JTAG Test Data Output enable</span></span>
 <span id="L411"><span class="lineNum">     411</span>              : </span>
 <span id="L412"><span class="lineNum">     412</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:4] core_id,</span></span>
 <span id="L413"><span class="lineNum">     413</span>              : </span>
@@ -548,8 +548,8 @@
 <span id="L444"><span class="lineNum">     444</span>              :    /* verilator coverage_on */</span>
 <span id="L445"><span class="lineNum">     445</span>              : );</span>
 <span id="L446"><span class="lineNum">     446</span>              : </span>
-<span id="L447"><span class="lineNum">     447</span> <span class="tlaGNC tlaBgGNC">     4675496 :    logic                             active_l2clk;</span></span>
-<span id="L448"><span class="lineNum">     448</span> <span class="tlaGNC">     4675496 :    logic                             free_l2clk;</span></span>
+<span id="L447"><span class="lineNum">     447</span> <span class="tlaGNC tlaBgGNC">     8000120 :    logic                             active_l2clk;</span></span>
+<span id="L448"><span class="lineNum">     448</span> <span class="tlaGNC">     8000120 :    logic                             free_l2clk;</span></span>
 <span id="L449"><span class="lineNum">     449</span>              : </span>
 <span id="L450"><span class="lineNum">     450</span>              :    // DCCM ports</span>
 <span id="L451"><span class="lineNum">     451</span> <span class="tlaUNC tlaBgUNC">           0 :    logic         dccm_wren;</span></span>
@@ -960,14 +960,14 @@
 <span id="L856"><span class="lineNum">     856</span>              : `endif //  `ifdef RV_BUILD_AHB_LITE</span>
 <span id="L857"><span class="lineNum">     857</span>              : </span>
 <span id="L858"><span class="lineNum">     858</span>              :    // DMI (core)</span>
-<span id="L859"><span class="lineNum">     859</span> <span class="tlaGNC tlaBgGNC">       17592 :    logic                   dmi_en;</span></span>
+<span id="L859"><span class="lineNum">     859</span> <span class="tlaGNC tlaBgGNC">       17596 :    logic                   dmi_en;</span></span>
 <span id="L860"><span class="lineNum">     860</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [6:0]             dmi_addr;</span></span>
 <span id="L861"><span class="lineNum">     861</span> <span class="tlaGNC tlaBgGNC">        6488 :    logic                   dmi_wr_en;</span></span>
 <span id="L862"><span class="lineNum">     862</span> <span class="tlaGNC">          60 :    logic [31:0]            dmi_wdata;</span></span>
 <span id="L863"><span class="lineNum">     863</span> <span class="tlaGNC">          96 :    logic [31:0]            dmi_rdata;</span></span>
 <span id="L864"><span class="lineNum">     864</span>              : </span>
 <span id="L865"><span class="lineNum">     865</span>              :    // DMI (core)</span>
-<span id="L866"><span class="lineNum">     866</span> <span class="tlaGNC">       17592 :    logic                   dmi_reg_en;</span></span>
+<span id="L866"><span class="lineNum">     866</span> <span class="tlaGNC">       17596 :    logic                   dmi_reg_en;</span></span>
 <span id="L867"><span class="lineNum">     867</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [6:0]             dmi_reg_addr;</span></span>
 <span id="L868"><span class="lineNum">     868</span> <span class="tlaGNC tlaBgGNC">        6488 :    logic                   dmi_reg_wr_en;</span></span>
 <span id="L869"><span class="lineNum">     869</span> <span class="tlaGNC">          60 :    logic [31:0]            dmi_reg_wdata;</span></span>
