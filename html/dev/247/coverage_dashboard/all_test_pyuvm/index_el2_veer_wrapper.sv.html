@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    15-10-2024
+                    16-10-2024
                 </td>
                 <td></td>
                 
@@ -135,7 +135,7 @@
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                             rst_l,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaUNC">           0 :    input logic                             dbg_rst_l,</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC">           0 :    input logic [31:1]                      rst_vec,</span></span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC tlaBgGNC">          10 :    input logic                             nmi_int,</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC tlaBgGNC">          14 :    input logic                             nmi_int,</span></span>
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:1]                      nmi_vec,</span></span>
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaUNC">           0 :    input logic [31:1]                      jtag_id,</span></span>
 <span id="L37"><span class="lineNum">      37</span>              : </span>
@@ -505,8 +505,8 @@
 <span id="L401"><span class="lineNum">     401</span>              :    input                                   el2_ic_tag_ext_in_pkt_t  [pt.ICACHE_NUM_WAYS-1:0] ic_tag_ext_in_pkt,</span>
 <span id="L402"><span class="lineNum">     402</span>              :    /*verilator coverage_on*/</span>
 <span id="L403"><span class="lineNum">     403</span>              : </span>
-<span id="L404"><span class="lineNum">     404</span> <span class="tlaGNC tlaBgGNC">          11 :    input logic                             timer_int,</span></span>
-<span id="L405"><span class="lineNum">     405</span> <span class="tlaGNC">           9 :    input logic                             soft_int,</span></span>
+<span id="L404"><span class="lineNum">     404</span> <span class="tlaGNC tlaBgGNC">           7 :    input logic                             timer_int,</span></span>
+<span id="L405"><span class="lineNum">     405</span> <span class="tlaGNC">           8 :    input logic                             soft_int,</span></span>
 <span id="L406"><span class="lineNum">     406</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [pt.PIC_TOTAL_INT:1]        extintsrc_req,</span></span>
 <span id="L407"><span class="lineNum">     407</span>              : </span>
 <span id="L408"><span class="lineNum">     408</span> <span class="tlaUNC">           0 :    output logic                            dec_tlu_perfcnt0, // toggles when slot0 perf counter 0 has an event inc</span></span>

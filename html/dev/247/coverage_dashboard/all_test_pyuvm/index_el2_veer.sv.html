@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    15-10-2024
+                    16-10-2024
                 </td>
                 <td></td>
                 
@@ -134,7 +134,7 @@
 <span id="L30"><span class="lineNum">      30</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                  rst_l,</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaUNC">           0 :    input logic                  dbg_rst_l,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaUNC">           0 :    input logic [31:1]           rst_vec,</span></span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC tlaBgGNC">          10 :    input logic                  nmi_int,</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC tlaBgGNC">          14 :    input logic                  nmi_int,</span></span>
 <span id="L34"><span class="lineNum">      34</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:1]           nmi_vec,</span></span>
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaUNC">           0 :    output logic                 core_rst_l,   // This is "rst_l | dbg_rst_l"</span></span>
 <span id="L36"><span class="lineNum">      36</span>              : </span>
@@ -578,8 +578,8 @@
 <span id="L474"><span class="lineNum">     474</span> <span class="tlaUNC">           0 :    output logic                 dccm_ecc_double_error,</span></span>
 <span id="L475"><span class="lineNum">     475</span>              : </span>
 <span id="L476"><span class="lineNum">     476</span> <span class="tlaUNC">           0 :    input logic [pt.PIC_TOTAL_INT:1]           extintsrc_req,</span></span>
-<span id="L477"><span class="lineNum">     477</span> <span class="tlaGNC tlaBgGNC">          11 :    input logic                   timer_int,</span></span>
-<span id="L478"><span class="lineNum">     478</span> <span class="tlaGNC">           9 :    input logic                   soft_int,</span></span>
+<span id="L477"><span class="lineNum">     477</span> <span class="tlaGNC tlaBgGNC">           7 :    input logic                   timer_int,</span></span>
+<span id="L478"><span class="lineNum">     478</span> <span class="tlaGNC">           8 :    input logic                   soft_int,</span></span>
 <span id="L479"><span class="lineNum">     479</span>              :    /* exclude signals that are tied to constant value in tb_top.sv */</span>
 <span id="L480"><span class="lineNum">     480</span>              :    /*verilator coverage_off*/</span>
 <span id="L481"><span class="lineNum">     481</span>              :    input logic                   scan_mode</span>
