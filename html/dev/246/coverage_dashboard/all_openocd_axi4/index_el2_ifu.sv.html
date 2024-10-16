@@ -129,9 +129,9 @@
 <span id="L25"><span class="lineNum">      25</span>              : `include "el2_param.vh"</span>
 <span id="L26"><span class="lineNum">      26</span>              :  )</span>
 <span id="L27"><span class="lineNum">      27</span>              :   (</span>
-<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC tlaBgGNC">     6084614 :    input logic free_l2clk,                   // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
-<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">     6084614 :    input logic active_clk,                   // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">     6084614 :    input logic clk,                          // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC tlaBgGNC">     6084596 :    input logic free_l2clk,                   // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">     6084596 :    input logic active_clk,                   // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">     6084596 :    input logic clk,                          // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           2 :    input logic rst_l,                        // reset, active low</span></span>
 <span id="L32"><span class="lineNum">      32</span>              : </span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">       24430 :    input logic dec_i0_decode_d,              // Valid instruction at D and not blocked</span></span>
@@ -284,7 +284,7 @@
 <span id="L180"><span class="lineNum">     180</span> <span class="tlaUNC">           0 :    output logic  iccm_dma_sb_error,   // Single Bit ECC error from a DMA access</span></span>
 <span id="L181"><span class="lineNum">     181</span> <span class="tlaGNC tlaBgGNC">       24336 :    output logic[31:0] ifu_i0_instr,   // Instruction 0 . From Aligner to Decode</span></span>
 <span id="L182"><span class="lineNum">     182</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic[31:1] ifu_i0_pc,      // Instruction 0 pc. From Aligner to Decode</span></span>
-<span id="L183"><span class="lineNum">     183</span> <span class="tlaGNC tlaBgGNC">     3042175 :    output logic ifu_i0_pc4,           // Instruction 0 is 4 byte. From Aligner to Decode</span></span>
+<span id="L183"><span class="lineNum">     183</span> <span class="tlaGNC tlaBgGNC">     3042166 :    output logic ifu_i0_pc4,           // Instruction 0 is 4 byte. From Aligner to Decode</span></span>
 <span id="L184"><span class="lineNum">     184</span>              : </span>
 <span id="L185"><span class="lineNum">     185</span> <span class="tlaGNC">          26 :    output logic ifu_miss_state_idle,   // There is no outstanding miss. Cache miss state is idle.</span></span>
 <span id="L186"><span class="lineNum">     186</span>              : </span>
@@ -348,12 +348,12 @@
 <span id="L244"><span class="lineNum">     244</span> <span class="tlaGNC">       48766 :    logic ic_hit_f;</span></span>
 <span id="L245"><span class="lineNum">     245</span>              : </span>
 <span id="L246"><span class="lineNum">     246</span> <span class="tlaGNC">       24818 :    logic [1:0] ifu_bp_way_f; // way indication; right justified</span></span>
-<span id="L247"><span class="lineNum">     247</span> <span class="tlaGNC">     3017781 :    logic       ifu_bp_hit_taken_f; // kill next fetch; taken target found</span></span>
+<span id="L247"><span class="lineNum">     247</span> <span class="tlaGNC">     3017772 :    logic       ifu_bp_hit_taken_f; // kill next fetch; taken target found</span></span>
 <span id="L248"><span class="lineNum">     248</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [31:1] ifu_bp_btb_target_f; //  predicted target PC</span></span>
-<span id="L249"><span class="lineNum">     249</span> <span class="tlaGNC tlaBgGNC">     2969115 :    logic        ifu_bp_inst_mask_f; // tell ic which valids to kill because of a taken branch; right justified</span></span>
+<span id="L249"><span class="lineNum">     249</span> <span class="tlaGNC tlaBgGNC">     2969106 :    logic        ifu_bp_inst_mask_f; // tell ic which valids to kill because of a taken branch; right justified</span></span>
 <span id="L250"><span class="lineNum">     250</span> <span class="tlaGNC">       48672 :    logic [1:0]  ifu_bp_hist1_f; // history counters for all 4 potential branches; right justified</span></span>
 <span id="L251"><span class="lineNum">     251</span> <span class="tlaGNC">       48656 :    logic [1:0]  ifu_bp_hist0_f; // history counters for all 4 potential branches; right justified</span></span>
-<span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC">     2993425 :    logic [11:0] ifu_bp_poffset_f; // predicted target</span></span>
+<span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC">     2993416 :    logic [11:0] ifu_bp_poffset_f; // predicted target</span></span>
 <span id="L253"><span class="lineNum">     253</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [1:0]  ifu_bp_ret_f; // predicted ret ; right justified</span></span>
 <span id="L254"><span class="lineNum">     254</span> <span class="tlaGNC tlaBgGNC">       48668 :    logic [1:0]  ifu_bp_pc4_f; // pc4 indication; right justified</span></span>
 <span id="L255"><span class="lineNum">     255</span> <span class="tlaGNC">       48668 :    logic [1:0]  ifu_bp_valid_f; // branch valid, right justified</span></span>
