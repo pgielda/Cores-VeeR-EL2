@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    16-10-2024
+                    17-10-2024
                 </td>
                 <td></td>
                 
@@ -126,7 +126,7 @@
 <span id="L22"><span class="lineNum">      22</span>              :   (</span>
 <span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">       10072 :    input  logic                  clk,                // Top level clock</span></span>
 <span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           2 :    input  logic                  rst_l,              // Reset</span></span>
-<span id="L25"><span class="lineNum">      25</span>              :    /* exclude signals that are tied to constant value in tb_top.sv */</span>
+<span id="L25"><span class="lineNum">      25</span>              :    // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L26"><span class="lineNum">      26</span>              :    /*verilator coverage_off*/</span>
 <span id="L27"><span class="lineNum">      27</span>              :    input  logic                  scan_mode,          // Scan control</span>
 <span id="L28"><span class="lineNum">      28</span>              :    /*verilator coverage_on*/</span>
@@ -137,7 +137,7 @@
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">        2522 :    input  logic                  valid_in,           // Valid</span></span>
 <span id="L34"><span class="lineNum">      34</span> <span class="tlaUNC tlaBgUNC">           0 :    input  el2_alu_pkt_t         ap,                 // predecodes</span></span>
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaUNC">           0 :    input  logic                  csr_ren_in,         // CSR select</span></span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">           4 :    input  logic        [31:0]    csr_rddata_in,      // CSR data</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">           8 :    input  logic        [31:0]    csr_rddata_in,      // CSR data</span></span>
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic signed [31:0]    a_in,               // A operand</span></span>
 <span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC tlaBgGNC">           8 :    input  logic        [31:0]    b_in,               // B operand</span></span>
 <span id="L39"><span class="lineNum">      39</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic        [31:1]    pc_in,              // for pc=pc+2,4 calculations</span></span>

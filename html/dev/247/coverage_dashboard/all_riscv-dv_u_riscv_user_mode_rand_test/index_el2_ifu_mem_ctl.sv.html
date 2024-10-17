@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    16-10-2024
+                    17-10-2024
                 </td>
                 <td></td>
                 
@@ -298,7 +298,7 @@
 <span id="L194"><span class="lineNum">     194</span> <span class="tlaGNC tlaBgGNC">          12 :    input  logic                      ifu_pmp_error,</span></span>
 <span id="L195"><span class="lineNum">     195</span>              : </span>
 <span id="L196"><span class="lineNum">     196</span>              : </span>
-<span id="L197"><span class="lineNum">     197</span>              :    /* exclude signals that are tied to constant value in tb_top.sv */</span>
+<span id="L197"><span class="lineNum">     197</span>              :    // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L198"><span class="lineNum">     198</span>              :    /*verilator coverage_off*/</span>
 <span id="L199"><span class="lineNum">     199</span>              :    input  logic         scan_mode</span>
 <span id="L200"><span class="lineNum">     200</span>              :    /*verilator coverage_on*/</span>

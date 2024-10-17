@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    16-10-2024
+                    17-10-2024
                 </td>
                 <td></td>
                 
@@ -189,7 +189,7 @@
 <span id="L85"><span class="lineNum">      85</span>              : </span>
 <span id="L86"><span class="lineNum">      86</span>              :    el2_mem_if.veer_sram_src mem_export,</span>
 <span id="L87"><span class="lineNum">      87</span>              : </span>
-<span id="L88"><span class="lineNum">      88</span>              :    /* exclude signals that are tied to constant value in tb_top.sv */</span>
+<span id="L88"><span class="lineNum">      88</span>              :    // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L89"><span class="lineNum">      89</span>              :    /*verilator coverage_off*/</span>
 <span id="L90"><span class="lineNum">      90</span>              :    input  logic         scan_mode</span>
 <span id="L91"><span class="lineNum">      91</span>              :    /*verilator coverage_on*/</span>

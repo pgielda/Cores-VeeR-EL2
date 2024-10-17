@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    16-10-2024
+                    17-10-2024
                 </td>
                 <td></td>
                 
@@ -139,7 +139,7 @@
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">         792 :    input logic                           lsu_c2_r_clk,       // clock</span></span>
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                           clk_override,       // Override non-functional clock gating</span></span>
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC tlaBgGNC">           2 :    input logic                           rst_l,              // reset, active low</span></span>
-<span id="L38"><span class="lineNum">      38</span>              :    /* exclude signals that are tied to constant value in tb_top.sv */</span>
+<span id="L38"><span class="lineNum">      38</span>              :    // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L39"><span class="lineNum">      39</span>              :    /*verilator coverage_off*/</span>
 <span id="L40"><span class="lineNum">      40</span>              :    input logic                           scan_mode,          // scan mode</span>
 <span id="L41"><span class="lineNum">      41</span>              :    /*verilator coverage_on*/</span>

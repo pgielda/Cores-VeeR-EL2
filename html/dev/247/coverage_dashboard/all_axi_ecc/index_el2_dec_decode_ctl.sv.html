@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    16-10-2024
+                    17-10-2024
                 </td>
                 <td></td>
                 
@@ -192,8 +192,8 @@
 <span id="L88"><span class="lineNum">      88</span>              : </span>
 <span id="L89"><span class="lineNum">      89</span> <span class="tlaGNC">       12486 :    input logic dec_i0_pc4_d,                          // inst is 4B inst else 2B</span></span>
 <span id="L90"><span class="lineNum">      90</span>              : </span>
-<span id="L91"><span class="lineNum">      91</span> <span class="tlaGNC">           4 :    input logic [31:0] dec_csr_rddata_d,               // csr read data at wb</span></span>
-<span id="L92"><span class="lineNum">      92</span> <span class="tlaGNC">          76 :    input logic dec_csr_legal_d,                       // csr indicates legal operation</span></span>
+<span id="L91"><span class="lineNum">      91</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:0] dec_csr_rddata_d,               // csr read data at wb</span></span>
+<span id="L92"><span class="lineNum">      92</span> <span class="tlaGNC tlaBgGNC">          76 :    input logic dec_csr_legal_d,                       // csr indicates legal operation</span></span>
 <span id="L93"><span class="lineNum">      93</span>              : </span>
 <span id="L94"><span class="lineNum">      94</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:0] exu_csr_rs1_x,                  // rs1 for csr instr</span></span>
 <span id="L95"><span class="lineNum">      95</span>              : </span>
@@ -300,7 +300,7 @@
 <span id="L196"><span class="lineNum">     196</span>              : </span>
 <span id="L197"><span class="lineNum">     197</span> <span class="tlaGNC tlaBgGNC">          24 :    output logic       dec_div_active,                 // non-block divide is active</span></span>
 <span id="L198"><span class="lineNum">     198</span>              : </span>
-<span id="L199"><span class="lineNum">     199</span>              :    /* exclude signals that are tied to constant value in tb_top.sv */</span>
+<span id="L199"><span class="lineNum">     199</span>              :    // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L200"><span class="lineNum">     200</span>              :    /*verilator coverage_off*/</span>
 <span id="L201"><span class="lineNum">     201</span>              :    input  logic       scan_mode</span>
 <span id="L202"><span class="lineNum">     202</span>              :    /*verilator coverage_on*/</span>

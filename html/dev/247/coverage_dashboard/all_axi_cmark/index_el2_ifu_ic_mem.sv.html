@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    16-10-2024
+                    17-10-2024
                 </td>
                 <td></td>
                 
@@ -158,7 +158,7 @@
 <span id="L54"><span class="lineNum">      54</span>              : </span>
 <span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC tlaBgGNC">      107388 :       output logic [pt.ICACHE_NUM_WAYS-1:0]         ic_rd_hit,          // ic_rd_hit[3:0]</span></span>
 <span id="L56"><span class="lineNum">      56</span> <span class="tlaUNC tlaBgUNC">           0 :       output logic                                  ic_tag_perr,        // Tag Parity error</span></span>
-<span id="L57"><span class="lineNum">      57</span>              :       /* exclude signals that are tied to constant value in tb_top.sv */</span>
+<span id="L57"><span class="lineNum">      57</span>              :       // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L58"><span class="lineNum">      58</span>              :       /*verilator coverage_off*/</span>
 <span id="L59"><span class="lineNum">      59</span>              :       input  logic                                  scan_mode           // Flop scan mode control</span>
 <span id="L60"><span class="lineNum">      60</span>              :       /*verilator coverage_on*/</span>
@@ -220,7 +220,7 @@
 <span id="L116"><span class="lineNum">     116</span>              : </span>
 <span id="L117"><span class="lineNum">     117</span> <span class="tlaGNC">      107388 :       input logic [pt.ICACHE_NUM_WAYS-1:0]ic_rd_hit,</span></span>
 <span id="L118"><span class="lineNum">     118</span> <span class="tlaUNC tlaBgUNC">           0 :       input el2_ic_data_ext_in_pkt_t  [pt.ICACHE_NUM_WAYS-1:0][pt.ICACHE_BANKS_WAY-1:0] ic_data_ext_in_pkt,   // this is being driven by the top level for soc testing/etc</span></span>
-<span id="L119"><span class="lineNum">     119</span>              :       /* exclude signals that are tied to constant value in tb_top.sv */</span>
+<span id="L119"><span class="lineNum">     119</span>              :       // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L120"><span class="lineNum">     120</span>              :       /*verilator coverage_off*/</span>
 <span id="L121"><span class="lineNum">     121</span>              :       input  logic                         scan_mode</span>
 <span id="L122"><span class="lineNum">     122</span>              :       /*verilator coverage_on*/</span>
@@ -934,7 +934,7 @@
 <span id="L830"><span class="lineNum">     830</span>              : </span>
 <span id="L831"><span class="lineNum">     831</span> <span class="tlaGNC tlaBgGNC">      107388 :       output logic [pt.ICACHE_NUM_WAYS-1:0]                        ic_rd_hit,</span></span>
 <span id="L832"><span class="lineNum">     832</span> <span class="tlaUNC tlaBgUNC">           0 :       output logic                                                 ic_tag_perr,</span></span>
-<span id="L833"><span class="lineNum">     833</span>              :       /* exclude signals that are tied to constant value in tb_top.sv */</span>
+<span id="L833"><span class="lineNum">     833</span>              :       // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L834"><span class="lineNum">     834</span>              :       /*verilator coverage_off*/</span>
 <span id="L835"><span class="lineNum">     835</span>              :       input  logic                                                 scan_mode</span>
 <span id="L836"><span class="lineNum">     836</span>              :       /*verilator coverage_on*/</span>

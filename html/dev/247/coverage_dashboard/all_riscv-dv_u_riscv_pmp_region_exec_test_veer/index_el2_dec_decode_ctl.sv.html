@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    16-10-2024
+                    17-10-2024
                 </td>
                 <td></td>
                 
@@ -300,7 +300,7 @@
 <span id="L196"><span class="lineNum">     196</span>              : </span>
 <span id="L197"><span class="lineNum">     197</span> <span class="tlaGNC tlaBgGNC">           4 :    output logic       dec_div_active,                 // non-block divide is active</span></span>
 <span id="L198"><span class="lineNum">     198</span>              : </span>
-<span id="L199"><span class="lineNum">     199</span>              :    /* exclude signals that are tied to constant value in tb_top.sv */</span>
+<span id="L199"><span class="lineNum">     199</span>              :    // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L200"><span class="lineNum">     200</span>              :    /*verilator coverage_off*/</span>
 <span id="L201"><span class="lineNum">     201</span>              :    input  logic       scan_mode</span>
 <span id="L202"><span class="lineNum">     202</span>              :    /*verilator coverage_on*/</span>

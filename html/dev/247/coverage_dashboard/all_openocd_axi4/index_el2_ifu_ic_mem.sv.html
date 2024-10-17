@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    16-10-2024
+                    17-10-2024
                 </td>
                 <td></td>
                 
@@ -127,8 +127,8 @@
 <span id="L23"><span class="lineNum">      23</span>              : `include "el2_param.vh"</span>
 <span id="L24"><span class="lineNum">      24</span>              :  )</span>
 <span id="L25"><span class="lineNum">      25</span>              :   (</span>
-<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC tlaBgGNC">     6084722 :       input logic                                   clk,                // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
-<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">     6084722 :       input logic                                   active_clk,         // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC tlaBgGNC">     6084622 :       input logic                                   clk,                // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">     6084622 :       input logic                                   active_clk,         // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
 <span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">           2 :       input logic                                   rst_l,              // reset, active low</span></span>
 <span id="L29"><span class="lineNum">      29</span> <span class="tlaUNC tlaBgUNC">           0 :       input logic                                   clk_override,       // Override non-functional clock gating</span></span>
 <span id="L30"><span class="lineNum">      30</span> <span class="tlaUNC">           0 :       input logic                                   dec_tlu_core_ecc_disable,  // Disable ECC checking</span></span>
@@ -158,7 +158,7 @@
 <span id="L54"><span class="lineNum">      54</span>              : </span>
 <span id="L55"><span class="lineNum">      55</span> <span class="tlaUNC">           0 :       output logic [pt.ICACHE_NUM_WAYS-1:0]         ic_rd_hit,          // ic_rd_hit[3:0]</span></span>
 <span id="L56"><span class="lineNum">      56</span> <span class="tlaUNC">           0 :       output logic                                  ic_tag_perr,        // Tag Parity error</span></span>
-<span id="L57"><span class="lineNum">      57</span>              :       /* exclude signals that are tied to constant value in tb_top.sv */</span>
+<span id="L57"><span class="lineNum">      57</span>              :       // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L58"><span class="lineNum">      58</span>              :       /*verilator coverage_off*/</span>
 <span id="L59"><span class="lineNum">      59</span>              :       input  logic                                  scan_mode           // Flop scan mode control</span>
 <span id="L60"><span class="lineNum">      60</span>              :       /*verilator coverage_on*/</span>
@@ -195,8 +195,8 @@
 <span id="L91"><span class="lineNum">      91</span>              : `include "el2_param.vh"</span>
 <span id="L92"><span class="lineNum">      92</span>              :  )</span>
 <span id="L93"><span class="lineNum">      93</span>              :      (</span>
-<span id="L94"><span class="lineNum">      94</span> <span class="tlaGNC tlaBgGNC">     6084722 :       input logic clk,</span></span>
-<span id="L95"><span class="lineNum">      95</span> <span class="tlaGNC">     6084722 :       input logic active_clk,</span></span>
+<span id="L94"><span class="lineNum">      94</span> <span class="tlaGNC tlaBgGNC">     6084622 :       input logic clk,</span></span>
+<span id="L95"><span class="lineNum">      95</span> <span class="tlaGNC">     6084622 :       input logic active_clk,</span></span>
 <span id="L96"><span class="lineNum">      96</span> <span class="tlaGNC">           2 :       input logic rst_l,</span></span>
 <span id="L97"><span class="lineNum">      97</span> <span class="tlaUNC tlaBgUNC">           0 :       input logic clk_override,</span></span>
 <span id="L98"><span class="lineNum">      98</span>              : </span>
@@ -220,7 +220,7 @@
 <span id="L116"><span class="lineNum">     116</span>              : </span>
 <span id="L117"><span class="lineNum">     117</span> <span class="tlaUNC tlaBgUNC">           0 :       input logic [pt.ICACHE_NUM_WAYS-1:0]ic_rd_hit,</span></span>
 <span id="L118"><span class="lineNum">     118</span> <span class="tlaUNC">           0 :       input el2_ic_data_ext_in_pkt_t  [pt.ICACHE_NUM_WAYS-1:0][pt.ICACHE_BANKS_WAY-1:0] ic_data_ext_in_pkt,   // this is being driven by the top level for soc testing/etc</span></span>
-<span id="L119"><span class="lineNum">     119</span>              :       /* exclude signals that are tied to constant value in tb_top.sv */</span>
+<span id="L119"><span class="lineNum">     119</span>              :       // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L120"><span class="lineNum">     120</span>              :       /*verilator coverage_off*/</span>
 <span id="L121"><span class="lineNum">     121</span>              :       input  logic                         scan_mode</span>
 <span id="L122"><span class="lineNum">     122</span>              :       /*verilator coverage_on*/</span>
@@ -910,8 +910,8 @@
 <span id="L806"><span class="lineNum">     806</span>              : `include "el2_param.vh"</span>
 <span id="L807"><span class="lineNum">     807</span>              :  )</span>
 <span id="L808"><span class="lineNum">     808</span>              :      (</span>
-<span id="L809"><span class="lineNum">     809</span> <span class="tlaGNC">     6084722 :       input logic                                                   clk,</span></span>
-<span id="L810"><span class="lineNum">     810</span> <span class="tlaGNC">     6084722 :       input logic                                                   active_clk,</span></span>
+<span id="L809"><span class="lineNum">     809</span> <span class="tlaGNC">     6084622 :       input logic                                                   clk,</span></span>
+<span id="L810"><span class="lineNum">     810</span> <span class="tlaGNC">     6084622 :       input logic                                                   active_clk,</span></span>
 <span id="L811"><span class="lineNum">     811</span> <span class="tlaGNC">           2 :       input logic                                                   rst_l,</span></span>
 <span id="L812"><span class="lineNum">     812</span> <span class="tlaUNC tlaBgUNC">           0 :       input logic                                                   clk_override,</span></span>
 <span id="L813"><span class="lineNum">     813</span> <span class="tlaUNC">           0 :       input logic                                                   dec_tlu_core_ecc_disable,</span></span>
@@ -934,7 +934,7 @@
 <span id="L830"><span class="lineNum">     830</span>              : </span>
 <span id="L831"><span class="lineNum">     831</span> <span class="tlaUNC">           0 :       output logic [pt.ICACHE_NUM_WAYS-1:0]                        ic_rd_hit,</span></span>
 <span id="L832"><span class="lineNum">     832</span> <span class="tlaUNC">           0 :       output logic                                                 ic_tag_perr,</span></span>
-<span id="L833"><span class="lineNum">     833</span>              :       /* exclude signals that are tied to constant value in tb_top.sv */</span>
+<span id="L833"><span class="lineNum">     833</span>              :       // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L834"><span class="lineNum">     834</span>              :       /*verilator coverage_off*/</span>
 <span id="L835"><span class="lineNum">     835</span>              :       input  logic                                                 scan_mode</span>
 <span id="L836"><span class="lineNum">     836</span>              :       /*verilator coverage_on*/</span>

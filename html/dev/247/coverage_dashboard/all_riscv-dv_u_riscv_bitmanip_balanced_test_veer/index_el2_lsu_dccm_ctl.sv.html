@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    16-10-2024
+                    17-10-2024
                 </td>
                 <td></td>
                 
@@ -257,7 +257,7 @@
 <span id="L153"><span class="lineNum">     153</span> <span class="tlaGNC">         300 :    output logic [31:0]                     picm_wr_data,            // write data</span></span>
 <span id="L154"><span class="lineNum">     154</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:0]                      picm_rd_data,            // read data</span></span>
 <span id="L155"><span class="lineNum">     155</span>              : </span>
-<span id="L156"><span class="lineNum">     156</span>              :    /* exclude signals that are tied to constant value in tb_top.sv */</span>
+<span id="L156"><span class="lineNum">     156</span>              :    // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L157"><span class="lineNum">     157</span>              :    /*verilator coverage_off*/</span>
 <span id="L158"><span class="lineNum">     158</span>              :    input logic                             scan_mode                // scan mode</span>
 <span id="L159"><span class="lineNum">     159</span>              :    /*verilator coverage_on*/</span>

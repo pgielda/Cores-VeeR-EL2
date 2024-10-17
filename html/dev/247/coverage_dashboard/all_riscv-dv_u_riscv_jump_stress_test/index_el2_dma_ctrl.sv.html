@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    16-10-2024
+                    17-10-2024
                 </td>
                 <td></td>
                 
@@ -135,7 +135,7 @@
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           6 :    input logic         rst_l,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           6 :    input logic         dma_bus_clk_en, // slave bus clock enable</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic         clk_override,</span></span>
-<span id="L34"><span class="lineNum">      34</span>              :    /* exclude signals that are tied to constant value in tb_top.sv */</span>
+<span id="L34"><span class="lineNum">      34</span>              :    // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L35"><span class="lineNum">      35</span>              :    /*verilator coverage_off*/</span>
 <span id="L36"><span class="lineNum">      36</span>              :    input logic         scan_mode,</span>
 <span id="L37"><span class="lineNum">      37</span>              :    /*verilator coverage_on*/</span>

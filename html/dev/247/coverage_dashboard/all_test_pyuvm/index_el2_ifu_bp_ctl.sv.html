@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    16-10-2024
+                    17-10-2024
                 </td>
                 <td></td>
                 
@@ -179,7 +179,7 @@
 <span id="L75"><span class="lineNum">      75</span>              : </span>
 <span id="L76"><span class="lineNum">      76</span> <span class="tlaUNC">           0 :    output logic [1:0] [$clog2(pt.BTB_SIZE)-1:0]    ifu_bp_fa_index_f, // predicted branch index (fully associative option)</span></span>
 <span id="L77"><span class="lineNum">      77</span>              : </span>
-<span id="L78"><span class="lineNum">      78</span>              :    /* exclude signals that are tied to constant value in tb_top.sv */</span>
+<span id="L78"><span class="lineNum">      78</span>              :    // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L79"><span class="lineNum">      79</span>              :    /*verilator coverage_off*/</span>
 <span id="L80"><span class="lineNum">      80</span>              :    input  logic       scan_mode</span>
 <span id="L81"><span class="lineNum">      81</span>              :    /*verilator coverage_on*/</span>
