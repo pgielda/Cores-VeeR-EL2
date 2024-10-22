@@ -15,14 +15,6 @@
    
    * [Documentation](external:dev/196/docs_rendered/html/index.html)
    
- * 75
-   * [Coverage](75_coverage_dashboard)
-
-   * [Verification tests](external:dev/75/verification_dashboard.html)
-
-   
-   * [Documentation](external:dev/75/docs_rendered/html/index.html)
-   
  * 247
    * [Coverage](247_coverage_dashboard)
 
