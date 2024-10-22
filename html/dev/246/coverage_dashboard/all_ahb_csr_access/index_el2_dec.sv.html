@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    15-10-2024
+                    22-10-2024
                 </td>
                 <td></td>
                 
@@ -423,157 +423,199 @@
 <span id="L319"><span class="lineNum">     319</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic dec_tlu_dccm_clk_override,   // override DCCM clock domain gating</span></span>
 <span id="L320"><span class="lineNum">     320</span> <span class="tlaUNC">           0 :     output logic dec_tlu_icm_clk_override,    // override ICCM clock domain gating</span></span>
 <span id="L321"><span class="lineNum">     321</span>              : </span>
-<span id="L322"><span class="lineNum">     322</span> <span class="tlaGNC tlaBgGNC">     1038536 :     output logic dec_tlu_i0_commit_cmt,  // committed i0 instruction</span></span>
-<span id="L323"><span class="lineNum">     323</span> <span class="tlaUNC tlaBgUNC">           0 :     input  logic scan_mode               // Flop scan mode control</span></span>
-<span id="L324"><span class="lineNum">     324</span>              : </span>
-<span id="L325"><span class="lineNum">     325</span>              : );</span>
-<span id="L326"><span class="lineNum">     326</span>              : </span>
-<span id="L327"><span class="lineNum">     327</span>              : </span>
-<span id="L328"><span class="lineNum">     328</span> <span class="tlaUNC">           0 :   logic dec_tlu_dec_clk_override;  // to and from dec blocks</span></span>
-<span id="L329"><span class="lineNum">     329</span> <span class="tlaUNC">           0 :   logic clk_override;</span></span>
+<span id="L322"><span class="lineNum">     322</span>              : `ifdef RV_LOCKSTEP_REGFILE_ENABLE</span>
+<span id="L323"><span class="lineNum">     323</span>              :     el2_regfile_if.veer_rf_src regfile,</span>
+<span id="L324"><span class="lineNum">     324</span>              : `endif</span>
+<span id="L325"><span class="lineNum">     325</span>              : </span>
+<span id="L326"><span class="lineNum">     326</span> <span class="tlaGNC tlaBgGNC">     1038536 :     output logic dec_tlu_i0_commit_cmt,  // committed i0 instruction</span></span>
+<span id="L327"><span class="lineNum">     327</span> <span class="tlaUNC tlaBgUNC">           0 :     input  logic scan_mode               // Flop scan mode control</span></span>
+<span id="L328"><span class="lineNum">     328</span>              : </span>
+<span id="L329"><span class="lineNum">     329</span>              : );</span>
 <span id="L330"><span class="lineNum">     330</span>              : </span>
-<span id="L331"><span class="lineNum">     331</span> <span class="tlaGNC tlaBgGNC">     1038402 :   logic dec_ib0_valid_d;</span></span>
-<span id="L332"><span class="lineNum">     332</span>              : </span>
-<span id="L333"><span class="lineNum">     333</span> <span class="tlaGNC">     1038862 :   logic dec_pmu_instr_decoded;</span></span>
-<span id="L334"><span class="lineNum">     334</span> <span class="tlaGNC">       18752 :   logic dec_pmu_decode_stall;</span></span>
-<span id="L335"><span class="lineNum">     335</span> <span class="tlaUNC tlaBgUNC">           0 :   logic dec_pmu_presync_stall;</span></span>
-<span id="L336"><span class="lineNum">     336</span> <span class="tlaGNC tlaBgGNC">         664 :   logic dec_pmu_postsync_stall;</span></span>
-<span id="L337"><span class="lineNum">     337</span>              : </span>
-<span id="L338"><span class="lineNum">     338</span> <span class="tlaUNC tlaBgUNC">           0 :   logic dec_tlu_wr_pause_r;  // CSR write to pause reg is at R.</span></span>
-<span id="L339"><span class="lineNum">     339</span>              : </span>
-<span id="L340"><span class="lineNum">     340</span> <span class="tlaGNC tlaBgGNC">      326020 :   logic [4:0] dec_i0_rs1_d;</span></span>
-<span id="L341"><span class="lineNum">     341</span> <span class="tlaGNC">      301544 :   logic [4:0] dec_i0_rs2_d;</span></span>
-<span id="L342"><span class="lineNum">     342</span>              : </span>
-<span id="L343"><span class="lineNum">     343</span> <span class="tlaGNC">       66764 :   logic [31:0] dec_i0_instr_d;</span></span>
-<span id="L344"><span class="lineNum">     344</span>              : </span>
-<span id="L345"><span class="lineNum">     345</span> <span class="tlaUNC tlaBgUNC">           0 :   logic dec_tlu_trace_disable;</span></span>
-<span id="L346"><span class="lineNum">     346</span> <span class="tlaUNC">           0 :   logic dec_tlu_pipelining_disable;</span></span>
-<span id="L347"><span class="lineNum">     347</span>              : </span>
+<span id="L331"><span class="lineNum">     331</span>              : </span>
+<span id="L332"><span class="lineNum">     332</span> <span class="tlaUNC">           0 :   logic dec_tlu_dec_clk_override;  // to and from dec blocks</span></span>
+<span id="L333"><span class="lineNum">     333</span> <span class="tlaUNC">           0 :   logic clk_override;</span></span>
+<span id="L334"><span class="lineNum">     334</span>              : </span>
+<span id="L335"><span class="lineNum">     335</span> <span class="tlaGNC tlaBgGNC">     1038402 :   logic dec_ib0_valid_d;</span></span>
+<span id="L336"><span class="lineNum">     336</span>              : </span>
+<span id="L337"><span class="lineNum">     337</span> <span class="tlaGNC">     1038862 :   logic dec_pmu_instr_decoded;</span></span>
+<span id="L338"><span class="lineNum">     338</span> <span class="tlaGNC">       18752 :   logic dec_pmu_decode_stall;</span></span>
+<span id="L339"><span class="lineNum">     339</span> <span class="tlaUNC tlaBgUNC">           0 :   logic dec_pmu_presync_stall;</span></span>
+<span id="L340"><span class="lineNum">     340</span> <span class="tlaGNC tlaBgGNC">         664 :   logic dec_pmu_postsync_stall;</span></span>
+<span id="L341"><span class="lineNum">     341</span>              : </span>
+<span id="L342"><span class="lineNum">     342</span> <span class="tlaUNC tlaBgUNC">           0 :   logic dec_tlu_wr_pause_r;  // CSR write to pause reg is at R.</span></span>
+<span id="L343"><span class="lineNum">     343</span>              : </span>
+<span id="L344"><span class="lineNum">     344</span> <span class="tlaGNC tlaBgGNC">      326020 :   logic [4:0] dec_i0_rs1_d;</span></span>
+<span id="L345"><span class="lineNum">     345</span> <span class="tlaGNC">      301544 :   logic [4:0] dec_i0_rs2_d;</span></span>
+<span id="L346"><span class="lineNum">     346</span>              : </span>
+<span id="L347"><span class="lineNum">     347</span> <span class="tlaGNC">       66764 :   logic [31:0] dec_i0_instr_d;</span></span>
 <span id="L348"><span class="lineNum">     348</span>              : </span>
-<span id="L349"><span class="lineNum">     349</span> <span class="tlaGNC tlaBgGNC">      285076 :   logic [4:0] dec_i0_waddr_r;</span></span>
-<span id="L350"><span class="lineNum">     350</span> <span class="tlaGNC">      586088 :   logic dec_i0_wen_r;</span></span>
-<span id="L351"><span class="lineNum">     351</span> <span class="tlaGNC">        5644 :   logic [31:0] dec_i0_wdata_r;</span></span>
-<span id="L352"><span class="lineNum">     352</span> <span class="tlaGNC">         380 :   logic dec_csr_wen_r;  // csr write enable at wb</span></span>
-<span id="L353"><span class="lineNum">     353</span> <span class="tlaGNC">      134972 :   logic [11:0] dec_csr_rdaddr_r;  // read address for csrs</span></span>
-<span id="L354"><span class="lineNum">     354</span> <span class="tlaGNC">           8 :   logic [11:0] dec_csr_wraddr_r;  // write address for csryes</span></span>
-<span id="L355"><span class="lineNum">     355</span> <span class="tlaGNC">           4 :   logic [31:0] dec_csr_wrdata_r;  // csr write data at wb</span></span>
-<span id="L356"><span class="lineNum">     356</span>              : </span>
-<span id="L357"><span class="lineNum">     357</span> <span class="tlaGNC">         136 :   logic [11:0] dec_csr_rdaddr_d;  // read address for csr</span></span>
-<span id="L358"><span class="lineNum">     358</span> <span class="tlaGNC">        2364 :   logic dec_csr_legal_d;  // csr indicates legal operation</span></span>
-<span id="L359"><span class="lineNum">     359</span>              : </span>
-<span id="L360"><span class="lineNum">     360</span> <span class="tlaGNC">         400 :   logic dec_csr_wen_unq_d;  // valid csr with write - for csr legal</span></span>
-<span id="L361"><span class="lineNum">     361</span> <span class="tlaGNC">        2364 :   logic dec_csr_any_unq_d;  // valid csr - for csr legal</span></span>
-<span id="L362"><span class="lineNum">     362</span> <span class="tlaGNC">          16 :   logic dec_csr_stall_int_ff;  // csr is mie/mstatus</span></span>
+<span id="L349"><span class="lineNum">     349</span> <span class="tlaUNC tlaBgUNC">           0 :   logic dec_tlu_trace_disable;</span></span>
+<span id="L350"><span class="lineNum">     350</span> <span class="tlaUNC">           0 :   logic dec_tlu_pipelining_disable;</span></span>
+<span id="L351"><span class="lineNum">     351</span>              : </span>
+<span id="L352"><span class="lineNum">     352</span>              : </span>
+<span id="L353"><span class="lineNum">     353</span> <span class="tlaGNC tlaBgGNC">      285076 :   logic [4:0] dec_i0_waddr_r;</span></span>
+<span id="L354"><span class="lineNum">     354</span> <span class="tlaGNC">      586088 :   logic dec_i0_wen_r;</span></span>
+<span id="L355"><span class="lineNum">     355</span> <span class="tlaGNC">        5644 :   logic [31:0] dec_i0_wdata_r;</span></span>
+<span id="L356"><span class="lineNum">     356</span> <span class="tlaGNC">         380 :   logic dec_csr_wen_r;  // csr write enable at wb</span></span>
+<span id="L357"><span class="lineNum">     357</span> <span class="tlaGNC">      134972 :   logic [11:0] dec_csr_rdaddr_r;  // read address for csrs</span></span>
+<span id="L358"><span class="lineNum">     358</span> <span class="tlaGNC">           8 :   logic [11:0] dec_csr_wraddr_r;  // write address for csryes</span></span>
+<span id="L359"><span class="lineNum">     359</span> <span class="tlaGNC">           4 :   logic [31:0] dec_csr_wrdata_r;  // csr write data at wb</span></span>
+<span id="L360"><span class="lineNum">     360</span>              : </span>
+<span id="L361"><span class="lineNum">     361</span> <span class="tlaGNC">         136 :   logic [11:0] dec_csr_rdaddr_d;  // read address for csr</span></span>
+<span id="L362"><span class="lineNum">     362</span> <span class="tlaGNC">        2364 :   logic dec_csr_legal_d;  // csr indicates legal operation</span></span>
 <span id="L363"><span class="lineNum">     363</span>              : </span>
-<span id="L364"><span class="lineNum">     364</span> <span class="tlaUNC tlaBgUNC">           0 :   el2_trap_pkt_t dec_tlu_packet_r;</span></span>
-<span id="L365"><span class="lineNum">     365</span>              : </span>
-<span id="L366"><span class="lineNum">     366</span> <span class="tlaGNC tlaBgGNC">      570774 :   logic dec_i0_pc4_d;</span></span>
-<span id="L367"><span class="lineNum">     367</span> <span class="tlaGNC">         128 :   logic dec_tlu_presync_d;</span></span>
-<span id="L368"><span class="lineNum">     368</span> <span class="tlaGNC">        1080 :   logic dec_tlu_postsync_d;</span></span>
-<span id="L369"><span class="lineNum">     369</span> <span class="tlaGNC">           4 :   logic dec_tlu_debug_stall;</span></span>
-<span id="L370"><span class="lineNum">     370</span>              : </span>
-<span id="L371"><span class="lineNum">     371</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [31:0] dec_illegal_inst;</span></span>
-<span id="L372"><span class="lineNum">     372</span>              : </span>
-<span id="L373"><span class="lineNum">     373</span> <span class="tlaUNC">           0 :   logic dec_i0_icaf_d;</span></span>
+<span id="L364"><span class="lineNum">     364</span> <span class="tlaGNC">         400 :   logic dec_csr_wen_unq_d;  // valid csr with write - for csr legal</span></span>
+<span id="L365"><span class="lineNum">     365</span> <span class="tlaGNC">        2364 :   logic dec_csr_any_unq_d;  // valid csr - for csr legal</span></span>
+<span id="L366"><span class="lineNum">     366</span> <span class="tlaGNC">          16 :   logic dec_csr_stall_int_ff;  // csr is mie/mstatus</span></span>
+<span id="L367"><span class="lineNum">     367</span>              : </span>
+<span id="L368"><span class="lineNum">     368</span> <span class="tlaUNC tlaBgUNC">           0 :   el2_trap_pkt_t dec_tlu_packet_r;</span></span>
+<span id="L369"><span class="lineNum">     369</span>              : </span>
+<span id="L370"><span class="lineNum">     370</span> <span class="tlaGNC tlaBgGNC">      570774 :   logic dec_i0_pc4_d;</span></span>
+<span id="L371"><span class="lineNum">     371</span> <span class="tlaGNC">         128 :   logic dec_tlu_presync_d;</span></span>
+<span id="L372"><span class="lineNum">     372</span> <span class="tlaGNC">        1080 :   logic dec_tlu_postsync_d;</span></span>
+<span id="L373"><span class="lineNum">     373</span> <span class="tlaGNC">           4 :   logic dec_tlu_debug_stall;</span></span>
 <span id="L374"><span class="lineNum">     374</span>              : </span>
-<span id="L375"><span class="lineNum">     375</span> <span class="tlaUNC">           0 :   logic dec_i0_dbecc_d;</span></span>
-<span id="L376"><span class="lineNum">     376</span> <span class="tlaUNC">           0 :   logic dec_i0_icaf_second_d;</span></span>
-<span id="L377"><span class="lineNum">     377</span> <span class="tlaUNC">           0 :   logic [3:0] dec_i0_trigger_match_d;</span></span>
-<span id="L378"><span class="lineNum">     378</span> <span class="tlaUNC">           0 :   logic dec_debug_fence_d;</span></span>
-<span id="L379"><span class="lineNum">     379</span> <span class="tlaGNC tlaBgGNC">       93760 :   logic dec_nonblock_load_wen;</span></span>
-<span id="L380"><span class="lineNum">     380</span> <span class="tlaGNC">       32980 :   logic [4:0] dec_nonblock_load_waddr;</span></span>
-<span id="L381"><span class="lineNum">     381</span> <span class="tlaUNC tlaBgUNC">           0 :   logic dec_tlu_flush_pause_r;</span></span>
-<span id="L382"><span class="lineNum">     382</span> <span class="tlaGNC tlaBgGNC">       44976 :   el2_br_pkt_t dec_i0_brp;</span></span>
-<span id="L383"><span class="lineNum">     383</span> <span class="tlaGNC">      200300 :   logic [pt.BTB_ADDR_HI:pt.BTB_ADDR_LO] dec_i0_bp_index;</span></span>
-<span id="L384"><span class="lineNum">     384</span> <span class="tlaGNC">      117918 :   logic [pt.BHT_GHR_SIZE-1:0] dec_i0_bp_fghr;</span></span>
-<span id="L385"><span class="lineNum">     385</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [pt.BTB_BTAG_SIZE-1:0] dec_i0_bp_btag;</span></span>
-<span id="L386"><span class="lineNum">     386</span> <span class="tlaUNC">           0 :   logic [$clog2(pt.BTB_SIZE)-1:0] dec_i0_bp_fa_index;  // Fully associt btb index</span></span>
-<span id="L387"><span class="lineNum">     387</span>              : </span>
-<span id="L388"><span class="lineNum">     388</span> <span class="tlaGNC tlaBgGNC">           2 :   logic [31:1] dec_tlu_i0_pc_r;</span></span>
-<span id="L389"><span class="lineNum">     389</span> <span class="tlaGNC">         324 :   logic dec_tlu_i0_kill_writeb_wb;</span></span>
-<span id="L390"><span class="lineNum">     390</span> <span class="tlaGNC">     1038860 :   logic dec_tlu_i0_valid_r;</span></span>
+<span id="L375"><span class="lineNum">     375</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [31:0] dec_illegal_inst;</span></span>
+<span id="L376"><span class="lineNum">     376</span>              : </span>
+<span id="L377"><span class="lineNum">     377</span> <span class="tlaUNC">           0 :   logic dec_i0_icaf_d;</span></span>
+<span id="L378"><span class="lineNum">     378</span>              : </span>
+<span id="L379"><span class="lineNum">     379</span> <span class="tlaUNC">           0 :   logic dec_i0_dbecc_d;</span></span>
+<span id="L380"><span class="lineNum">     380</span> <span class="tlaUNC">           0 :   logic dec_i0_icaf_second_d;</span></span>
+<span id="L381"><span class="lineNum">     381</span> <span class="tlaUNC">           0 :   logic [3:0] dec_i0_trigger_match_d;</span></span>
+<span id="L382"><span class="lineNum">     382</span> <span class="tlaUNC">           0 :   logic dec_debug_fence_d;</span></span>
+<span id="L383"><span class="lineNum">     383</span> <span class="tlaGNC tlaBgGNC">       93760 :   logic dec_nonblock_load_wen;</span></span>
+<span id="L384"><span class="lineNum">     384</span> <span class="tlaGNC">       32980 :   logic [4:0] dec_nonblock_load_waddr;</span></span>
+<span id="L385"><span class="lineNum">     385</span> <span class="tlaUNC tlaBgUNC">           0 :   logic dec_tlu_flush_pause_r;</span></span>
+<span id="L386"><span class="lineNum">     386</span> <span class="tlaGNC tlaBgGNC">       44976 :   el2_br_pkt_t dec_i0_brp;</span></span>
+<span id="L387"><span class="lineNum">     387</span> <span class="tlaGNC">      200300 :   logic [pt.BTB_ADDR_HI:pt.BTB_ADDR_LO] dec_i0_bp_index;</span></span>
+<span id="L388"><span class="lineNum">     388</span> <span class="tlaGNC">      117918 :   logic [pt.BHT_GHR_SIZE-1:0] dec_i0_bp_fghr;</span></span>
+<span id="L389"><span class="lineNum">     389</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [pt.BTB_BTAG_SIZE-1:0] dec_i0_bp_btag;</span></span>
+<span id="L390"><span class="lineNum">     390</span> <span class="tlaUNC">           0 :   logic [$clog2(pt.BTB_SIZE)-1:0] dec_i0_bp_fa_index;  // Fully associt btb index</span></span>
 <span id="L391"><span class="lineNum">     391</span>              : </span>
-<span id="L392"><span class="lineNum">     392</span> <span class="tlaUNC tlaBgUNC">           0 :   logic dec_pause_state;</span></span>
-<span id="L393"><span class="lineNum">     393</span>              : </span>
-<span id="L394"><span class="lineNum">     394</span> <span class="tlaUNC">           0 :   logic [1:0] dec_i0_icaf_type_d;  // i0 instruction access fault type</span></span>
+<span id="L392"><span class="lineNum">     392</span> <span class="tlaGNC tlaBgGNC">           2 :   logic [31:1] dec_tlu_i0_pc_r;</span></span>
+<span id="L393"><span class="lineNum">     393</span> <span class="tlaGNC">         324 :   logic dec_tlu_i0_kill_writeb_wb;</span></span>
+<span id="L394"><span class="lineNum">     394</span> <span class="tlaGNC">     1038860 :   logic dec_tlu_i0_valid_r;</span></span>
 <span id="L395"><span class="lineNum">     395</span>              : </span>
-<span id="L396"><span class="lineNum">     396</span> <span class="tlaUNC">           0 :   logic dec_tlu_flush_extint;  // Fast ext int started</span></span>
+<span id="L396"><span class="lineNum">     396</span> <span class="tlaUNC tlaBgUNC">           0 :   logic dec_pause_state;</span></span>
 <span id="L397"><span class="lineNum">     397</span>              : </span>
-<span id="L398"><span class="lineNum">     398</span> <span class="tlaGNC tlaBgGNC">       67288 :   logic [31:0] dec_i0_inst_wb;</span></span>
-<span id="L399"><span class="lineNum">     399</span> <span class="tlaGNC">           2 :   logic [31:1] dec_i0_pc_wb;</span></span>
-<span id="L400"><span class="lineNum">     400</span> <span class="tlaGNC">     1038536 :   logic dec_tlu_i0_valid_wb1, dec_tlu_int_valid_wb1;</span></span>
-<span id="L401"><span class="lineNum">     401</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [ 4:0] dec_tlu_exc_cause_wb1;</span></span>
-<span id="L402"><span class="lineNum">     402</span> <span class="tlaUNC">           0 :   logic [31:0] dec_tlu_mtval_wb1;</span></span>
-<span id="L403"><span class="lineNum">     403</span> <span class="tlaGNC tlaBgGNC">         328 :   logic        dec_tlu_i0_exc_valid_wb1;</span></span>
-<span id="L404"><span class="lineNum">     404</span>              : </span>
-<span id="L405"><span class="lineNum">     405</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [ 4:0] div_waddr_wb;</span></span>
-<span id="L406"><span class="lineNum">     406</span> <span class="tlaGNC tlaBgGNC">       21376 :   logic        dec_div_active;</span></span>
-<span id="L407"><span class="lineNum">     407</span>              : </span>
-<span id="L408"><span class="lineNum">     408</span> <span class="tlaUNC tlaBgUNC">           0 :   logic        dec_debug_valid_d;</span></span>
-<span id="L409"><span class="lineNum">     409</span>              : </span>
-<span id="L410"><span class="lineNum">     410</span>              :   assign clk_override = dec_tlu_dec_clk_override;</span>
+<span id="L398"><span class="lineNum">     398</span> <span class="tlaUNC">           0 :   logic [1:0] dec_i0_icaf_type_d;  // i0 instruction access fault type</span></span>
+<span id="L399"><span class="lineNum">     399</span>              : </span>
+<span id="L400"><span class="lineNum">     400</span> <span class="tlaUNC">           0 :   logic dec_tlu_flush_extint;  // Fast ext int started</span></span>
+<span id="L401"><span class="lineNum">     401</span>              : </span>
+<span id="L402"><span class="lineNum">     402</span> <span class="tlaGNC tlaBgGNC">       67288 :   logic [31:0] dec_i0_inst_wb;</span></span>
+<span id="L403"><span class="lineNum">     403</span> <span class="tlaGNC">           2 :   logic [31:1] dec_i0_pc_wb;</span></span>
+<span id="L404"><span class="lineNum">     404</span> <span class="tlaGNC">     1038536 :   logic dec_tlu_i0_valid_wb1, dec_tlu_int_valid_wb1;</span></span>
+<span id="L405"><span class="lineNum">     405</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [ 4:0] dec_tlu_exc_cause_wb1;</span></span>
+<span id="L406"><span class="lineNum">     406</span> <span class="tlaUNC">           0 :   logic [31:0] dec_tlu_mtval_wb1;</span></span>
+<span id="L407"><span class="lineNum">     407</span> <span class="tlaGNC tlaBgGNC">         328 :   logic        dec_tlu_i0_exc_valid_wb1;</span></span>
+<span id="L408"><span class="lineNum">     408</span>              : </span>
+<span id="L409"><span class="lineNum">     409</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [ 4:0] div_waddr_wb;</span></span>
+<span id="L410"><span class="lineNum">     410</span> <span class="tlaGNC tlaBgGNC">       21376 :   logic        dec_div_active;</span></span>
 <span id="L411"><span class="lineNum">     411</span>              : </span>
-<span id="L412"><span class="lineNum">     412</span>              : </span>
-<span id="L413"><span class="lineNum">     413</span>              :   assign dec_dbg_rddata[31:0] = dec_i0_wdata_r[31:0];</span>
-<span id="L414"><span class="lineNum">     414</span>              : </span>
+<span id="L412"><span class="lineNum">     412</span> <span class="tlaUNC tlaBgUNC">           0 :   logic        dec_debug_valid_d;</span></span>
+<span id="L413"><span class="lineNum">     413</span>              : </span>
+<span id="L414"><span class="lineNum">     414</span>              :   assign clk_override = dec_tlu_dec_clk_override;</span>
 <span id="L415"><span class="lineNum">     415</span>              : </span>
-<span id="L416"><span class="lineNum">     416</span>              :   el2_dec_ib_ctl #(.pt(pt)) instbuff (.*);</span>
-<span id="L417"><span class="lineNum">     417</span>              : </span>
+<span id="L416"><span class="lineNum">     416</span>              : </span>
+<span id="L417"><span class="lineNum">     417</span>              :   assign dec_dbg_rddata[31:0] = dec_i0_wdata_r[31:0];</span>
 <span id="L418"><span class="lineNum">     418</span>              : </span>
-<span id="L419"><span class="lineNum">     419</span>              :   el2_dec_decode_ctl #(.pt(pt)) decode (.*);</span>
-<span id="L420"><span class="lineNum">     420</span>              : </span>
+<span id="L419"><span class="lineNum">     419</span>              : </span>
+<span id="L420"><span class="lineNum">     420</span>              :   el2_dec_ib_ctl #(.pt(pt)) instbuff (.*);</span>
 <span id="L421"><span class="lineNum">     421</span>              : </span>
-<span id="L422"><span class="lineNum">     422</span>              :   el2_dec_tlu_ctl #(.pt(pt)) tlu (.*);</span>
-<span id="L423"><span class="lineNum">     423</span>              : </span>
+<span id="L422"><span class="lineNum">     422</span>              : </span>
+<span id="L423"><span class="lineNum">     423</span>              :   el2_dec_decode_ctl #(.pt(pt)) decode (.*);</span>
 <span id="L424"><span class="lineNum">     424</span>              : </span>
-<span id="L425"><span class="lineNum">     425</span>              :   el2_dec_gpr_ctl #(</span>
-<span id="L426"><span class="lineNum">     426</span>              :       .pt(pt)</span>
-<span id="L427"><span class="lineNum">     427</span>              :   ) arf (</span>
-<span id="L428"><span class="lineNum">     428</span>              :       .*,</span>
-<span id="L429"><span class="lineNum">     429</span>              :       // inputs</span>
-<span id="L430"><span class="lineNum">     430</span>              :       .raddr0(dec_i0_rs1_d[4:0]),</span>
-<span id="L431"><span class="lineNum">     431</span>              :       .raddr1(dec_i0_rs2_d[4:0]),</span>
-<span id="L432"><span class="lineNum">     432</span>              : </span>
-<span id="L433"><span class="lineNum">     433</span>              :       .wen0(dec_i0_wen_r),</span>
-<span id="L434"><span class="lineNum">     434</span>              :       .waddr0(dec_i0_waddr_r[4:0]),</span>
-<span id="L435"><span class="lineNum">     435</span>              :       .wd0(dec_i0_wdata_r[31:0]),</span>
-<span id="L436"><span class="lineNum">     436</span>              :       .wen1(dec_nonblock_load_wen),</span>
-<span id="L437"><span class="lineNum">     437</span>              :       .waddr1(dec_nonblock_load_waddr[4:0]),</span>
-<span id="L438"><span class="lineNum">     438</span>              :       .wd1(lsu_nonblock_load_data[31:0]),</span>
-<span id="L439"><span class="lineNum">     439</span>              :       .wen2(exu_div_wren),</span>
-<span id="L440"><span class="lineNum">     440</span>              :       .waddr2(div_waddr_wb),</span>
-<span id="L441"><span class="lineNum">     441</span>              :       .wd2(exu_div_result[31:0]),</span>
-<span id="L442"><span class="lineNum">     442</span>              : </span>
-<span id="L443"><span class="lineNum">     443</span>              :       // outputs</span>
-<span id="L444"><span class="lineNum">     444</span>              :       .rd0(gpr_i0_rs1_d[31:0]),</span>
-<span id="L445"><span class="lineNum">     445</span>              :       .rd1(gpr_i0_rs2_d[31:0])</span>
-<span id="L446"><span class="lineNum">     446</span>              :   );</span>
-<span id="L447"><span class="lineNum">     447</span>              : </span>
-<span id="L448"><span class="lineNum">     448</span>              : </span>
-<span id="L449"><span class="lineNum">     449</span>              :   // Trigger</span>
-<span id="L450"><span class="lineNum">     450</span>              : </span>
-<span id="L451"><span class="lineNum">     451</span>              :   el2_dec_trigger #(.pt(pt)) dec_trigger (.*);</span>
-<span id="L452"><span class="lineNum">     452</span>              : </span>
-<span id="L453"><span class="lineNum">     453</span>              : </span>
-<span id="L454"><span class="lineNum">     454</span>              : </span>
+<span id="L425"><span class="lineNum">     425</span>              : `ifdef RV_LOCKSTEP_REGFILE_ENABLE</span>
+<span id="L426"><span class="lineNum">     426</span>              :       el2_regfile_if regfile_if ();</span>
+<span id="L427"><span class="lineNum">     427</span>              :       assign regfile.ra = regfile_if.ra;</span>
+<span id="L428"><span class="lineNum">     428</span>              :       assign regfile.sp = regfile_if.sp;</span>
+<span id="L429"><span class="lineNum">     429</span>              :       assign regfile.fp = regfile_if.fp;</span>
+<span id="L430"><span class="lineNum">     430</span>              :       assign regfile.a0 = regfile_if.a0;</span>
+<span id="L431"><span class="lineNum">     431</span>              :       assign regfile.a1 = regfile_if.a1;</span>
+<span id="L432"><span class="lineNum">     432</span>              :       assign regfile.a2 = regfile_if.a2;</span>
+<span id="L433"><span class="lineNum">     433</span>              :       assign regfile.a3 = regfile_if.a3;</span>
+<span id="L434"><span class="lineNum">     434</span>              :       assign regfile.a4 = regfile_if.a4;</span>
+<span id="L435"><span class="lineNum">     435</span>              :       assign regfile.a5 = regfile_if.a5;</span>
+<span id="L436"><span class="lineNum">     436</span>              :       assign regfile.a6 = regfile_if.a6;</span>
+<span id="L437"><span class="lineNum">     437</span>              :       assign regfile.a7 = regfile_if.a7;</span>
+<span id="L438"><span class="lineNum">     438</span>              : </span>
+<span id="L439"><span class="lineNum">     439</span>              :       assign regfile.pc        = regfile_if.pc;</span>
+<span id="L440"><span class="lineNum">     440</span>              :       assign regfile.npc       = regfile_if.npc;</span>
+<span id="L441"><span class="lineNum">     441</span>              :       assign regfile.mstatus   = regfile_if.mstatus;</span>
+<span id="L442"><span class="lineNum">     442</span>              :       assign regfile.mie       = regfile_if.mie;</span>
+<span id="L443"><span class="lineNum">     443</span>              :       assign regfile.mtvec     = regfile_if.mtvec;</span>
+<span id="L444"><span class="lineNum">     444</span>              :       assign regfile.mscratch  = regfile_if.mscratch;</span>
+<span id="L445"><span class="lineNum">     445</span>              :       assign regfile.mepc      = regfile_if.mepc;</span>
+<span id="L446"><span class="lineNum">     446</span>              :       assign regfile.mcause    = regfile_if.mcause;</span>
+<span id="L447"><span class="lineNum">     447</span>              :       assign regfile.mtval     = regfile_if.mtval;</span>
+<span id="L448"><span class="lineNum">     448</span>              :       assign regfile.mip       = regfile_if.mip;</span>
+<span id="L449"><span class="lineNum">     449</span>              :       assign regfile.mcyclel   = regfile_if.mcyclel;</span>
+<span id="L450"><span class="lineNum">     450</span>              :       assign regfile.mcycleh   = regfile_if.mcycleh;</span>
+<span id="L451"><span class="lineNum">     451</span>              :       assign regfile.minstretl = regfile_if.minstretl;</span>
+<span id="L452"><span class="lineNum">     452</span>              :       assign regfile.minstreth = regfile_if.minstreth;</span>
+<span id="L453"><span class="lineNum">     453</span>              :       assign regfile.mrac      = regfile_if.mrac;</span>
+<span id="L454"><span class="lineNum">     454</span>              : `endif</span>
 <span id="L455"><span class="lineNum">     455</span>              : </span>
-<span id="L456"><span class="lineNum">     456</span>              :   // trace</span>
-<span id="L457"><span class="lineNum">     457</span>              :   assign trace_rv_trace_pkt.trace_rv_i_insn_ip = dec_i0_inst_wb[31:0];</span>
-<span id="L458"><span class="lineNum">     458</span>              :   assign trace_rv_trace_pkt.trace_rv_i_address_ip = {dec_i0_pc_wb[31:1], 1'b0};</span>
-<span id="L459"><span class="lineNum">     459</span>              : </span>
-<span id="L460"><span class="lineNum">     460</span>              :   assign trace_rv_trace_pkt.trace_rv_i_valid_ip     = dec_tlu_int_valid_wb1 | dec_tlu_i0_valid_wb1 | dec_tlu_i0_exc_valid_wb1;</span>
-<span id="L461"><span class="lineNum">     461</span>              :   assign trace_rv_trace_pkt.trace_rv_i_exception_ip = dec_tlu_int_valid_wb1 |  dec_tlu_i0_exc_valid_wb1;</span>
-<span id="L462"><span class="lineNum">     462</span>              :   assign trace_rv_trace_pkt.trace_rv_i_ecause_ip    = dec_tlu_exc_cause_wb1[4:0];     // replicate across ports</span>
-<span id="L463"><span class="lineNum">     463</span>              :   assign trace_rv_trace_pkt.trace_rv_i_interrupt_ip = dec_tlu_int_valid_wb1;</span>
-<span id="L464"><span class="lineNum">     464</span>              :   assign trace_rv_trace_pkt.trace_rv_i_tval_ip = dec_tlu_mtval_wb1[31:0];  // replicate across ports</span>
-<span id="L465"><span class="lineNum">     465</span>              : </span>
-<span id="L466"><span class="lineNum">     466</span>              : </span>
-<span id="L467"><span class="lineNum">     467</span>              : </span>
-<span id="L468"><span class="lineNum">     468</span>              :   // end trace</span>
-<span id="L469"><span class="lineNum">     469</span>              : </span>
-<span id="L470"><span class="lineNum">     470</span>              : </span>
-<span id="L471"><span class="lineNum">     471</span>              : endmodule  // el2_dec</span>
-<span id="L472"><span class="lineNum">     472</span>              : </span>
+<span id="L456"><span class="lineNum">     456</span>              :   el2_dec_tlu_ctl #(.pt(pt)</span>
+<span id="L457"><span class="lineNum">     457</span>              :   ) tlu (</span>
+<span id="L458"><span class="lineNum">     458</span>              : `ifdef RV_LOCKSTEP_REGFILE_ENABLE</span>
+<span id="L459"><span class="lineNum">     459</span>              :       .regfile(regfile_if.veer_tlu_rf),</span>
+<span id="L460"><span class="lineNum">     460</span>              : `endif</span>
+<span id="L461"><span class="lineNum">     461</span>              :       .*);</span>
+<span id="L462"><span class="lineNum">     462</span>              : </span>
+<span id="L463"><span class="lineNum">     463</span>              : </span>
+<span id="L464"><span class="lineNum">     464</span>              :   el2_dec_gpr_ctl #(</span>
+<span id="L465"><span class="lineNum">     465</span>              :       .pt(pt)</span>
+<span id="L466"><span class="lineNum">     466</span>              :   ) arf (</span>
+<span id="L467"><span class="lineNum">     467</span>              :       .*,</span>
+<span id="L468"><span class="lineNum">     468</span>              : `ifdef RV_LOCKSTEP_REGFILE_ENABLE</span>
+<span id="L469"><span class="lineNum">     469</span>              :       .regfile(regfile_if.veer_gpr_rf),</span>
+<span id="L470"><span class="lineNum">     470</span>              : `endif</span>
+<span id="L471"><span class="lineNum">     471</span>              :       // inputs</span>
+<span id="L472"><span class="lineNum">     472</span>              :       .raddr0(dec_i0_rs1_d[4:0]),</span>
+<span id="L473"><span class="lineNum">     473</span>              :       .raddr1(dec_i0_rs2_d[4:0]),</span>
+<span id="L474"><span class="lineNum">     474</span>              : </span>
+<span id="L475"><span class="lineNum">     475</span>              :       .wen0(dec_i0_wen_r),</span>
+<span id="L476"><span class="lineNum">     476</span>              :       .waddr0(dec_i0_waddr_r[4:0]),</span>
+<span id="L477"><span class="lineNum">     477</span>              :       .wd0(dec_i0_wdata_r[31:0]),</span>
+<span id="L478"><span class="lineNum">     478</span>              :       .wen1(dec_nonblock_load_wen),</span>
+<span id="L479"><span class="lineNum">     479</span>              :       .waddr1(dec_nonblock_load_waddr[4:0]),</span>
+<span id="L480"><span class="lineNum">     480</span>              :       .wd1(lsu_nonblock_load_data[31:0]),</span>
+<span id="L481"><span class="lineNum">     481</span>              :       .wen2(exu_div_wren),</span>
+<span id="L482"><span class="lineNum">     482</span>              :       .waddr2(div_waddr_wb),</span>
+<span id="L483"><span class="lineNum">     483</span>              :       .wd2(exu_div_result[31:0]),</span>
+<span id="L484"><span class="lineNum">     484</span>              : </span>
+<span id="L485"><span class="lineNum">     485</span>              :       // outputs</span>
+<span id="L486"><span class="lineNum">     486</span>              :       .rd0(gpr_i0_rs1_d[31:0]),</span>
+<span id="L487"><span class="lineNum">     487</span>              :       .rd1(gpr_i0_rs2_d[31:0])</span>
+<span id="L488"><span class="lineNum">     488</span>              :   );</span>
+<span id="L489"><span class="lineNum">     489</span>              : </span>
+<span id="L490"><span class="lineNum">     490</span>              : </span>
+<span id="L491"><span class="lineNum">     491</span>              :   // Trigger</span>
+<span id="L492"><span class="lineNum">     492</span>              : </span>
+<span id="L493"><span class="lineNum">     493</span>              :   el2_dec_trigger #(.pt(pt)) dec_trigger (.*);</span>
+<span id="L494"><span class="lineNum">     494</span>              : </span>
+<span id="L495"><span class="lineNum">     495</span>              : </span>
+<span id="L496"><span class="lineNum">     496</span>              : </span>
+<span id="L497"><span class="lineNum">     497</span>              : </span>
+<span id="L498"><span class="lineNum">     498</span>              :   // trace</span>
+<span id="L499"><span class="lineNum">     499</span>              :   assign trace_rv_trace_pkt.trace_rv_i_insn_ip = dec_i0_inst_wb[31:0];</span>
+<span id="L500"><span class="lineNum">     500</span>              :   assign trace_rv_trace_pkt.trace_rv_i_address_ip = {dec_i0_pc_wb[31:1], 1'b0};</span>
+<span id="L501"><span class="lineNum">     501</span>              : </span>
+<span id="L502"><span class="lineNum">     502</span>              :   assign trace_rv_trace_pkt.trace_rv_i_valid_ip     = dec_tlu_int_valid_wb1 | dec_tlu_i0_valid_wb1 | dec_tlu_i0_exc_valid_wb1;</span>
+<span id="L503"><span class="lineNum">     503</span>              :   assign trace_rv_trace_pkt.trace_rv_i_exception_ip = dec_tlu_int_valid_wb1 |  dec_tlu_i0_exc_valid_wb1;</span>
+<span id="L504"><span class="lineNum">     504</span>              :   assign trace_rv_trace_pkt.trace_rv_i_ecause_ip    = dec_tlu_exc_cause_wb1[4:0];     // replicate across ports</span>
+<span id="L505"><span class="lineNum">     505</span>              :   assign trace_rv_trace_pkt.trace_rv_i_interrupt_ip = dec_tlu_int_valid_wb1;</span>
+<span id="L506"><span class="lineNum">     506</span>              :   assign trace_rv_trace_pkt.trace_rv_i_tval_ip = dec_tlu_mtval_wb1[31:0];  // replicate across ports</span>
+<span id="L507"><span class="lineNum">     507</span>              : </span>
+<span id="L508"><span class="lineNum">     508</span>              : </span>
+<span id="L509"><span class="lineNum">     509</span>              : </span>
+<span id="L510"><span class="lineNum">     510</span>              :   // end trace</span>
+<span id="L511"><span class="lineNum">     511</span>              : </span>
+<span id="L512"><span class="lineNum">     512</span>              : </span>
+<span id="L513"><span class="lineNum">     513</span>              : endmodule  // el2_dec</span>
+<span id="L514"><span class="lineNum">     514</span>              : </span>
         </pre>
 </td>
 </tr>

@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    15-10-2024
+                    22-10-2024
                 </td>
                 <td></td>
                 
@@ -131,7 +131,7 @@
 <span id="L27"><span class="lineNum">      27</span>              : `include "el2_param.vh"</span>
 <span id="L28"><span class="lineNum">      28</span>              : )</span>
 <span id="L29"><span class="lineNum">      29</span>              : (</span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">       90536 :    input logic                             clk,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">       90676 :    input logic                             clk,</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           2 :    input logic                             rst_l,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           2 :    input logic                             dbg_rst_l,</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:1]                      rst_vec,</span></span>
@@ -142,7 +142,7 @@
 <span id="L38"><span class="lineNum">      38</span>              : </span>
 <span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC tlaBgGNC">           2 :    output logic [31:0]                     trace_rv_i_insn_ip,</span></span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [31:0]                     trace_rv_i_address_ip,</span></span>
-<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">         452 :    output logic                            trace_rv_i_valid_ip,</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">         454 :    output logic                            trace_rv_i_valid_ip,</span></span>
 <span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">           4 :    output logic                            trace_rv_i_exception_ip,</span></span>
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [4:0]                      trace_rv_i_ecause_ip,</span></span>
 <span id="L44"><span class="lineNum">      44</span> <span class="tlaUNC">           0 :    output logic                            trace_rv_i_interrupt_ip,</span></span>
@@ -548,8 +548,8 @@
 <span id="L444"><span class="lineNum">     444</span>              :    /* verilator coverage_on */</span>
 <span id="L445"><span class="lineNum">     445</span>              : );</span>
 <span id="L446"><span class="lineNum">     446</span>              : </span>
-<span id="L447"><span class="lineNum">     447</span> <span class="tlaGNC tlaBgGNC">       90536 :    logic                             active_l2clk;</span></span>
-<span id="L448"><span class="lineNum">     448</span> <span class="tlaGNC">       90536 :    logic                             free_l2clk;</span></span>
+<span id="L447"><span class="lineNum">     447</span> <span class="tlaGNC tlaBgGNC">       90676 :    logic                             active_l2clk;</span></span>
+<span id="L448"><span class="lineNum">     448</span> <span class="tlaGNC">       90676 :    logic                             free_l2clk;</span></span>
 <span id="L449"><span class="lineNum">     449</span>              : </span>
 <span id="L450"><span class="lineNum">     450</span>              :    // DCCM ports</span>
 <span id="L451"><span class="lineNum">     451</span> <span class="tlaUNC tlaBgUNC">           0 :    logic         dccm_wren;</span></span>
@@ -569,7 +569,7 @@
 <span id="L465"><span class="lineNum">     465</span>              :    // Icache &amp; Itag ports</span>
 <span id="L466"><span class="lineNum">     466</span> <span class="tlaUNC">           0 :    logic [31:1]  ic_rw_addr;</span></span>
 <span id="L467"><span class="lineNum">     467</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_NUM_WAYS-1:0]   ic_wr_en  ;     // Which way to write</span></span>
-<span id="L468"><span class="lineNum">     468</span> <span class="tlaGNC tlaBgGNC">         364 :    logic         ic_rd_en ;</span></span>
+<span id="L468"><span class="lineNum">     468</span> <span class="tlaGNC tlaBgGNC">         366 :    logic         ic_rd_en ;</span></span>
 <span id="L469"><span class="lineNum">     469</span>              : </span>
 <span id="L470"><span class="lineNum">     470</span>              : </span>
 <span id="L471"><span class="lineNum">     471</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [pt.ICACHE_NUM_WAYS-1:0]   ic_tag_valid;   // Valid from the I$ tag valid outside (in flops).</span></span>
@@ -585,8 +585,8 @@
 <span id="L481"><span class="lineNum">     481</span>              : </span>
 <span id="L482"><span class="lineNum">     482</span> <span class="tlaUNC">           0 :    logic [25:0]  ictag_debug_rd_data;               // Debug icache tag.</span></span>
 <span id="L483"><span class="lineNum">     483</span> <span class="tlaGNC tlaBgGNC">           4 :    logic [pt.ICACHE_BANKS_WAY-1:0][70:0]  ic_wr_data;</span></span>
-<span id="L484"><span class="lineNum">     484</span> <span class="tlaGNC">         370 :    logic [63:0]  ic_rd_data;</span></span>
-<span id="L485"><span class="lineNum">     485</span> <span class="tlaGNC">         362 :    logic [70:0]  ic_debug_rd_data;                  // Data read from Icache. 2x64bits + parity bits. F2 stage. With ECC</span></span>
+<span id="L484"><span class="lineNum">     484</span> <span class="tlaGNC">         372 :    logic [63:0]  ic_rd_data;</span></span>
+<span id="L485"><span class="lineNum">     485</span> <span class="tlaGNC">         364 :    logic [70:0]  ic_debug_rd_data;                  // Data read from Icache. 2x64bits + parity bits. F2 stage. With ECC</span></span>
 <span id="L486"><span class="lineNum">     486</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [70:0]  ic_debug_wr_data;                  // Debug wr cache.</span></span>
 <span id="L487"><span class="lineNum">     487</span>              : </span>
 <span id="L488"><span class="lineNum">     488</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_BANKS_WAY-1:0] ic_eccerr;       // ecc error per bank</span></span>
@@ -973,74 +973,85 @@
 <span id="L869"><span class="lineNum">     869</span> <span class="tlaGNC">          20 :    logic [31:0]            dmi_reg_wdata;</span></span>
 <span id="L870"><span class="lineNum">     870</span> <span class="tlaGNC">          12 :    logic [31:0]            dmi_reg_rdata;</span></span>
 <span id="L871"><span class="lineNum">     871</span>              : </span>
-<span id="L872"><span class="lineNum">     872</span>              :    // Instantiate the el2_veer core</span>
-<span id="L873"><span class="lineNum">     873</span>              :    el2_veer #(.pt(pt)) veer (</span>
-<span id="L874"><span class="lineNum">     874</span>              :                                 .clk(clk),</span>
-<span id="L875"><span class="lineNum">     875</span>              :                                 .*</span>
-<span id="L876"><span class="lineNum">     876</span>              :                                 );</span>
-<span id="L877"><span class="lineNum">     877</span>              : </span>
-<span id="L878"><span class="lineNum">     878</span>              :    // Instantiate the mem</span>
-<span id="L879"><span class="lineNum">     879</span>              :    el2_mem  #(.pt(pt)) mem (</span>
-<span id="L880"><span class="lineNum">     880</span>              :                              .clk(active_l2clk),</span>
-<span id="L881"><span class="lineNum">     881</span>              :                              .rst_l(core_rst_l),</span>
-<span id="L882"><span class="lineNum">     882</span>              :                              .mem_export(el2_mem_export),</span>
-<span id="L883"><span class="lineNum">     883</span>              :                              .*</span>
-<span id="L884"><span class="lineNum">     884</span>              :                              );</span>
-<span id="L885"><span class="lineNum">     885</span>              : </span>
-<span id="L886"><span class="lineNum">     886</span>              : </span>
-<span id="L887"><span class="lineNum">     887</span>              :    //  JTAG/DMI instance</span>
-<span id="L888"><span class="lineNum">     888</span>              :    dmi_wrapper  dmi_wrapper (</span>
-<span id="L889"><span class="lineNum">     889</span>              :     // JTAG signals</span>
-<span id="L890"><span class="lineNum">     890</span>              :     .trst_n      (jtag_trst_n),     // JTAG reset</span>
-<span id="L891"><span class="lineNum">     891</span>              :     .tck         (jtag_tck),        // JTAG clock</span>
-<span id="L892"><span class="lineNum">     892</span>              :     .tms         (jtag_tms),        // Test mode select</span>
-<span id="L893"><span class="lineNum">     893</span>              :     .tdi         (jtag_tdi),        // Test Data Input</span>
-<span id="L894"><span class="lineNum">     894</span>              :     .tdo         (jtag_tdo),        // Test Data Output</span>
-<span id="L895"><span class="lineNum">     895</span>              :     .tdoEnable   (jtag_tdoEn),      // Test Data Output enable</span>
-<span id="L896"><span class="lineNum">     896</span>              :     // Processor Signals</span>
-<span id="L897"><span class="lineNum">     897</span>              :     .core_rst_n  (dbg_rst_l),       // Debug reset, active low</span>
-<span id="L898"><span class="lineNum">     898</span>              :     .core_clk    (clk),             // Core clock</span>
-<span id="L899"><span class="lineNum">     899</span>              :     .jtag_id     (jtag_id),         // JTAG ID</span>
-<span id="L900"><span class="lineNum">     900</span>              :     .rd_data     (dmi_rdata),       // Read data from  Processor</span>
-<span id="L901"><span class="lineNum">     901</span>              :     .reg_wr_data (dmi_wdata),       // Write data to Processor</span>
-<span id="L902"><span class="lineNum">     902</span>              :     .reg_wr_addr (dmi_addr),        // Write address to Processor</span>
-<span id="L903"><span class="lineNum">     903</span>              :     .reg_en      (dmi_en),          // Write interface bit to Processor</span>
-<span id="L904"><span class="lineNum">     904</span>              :     .reg_wr_en   (dmi_wr_en),       // Write enable to Processor</span>
-<span id="L905"><span class="lineNum">     905</span>              :     .dmi_hard_reset   ()</span>
-<span id="L906"><span class="lineNum">     906</span>              :    );</span>
-<span id="L907"><span class="lineNum">     907</span>              : </span>
-<span id="L908"><span class="lineNum">     908</span>              :    // DMI core/uncore mux</span>
-<span id="L909"><span class="lineNum">     909</span>              :    dmi_mux dmi_mux (</span>
-<span id="L910"><span class="lineNum">     910</span>              :     .uncore_enable      (dmi_uncore_enable),</span>
-<span id="L911"><span class="lineNum">     911</span>              : </span>
-<span id="L912"><span class="lineNum">     912</span>              :     .dmi_en             (dmi_en),</span>
-<span id="L913"><span class="lineNum">     913</span>              :     .dmi_wr_en          (dmi_wr_en),</span>
-<span id="L914"><span class="lineNum">     914</span>              :     .dmi_addr           (dmi_addr),</span>
-<span id="L915"><span class="lineNum">     915</span>              :     .dmi_wdata          (dmi_wdata),</span>
-<span id="L916"><span class="lineNum">     916</span>              :     .dmi_rdata          (dmi_rdata),</span>
-<span id="L917"><span class="lineNum">     917</span>              : </span>
-<span id="L918"><span class="lineNum">     918</span>              :     .dmi_core_en        (dmi_reg_en),</span>
-<span id="L919"><span class="lineNum">     919</span>              :     .dmi_core_wr_en     (dmi_reg_wr_en),</span>
-<span id="L920"><span class="lineNum">     920</span>              :     .dmi_core_addr      (dmi_reg_addr),</span>
-<span id="L921"><span class="lineNum">     921</span>              :     .dmi_core_wdata     (dmi_reg_wdata),</span>
-<span id="L922"><span class="lineNum">     922</span>              :     .dmi_core_rdata     (dmi_reg_rdata),</span>
-<span id="L923"><span class="lineNum">     923</span>              : </span>
-<span id="L924"><span class="lineNum">     924</span>              :     .dmi_uncore_en      (dmi_uncore_en),</span>
-<span id="L925"><span class="lineNum">     925</span>              :     .dmi_uncore_wr_en   (dmi_uncore_wr_en),</span>
-<span id="L926"><span class="lineNum">     926</span>              :     .dmi_uncore_addr    (dmi_uncore_addr),</span>
-<span id="L927"><span class="lineNum">     927</span>              :     .dmi_uncore_wdata   (dmi_uncore_wdata),</span>
-<span id="L928"><span class="lineNum">     928</span>              :     .dmi_uncore_rdata   (dmi_uncore_rdata)</span>
-<span id="L929"><span class="lineNum">     929</span>              :    );</span>
-<span id="L930"><span class="lineNum">     930</span>              : </span>
-<span id="L931"><span class="lineNum">     931</span>              : `ifdef RV_ASSERT_ON</span>
-<span id="L932"><span class="lineNum">     932</span>              :   // to avoid internal assertions failure at time 0</span>
-<span id="L933"><span class="lineNum">     933</span>              :   initial begin</span>
-<span id="L934"><span class="lineNum">     934</span>              :     $assertoff(0, veer);</span>
-<span id="L935"><span class="lineNum">     935</span>              :     @(negedge clk) $asserton(0, veer);</span>
-<span id="L936"><span class="lineNum">     936</span>              :   end</span>
-<span id="L937"><span class="lineNum">     937</span>              : `endif</span>
-<span id="L938"><span class="lineNum">     938</span>              : </span>
-<span id="L939"><span class="lineNum">     939</span>              : endmodule</span>
+<span id="L872"><span class="lineNum">     872</span>              : `ifdef RV_LOCKSTEP_REGFILE_ENABLE</span>
+<span id="L873"><span class="lineNum">     873</span>              :    el2_regfile_if regfile ();</span>
+<span id="L874"><span class="lineNum">     874</span>              :    // TODO: Connect to the Shadow Core</span>
+<span id="L875"><span class="lineNum">     875</span>              :    initial begin</span>
+<span id="L876"><span class="lineNum">     876</span>              :       $display("Dual Core Lockstep enabled!\n");</span>
+<span id="L877"><span class="lineNum">     877</span>              :    end</span>
+<span id="L878"><span class="lineNum">     878</span>              : `endif</span>
+<span id="L879"><span class="lineNum">     879</span>              : </span>
+<span id="L880"><span class="lineNum">     880</span>              :    // Instantiate the el2_veer core</span>
+<span id="L881"><span class="lineNum">     881</span>              :    el2_veer #(.pt(pt)) veer (</span>
+<span id="L882"><span class="lineNum">     882</span>              :                                 .clk(clk),</span>
+<span id="L883"><span class="lineNum">     883</span>              : `ifdef RV_LOCKSTEP_REGFILE_ENABLE</span>
+<span id="L884"><span class="lineNum">     884</span>              :                                 .regfile(regfile.veer_rf_src),</span>
+<span id="L885"><span class="lineNum">     885</span>              : `endif</span>
+<span id="L886"><span class="lineNum">     886</span>              :                                 .*</span>
+<span id="L887"><span class="lineNum">     887</span>              :                                 );</span>
+<span id="L888"><span class="lineNum">     888</span>              : </span>
+<span id="L889"><span class="lineNum">     889</span>              :    // Instantiate the mem</span>
+<span id="L890"><span class="lineNum">     890</span>              :    el2_mem  #(.pt(pt)) mem (</span>
+<span id="L891"><span class="lineNum">     891</span>              :                              .clk(active_l2clk),</span>
+<span id="L892"><span class="lineNum">     892</span>              :                              .rst_l(core_rst_l),</span>
+<span id="L893"><span class="lineNum">     893</span>              :                              .mem_export(el2_mem_export),</span>
+<span id="L894"><span class="lineNum">     894</span>              :                              .*</span>
+<span id="L895"><span class="lineNum">     895</span>              :                              );</span>
+<span id="L896"><span class="lineNum">     896</span>              : </span>
+<span id="L897"><span class="lineNum">     897</span>              : </span>
+<span id="L898"><span class="lineNum">     898</span>              :    //  JTAG/DMI instance</span>
+<span id="L899"><span class="lineNum">     899</span>              :    dmi_wrapper  dmi_wrapper (</span>
+<span id="L900"><span class="lineNum">     900</span>              :     // JTAG signals</span>
+<span id="L901"><span class="lineNum">     901</span>              :     .trst_n      (jtag_trst_n),     // JTAG reset</span>
+<span id="L902"><span class="lineNum">     902</span>              :     .tck         (jtag_tck),        // JTAG clock</span>
+<span id="L903"><span class="lineNum">     903</span>              :     .tms         (jtag_tms),        // Test mode select</span>
+<span id="L904"><span class="lineNum">     904</span>              :     .tdi         (jtag_tdi),        // Test Data Input</span>
+<span id="L905"><span class="lineNum">     905</span>              :     .tdo         (jtag_tdo),        // Test Data Output</span>
+<span id="L906"><span class="lineNum">     906</span>              :     .tdoEnable   (jtag_tdoEn),      // Test Data Output enable</span>
+<span id="L907"><span class="lineNum">     907</span>              :     // Processor Signals</span>
+<span id="L908"><span class="lineNum">     908</span>              :     .core_rst_n  (dbg_rst_l),       // Debug reset, active low</span>
+<span id="L909"><span class="lineNum">     909</span>              :     .core_clk    (clk),             // Core clock</span>
+<span id="L910"><span class="lineNum">     910</span>              :     .jtag_id     (jtag_id),         // JTAG ID</span>
+<span id="L911"><span class="lineNum">     911</span>              :     .rd_data     (dmi_rdata),       // Read data from  Processor</span>
+<span id="L912"><span class="lineNum">     912</span>              :     .reg_wr_data (dmi_wdata),       // Write data to Processor</span>
+<span id="L913"><span class="lineNum">     913</span>              :     .reg_wr_addr (dmi_addr),        // Write address to Processor</span>
+<span id="L914"><span class="lineNum">     914</span>              :     .reg_en      (dmi_en),          // Write interface bit to Processor</span>
+<span id="L915"><span class="lineNum">     915</span>              :     .reg_wr_en   (dmi_wr_en),       // Write enable to Processor</span>
+<span id="L916"><span class="lineNum">     916</span>              :     .dmi_hard_reset   ()</span>
+<span id="L917"><span class="lineNum">     917</span>              :    );</span>
+<span id="L918"><span class="lineNum">     918</span>              : </span>
+<span id="L919"><span class="lineNum">     919</span>              :    // DMI core/uncore mux</span>
+<span id="L920"><span class="lineNum">     920</span>              :    dmi_mux dmi_mux (</span>
+<span id="L921"><span class="lineNum">     921</span>              :     .uncore_enable      (dmi_uncore_enable),</span>
+<span id="L922"><span class="lineNum">     922</span>              : </span>
+<span id="L923"><span class="lineNum">     923</span>              :     .dmi_en             (dmi_en),</span>
+<span id="L924"><span class="lineNum">     924</span>              :     .dmi_wr_en          (dmi_wr_en),</span>
+<span id="L925"><span class="lineNum">     925</span>              :     .dmi_addr           (dmi_addr),</span>
+<span id="L926"><span class="lineNum">     926</span>              :     .dmi_wdata          (dmi_wdata),</span>
+<span id="L927"><span class="lineNum">     927</span>              :     .dmi_rdata          (dmi_rdata),</span>
+<span id="L928"><span class="lineNum">     928</span>              : </span>
+<span id="L929"><span class="lineNum">     929</span>              :     .dmi_core_en        (dmi_reg_en),</span>
+<span id="L930"><span class="lineNum">     930</span>              :     .dmi_core_wr_en     (dmi_reg_wr_en),</span>
+<span id="L931"><span class="lineNum">     931</span>              :     .dmi_core_addr      (dmi_reg_addr),</span>
+<span id="L932"><span class="lineNum">     932</span>              :     .dmi_core_wdata     (dmi_reg_wdata),</span>
+<span id="L933"><span class="lineNum">     933</span>              :     .dmi_core_rdata     (dmi_reg_rdata),</span>
+<span id="L934"><span class="lineNum">     934</span>              : </span>
+<span id="L935"><span class="lineNum">     935</span>              :     .dmi_uncore_en      (dmi_uncore_en),</span>
+<span id="L936"><span class="lineNum">     936</span>              :     .dmi_uncore_wr_en   (dmi_uncore_wr_en),</span>
+<span id="L937"><span class="lineNum">     937</span>              :     .dmi_uncore_addr    (dmi_uncore_addr),</span>
+<span id="L938"><span class="lineNum">     938</span>              :     .dmi_uncore_wdata   (dmi_uncore_wdata),</span>
+<span id="L939"><span class="lineNum">     939</span>              :     .dmi_uncore_rdata   (dmi_uncore_rdata)</span>
+<span id="L940"><span class="lineNum">     940</span>              :    );</span>
+<span id="L941"><span class="lineNum">     941</span>              : </span>
+<span id="L942"><span class="lineNum">     942</span>              : `ifdef RV_ASSERT_ON</span>
+<span id="L943"><span class="lineNum">     943</span>              :   // to avoid internal assertions failure at time 0</span>
+<span id="L944"><span class="lineNum">     944</span>              :   initial begin</span>
+<span id="L945"><span class="lineNum">     945</span>              :     $assertoff(0, veer);</span>
+<span id="L946"><span class="lineNum">     946</span>              :     @(negedge clk) $asserton(0, veer);</span>
+<span id="L947"><span class="lineNum">     947</span>              :   end</span>
+<span id="L948"><span class="lineNum">     948</span>              : `endif</span>
+<span id="L949"><span class="lineNum">     949</span>              : </span>
+<span id="L950"><span class="lineNum">     950</span>              : endmodule</span>
         </pre>
 </td>
 </tr>
