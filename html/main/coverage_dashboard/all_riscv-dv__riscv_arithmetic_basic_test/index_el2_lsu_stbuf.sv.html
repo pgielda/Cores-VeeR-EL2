@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    17-10-2024
+                    24-10-2024
                 </td>
                 <td></td>
                 
@@ -137,20 +137,20 @@
 <span id="L33"><span class="lineNum">      33</span>              : `include "el2_param.vh"</span>
 <span id="L34"><span class="lineNum">      34</span>              :  )</span>
 <span id="L35"><span class="lineNum">      35</span>              : (</span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">      572590 :    input logic                           clk,                         // core clock</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">      799200 :    input logic                           clk,                         // core clock</span></span>
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">           6 :    input logic                           rst_l,                       // reset</span></span>
 <span id="L38"><span class="lineNum">      38</span>              : </span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">      572590 :    input logic                           lsu_stbuf_c1_clk,            // stbuf clock</span></span>
-<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">      572590 :    input logic                           lsu_free_c2_clk,             // free clk</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">      799200 :    input logic                           lsu_stbuf_c1_clk,            // stbuf clock</span></span>
+<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">      799200 :    input logic                           lsu_free_c2_clk,             // free clk</span></span>
 <span id="L41"><span class="lineNum">      41</span>              : </span>
 <span id="L42"><span class="lineNum">      42</span>              :    // Store Buffer input</span>
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                           store_stbuf_reqvld_r,        // core instruction goes to stbuf</span></span>
-<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC tlaBgGNC">         742 :    input logic                           lsu_commit_r,                // lsu commits</span></span>
-<span id="L45"><span class="lineNum">      45</span> <span class="tlaGNC">         746 :    input logic                           dec_lsu_valid_raw_d,         // Speculative decode valid</span></span>
+<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC tlaBgGNC">         748 :    input logic                           lsu_commit_r,                // lsu commits</span></span>
+<span id="L45"><span class="lineNum">      45</span> <span class="tlaGNC">         752 :    input logic                           dec_lsu_valid_raw_d,         // Speculative decode valid</span></span>
 <span id="L46"><span class="lineNum">      46</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [pt.DCCM_DATA_WIDTH-1:0]  store_data_hi_r,             // merged data from the dccm for stores. This is used for fwding</span></span>
-<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC tlaBgGNC">         126 :    input logic [pt.DCCM_DATA_WIDTH-1:0]  store_data_lo_r,             // merged data from the dccm for stores. This is used for fwding</span></span>
+<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC tlaBgGNC">         140 :    input logic [pt.DCCM_DATA_WIDTH-1:0]  store_data_lo_r,             // merged data from the dccm for stores. This is used for fwding</span></span>
 <span id="L48"><span class="lineNum">      48</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [pt.DCCM_DATA_WIDTH-1:0]  store_datafn_hi_r,           // merged data from the dccm for stores</span></span>
-<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC tlaBgGNC">         126 :    input logic [pt.DCCM_DATA_WIDTH-1:0]  store_datafn_lo_r,           // merged data from the dccm for stores</span></span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC tlaBgGNC">         140 :    input logic [pt.DCCM_DATA_WIDTH-1:0]  store_datafn_lo_r,           // merged data from the dccm for stores</span></span>
 <span id="L50"><span class="lineNum">      50</span>              : </span>
 <span id="L51"><span class="lineNum">      51</span>              :    // Store Buffer output</span>
 <span id="L52"><span class="lineNum">      52</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic                          stbuf_reqvld_any,            // stbuf is draining</span></span>
@@ -177,8 +177,8 @@
 <span id="L73"><span class="lineNum">      73</span>              : </span>
 <span id="L74"><span class="lineNum">      74</span>              :    // Forwarding signals</span>
 <span id="L75"><span class="lineNum">      75</span> <span class="tlaUNC">           0 :    input logic                           lsu_cmpen_m,                 // needed for forwarding stbuf - load</span></span>
-<span id="L76"><span class="lineNum">      76</span> <span class="tlaGNC tlaBgGNC">         743 :    input el2_lsu_pkt_t                  lsu_pkt_m,                   // LSU packet M-stage</span></span>
-<span id="L77"><span class="lineNum">      77</span> <span class="tlaGNC">         742 :    input el2_lsu_pkt_t                  lsu_pkt_r,                   // LSU packet R-stage</span></span>
+<span id="L76"><span class="lineNum">      76</span> <span class="tlaGNC tlaBgGNC">         750 :    input el2_lsu_pkt_t                  lsu_pkt_m,                   // LSU packet M-stage</span></span>
+<span id="L77"><span class="lineNum">      77</span> <span class="tlaGNC">         748 :    input el2_lsu_pkt_t                  lsu_pkt_r,                   // LSU packet R-stage</span></span>
 <span id="L78"><span class="lineNum">      78</span>              : </span>
 <span id="L79"><span class="lineNum">      79</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [pt.DCCM_DATA_WIDTH-1:0] stbuf_fwddata_hi_m,          // stbuf data</span></span>
 <span id="L80"><span class="lineNum">      80</span> <span class="tlaUNC">           0 :    output logic [pt.DCCM_DATA_WIDTH-1:0] stbuf_fwddata_lo_m,          // stbuf data</span></span>
@@ -212,7 +212,7 @@
 <span id="L108"><span class="lineNum">     108</span>              : </span>
 <span id="L109"><span class="lineNum">     109</span> <span class="tlaUNC">           0 :    logic [7:0]             store_byteen_ext_r;</span></span>
 <span id="L110"><span class="lineNum">     110</span> <span class="tlaUNC">           0 :    logic [BYTE_WIDTH-1:0]  store_byteen_hi_r;</span></span>
-<span id="L111"><span class="lineNum">     111</span> <span class="tlaGNC tlaBgGNC">         742 :    logic [BYTE_WIDTH-1:0]  store_byteen_lo_r;</span></span>
+<span id="L111"><span class="lineNum">     111</span> <span class="tlaGNC tlaBgGNC">         748 :    logic [BYTE_WIDTH-1:0]  store_byteen_lo_r;</span></span>
 <span id="L112"><span class="lineNum">     112</span>              : </span>
 <span id="L113"><span class="lineNum">     113</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                   WrPtrEn, RdPtrEn;</span></span>
 <span id="L114"><span class="lineNum">     114</span> <span class="tlaUNC">           0 :    logic [DEPTH_LOG2-1:0]  WrPtr, RdPtr;</span></span>
