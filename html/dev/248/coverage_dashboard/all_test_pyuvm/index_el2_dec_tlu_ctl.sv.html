@@ -140,7 +140,7 @@
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaUNC">           0 :    input logic scan_mode,</span></span>
 <span id="L37"><span class="lineNum">      37</span>              : </span>
 <span id="L38"><span class="lineNum">      38</span> <span class="tlaUNC">           0 :    input logic [31:1] rst_vec, // reset vector, from core pins</span></span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC tlaBgGNC">           9 :    input logic        nmi_int, // nmi pin</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC tlaBgGNC">          11 :    input logic        nmi_int, // nmi pin</span></span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:1] nmi_vec, // nmi vector</span></span>
 <span id="L41"><span class="lineNum">      41</span> <span class="tlaUNC">           0 :    input logic  i_cpu_halt_req,    // Asynchronous Halt request to CPU</span></span>
 <span id="L42"><span class="lineNum">      42</span> <span class="tlaUNC">           0 :    input logic  i_cpu_run_req,     // Asynchronous Restart request to CPU</span></span>
@@ -262,8 +262,8 @@
 <span id="L158"><span class="lineNum">     158</span> <span class="tlaUNC">           0 :    input logic       mhwakeup, // high priority external int, wakeup if halted</span></span>
 <span id="L159"><span class="lineNum">     159</span>              : </span>
 <span id="L160"><span class="lineNum">     160</span> <span class="tlaUNC">           0 :    input logic mexintpend, // external interrupt pending</span></span>
-<span id="L161"><span class="lineNum">     161</span> <span class="tlaGNC tlaBgGNC">          10 :    input logic timer_int, // timer interrupt pending</span></span>
-<span id="L162"><span class="lineNum">     162</span> <span class="tlaGNC">           9 :    input logic soft_int, // software interrupt pending</span></span>
+<span id="L161"><span class="lineNum">     161</span> <span class="tlaGNC tlaBgGNC">           7 :    input logic timer_int, // timer interrupt pending</span></span>
+<span id="L162"><span class="lineNum">     162</span> <span class="tlaGNC">          10 :    input logic soft_int, // software interrupt pending</span></span>
 <span id="L163"><span class="lineNum">     163</span>              : </span>
 <span id="L164"><span class="lineNum">     164</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic o_cpu_halt_status, // PMU interface, halted</span></span>
 <span id="L165"><span class="lineNum">     165</span> <span class="tlaUNC">           0 :    output logic o_cpu_halt_ack, // halt req ack</span></span>
