@@ -180,12 +180,13 @@ verilator-build: ${TBFILES} ${BUILD_DIR}/defines.h $(TB_VERILATOR_SRCS)
 	$(MAKE) -e -C obj_dir/ -f Vtb_top.mk $(VERILATOR_MAKE_FLAGS)
 	touch verilator-build
 
-vcs-build: ${TBFILES} ${BUILD_DIR}/defines.h
+vcs-build: ${TBFILES} ${BUILD_DIR}/defines.h $(TB_DPI_SRCS)
 	$(VCS) -full64 -assert svaext -sverilog +define+RV_OPENSOURCE $(ASSERT_DEFINES) \
 	  +error+500 +incdir+${RV_ROOT}/design/lib \
 	  +incdir+${RV_ROOT}/design/include ${BUILD_DIR}/common_defines.vh \
 	  +incdir+$(BUILD_DIR)  +libext+.v $(defines) \
-	  -f ${RV_ROOT}/testbench/flist ${TBFILES} -l vcs.log
+	  -f ${RV_ROOT}/testbench/flist ${TBFILES} -l vcs.log \
+	  +dpi -cflags "$(TB_DPI_INCS)" $(TB_DPI_SRCS)
 	touch vcs-build
 
 irun-build: ${TBFILES} ${BUILD_DIR}/defines.h
