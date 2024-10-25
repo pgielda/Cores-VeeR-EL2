@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    22-10-2024
+                    25-10-2024
                 </td>
                 <td></td>
                 
@@ -140,7 +140,7 @@
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaUNC">           0 :    input logic scan_mode,</span></span>
 <span id="L37"><span class="lineNum">      37</span>              : </span>
 <span id="L38"><span class="lineNum">      38</span> <span class="tlaUNC">           0 :    input logic [31:1] rst_vec, // reset vector, from core pins</span></span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC tlaBgGNC">           6 :    input logic        nmi_int, // nmi pin</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC tlaBgGNC">           5 :    input logic        nmi_int, // nmi pin</span></span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:1] nmi_vec, // nmi vector</span></span>
 <span id="L41"><span class="lineNum">      41</span> <span class="tlaUNC">           0 :    input logic  i_cpu_halt_req,    // Asynchronous Halt request to CPU</span></span>
 <span id="L42"><span class="lineNum">      42</span> <span class="tlaUNC">           0 :    input logic  i_cpu_run_req,     // Asynchronous Restart request to CPU</span></span>
@@ -262,8 +262,8 @@
 <span id="L158"><span class="lineNum">     158</span> <span class="tlaUNC">           0 :    input logic       mhwakeup, // high priority external int, wakeup if halted</span></span>
 <span id="L159"><span class="lineNum">     159</span>              : </span>
 <span id="L160"><span class="lineNum">     160</span> <span class="tlaUNC">           0 :    input logic mexintpend, // external interrupt pending</span></span>
-<span id="L161"><span class="lineNum">     161</span> <span class="tlaGNC tlaBgGNC">           8 :    input logic timer_int, // timer interrupt pending</span></span>
-<span id="L162"><span class="lineNum">     162</span> <span class="tlaGNC">           8 :    input logic soft_int, // software interrupt pending</span></span>
+<span id="L161"><span class="lineNum">     161</span> <span class="tlaGNC tlaBgGNC">           7 :    input logic timer_int, // timer interrupt pending</span></span>
+<span id="L162"><span class="lineNum">     162</span> <span class="tlaGNC">           9 :    input logic soft_int, // software interrupt pending</span></span>
 <span id="L163"><span class="lineNum">     163</span>              : </span>
 <span id="L164"><span class="lineNum">     164</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic o_cpu_halt_status, // PMU interface, halted</span></span>
 <span id="L165"><span class="lineNum">     165</span> <span class="tlaUNC">           0 :    output logic o_cpu_halt_ack, // halt req ack</span></span>
@@ -2839,21 +2839,21 @@
 <span id="L2735"><span class="lineNum">    2735</span>              : </span>
 <span id="L2736"><span class="lineNum">    2736</span>              : `ifdef RV_LOCKSTEP_REGFILE_ENABLE</span>
 <span id="L2737"><span class="lineNum">    2737</span>              :    // Expose the register file</span>
-<span id="L2738"><span class="lineNum">    2738</span>              :    assign regfile.pc = pc_r;</span>
-<span id="L2739"><span class="lineNum">    2739</span>              :    assign regfile.npc = npc_r;</span>
-<span id="L2740"><span class="lineNum">    2740</span>              :    assign regfile.mstatus = mstatus_rf;</span>
-<span id="L2741"><span class="lineNum">    2741</span>              :    assign regfile.mie = mie_rf;</span>
-<span id="L2742"><span class="lineNum">    2742</span>              :    assign regfile.mtvec = mtvec_rf;</span>
-<span id="L2743"><span class="lineNum">    2743</span>              :    assign regfile.mscratch = mscratch_rf;</span>
-<span id="L2744"><span class="lineNum">    2744</span>              :    assign regfile.mepc = mepc_rf;</span>
-<span id="L2745"><span class="lineNum">    2745</span>              :    assign regfile.mcause = mcause_rf;</span>
-<span id="L2746"><span class="lineNum">    2746</span>              :    assign regfile.mtval = mtval_rf;</span>
-<span id="L2747"><span class="lineNum">    2747</span>              :    assign regfile.mip = mip_rf;</span>
-<span id="L2748"><span class="lineNum">    2748</span>              :    assign regfile.mcyclel = mcyclel_rf;</span>
-<span id="L2749"><span class="lineNum">    2749</span>              :    assign regfile.mcycleh = mcycleh_rf;</span>
-<span id="L2750"><span class="lineNum">    2750</span>              :    assign regfile.minstretl = minstretl_rf;</span>
-<span id="L2751"><span class="lineNum">    2751</span>              :    assign regfile.minstreth = minstreth_rf;</span>
-<span id="L2752"><span class="lineNum">    2752</span>              :    assign regfile.mrac = mrac_rf;</span>
+<span id="L2738"><span class="lineNum">    2738</span>              :    assign regfile.tlu.pc = pc_r;</span>
+<span id="L2739"><span class="lineNum">    2739</span>              :    assign regfile.tlu.npc = npc_r;</span>
+<span id="L2740"><span class="lineNum">    2740</span>              :    assign regfile.tlu.mstatus = mstatus_rf;</span>
+<span id="L2741"><span class="lineNum">    2741</span>              :    assign regfile.tlu.mie = mie_rf;</span>
+<span id="L2742"><span class="lineNum">    2742</span>              :    assign regfile.tlu.mtvec = mtvec_rf;</span>
+<span id="L2743"><span class="lineNum">    2743</span>              :    assign regfile.tlu.mscratch = mscratch_rf;</span>
+<span id="L2744"><span class="lineNum">    2744</span>              :    assign regfile.tlu.mepc = mepc_rf;</span>
+<span id="L2745"><span class="lineNum">    2745</span>              :    assign regfile.tlu.mcause = mcause_rf;</span>
+<span id="L2746"><span class="lineNum">    2746</span>              :    assign regfile.tlu.mtval = mtval_rf;</span>
+<span id="L2747"><span class="lineNum">    2747</span>              :    assign regfile.tlu.mip = mip_rf;</span>
+<span id="L2748"><span class="lineNum">    2748</span>              :    assign regfile.tlu.mcyclel = mcyclel_rf;</span>
+<span id="L2749"><span class="lineNum">    2749</span>              :    assign regfile.tlu.mcycleh = mcycleh_rf;</span>
+<span id="L2750"><span class="lineNum">    2750</span>              :    assign regfile.tlu.minstretl = minstretl_rf;</span>
+<span id="L2751"><span class="lineNum">    2751</span>              :    assign regfile.tlu.minstreth = minstreth_rf;</span>
+<span id="L2752"><span class="lineNum">    2752</span>              :    assign regfile.tlu.mrac = mrac_rf;</span>
 <span id="L2753"><span class="lineNum">    2753</span>              : `endif</span>
 <span id="L2754"><span class="lineNum">    2754</span>              : </span>
 <span id="L2755"><span class="lineNum">    2755</span>              : endmodule // el2_dec_tlu_ctl</span>

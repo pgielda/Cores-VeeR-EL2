@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    22-10-2024
+                    25-10-2024
                 </td>
                 <td></td>
                 
@@ -156,17 +156,17 @@
 <span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC tlaBgGNC">          84 :    logic [31:1] gpr_wr_en;</span></span>
 <span id="L53"><span class="lineNum">      53</span>              : </span>
 <span id="L54"><span class="lineNum">      54</span>              : `ifdef RV_LOCKSTEP_REGFILE_ENABLE</span>
-<span id="L55"><span class="lineNum">      55</span>              :    assign regfile.ra = gpr_out[1][31:0]; // x1</span>
-<span id="L56"><span class="lineNum">      56</span>              :    assign regfile.sp = gpr_out[2][31:0]; // x2</span>
-<span id="L57"><span class="lineNum">      57</span>              :    assign regfile.fp = gpr_out[8][31:0]; // x8</span>
-<span id="L58"><span class="lineNum">      58</span>              :    assign regfile.a0 = gpr_out[10][31:0]; // x10</span>
-<span id="L59"><span class="lineNum">      59</span>              :    assign regfile.a1 = gpr_out[11][31:0]; // x11</span>
-<span id="L60"><span class="lineNum">      60</span>              :    assign regfile.a2 = gpr_out[12][31:0]; // x12</span>
-<span id="L61"><span class="lineNum">      61</span>              :    assign regfile.a3 = gpr_out[13][31:0]; // x13</span>
-<span id="L62"><span class="lineNum">      62</span>              :    assign regfile.a4 = gpr_out[14][31:0]; // x14</span>
-<span id="L63"><span class="lineNum">      63</span>              :    assign regfile.a5 = gpr_out[15][31:0]; // x15</span>
-<span id="L64"><span class="lineNum">      64</span>              :    assign regfile.a6 = gpr_out[16][31:0]; // x16</span>
-<span id="L65"><span class="lineNum">      65</span>              :    assign regfile.a7 = gpr_out[17][31:0]; // x17</span>
+<span id="L55"><span class="lineNum">      55</span>              :    assign regfile.gpr.ra = gpr_out[1][31:0]; // x1</span>
+<span id="L56"><span class="lineNum">      56</span>              :    assign regfile.gpr.sp = gpr_out[2][31:0]; // x2</span>
+<span id="L57"><span class="lineNum">      57</span>              :    assign regfile.gpr.fp = gpr_out[8][31:0]; // x8</span>
+<span id="L58"><span class="lineNum">      58</span>              :    assign regfile.gpr.a0 = gpr_out[10][31:0]; // x10</span>
+<span id="L59"><span class="lineNum">      59</span>              :    assign regfile.gpr.a1 = gpr_out[11][31:0]; // x11</span>
+<span id="L60"><span class="lineNum">      60</span>              :    assign regfile.gpr.a2 = gpr_out[12][31:0]; // x12</span>
+<span id="L61"><span class="lineNum">      61</span>              :    assign regfile.gpr.a3 = gpr_out[13][31:0]; // x13</span>
+<span id="L62"><span class="lineNum">      62</span>              :    assign regfile.gpr.a4 = gpr_out[14][31:0]; // x14</span>
+<span id="L63"><span class="lineNum">      63</span>              :    assign regfile.gpr.a5 = gpr_out[15][31:0]; // x15</span>
+<span id="L64"><span class="lineNum">      64</span>              :    assign regfile.gpr.a6 = gpr_out[16][31:0]; // x16</span>
+<span id="L65"><span class="lineNum">      65</span>              :    assign regfile.gpr.a7 = gpr_out[17][31:0]; // x17</span>
 <span id="L66"><span class="lineNum">      66</span>              : `endif</span>
 <span id="L67"><span class="lineNum">      67</span>              : </span>
 <span id="L68"><span class="lineNum">      68</span>              :    // GPR Write Enables</span>

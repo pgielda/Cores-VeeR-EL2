@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    22-10-2024
+                    25-10-2024
                 </td>
                 <td></td>
                 
@@ -354,7 +354,7 @@
 <span id="L250"><span class="lineNum">     250</span> <span class="tlaGNC tlaBgGNC">        4328 :     output logic [11:0] dec_lsu_offset_d,  // 12b offset for load/store addresses</span></span>
 <span id="L251"><span class="lineNum">     251</span>              : </span>
 <span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC">          16 :     output logic        dec_csr_ren_d,    // CSR read enable</span></span>
-<span id="L253"><span class="lineNum">     253</span> <span class="tlaGNC">         696 :     output logic [31:0] dec_csr_rddata_d, // CSR read data</span></span>
+<span id="L253"><span class="lineNum">     253</span> <span class="tlaGNC">        1392 :     output logic [31:0] dec_csr_rddata_d, // CSR read data</span></span>
 <span id="L254"><span class="lineNum">     254</span>              : </span>
 <span id="L255"><span class="lineNum">     255</span> <span class="tlaGNC">          20 :     output logic dec_tlu_flush_lower_r,  // tlu flush due to late mp, exception, rfpc, or int</span></span>
 <span id="L256"><span class="lineNum">     256</span> <span class="tlaGNC">          20 :     output logic dec_tlu_flush_lower_wb,</span></span>
@@ -528,33 +528,33 @@
 <span id="L424"><span class="lineNum">     424</span>              : </span>
 <span id="L425"><span class="lineNum">     425</span>              : `ifdef RV_LOCKSTEP_REGFILE_ENABLE</span>
 <span id="L426"><span class="lineNum">     426</span>              :       el2_regfile_if regfile_if ();</span>
-<span id="L427"><span class="lineNum">     427</span>              :       assign regfile.ra = regfile_if.ra;</span>
-<span id="L428"><span class="lineNum">     428</span>              :       assign regfile.sp = regfile_if.sp;</span>
-<span id="L429"><span class="lineNum">     429</span>              :       assign regfile.fp = regfile_if.fp;</span>
-<span id="L430"><span class="lineNum">     430</span>              :       assign regfile.a0 = regfile_if.a0;</span>
-<span id="L431"><span class="lineNum">     431</span>              :       assign regfile.a1 = regfile_if.a1;</span>
-<span id="L432"><span class="lineNum">     432</span>              :       assign regfile.a2 = regfile_if.a2;</span>
-<span id="L433"><span class="lineNum">     433</span>              :       assign regfile.a3 = regfile_if.a3;</span>
-<span id="L434"><span class="lineNum">     434</span>              :       assign regfile.a4 = regfile_if.a4;</span>
-<span id="L435"><span class="lineNum">     435</span>              :       assign regfile.a5 = regfile_if.a5;</span>
-<span id="L436"><span class="lineNum">     436</span>              :       assign regfile.a6 = regfile_if.a6;</span>
-<span id="L437"><span class="lineNum">     437</span>              :       assign regfile.a7 = regfile_if.a7;</span>
+<span id="L427"><span class="lineNum">     427</span>              :       assign regfile.gpr.ra = regfile_if.gpr.ra;</span>
+<span id="L428"><span class="lineNum">     428</span>              :       assign regfile.gpr.sp = regfile_if.gpr.sp;</span>
+<span id="L429"><span class="lineNum">     429</span>              :       assign regfile.gpr.fp = regfile_if.gpr.fp;</span>
+<span id="L430"><span class="lineNum">     430</span>              :       assign regfile.gpr.a0 = regfile_if.gpr.a0;</span>
+<span id="L431"><span class="lineNum">     431</span>              :       assign regfile.gpr.a1 = regfile_if.gpr.a1;</span>
+<span id="L432"><span class="lineNum">     432</span>              :       assign regfile.gpr.a2 = regfile_if.gpr.a2;</span>
+<span id="L433"><span class="lineNum">     433</span>              :       assign regfile.gpr.a3 = regfile_if.gpr.a3;</span>
+<span id="L434"><span class="lineNum">     434</span>              :       assign regfile.gpr.a4 = regfile_if.gpr.a4;</span>
+<span id="L435"><span class="lineNum">     435</span>              :       assign regfile.gpr.a5 = regfile_if.gpr.a5;</span>
+<span id="L436"><span class="lineNum">     436</span>              :       assign regfile.gpr.a6 = regfile_if.gpr.a6;</span>
+<span id="L437"><span class="lineNum">     437</span>              :       assign regfile.gpr.a7 = regfile_if.gpr.a7;</span>
 <span id="L438"><span class="lineNum">     438</span>              : </span>
-<span id="L439"><span class="lineNum">     439</span>              :       assign regfile.pc        = regfile_if.pc;</span>
-<span id="L440"><span class="lineNum">     440</span>              :       assign regfile.npc       = regfile_if.npc;</span>
-<span id="L441"><span class="lineNum">     441</span>              :       assign regfile.mstatus   = regfile_if.mstatus;</span>
-<span id="L442"><span class="lineNum">     442</span>              :       assign regfile.mie       = regfile_if.mie;</span>
-<span id="L443"><span class="lineNum">     443</span>              :       assign regfile.mtvec     = regfile_if.mtvec;</span>
-<span id="L444"><span class="lineNum">     444</span>              :       assign regfile.mscratch  = regfile_if.mscratch;</span>
-<span id="L445"><span class="lineNum">     445</span>              :       assign regfile.mepc      = regfile_if.mepc;</span>
-<span id="L446"><span class="lineNum">     446</span>              :       assign regfile.mcause    = regfile_if.mcause;</span>
-<span id="L447"><span class="lineNum">     447</span>              :       assign regfile.mtval     = regfile_if.mtval;</span>
-<span id="L448"><span class="lineNum">     448</span>              :       assign regfile.mip       = regfile_if.mip;</span>
-<span id="L449"><span class="lineNum">     449</span>              :       assign regfile.mcyclel   = regfile_if.mcyclel;</span>
-<span id="L450"><span class="lineNum">     450</span>              :       assign regfile.mcycleh   = regfile_if.mcycleh;</span>
-<span id="L451"><span class="lineNum">     451</span>              :       assign regfile.minstretl = regfile_if.minstretl;</span>
-<span id="L452"><span class="lineNum">     452</span>              :       assign regfile.minstreth = regfile_if.minstreth;</span>
-<span id="L453"><span class="lineNum">     453</span>              :       assign regfile.mrac      = regfile_if.mrac;</span>
+<span id="L439"><span class="lineNum">     439</span>              :       assign regfile.tlu.pc        = regfile_if.tlu.pc;</span>
+<span id="L440"><span class="lineNum">     440</span>              :       assign regfile.tlu.npc       = regfile_if.tlu.npc;</span>
+<span id="L441"><span class="lineNum">     441</span>              :       assign regfile.tlu.mstatus   = regfile_if.tlu.mstatus;</span>
+<span id="L442"><span class="lineNum">     442</span>              :       assign regfile.tlu.mie       = regfile_if.tlu.mie;</span>
+<span id="L443"><span class="lineNum">     443</span>              :       assign regfile.tlu.mtvec     = regfile_if.tlu.mtvec;</span>
+<span id="L444"><span class="lineNum">     444</span>              :       assign regfile.tlu.mscratch  = regfile_if.tlu.mscratch;</span>
+<span id="L445"><span class="lineNum">     445</span>              :       assign regfile.tlu.mepc      = regfile_if.tlu.mepc;</span>
+<span id="L446"><span class="lineNum">     446</span>              :       assign regfile.tlu.mcause    = regfile_if.tlu.mcause;</span>
+<span id="L447"><span class="lineNum">     447</span>              :       assign regfile.tlu.mtval     = regfile_if.tlu.mtval;</span>
+<span id="L448"><span class="lineNum">     448</span>              :       assign regfile.tlu.mip       = regfile_if.tlu.mip;</span>
+<span id="L449"><span class="lineNum">     449</span>              :       assign regfile.tlu.mcyclel   = regfile_if.tlu.mcyclel;</span>
+<span id="L450"><span class="lineNum">     450</span>              :       assign regfile.tlu.mcycleh   = regfile_if.tlu.mcycleh;</span>
+<span id="L451"><span class="lineNum">     451</span>              :       assign regfile.tlu.minstretl = regfile_if.tlu.minstretl;</span>
+<span id="L452"><span class="lineNum">     452</span>              :       assign regfile.tlu.minstreth = regfile_if.tlu.minstreth;</span>
+<span id="L453"><span class="lineNum">     453</span>              :       assign regfile.tlu.mrac      = regfile_if.tlu.mrac;</span>
 <span id="L454"><span class="lineNum">     454</span>              : `endif</span>
 <span id="L455"><span class="lineNum">     455</span>              : </span>
 <span id="L456"><span class="lineNum">     456</span>              :   el2_dec_tlu_ctl #(.pt(pt)</span>
