@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    29-10-2024
+                    30-10-2024
                 </td>
                 <td></td>
                 
@@ -284,7 +284,7 @@
 <span id="L180"><span class="lineNum">     180</span> <span class="tlaUNC">           0 :    output logic [3:0] dec_tlu_meipt, // to PIC</span></span>
 <span id="L181"><span class="lineNum">     181</span>              : </span>
 <span id="L182"><span class="lineNum">     182</span>              : </span>
-<span id="L183"><span class="lineNum">     183</span> <span class="tlaGNC tlaBgGNC">           9 :    output logic [31:0] dec_csr_rddata_d,      // csr read data at wb</span></span>
+<span id="L183"><span class="lineNum">     183</span> <span class="tlaGNC tlaBgGNC">          18 :    output logic [31:0] dec_csr_rddata_d,      // csr read data at wb</span></span>
 <span id="L184"><span class="lineNum">     184</span> <span class="tlaGNC">           4 :    output logic dec_csr_legal_d,              // csr indicates legal operation</span></span>
 <span id="L185"><span class="lineNum">     185</span>              : </span>
 <span id="L186"><span class="lineNum">     186</span> <span class="tlaGNC">          60 :    output el2_br_tlu_pkt_t dec_tlu_br0_r_pkt, // branch pkt to bp</span></span>
@@ -391,7 +391,7 @@
 <span id="L287"><span class="lineNum">     287</span>              : `ifdef RV_USER_MODE</span>
 <span id="L288"><span class="lineNum">     288</span> <span class="tlaUNC">           0 :    logic [3:0]  mstatus_ns, mstatus; // MPRV, MPP (inverted! 0-M, 1-U), MPIE, MIE</span></span>
 <span id="L289"><span class="lineNum">     289</span>              : `else</span>
-<span id="L290"><span class="lineNum">     290</span> <span class="tlaUNC">           0 :    logic [1:0]  mstatus_ns, mstatus;</span></span>
+<span id="L290"><span class="lineNum">     290</span>              :    logic [1:0]  mstatus_ns, mstatus;</span>
 <span id="L291"><span class="lineNum">     291</span>              : `endif</span>
 <span id="L292"><span class="lineNum">     292</span> <span class="tlaUNC">           0 :    logic [1:0] mfdhs_ns, mfdhs;</span></span>
 <span id="L293"><span class="lineNum">     293</span> <span class="tlaUNC">           0 :    logic [31:0] force_halt_ctr, force_halt_ctr_f;</span></span>
@@ -585,8 +585,8 @@
 <span id="L481"><span class="lineNum">     481</span>              :    `include "el2_dec_csr_equ_mu.svh"</span>
 <span id="L482"><span class="lineNum">     482</span>              : </span>
 <span id="L483"><span class="lineNum">     483</span> <span class="tlaUNC">           0 :    logic  csr_acc_r;    // CSR access error</span></span>
-<span id="L484"><span class="lineNum">     484</span> <span class="tlaGNC tlaBgGNC">           1 :    logic  csr_wr_usr_r; // Write to an unprivileged/user-level CSR</span></span>
-<span id="L485"><span class="lineNum">     485</span> <span class="tlaGNC">         531 :    logic  csr_rd_usr_r; // REad from an unprivileged/user-level CSR</span></span>
+<span id="L484"><span class="lineNum">     484</span> <span class="tlaGNC tlaBgGNC">           2 :    logic  csr_wr_usr_r; // Write to an unprivileged/user-level CSR</span></span>
+<span id="L485"><span class="lineNum">     485</span> <span class="tlaGNC">        1062 :    logic  csr_rd_usr_r; // REad from an unprivileged/user-level CSR</span></span>
 <span id="L486"><span class="lineNum">     486</span>              : </span>
 <span id="L487"><span class="lineNum">     487</span>              : `else</span>
 <span id="L488"><span class="lineNum">     488</span>              : </span>
