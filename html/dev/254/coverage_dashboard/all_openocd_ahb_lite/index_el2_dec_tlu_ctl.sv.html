@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    31-10-2024
+                    04-11-2024
                 </td>
                 <td></td>
                 
@@ -133,9 +133,9 @@
 <span id="L29"><span class="lineNum">      29</span>              : `include "el2_param.vh"</span>
 <span id="L30"><span class="lineNum">      30</span>              :  )</span>
 <span id="L31"><span class="lineNum">      31</span>              :   (</span>
-<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC tlaBgGNC">       90576 :    input logic clk,</span></span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">       90576 :    input logic free_clk,</span></span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">       90576 :    input logic free_l2clk,</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC tlaBgGNC">       90582 :    input logic clk,</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">       90582 :    input logic free_clk,</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">       90582 :    input logic free_l2clk,</span></span>
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">           2 :    input logic rst_l,</span></span>
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic scan_mode,</span></span>
 <span id="L37"><span class="lineNum">      37</span>              : </span>
@@ -164,8 +164,8 @@
 <span id="L60"><span class="lineNum">      60</span> <span class="tlaUNC">           0 :    input logic       dma_dccm_stall_any,     // DMA stall of lsu</span></span>
 <span id="L61"><span class="lineNum">      61</span> <span class="tlaUNC">           0 :    input logic       dma_iccm_stall_any,     // DMA stall of ifu</span></span>
 <span id="L62"><span class="lineNum">      62</span> <span class="tlaGNC tlaBgGNC">         424 :    input logic       exu_pmu_i0_br_misp,     // pipe 0 branch misp</span></span>
-<span id="L63"><span class="lineNum">      63</span> <span class="tlaGNC">       44354 :    input logic       exu_pmu_i0_br_ataken,   // pipe 0 branch actual taken</span></span>
-<span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC">       44726 :    input logic       exu_pmu_i0_pc4,         // pipe 0 4 byte branch</span></span>
+<span id="L63"><span class="lineNum">      63</span> <span class="tlaGNC">       44357 :    input logic       exu_pmu_i0_br_ataken,   // pipe 0 branch actual taken</span></span>
+<span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC">       44729 :    input logic       exu_pmu_i0_pc4,         // pipe 0 4 byte branch</span></span>
 <span id="L65"><span class="lineNum">      65</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic       lsu_pmu_bus_trxn,       // D side bus transaction</span></span>
 <span id="L66"><span class="lineNum">      66</span> <span class="tlaUNC">           0 :    input logic       lsu_pmu_bus_misaligned, // D side bus misaligned</span></span>
 <span id="L67"><span class="lineNum">      67</span> <span class="tlaUNC">           0 :    input logic       lsu_pmu_bus_error,      // D side bus error</span></span>
@@ -213,10 +213,10 @@
 <span id="L109"><span class="lineNum">     109</span> <span class="tlaGNC tlaBgGNC">         454 :    input logic        dec_i0_decode_d,  // decode valid, used for clean icache diagnostics</span></span>
 <span id="L110"><span class="lineNum">     110</span>              : </span>
 <span id="L111"><span class="lineNum">     111</span>              :    // branch info from pipe0 for errors or counter updates</span>
-<span id="L112"><span class="lineNum">     112</span> <span class="tlaGNC">       44286 :    input logic [1:0]  exu_i0_br_hist_r, // history</span></span>
+<span id="L112"><span class="lineNum">     112</span> <span class="tlaGNC">       44289 :    input logic [1:0]  exu_i0_br_hist_r, // history</span></span>
 <span id="L113"><span class="lineNum">     113</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic        exu_i0_br_error_r, // error</span></span>
 <span id="L114"><span class="lineNum">     114</span> <span class="tlaUNC">           0 :    input logic        exu_i0_br_start_error_r, // start error</span></span>
-<span id="L115"><span class="lineNum">     115</span> <span class="tlaGNC tlaBgGNC">       44350 :    input logic        exu_i0_br_valid_r, // valid</span></span>
+<span id="L115"><span class="lineNum">     115</span> <span class="tlaGNC tlaBgGNC">       44353 :    input logic        exu_i0_br_valid_r, // valid</span></span>
 <span id="L116"><span class="lineNum">     116</span> <span class="tlaGNC">         424 :    input logic        exu_i0_br_mp_r, // mispredict</span></span>
 <span id="L117"><span class="lineNum">     117</span> <span class="tlaGNC">         370 :    input logic        exu_i0_br_middle_r, // middle of bank</span></span>
 <span id="L118"><span class="lineNum">     118</span>              : </span>
@@ -456,7 +456,7 @@
 <span id="L352"><span class="lineNum">     352</span> <span class="tlaGNC tlaBgGNC">           8 :    logic valid_csr;</span></span>
 <span id="L353"><span class="lineNum">     353</span> <span class="tlaUNC tlaBgUNC">           0 :    logic rfpc_i0_r;</span></span>
 <span id="L354"><span class="lineNum">     354</span> <span class="tlaUNC">           0 :    logic lsu_i0_rfnpc_r;</span></span>
-<span id="L355"><span class="lineNum">     355</span> <span class="tlaGNC tlaBgGNC">       44646 :    logic dec_tlu_br0_error_r, dec_tlu_br0_start_error_r, dec_tlu_br0_v_r;</span></span>
+<span id="L355"><span class="lineNum">     355</span> <span class="tlaGNC tlaBgGNC">       44649 :    logic dec_tlu_br0_error_r, dec_tlu_br0_start_error_r, dec_tlu_br0_v_r;</span></span>
 <span id="L356"><span class="lineNum">     356</span> <span class="tlaUNC tlaBgUNC">           0 :    logic lsu_i0_exc_r, lsu_i0_exc_r_raw, lsu_exc_ma_r, lsu_exc_acc_r, lsu_exc_st_r,</span></span>
 <span id="L357"><span class="lineNum">     357</span> <span class="tlaGNC tlaBgGNC">           4 :          lsu_exc_valid_r, lsu_exc_valid_r_raw, lsu_exc_valid_r_d1, lsu_i0_exc_r_d1, block_interrupts;</span></span>
 <span id="L358"><span class="lineNum">     358</span> <span class="tlaGNC">         454 :    logic i0_trigger_eval_r;</span></span>
@@ -506,7 +506,7 @@
 <span id="L402"><span class="lineNum">     402</span> <span class="tlaUNC">           0 :    logic dec_pmp_read_d;</span></span>
 <span id="L403"><span class="lineNum">     403</span>              : </span>
 <span id="L404"><span class="lineNum">     404</span> <span class="tlaUNC">           0 :    logic nmi_int_sync, timer_int_sync, soft_int_sync, i_cpu_halt_req_sync, i_cpu_run_req_sync, mpc_debug_halt_req_sync, mpc_debug_run_req_sync, mpc_debug_halt_req_sync_raw;</span></span>
-<span id="L405"><span class="lineNum">     405</span> <span class="tlaGNC tlaBgGNC">       90576 :    logic csr_wr_clk;</span></span>
+<span id="L405"><span class="lineNum">     405</span> <span class="tlaGNC tlaBgGNC">       90582 :    logic csr_wr_clk;</span></span>
 <span id="L406"><span class="lineNum">     406</span> <span class="tlaUNC tlaBgUNC">           0 :    logic e4e5_clk, e4_valid, e5_valid, e4e5_valid, internal_dbg_halt_mode_f, internal_dbg_halt_mode_f2;</span></span>
 <span id="L407"><span class="lineNum">     407</span> <span class="tlaUNC">           0 :    logic lsu_pmu_load_external_r, lsu_pmu_store_external_r;</span></span>
 <span id="L408"><span class="lineNum">     408</span> <span class="tlaUNC">           0 :    logic dec_tlu_flush_noredir_r_d1, dec_tlu_flush_pause_r_d1;</span></span>
@@ -2828,9 +2828,9 @@
 <span id="L2724"><span class="lineNum">    2724</span>              : `include "el2_param.vh"</span>
 <span id="L2725"><span class="lineNum">    2725</span>              :  )</span>
 <span id="L2726"><span class="lineNum">    2726</span>              :   (</span>
-<span id="L2727"><span class="lineNum">    2727</span> <span class="tlaGNC tlaBgGNC">       90576 :    input logic clk,</span></span>
-<span id="L2728"><span class="lineNum">    2728</span> <span class="tlaGNC">       90576 :    input logic free_l2clk,</span></span>
-<span id="L2729"><span class="lineNum">    2729</span> <span class="tlaGNC">       90576 :    input logic csr_wr_clk,</span></span>
+<span id="L2727"><span class="lineNum">    2727</span> <span class="tlaGNC tlaBgGNC">       90582 :    input logic clk,</span></span>
+<span id="L2728"><span class="lineNum">    2728</span> <span class="tlaGNC">       90582 :    input logic free_l2clk,</span></span>
+<span id="L2729"><span class="lineNum">    2729</span> <span class="tlaGNC">       90582 :    input logic csr_wr_clk,</span></span>
 <span id="L2730"><span class="lineNum">    2730</span> <span class="tlaGNC">           2 :    input logic rst_l,</span></span>
 <span id="L2731"><span class="lineNum">    2731</span> <span class="tlaGNC">           8 :    input logic        dec_csr_wen_r_mod,      // csr write enable at wb</span></span>
 <span id="L2732"><span class="lineNum">    2732</span> <span class="tlaGNC">           4 :    input logic [11:0] dec_csr_wraddr_r,      // write address for csr</span></span>
