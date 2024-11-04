@@ -24,7 +24,7 @@ run_regression_test(){
     echo -e "${COLOR_WHITE} COVERAGE    = ${COVERAGE}${COLOR_CLEAR}"
     echo -e "${COLOR_WHITE} USER_MODE   = ${USER_MODE}${COLOR_CLEAR}"
 
-    COMMON_PARAMS=""
+    COMMON_PARAMS="-set=lockstep_enable=1 -set=lockstep_regfile_enable=1"
 
     if [[ "${USER_MODE}" == "1" ]]; then
         COMMON_PARAMS="-set=user_mode=1 -set=smepmp=1 ${COMMON_PARAMS}"
