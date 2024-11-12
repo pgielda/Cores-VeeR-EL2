@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    05-11-2024
+                    12-11-2024
                 </td>
                 <td></td>
                 
@@ -136,10 +136,10 @@
 <span id="L32"><span class="lineNum">      32</span>              : #(</span>
 <span id="L33"><span class="lineNum">      33</span>              :     `include "el2_param.vh"</span>
 <span id="L34"><span class="lineNum">      34</span>              : ) (</span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">         132 :     input logic clk,                          // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">         132 :     input logic active_clk,                   // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
-<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">         132 :     input logic free_clk,                     // Clock always.                  Through two clock headers. For flops without second clock header built in.</span></span>
-<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">         132 :     input logic free_l2clk,                   // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">         364 :     input logic clk,                          // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">         364 :     input logic active_clk,                   // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">         364 :     input logic free_clk,                     // Clock always.                  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">         364 :     input logic free_l2clk,                   // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
 <span id="L39"><span class="lineNum">      39</span>              : </span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic lsu_fastint_stall_any,        // needed by lsu for 2nd pass of dma with ecc correction, stall next cycle</span></span>
 <span id="L41"><span class="lineNum">      41</span>              : </span>
@@ -148,9 +148,9 @@
 <span id="L44"><span class="lineNum">      44</span> <span class="tlaUNC">           0 :     output logic dec_i0_decode_d,    // Valid instruction at D-stage and not blocked</span></span>
 <span id="L45"><span class="lineNum">      45</span> <span class="tlaUNC">           0 :     output logic dec_pause_state_cg, // to top for active state clock gating</span></span>
 <span id="L46"><span class="lineNum">      46</span>              : </span>
-<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC tlaBgGNC">           4 :     output logic dec_tlu_core_empty,</span></span>
+<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC tlaBgGNC">          12 :     output logic dec_tlu_core_empty,</span></span>
 <span id="L48"><span class="lineNum">      48</span>              : </span>
-<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">           4 :     input logic        rst_l,   // reset, active low</span></span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">          12 :     input logic        rst_l,   // reset, active low</span></span>
 <span id="L50"><span class="lineNum">      50</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic [31:1] rst_vec, // reset vector, from core pins</span></span>
 <span id="L51"><span class="lineNum">      51</span>              : </span>
 <span id="L52"><span class="lineNum">      52</span> <span class="tlaUNC">           0 :     input logic        nmi_int,  // NMI pin</span></span>
@@ -162,7 +162,7 @@
 <span id="L58"><span class="lineNum">      58</span> <span class="tlaUNC">           0 :     output logic o_cpu_halt_status,  // Halt status of core (pmu/fw)</span></span>
 <span id="L59"><span class="lineNum">      59</span> <span class="tlaUNC">           0 :     output logic o_cpu_halt_ack,  // Halt request ack</span></span>
 <span id="L60"><span class="lineNum">      60</span> <span class="tlaUNC">           0 :     output logic o_cpu_run_ack,  // Run request ack</span></span>
-<span id="L61"><span class="lineNum">      61</span> <span class="tlaGNC tlaBgGNC">           4 :     output logic o_debug_mode_status,         // Core to the PMU that core is in debug mode. When core is in debug mode, the PMU should refrain from sendng a halt or run request</span></span>
+<span id="L61"><span class="lineNum">      61</span> <span class="tlaGNC tlaBgGNC">          12 :     output logic o_debug_mode_status,         // Core to the PMU that core is in debug mode. When core is in debug mode, the PMU should refrain from sendng a halt or run request</span></span>
 <span id="L62"><span class="lineNum">      62</span>              : </span>
 <span id="L63"><span class="lineNum">      63</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic [31:4] core_id,  // CORE ID</span></span>
 <span id="L64"><span class="lineNum">      64</span>              : </span>
@@ -258,7 +258,7 @@
 <span id="L154"><span class="lineNum">     154</span>              : </span>
 <span id="L155"><span class="lineNum">     155</span> <span class="tlaUNC">           0 :     input logic iccm_dma_sb_error,  // ICCM DMA single bit error</span></span>
 <span id="L156"><span class="lineNum">     156</span>              : </span>
-<span id="L157"><span class="lineNum">     157</span> <span class="tlaGNC tlaBgGNC">           8 :     input logic exu_flush_final,  // slot0 flush</span></span>
+<span id="L157"><span class="lineNum">     157</span> <span class="tlaGNC tlaBgGNC">          16 :     input logic exu_flush_final,  // slot0 flush</span></span>
 <span id="L158"><span class="lineNum">     158</span>              : </span>
 <span id="L159"><span class="lineNum">     159</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic [31:1] exu_npc_r,  // next PC</span></span>
 <span id="L160"><span class="lineNum">     160</span>              : </span>
@@ -292,11 +292,11 @@
 <span id="L188"><span class="lineNum">     188</span> <span class="tlaUNC">           0 :     input logic dbg_resume_req,      // DM requests a resume</span></span>
 <span id="L189"><span class="lineNum">     189</span> <span class="tlaGNC tlaBgGNC">           4 :     input logic ifu_miss_state_idle, // I-side miss buffer empty</span></span>
 <span id="L190"><span class="lineNum">     190</span>              : </span>
-<span id="L191"><span class="lineNum">     191</span> <span class="tlaGNC">           4 :     output logic        dec_tlu_dbg_halted,        // Core is halted and ready for debug command</span></span>
-<span id="L192"><span class="lineNum">     192</span> <span class="tlaGNC">           4 :     output logic        dec_tlu_debug_mode,        // Core is in debug mode</span></span>
+<span id="L191"><span class="lineNum">     191</span> <span class="tlaGNC">          12 :     output logic        dec_tlu_dbg_halted,        // Core is halted and ready for debug command</span></span>
+<span id="L192"><span class="lineNum">     192</span> <span class="tlaGNC">          12 :     output logic        dec_tlu_debug_mode,        // Core is in debug mode</span></span>
 <span id="L193"><span class="lineNum">     193</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic        dec_tlu_resume_ack,        // Resume acknowledge</span></span>
-<span id="L194"><span class="lineNum">     194</span> <span class="tlaGNC tlaBgGNC">           8 :     output logic        dec_tlu_flush_noredir_r,   // Tell fetch to idle on this flush</span></span>
-<span id="L195"><span class="lineNum">     195</span> <span class="tlaGNC">           4 :     output logic        dec_tlu_mpc_halted_only,   // Core is halted only due to MPC</span></span>
+<span id="L194"><span class="lineNum">     194</span> <span class="tlaGNC tlaBgGNC">          16 :     output logic        dec_tlu_flush_noredir_r,   // Tell fetch to idle on this flush</span></span>
+<span id="L195"><span class="lineNum">     195</span> <span class="tlaGNC">          12 :     output logic        dec_tlu_mpc_halted_only,   // Core is halted only due to MPC</span></span>
 <span id="L196"><span class="lineNum">     196</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic        dec_tlu_flush_leak_one_r,  // single step</span></span>
 <span id="L197"><span class="lineNum">     197</span> <span class="tlaUNC">           0 :     output logic        dec_tlu_flush_err_r,       // iside perr/ecc rfpc</span></span>
 <span id="L198"><span class="lineNum">     198</span> <span class="tlaUNC">           0 :     output logic [31:2] dec_tlu_meihap,            // Fast ext int base</span></span>
@@ -356,8 +356,8 @@
 <span id="L252"><span class="lineNum">     252</span> <span class="tlaUNC">           0 :     output logic        dec_csr_ren_d,    // CSR read enable</span></span>
 <span id="L253"><span class="lineNum">     253</span> <span class="tlaUNC">           0 :     output logic [31:0] dec_csr_rddata_d, // CSR read data</span></span>
 <span id="L254"><span class="lineNum">     254</span>              : </span>
-<span id="L255"><span class="lineNum">     255</span> <span class="tlaGNC tlaBgGNC">           8 :     output logic dec_tlu_flush_lower_r,  // tlu flush due to late mp, exception, rfpc, or int</span></span>
-<span id="L256"><span class="lineNum">     256</span> <span class="tlaGNC">           8 :     output logic dec_tlu_flush_lower_wb,</span></span>
+<span id="L255"><span class="lineNum">     255</span> <span class="tlaGNC tlaBgGNC">          16 :     output logic dec_tlu_flush_lower_r,  // tlu flush due to late mp, exception, rfpc, or int</span></span>
+<span id="L256"><span class="lineNum">     256</span> <span class="tlaGNC">          16 :     output logic dec_tlu_flush_lower_wb,</span></span>
 <span id="L257"><span class="lineNum">     257</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic [31:1] dec_tlu_flush_path_r,  // tlu flush target</span></span>
 <span id="L258"><span class="lineNum">     258</span> <span class="tlaUNC">           0 :     output logic        dec_tlu_i0_kill_writeb_r,    // I0 is flushed, don't writeback any results to arch state</span></span>
 <span id="L259"><span class="lineNum">     259</span> <span class="tlaUNC">           0 :     output logic dec_tlu_fence_i_r,  // flush is a fence_i rfnpc, flush icache</span></span>
@@ -474,7 +474,7 @@
 <span id="L370"><span class="lineNum">     370</span> <span class="tlaUNC">           0 :   logic dec_i0_pc4_d;</span></span>
 <span id="L371"><span class="lineNum">     371</span> <span class="tlaUNC">           0 :   logic dec_tlu_presync_d;</span></span>
 <span id="L372"><span class="lineNum">     372</span> <span class="tlaUNC">           0 :   logic dec_tlu_postsync_d;</span></span>
-<span id="L373"><span class="lineNum">     373</span> <span class="tlaGNC tlaBgGNC">           8 :   logic dec_tlu_debug_stall;</span></span>
+<span id="L373"><span class="lineNum">     373</span> <span class="tlaGNC tlaBgGNC">          16 :   logic dec_tlu_debug_stall;</span></span>
 <span id="L374"><span class="lineNum">     374</span>              : </span>
 <span id="L375"><span class="lineNum">     375</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [31:0] dec_illegal_inst;</span></span>
 <span id="L376"><span class="lineNum">     376</span>              : </span>
