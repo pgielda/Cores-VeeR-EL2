@@ -25,6 +25,8 @@ endif
 VEER_TARGET     = default
 VEER_CONF       = -set build_axi4 \
                   -set reset_vec=0x80000000 \
+				  -set lockstep_enable=1 \
+				  -set lockstep_regfile_enable=1 \
                   $(VEER_EXTRA_CONF)
 
 # Coverage reporting
