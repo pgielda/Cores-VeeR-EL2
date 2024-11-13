@@ -1297,6 +1297,12 @@ veer_wrapper rvtop_wrapper (
     .dccm_ecc_single_error  (),
     .dccm_ecc_double_error  (),
 
+`ifdef RV_LOCKSTEP_ENABLE
+    .disable_corruption_detection_i ('0),
+    .lockstep_err_injection_en_i    ('0),
+    .corruption_detected_o          (),
+`endif
+
 // remove mems DFT pins for opensource
     .ic_data_ext_in_pkt     ('0),
     .ic_tag_ext_in_pkt      ('0),
