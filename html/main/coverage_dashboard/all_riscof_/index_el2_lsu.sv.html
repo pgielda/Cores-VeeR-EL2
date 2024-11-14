@@ -51,21 +51,21 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    08-11-2024
+                    14-11-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ffcd00;">
-        40.3%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ffce00;">
+        40.5%
     </td>
     <td class="headerCovSummaryEntry">
         75
     </td>
     <td class="headerCovSummaryEntry">
-        186
+        185
     </td>
 
             </tr>
@@ -306,267 +306,270 @@
 <span id="L202"><span class="lineNum">     202</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic                            lsu_dccm_rd_ecc_single_err,</span></span>
 <span id="L203"><span class="lineNum">     203</span> <span class="tlaUNC">           0 :    output logic                            lsu_dccm_rd_ecc_double_err,</span></span>
 <span id="L204"><span class="lineNum">     204</span>              : </span>
-<span id="L205"><span class="lineNum">     205</span> <span class="tlaUNC">           0 :    input logic                             scan_mode,           // scan mode</span></span>
-<span id="L206"><span class="lineNum">     206</span> <span class="tlaGNC tlaBgGNC">     8138992 :    input logic                             clk,                 // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
-<span id="L207"><span class="lineNum">     207</span> <span class="tlaGNC">     8138992 :    input logic                             active_clk,          // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
-<span id="L208"><span class="lineNum">     208</span> <span class="tlaGNC">         300 :     input logic                             rst_l,               // reset, active low</span></span>
-<span id="L209"><span class="lineNum">     209</span>              : </span>
-<span id="L210"><span class="lineNum">     210</span> <span class="tlaGNC">       47384 :     output logic [31:0] lsu_pmp_addr_start,</span></span>
-<span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC">       47384 :     output logic [31:0] lsu_pmp_addr_end,</span></span>
-<span id="L212"><span class="lineNum">     212</span> <span class="tlaUNC tlaBgUNC">           0 :     input  logic        lsu_pmp_error_start,</span></span>
-<span id="L213"><span class="lineNum">     213</span> <span class="tlaUNC">           0 :     input  logic        lsu_pmp_error_end,</span></span>
-<span id="L214"><span class="lineNum">     214</span> <span class="tlaGNC tlaBgGNC">      228760 :     output logic        lsu_pmp_we,</span></span>
-<span id="L215"><span class="lineNum">     215</span> <span class="tlaGNC">        1656 :     output logic        lsu_pmp_re</span></span>
-<span id="L216"><span class="lineNum">     216</span>              : </span>
-<span id="L217"><span class="lineNum">     217</span>              :    );</span>
-<span id="L218"><span class="lineNum">     218</span>              : </span>
-<span id="L219"><span class="lineNum">     219</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        lsu_dccm_rden_m;</span></span>
-<span id="L220"><span class="lineNum">     220</span> <span class="tlaUNC">           0 :    logic        lsu_dccm_rden_r;</span></span>
-<span id="L221"><span class="lineNum">     221</span> <span class="tlaGNC tlaBgGNC">       33896 :    logic [31:0] store_data_m;</span></span>
-<span id="L222"><span class="lineNum">     222</span> <span class="tlaGNC">       32776 :    logic [31:0] store_data_r;</span></span>
-<span id="L223"><span class="lineNum">     223</span> <span class="tlaGNC">       32808 :    logic [31:0] store_data_hi_r, store_data_lo_r;</span></span>
-<span id="L224"><span class="lineNum">     224</span> <span class="tlaGNC">       32808 :    logic [31:0] store_datafn_hi_r, store_datafn_lo_r;</span></span>
-<span id="L225"><span class="lineNum">     225</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [31:0] sec_data_lo_m, sec_data_hi_m;</span></span>
-<span id="L226"><span class="lineNum">     226</span> <span class="tlaUNC">           0 :    logic [31:0] sec_data_lo_r, sec_data_hi_r;</span></span>
-<span id="L227"><span class="lineNum">     227</span>              : </span>
-<span id="L228"><span class="lineNum">     228</span> <span class="tlaUNC">           0 :    logic [31:0] lsu_ld_data_m;</span></span>
-<span id="L229"><span class="lineNum">     229</span> <span class="tlaUNC">           0 :    logic [31:0] dccm_rdata_hi_m, dccm_rdata_lo_m;</span></span>
-<span id="L230"><span class="lineNum">     230</span> <span class="tlaUNC">           0 :    logic [6:0]  dccm_data_ecc_hi_m, dccm_data_ecc_lo_m;</span></span>
-<span id="L231"><span class="lineNum">     231</span> <span class="tlaUNC">           0 :    logic        lsu_single_ecc_error_m;</span></span>
-<span id="L232"><span class="lineNum">     232</span> <span class="tlaUNC">           0 :    logic        lsu_double_ecc_error_m;</span></span>
-<span id="L233"><span class="lineNum">     233</span>              : </span>
-<span id="L234"><span class="lineNum">     234</span> <span class="tlaUNC">           0 :    logic [31:0] lsu_ld_data_r;</span></span>
-<span id="L235"><span class="lineNum">     235</span> <span class="tlaUNC">           0 :    logic [31:0] lsu_ld_data_corr_r;</span></span>
-<span id="L236"><span class="lineNum">     236</span> <span class="tlaUNC">           0 :    logic [31:0] dccm_rdata_hi_r, dccm_rdata_lo_r;</span></span>
-<span id="L237"><span class="lineNum">     237</span> <span class="tlaUNC">           0 :    logic [6:0]  dccm_data_ecc_hi_r, dccm_data_ecc_lo_r;</span></span>
-<span id="L238"><span class="lineNum">     238</span> <span class="tlaUNC">           0 :    logic        single_ecc_error_hi_r, single_ecc_error_lo_r;</span></span>
-<span id="L239"><span class="lineNum">     239</span> <span class="tlaUNC">           0 :    logic        lsu_single_ecc_error_r;</span></span>
-<span id="L240"><span class="lineNum">     240</span> <span class="tlaUNC">           0 :    logic        lsu_double_ecc_error_r;</span></span>
-<span id="L241"><span class="lineNum">     241</span> <span class="tlaUNC">           0 :    logic        ld_single_ecc_error_r, ld_single_ecc_error_r_ff;</span></span>
-<span id="L242"><span class="lineNum">     242</span>              :    assign lsu_dccm_rd_ecc_single_err = lsu_single_ecc_error_r;</span>
-<span id="L243"><span class="lineNum">     243</span>              :    assign lsu_dccm_rd_ecc_double_err = lsu_double_ecc_error_r;</span>
-<span id="L244"><span class="lineNum">     244</span>              : </span>
-<span id="L245"><span class="lineNum">     245</span> <span class="tlaUNC">           0 :    logic [31:0] picm_mask_data_m;</span></span>
-<span id="L246"><span class="lineNum">     246</span>              : </span>
-<span id="L247"><span class="lineNum">     247</span> <span class="tlaGNC tlaBgGNC">       47384 :    logic [31:0] lsu_addr_d, lsu_addr_m, lsu_addr_r;</span></span>
-<span id="L248"><span class="lineNum">     248</span> <span class="tlaGNC">       47384 :    logic [31:0] end_addr_d, end_addr_m, end_addr_r;</span></span>
-<span id="L249"><span class="lineNum">     249</span>              :   assign lsu_pmp_addr_start = lsu_addr_d;</span>
-<span id="L250"><span class="lineNum">     250</span>              :   assign lsu_pmp_addr_end   = end_addr_d;</span>
-<span id="L251"><span class="lineNum">     251</span>              : </span>
-<span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC">         512 :    el2_lsu_pkt_t    lsu_pkt_d, lsu_pkt_m, lsu_pkt_r;</span></span>
-<span id="L253"><span class="lineNum">     253</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        lsu_i0_valid_d, lsu_i0_valid_m, lsu_i0_valid_r;</span></span>
-<span id="L254"><span class="lineNum">     254</span>              :   assign lsu_pmp_we = lsu_pkt_d.store &amp; lsu_pkt_d.valid;</span>
-<span id="L255"><span class="lineNum">     255</span>              :   assign lsu_pmp_re = lsu_pkt_d.load &amp; lsu_pkt_d.valid;</span>
-<span id="L256"><span class="lineNum">     256</span>              : </span>
-<span id="L257"><span class="lineNum">     257</span>              :    // Store Buffer signals</span>
-<span id="L258"><span class="lineNum">     258</span> <span class="tlaUNC">           0 :    logic        store_stbuf_reqvld_r;</span></span>
-<span id="L259"><span class="lineNum">     259</span> <span class="tlaUNC">           0 :    logic        ldst_stbuf_reqvld_r;</span></span>
-<span id="L260"><span class="lineNum">     260</span>              : </span>
-<span id="L261"><span class="lineNum">     261</span> <span class="tlaGNC tlaBgGNC">      230416 :    logic        lsu_commit_r;</span></span>
-<span id="L262"><span class="lineNum">     262</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        lsu_exc_m;</span></span>
+<span id="L205"><span class="lineNum">     205</span>              :    // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
+<span id="L206"><span class="lineNum">     206</span>              :    /*verilator coverage_off*/</span>
+<span id="L207"><span class="lineNum">     207</span>              :    input logic                             scan_mode,           // scan mode</span>
+<span id="L208"><span class="lineNum">     208</span>              :    /*verilator coverage_on*/</span>
+<span id="L209"><span class="lineNum">     209</span> <span class="tlaGNC tlaBgGNC">     8138992 :    input logic                             clk,                 // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L210"><span class="lineNum">     210</span> <span class="tlaGNC">     8138992 :    input logic                             active_clk,          // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC">         300 :     input logic                             rst_l,               // reset, active low</span></span>
+<span id="L212"><span class="lineNum">     212</span>              : </span>
+<span id="L213"><span class="lineNum">     213</span> <span class="tlaGNC">       47384 :     output logic [31:0] lsu_pmp_addr_start,</span></span>
+<span id="L214"><span class="lineNum">     214</span> <span class="tlaGNC">       47384 :     output logic [31:0] lsu_pmp_addr_end,</span></span>
+<span id="L215"><span class="lineNum">     215</span> <span class="tlaUNC tlaBgUNC">           0 :     input  logic        lsu_pmp_error_start,</span></span>
+<span id="L216"><span class="lineNum">     216</span> <span class="tlaUNC">           0 :     input  logic        lsu_pmp_error_end,</span></span>
+<span id="L217"><span class="lineNum">     217</span> <span class="tlaGNC tlaBgGNC">      228760 :     output logic        lsu_pmp_we,</span></span>
+<span id="L218"><span class="lineNum">     218</span> <span class="tlaGNC">        1656 :     output logic        lsu_pmp_re</span></span>
+<span id="L219"><span class="lineNum">     219</span>              : </span>
+<span id="L220"><span class="lineNum">     220</span>              :    );</span>
+<span id="L221"><span class="lineNum">     221</span>              : </span>
+<span id="L222"><span class="lineNum">     222</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        lsu_dccm_rden_m;</span></span>
+<span id="L223"><span class="lineNum">     223</span> <span class="tlaUNC">           0 :    logic        lsu_dccm_rden_r;</span></span>
+<span id="L224"><span class="lineNum">     224</span> <span class="tlaGNC tlaBgGNC">       33896 :    logic [31:0] store_data_m;</span></span>
+<span id="L225"><span class="lineNum">     225</span> <span class="tlaGNC">       32776 :    logic [31:0] store_data_r;</span></span>
+<span id="L226"><span class="lineNum">     226</span> <span class="tlaGNC">       32808 :    logic [31:0] store_data_hi_r, store_data_lo_r;</span></span>
+<span id="L227"><span class="lineNum">     227</span> <span class="tlaGNC">       32808 :    logic [31:0] store_datafn_hi_r, store_datafn_lo_r;</span></span>
+<span id="L228"><span class="lineNum">     228</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [31:0] sec_data_lo_m, sec_data_hi_m;</span></span>
+<span id="L229"><span class="lineNum">     229</span> <span class="tlaUNC">           0 :    logic [31:0] sec_data_lo_r, sec_data_hi_r;</span></span>
+<span id="L230"><span class="lineNum">     230</span>              : </span>
+<span id="L231"><span class="lineNum">     231</span> <span class="tlaUNC">           0 :    logic [31:0] lsu_ld_data_m;</span></span>
+<span id="L232"><span class="lineNum">     232</span> <span class="tlaUNC">           0 :    logic [31:0] dccm_rdata_hi_m, dccm_rdata_lo_m;</span></span>
+<span id="L233"><span class="lineNum">     233</span> <span class="tlaUNC">           0 :    logic [6:0]  dccm_data_ecc_hi_m, dccm_data_ecc_lo_m;</span></span>
+<span id="L234"><span class="lineNum">     234</span> <span class="tlaUNC">           0 :    logic        lsu_single_ecc_error_m;</span></span>
+<span id="L235"><span class="lineNum">     235</span> <span class="tlaUNC">           0 :    logic        lsu_double_ecc_error_m;</span></span>
+<span id="L236"><span class="lineNum">     236</span>              : </span>
+<span id="L237"><span class="lineNum">     237</span> <span class="tlaUNC">           0 :    logic [31:0] lsu_ld_data_r;</span></span>
+<span id="L238"><span class="lineNum">     238</span> <span class="tlaUNC">           0 :    logic [31:0] lsu_ld_data_corr_r;</span></span>
+<span id="L239"><span class="lineNum">     239</span> <span class="tlaUNC">           0 :    logic [31:0] dccm_rdata_hi_r, dccm_rdata_lo_r;</span></span>
+<span id="L240"><span class="lineNum">     240</span> <span class="tlaUNC">           0 :    logic [6:0]  dccm_data_ecc_hi_r, dccm_data_ecc_lo_r;</span></span>
+<span id="L241"><span class="lineNum">     241</span> <span class="tlaUNC">           0 :    logic        single_ecc_error_hi_r, single_ecc_error_lo_r;</span></span>
+<span id="L242"><span class="lineNum">     242</span> <span class="tlaUNC">           0 :    logic        lsu_single_ecc_error_r;</span></span>
+<span id="L243"><span class="lineNum">     243</span> <span class="tlaUNC">           0 :    logic        lsu_double_ecc_error_r;</span></span>
+<span id="L244"><span class="lineNum">     244</span> <span class="tlaUNC">           0 :    logic        ld_single_ecc_error_r, ld_single_ecc_error_r_ff;</span></span>
+<span id="L245"><span class="lineNum">     245</span>              :    assign lsu_dccm_rd_ecc_single_err = lsu_single_ecc_error_r;</span>
+<span id="L246"><span class="lineNum">     246</span>              :    assign lsu_dccm_rd_ecc_double_err = lsu_double_ecc_error_r;</span>
+<span id="L247"><span class="lineNum">     247</span>              : </span>
+<span id="L248"><span class="lineNum">     248</span> <span class="tlaUNC">           0 :    logic [31:0] picm_mask_data_m;</span></span>
+<span id="L249"><span class="lineNum">     249</span>              : </span>
+<span id="L250"><span class="lineNum">     250</span> <span class="tlaGNC tlaBgGNC">       47384 :    logic [31:0] lsu_addr_d, lsu_addr_m, lsu_addr_r;</span></span>
+<span id="L251"><span class="lineNum">     251</span> <span class="tlaGNC">       47384 :    logic [31:0] end_addr_d, end_addr_m, end_addr_r;</span></span>
+<span id="L252"><span class="lineNum">     252</span>              :   assign lsu_pmp_addr_start = lsu_addr_d;</span>
+<span id="L253"><span class="lineNum">     253</span>              :   assign lsu_pmp_addr_end   = end_addr_d;</span>
+<span id="L254"><span class="lineNum">     254</span>              : </span>
+<span id="L255"><span class="lineNum">     255</span> <span class="tlaGNC">         512 :    el2_lsu_pkt_t    lsu_pkt_d, lsu_pkt_m, lsu_pkt_r;</span></span>
+<span id="L256"><span class="lineNum">     256</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        lsu_i0_valid_d, lsu_i0_valid_m, lsu_i0_valid_r;</span></span>
+<span id="L257"><span class="lineNum">     257</span>              :   assign lsu_pmp_we = lsu_pkt_d.store &amp; lsu_pkt_d.valid;</span>
+<span id="L258"><span class="lineNum">     258</span>              :   assign lsu_pmp_re = lsu_pkt_d.load &amp; lsu_pkt_d.valid;</span>
+<span id="L259"><span class="lineNum">     259</span>              : </span>
+<span id="L260"><span class="lineNum">     260</span>              :    // Store Buffer signals</span>
+<span id="L261"><span class="lineNum">     261</span> <span class="tlaUNC">           0 :    logic        store_stbuf_reqvld_r;</span></span>
+<span id="L262"><span class="lineNum">     262</span> <span class="tlaUNC">           0 :    logic        ldst_stbuf_reqvld_r;</span></span>
 <span id="L263"><span class="lineNum">     263</span>              : </span>
-<span id="L264"><span class="lineNum">     264</span> <span class="tlaUNC">           0 :    logic        addr_in_dccm_d, addr_in_dccm_m, addr_in_dccm_r;</span></span>
-<span id="L265"><span class="lineNum">     265</span> <span class="tlaUNC">           0 :    logic        addr_in_pic_d, addr_in_pic_m, addr_in_pic_r;</span></span>
-<span id="L266"><span class="lineNum">     266</span> <span class="tlaUNC">           0 :    logic        ldst_dual_d, ldst_dual_m, ldst_dual_r;</span></span>
-<span id="L267"><span class="lineNum">     267</span> <span class="tlaGNC tlaBgGNC">         300 :    logic        addr_external_m;</span></span>
-<span id="L268"><span class="lineNum">     268</span>              : </span>
-<span id="L269"><span class="lineNum">     269</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                          stbuf_reqvld_any;</span></span>
-<span id="L270"><span class="lineNum">     270</span> <span class="tlaUNC">           0 :    logic                          stbuf_reqvld_flushed_any;</span></span>
-<span id="L271"><span class="lineNum">     271</span> <span class="tlaUNC">           0 :    logic [pt.LSU_SB_BITS-1:0]     stbuf_addr_any;</span></span>
-<span id="L272"><span class="lineNum">     272</span> <span class="tlaUNC">           0 :    logic [pt.DCCM_DATA_WIDTH-1:0] stbuf_data_any;</span></span>
-<span id="L273"><span class="lineNum">     273</span> <span class="tlaUNC">           0 :    logic [pt.DCCM_ECC_WIDTH-1:0]  stbuf_ecc_any;</span></span>
-<span id="L274"><span class="lineNum">     274</span> <span class="tlaUNC">           0 :    logic [pt.DCCM_DATA_WIDTH-1:0] sec_data_lo_r_ff, sec_data_hi_r_ff;</span></span>
-<span id="L275"><span class="lineNum">     275</span> <span class="tlaUNC">           0 :    logic [pt.DCCM_ECC_WIDTH-1:0]  sec_data_ecc_hi_r_ff, sec_data_ecc_lo_r_ff;</span></span>
-<span id="L276"><span class="lineNum">     276</span>              : </span>
-<span id="L277"><span class="lineNum">     277</span> <span class="tlaUNC">           0 :    logic                          lsu_cmpen_m;</span></span>
-<span id="L278"><span class="lineNum">     278</span> <span class="tlaUNC">           0 :    logic [pt.DCCM_DATA_WIDTH-1:0] stbuf_fwddata_hi_m;</span></span>
-<span id="L279"><span class="lineNum">     279</span> <span class="tlaUNC">           0 :    logic [pt.DCCM_DATA_WIDTH-1:0] stbuf_fwddata_lo_m;</span></span>
-<span id="L280"><span class="lineNum">     280</span> <span class="tlaUNC">           0 :    logic [pt.DCCM_BYTE_WIDTH-1:0] stbuf_fwdbyteen_hi_m;</span></span>
-<span id="L281"><span class="lineNum">     281</span> <span class="tlaUNC">           0 :    logic [pt.DCCM_BYTE_WIDTH-1:0] stbuf_fwdbyteen_lo_m;</span></span>
-<span id="L282"><span class="lineNum">     282</span>              : </span>
-<span id="L283"><span class="lineNum">     283</span> <span class="tlaUNC">           0 :    logic        lsu_stbuf_commit_any;</span></span>
-<span id="L284"><span class="lineNum">     284</span> <span class="tlaGNC tlaBgGNC">         300 :    logic        lsu_stbuf_empty_any;   // This is for blocking loads</span></span>
-<span id="L285"><span class="lineNum">     285</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        lsu_stbuf_full_any;</span></span>
-<span id="L286"><span class="lineNum">     286</span>              : </span>
-<span id="L287"><span class="lineNum">     287</span>              :     // Bus signals</span>
-<span id="L288"><span class="lineNum">     288</span> <span class="tlaGNC tlaBgGNC">      230416 :    logic        lsu_busreq_r;</span></span>
-<span id="L289"><span class="lineNum">     289</span> <span class="tlaGNC">      228540 :    logic        lsu_bus_buffer_pend_any;</span></span>
-<span id="L290"><span class="lineNum">     290</span> <span class="tlaGNC">      220904 :    logic        lsu_bus_buffer_empty_any;</span></span>
-<span id="L291"><span class="lineNum">     291</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        lsu_bus_buffer_full_any;</span></span>
-<span id="L292"><span class="lineNum">     292</span> <span class="tlaGNC tlaBgGNC">      230416 :    logic        lsu_busreq_m;</span></span>
-<span id="L293"><span class="lineNum">     293</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [31:0] bus_read_data_m;</span></span>
-<span id="L294"><span class="lineNum">     294</span>              : </span>
-<span id="L295"><span class="lineNum">     295</span> <span class="tlaGNC tlaBgGNC">        8624 :    logic        flush_m_up, flush_r;</span></span>
-<span id="L296"><span class="lineNum">     296</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        is_sideeffects_m;</span></span>
-<span id="L297"><span class="lineNum">     297</span> <span class="tlaUNC">           0 :    logic [2:0]  dma_mem_tag_d, dma_mem_tag_m;</span></span>
-<span id="L298"><span class="lineNum">     298</span> <span class="tlaUNC">           0 :    logic        ldst_nodma_mtor;</span></span>
-<span id="L299"><span class="lineNum">     299</span> <span class="tlaUNC">           0 :    logic        dma_dccm_wen, dma_pic_wen;</span></span>
-<span id="L300"><span class="lineNum">     300</span> <span class="tlaUNC">           0 :    logic [31:0] dma_dccm_wdata_lo, dma_dccm_wdata_hi;</span></span>
-<span id="L301"><span class="lineNum">     301</span> <span class="tlaUNC">           0 :    logic [pt.DCCM_ECC_WIDTH-1:0] dma_dccm_wdata_ecc_lo, dma_dccm_wdata_ecc_hi;</span></span>
-<span id="L302"><span class="lineNum">     302</span>              : </span>
-<span id="L303"><span class="lineNum">     303</span>              :    // Clocks</span>
-<span id="L304"><span class="lineNum">     304</span> <span class="tlaGNC tlaBgGNC">      184764 :    logic        lsu_busm_clken;</span></span>
-<span id="L305"><span class="lineNum">     305</span> <span class="tlaGNC">      453508 :    logic        lsu_bus_obuf_c1_clken;</span></span>
-<span id="L306"><span class="lineNum">     306</span> <span class="tlaGNC">     8138992 :    logic        lsu_c1_m_clk, lsu_c1_r_clk;</span></span>
-<span id="L307"><span class="lineNum">     307</span> <span class="tlaGNC">     8138992 :    logic        lsu_c2_m_clk, lsu_c2_r_clk;</span></span>
-<span id="L308"><span class="lineNum">     308</span> <span class="tlaGNC">     8138992 :    logic        lsu_store_c1_m_clk, lsu_store_c1_r_clk;</span></span>
-<span id="L309"><span class="lineNum">     309</span>              : </span>
-<span id="L310"><span class="lineNum">     310</span> <span class="tlaGNC">     8138992 :    logic        lsu_stbuf_c1_clk;</span></span>
-<span id="L311"><span class="lineNum">     311</span> <span class="tlaGNC">     8138992 :    logic        lsu_bus_ibuf_c1_clk, lsu_bus_obuf_c1_clk, lsu_bus_buf_c1_clk;</span></span>
-<span id="L312"><span class="lineNum">     312</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        lsu_busm_clk;</span></span>
-<span id="L313"><span class="lineNum">     313</span> <span class="tlaGNC tlaBgGNC">     8138992 :    logic        lsu_free_c2_clk;</span></span>
-<span id="L314"><span class="lineNum">     314</span>              : </span>
-<span id="L315"><span class="lineNum">     315</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        lsu_raw_fwd_lo_m, lsu_raw_fwd_hi_m;</span></span>
-<span id="L316"><span class="lineNum">     316</span> <span class="tlaUNC">           0 :    logic        lsu_raw_fwd_lo_r, lsu_raw_fwd_hi_r;</span></span>
+<span id="L264"><span class="lineNum">     264</span> <span class="tlaGNC tlaBgGNC">      230416 :    logic        lsu_commit_r;</span></span>
+<span id="L265"><span class="lineNum">     265</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        lsu_exc_m;</span></span>
+<span id="L266"><span class="lineNum">     266</span>              : </span>
+<span id="L267"><span class="lineNum">     267</span> <span class="tlaUNC">           0 :    logic        addr_in_dccm_d, addr_in_dccm_m, addr_in_dccm_r;</span></span>
+<span id="L268"><span class="lineNum">     268</span> <span class="tlaUNC">           0 :    logic        addr_in_pic_d, addr_in_pic_m, addr_in_pic_r;</span></span>
+<span id="L269"><span class="lineNum">     269</span> <span class="tlaUNC">           0 :    logic        ldst_dual_d, ldst_dual_m, ldst_dual_r;</span></span>
+<span id="L270"><span class="lineNum">     270</span> <span class="tlaGNC tlaBgGNC">         300 :    logic        addr_external_m;</span></span>
+<span id="L271"><span class="lineNum">     271</span>              : </span>
+<span id="L272"><span class="lineNum">     272</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                          stbuf_reqvld_any;</span></span>
+<span id="L273"><span class="lineNum">     273</span> <span class="tlaUNC">           0 :    logic                          stbuf_reqvld_flushed_any;</span></span>
+<span id="L274"><span class="lineNum">     274</span> <span class="tlaUNC">           0 :    logic [pt.LSU_SB_BITS-1:0]     stbuf_addr_any;</span></span>
+<span id="L275"><span class="lineNum">     275</span> <span class="tlaUNC">           0 :    logic [pt.DCCM_DATA_WIDTH-1:0] stbuf_data_any;</span></span>
+<span id="L276"><span class="lineNum">     276</span> <span class="tlaUNC">           0 :    logic [pt.DCCM_ECC_WIDTH-1:0]  stbuf_ecc_any;</span></span>
+<span id="L277"><span class="lineNum">     277</span> <span class="tlaUNC">           0 :    logic [pt.DCCM_DATA_WIDTH-1:0] sec_data_lo_r_ff, sec_data_hi_r_ff;</span></span>
+<span id="L278"><span class="lineNum">     278</span> <span class="tlaUNC">           0 :    logic [pt.DCCM_ECC_WIDTH-1:0]  sec_data_ecc_hi_r_ff, sec_data_ecc_lo_r_ff;</span></span>
+<span id="L279"><span class="lineNum">     279</span>              : </span>
+<span id="L280"><span class="lineNum">     280</span> <span class="tlaUNC">           0 :    logic                          lsu_cmpen_m;</span></span>
+<span id="L281"><span class="lineNum">     281</span> <span class="tlaUNC">           0 :    logic [pt.DCCM_DATA_WIDTH-1:0] stbuf_fwddata_hi_m;</span></span>
+<span id="L282"><span class="lineNum">     282</span> <span class="tlaUNC">           0 :    logic [pt.DCCM_DATA_WIDTH-1:0] stbuf_fwddata_lo_m;</span></span>
+<span id="L283"><span class="lineNum">     283</span> <span class="tlaUNC">           0 :    logic [pt.DCCM_BYTE_WIDTH-1:0] stbuf_fwdbyteen_hi_m;</span></span>
+<span id="L284"><span class="lineNum">     284</span> <span class="tlaUNC">           0 :    logic [pt.DCCM_BYTE_WIDTH-1:0] stbuf_fwdbyteen_lo_m;</span></span>
+<span id="L285"><span class="lineNum">     285</span>              : </span>
+<span id="L286"><span class="lineNum">     286</span> <span class="tlaUNC">           0 :    logic        lsu_stbuf_commit_any;</span></span>
+<span id="L287"><span class="lineNum">     287</span> <span class="tlaGNC tlaBgGNC">         300 :    logic        lsu_stbuf_empty_any;   // This is for blocking loads</span></span>
+<span id="L288"><span class="lineNum">     288</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        lsu_stbuf_full_any;</span></span>
+<span id="L289"><span class="lineNum">     289</span>              : </span>
+<span id="L290"><span class="lineNum">     290</span>              :     // Bus signals</span>
+<span id="L291"><span class="lineNum">     291</span> <span class="tlaGNC tlaBgGNC">      230416 :    logic        lsu_busreq_r;</span></span>
+<span id="L292"><span class="lineNum">     292</span> <span class="tlaGNC">      228540 :    logic        lsu_bus_buffer_pend_any;</span></span>
+<span id="L293"><span class="lineNum">     293</span> <span class="tlaGNC">      220904 :    logic        lsu_bus_buffer_empty_any;</span></span>
+<span id="L294"><span class="lineNum">     294</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        lsu_bus_buffer_full_any;</span></span>
+<span id="L295"><span class="lineNum">     295</span> <span class="tlaGNC tlaBgGNC">      230416 :    logic        lsu_busreq_m;</span></span>
+<span id="L296"><span class="lineNum">     296</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [31:0] bus_read_data_m;</span></span>
+<span id="L297"><span class="lineNum">     297</span>              : </span>
+<span id="L298"><span class="lineNum">     298</span> <span class="tlaGNC tlaBgGNC">        8624 :    logic        flush_m_up, flush_r;</span></span>
+<span id="L299"><span class="lineNum">     299</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        is_sideeffects_m;</span></span>
+<span id="L300"><span class="lineNum">     300</span> <span class="tlaUNC">           0 :    logic [2:0]  dma_mem_tag_d, dma_mem_tag_m;</span></span>
+<span id="L301"><span class="lineNum">     301</span> <span class="tlaUNC">           0 :    logic        ldst_nodma_mtor;</span></span>
+<span id="L302"><span class="lineNum">     302</span> <span class="tlaUNC">           0 :    logic        dma_dccm_wen, dma_pic_wen;</span></span>
+<span id="L303"><span class="lineNum">     303</span> <span class="tlaUNC">           0 :    logic [31:0] dma_dccm_wdata_lo, dma_dccm_wdata_hi;</span></span>
+<span id="L304"><span class="lineNum">     304</span> <span class="tlaUNC">           0 :    logic [pt.DCCM_ECC_WIDTH-1:0] dma_dccm_wdata_ecc_lo, dma_dccm_wdata_ecc_hi;</span></span>
+<span id="L305"><span class="lineNum">     305</span>              : </span>
+<span id="L306"><span class="lineNum">     306</span>              :    // Clocks</span>
+<span id="L307"><span class="lineNum">     307</span> <span class="tlaGNC tlaBgGNC">      184764 :    logic        lsu_busm_clken;</span></span>
+<span id="L308"><span class="lineNum">     308</span> <span class="tlaGNC">      453508 :    logic        lsu_bus_obuf_c1_clken;</span></span>
+<span id="L309"><span class="lineNum">     309</span> <span class="tlaGNC">     8138992 :    logic        lsu_c1_m_clk, lsu_c1_r_clk;</span></span>
+<span id="L310"><span class="lineNum">     310</span> <span class="tlaGNC">     8138992 :    logic        lsu_c2_m_clk, lsu_c2_r_clk;</span></span>
+<span id="L311"><span class="lineNum">     311</span> <span class="tlaGNC">     8138992 :    logic        lsu_store_c1_m_clk, lsu_store_c1_r_clk;</span></span>
+<span id="L312"><span class="lineNum">     312</span>              : </span>
+<span id="L313"><span class="lineNum">     313</span> <span class="tlaGNC">     8138992 :    logic        lsu_stbuf_c1_clk;</span></span>
+<span id="L314"><span class="lineNum">     314</span> <span class="tlaGNC">     8138992 :    logic        lsu_bus_ibuf_c1_clk, lsu_bus_obuf_c1_clk, lsu_bus_buf_c1_clk;</span></span>
+<span id="L315"><span class="lineNum">     315</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        lsu_busm_clk;</span></span>
+<span id="L316"><span class="lineNum">     316</span> <span class="tlaGNC tlaBgGNC">     8138992 :    logic        lsu_free_c2_clk;</span></span>
 <span id="L317"><span class="lineNum">     317</span>              : </span>
-<span id="L318"><span class="lineNum">     318</span>              :    assign       lsu_raw_fwd_lo_m = (|stbuf_fwdbyteen_lo_m[pt.DCCM_BYTE_WIDTH-1:0]);</span>
-<span id="L319"><span class="lineNum">     319</span>              :    assign       lsu_raw_fwd_hi_m = (|stbuf_fwdbyteen_hi_m[pt.DCCM_BYTE_WIDTH-1:0]);</span>
+<span id="L318"><span class="lineNum">     318</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        lsu_raw_fwd_lo_m, lsu_raw_fwd_hi_m;</span></span>
+<span id="L319"><span class="lineNum">     319</span> <span class="tlaUNC">           0 :    logic        lsu_raw_fwd_lo_r, lsu_raw_fwd_hi_r;</span></span>
 <span id="L320"><span class="lineNum">     320</span>              : </span>
-<span id="L321"><span class="lineNum">     321</span>              :    el2_lsu_lsc_ctl #(.pt(pt)) lsu_lsc_ctl (.*);</span>
-<span id="L322"><span class="lineNum">     322</span>              : </span>
-<span id="L323"><span class="lineNum">     323</span>              :    // block stores in decode  - for either bus or stbuf reasons</span>
-<span id="L324"><span class="lineNum">     324</span>              :    assign lsu_store_stall_any = lsu_stbuf_full_any | lsu_bus_buffer_full_any | ld_single_ecc_error_r_ff;</span>
-<span id="L325"><span class="lineNum">     325</span>              :    assign lsu_load_stall_any = lsu_bus_buffer_full_any | ld_single_ecc_error_r_ff;</span>
-<span id="L326"><span class="lineNum">     326</span>              :    assign lsu_fastint_stall_any = ld_single_ecc_error_r;    // Stall the fastint in decode-1 stage</span>
-<span id="L327"><span class="lineNum">     327</span>              : </span>
-<span id="L328"><span class="lineNum">     328</span>              :    // Ready to accept dma trxns</span>
-<span id="L329"><span class="lineNum">     329</span>              :    // There can't be any inpipe forwarding from non-dma packet to dma packet since they can be flushed so we can't have st in r when dma is in m</span>
-<span id="L330"><span class="lineNum">     330</span>              :    assign dma_mem_tag_d[2:0]   = dma_mem_tag[2:0];</span>
-<span id="L331"><span class="lineNum">     331</span>              :    assign ldst_nodma_mtor = (lsu_pkt_m.valid &amp; ~lsu_pkt_m.dma &amp; (addr_in_dccm_m | addr_in_pic_m) &amp; lsu_pkt_m.store);</span>
-<span id="L332"><span class="lineNum">     332</span>              : </span>
-<span id="L333"><span class="lineNum">     333</span>              :    assign dccm_ready = ~(dec_lsu_valid_raw_d | ldst_nodma_mtor | ld_single_ecc_error_r_ff);</span>
-<span id="L334"><span class="lineNum">     334</span>              : </span>
-<span id="L335"><span class="lineNum">     335</span>              :    assign dma_dccm_wen = dma_dccm_req &amp; dma_mem_write &amp; addr_in_dccm_d &amp; dma_mem_sz[1];   // Perform DMA writes only for word/dword</span>
-<span id="L336"><span class="lineNum">     336</span>              :    assign dma_pic_wen  = dma_dccm_req &amp; dma_mem_write &amp; addr_in_pic_d;</span>
-<span id="L337"><span class="lineNum">     337</span>              :    assign {dma_dccm_wdata_hi[31:0], dma_dccm_wdata_lo[31:0]} = 64'(dma_mem_wdata[63:0] &gt;&gt; {dma_mem_addr[2:0], 3'b000});   // Shift the dma data to lower bits to make it consistent to lsu stores</span>
-<span id="L338"><span class="lineNum">     338</span>              : </span>
-<span id="L339"><span class="lineNum">     339</span>              : </span>
-<span id="L340"><span class="lineNum">     340</span>              :    // Generate per cycle flush signals</span>
-<span id="L341"><span class="lineNum">     341</span>              :    assign flush_m_up = dec_tlu_flush_lower_r;</span>
-<span id="L342"><span class="lineNum">     342</span>              :    assign flush_r    = dec_tlu_i0_kill_writeb_r;</span>
-<span id="L343"><span class="lineNum">     343</span>              : </span>
-<span id="L344"><span class="lineNum">     344</span>              :    // lsu idle</span>
-<span id="L345"><span class="lineNum">     345</span>              :    // lsu halt idle. This is used for entering the halt mode. Also, DMA accesses are allowed during fence.</span>
-<span id="L346"><span class="lineNum">     346</span>              :    // Indicates non-idle if there is a instruction valid in d-r or read/write buffers are non-empty since they can come with error</span>
-<span id="L347"><span class="lineNum">     347</span>              :    // Store buffer now have only non-dma dccm stores</span>
-<span id="L348"><span class="lineNum">     348</span>              :    // stbuf_empty not needed since it has only dccm stores</span>
-<span id="L349"><span class="lineNum">     349</span>              :    assign lsu_idle_any = ~((lsu_pkt_m.valid &amp; ~lsu_pkt_m.dma) |</span>
-<span id="L350"><span class="lineNum">     350</span>              :                                                       (lsu_pkt_r.valid &amp; ~lsu_pkt_r.dma)) &amp;</span>
-<span id="L351"><span class="lineNum">     351</span>              :                                                       lsu_bus_buffer_empty_any;</span>
-<span id="L352"><span class="lineNum">     352</span>              : </span>
-<span id="L353"><span class="lineNum">     353</span>              :    assign lsu_active = (lsu_pkt_m.valid | lsu_pkt_r.valid | ld_single_ecc_error_r_ff) | ~lsu_bus_buffer_empty_any;  // This includes DMA. Used for gating top clock</span>
-<span id="L354"><span class="lineNum">     354</span>              : </span>
-<span id="L355"><span class="lineNum">     355</span>              :    // Instantiate the store buffer</span>
-<span id="L356"><span class="lineNum">     356</span>              :    assign store_stbuf_reqvld_r = lsu_pkt_r.valid &amp; lsu_pkt_r.store &amp; addr_in_dccm_r &amp; ~flush_r &amp; (~lsu_pkt_r.dma | ((lsu_pkt_r.by | lsu_pkt_r.half) &amp; ~lsu_double_ecc_error_r));</span>
+<span id="L321"><span class="lineNum">     321</span>              :    assign       lsu_raw_fwd_lo_m = (|stbuf_fwdbyteen_lo_m[pt.DCCM_BYTE_WIDTH-1:0]);</span>
+<span id="L322"><span class="lineNum">     322</span>              :    assign       lsu_raw_fwd_hi_m = (|stbuf_fwdbyteen_hi_m[pt.DCCM_BYTE_WIDTH-1:0]);</span>
+<span id="L323"><span class="lineNum">     323</span>              : </span>
+<span id="L324"><span class="lineNum">     324</span>              :    el2_lsu_lsc_ctl #(.pt(pt)) lsu_lsc_ctl (.*);</span>
+<span id="L325"><span class="lineNum">     325</span>              : </span>
+<span id="L326"><span class="lineNum">     326</span>              :    // block stores in decode  - for either bus or stbuf reasons</span>
+<span id="L327"><span class="lineNum">     327</span>              :    assign lsu_store_stall_any = lsu_stbuf_full_any | lsu_bus_buffer_full_any | ld_single_ecc_error_r_ff;</span>
+<span id="L328"><span class="lineNum">     328</span>              :    assign lsu_load_stall_any = lsu_bus_buffer_full_any | ld_single_ecc_error_r_ff;</span>
+<span id="L329"><span class="lineNum">     329</span>              :    assign lsu_fastint_stall_any = ld_single_ecc_error_r;    // Stall the fastint in decode-1 stage</span>
+<span id="L330"><span class="lineNum">     330</span>              : </span>
+<span id="L331"><span class="lineNum">     331</span>              :    // Ready to accept dma trxns</span>
+<span id="L332"><span class="lineNum">     332</span>              :    // There can't be any inpipe forwarding from non-dma packet to dma packet since they can be flushed so we can't have st in r when dma is in m</span>
+<span id="L333"><span class="lineNum">     333</span>              :    assign dma_mem_tag_d[2:0]   = dma_mem_tag[2:0];</span>
+<span id="L334"><span class="lineNum">     334</span>              :    assign ldst_nodma_mtor = (lsu_pkt_m.valid &amp; ~lsu_pkt_m.dma &amp; (addr_in_dccm_m | addr_in_pic_m) &amp; lsu_pkt_m.store);</span>
+<span id="L335"><span class="lineNum">     335</span>              : </span>
+<span id="L336"><span class="lineNum">     336</span>              :    assign dccm_ready = ~(dec_lsu_valid_raw_d | ldst_nodma_mtor | ld_single_ecc_error_r_ff);</span>
+<span id="L337"><span class="lineNum">     337</span>              : </span>
+<span id="L338"><span class="lineNum">     338</span>              :    assign dma_dccm_wen = dma_dccm_req &amp; dma_mem_write &amp; addr_in_dccm_d &amp; dma_mem_sz[1];   // Perform DMA writes only for word/dword</span>
+<span id="L339"><span class="lineNum">     339</span>              :    assign dma_pic_wen  = dma_dccm_req &amp; dma_mem_write &amp; addr_in_pic_d;</span>
+<span id="L340"><span class="lineNum">     340</span>              :    assign {dma_dccm_wdata_hi[31:0], dma_dccm_wdata_lo[31:0]} = 64'(dma_mem_wdata[63:0] &gt;&gt; {dma_mem_addr[2:0], 3'b000});   // Shift the dma data to lower bits to make it consistent to lsu stores</span>
+<span id="L341"><span class="lineNum">     341</span>              : </span>
+<span id="L342"><span class="lineNum">     342</span>              : </span>
+<span id="L343"><span class="lineNum">     343</span>              :    // Generate per cycle flush signals</span>
+<span id="L344"><span class="lineNum">     344</span>              :    assign flush_m_up = dec_tlu_flush_lower_r;</span>
+<span id="L345"><span class="lineNum">     345</span>              :    assign flush_r    = dec_tlu_i0_kill_writeb_r;</span>
+<span id="L346"><span class="lineNum">     346</span>              : </span>
+<span id="L347"><span class="lineNum">     347</span>              :    // lsu idle</span>
+<span id="L348"><span class="lineNum">     348</span>              :    // lsu halt idle. This is used for entering the halt mode. Also, DMA accesses are allowed during fence.</span>
+<span id="L349"><span class="lineNum">     349</span>              :    // Indicates non-idle if there is a instruction valid in d-r or read/write buffers are non-empty since they can come with error</span>
+<span id="L350"><span class="lineNum">     350</span>              :    // Store buffer now have only non-dma dccm stores</span>
+<span id="L351"><span class="lineNum">     351</span>              :    // stbuf_empty not needed since it has only dccm stores</span>
+<span id="L352"><span class="lineNum">     352</span>              :    assign lsu_idle_any = ~((lsu_pkt_m.valid &amp; ~lsu_pkt_m.dma) |</span>
+<span id="L353"><span class="lineNum">     353</span>              :                                                       (lsu_pkt_r.valid &amp; ~lsu_pkt_r.dma)) &amp;</span>
+<span id="L354"><span class="lineNum">     354</span>              :                                                       lsu_bus_buffer_empty_any;</span>
+<span id="L355"><span class="lineNum">     355</span>              : </span>
+<span id="L356"><span class="lineNum">     356</span>              :    assign lsu_active = (lsu_pkt_m.valid | lsu_pkt_r.valid | ld_single_ecc_error_r_ff) | ~lsu_bus_buffer_empty_any;  // This includes DMA. Used for gating top clock</span>
 <span id="L357"><span class="lineNum">     357</span>              : </span>
-<span id="L358"><span class="lineNum">     358</span>              :    // Disable Forwarding for now</span>
-<span id="L359"><span class="lineNum">     359</span>              :    assign lsu_cmpen_m = lsu_pkt_m.valid &amp; (lsu_pkt_m.load | lsu_pkt_m.store) &amp; (addr_in_dccm_m | addr_in_pic_m);</span>
+<span id="L358"><span class="lineNum">     358</span>              :    // Instantiate the store buffer</span>
+<span id="L359"><span class="lineNum">     359</span>              :    assign store_stbuf_reqvld_r = lsu_pkt_r.valid &amp; lsu_pkt_r.store &amp; addr_in_dccm_r &amp; ~flush_r &amp; (~lsu_pkt_r.dma | ((lsu_pkt_r.by | lsu_pkt_r.half) &amp; ~lsu_double_ecc_error_r));</span>
 <span id="L360"><span class="lineNum">     360</span>              : </span>
-<span id="L361"><span class="lineNum">     361</span>              :    // Bus signals</span>
-<span id="L362"><span class="lineNum">     362</span>              :    assign lsu_busreq_m = lsu_pkt_m.valid &amp; ((lsu_pkt_m.load | lsu_pkt_m.store) &amp; addr_external_m) &amp; ~flush_m_up &amp; ~lsu_exc_m &amp; ~lsu_pkt_m.fast_int;</span>
+<span id="L361"><span class="lineNum">     361</span>              :    // Disable Forwarding for now</span>
+<span id="L362"><span class="lineNum">     362</span>              :    assign lsu_cmpen_m = lsu_pkt_m.valid &amp; (lsu_pkt_m.load | lsu_pkt_m.store) &amp; (addr_in_dccm_m | addr_in_pic_m);</span>
 <span id="L363"><span class="lineNum">     363</span>              : </span>
-<span id="L364"><span class="lineNum">     364</span>              :    // Dual signals</span>
-<span id="L365"><span class="lineNum">     365</span>              :    assign ldst_dual_d  = (lsu_addr_d[2] != end_addr_d[2]);</span>
-<span id="L366"><span class="lineNum">     366</span>              :    assign ldst_dual_m  = (lsu_addr_m[2] != end_addr_m[2]);</span>
-<span id="L367"><span class="lineNum">     367</span>              :    assign ldst_dual_r  = (lsu_addr_r[2] != end_addr_r[2]);</span>
-<span id="L368"><span class="lineNum">     368</span>              : </span>
-<span id="L369"><span class="lineNum">     369</span>              :    // PMU signals</span>
-<span id="L370"><span class="lineNum">     370</span>              :    assign lsu_pmu_misaligned_m     = lsu_pkt_m.valid &amp; ((lsu_pkt_m.half &amp; lsu_addr_m[0]) | (lsu_pkt_m.word &amp; (|lsu_addr_m[1:0])));</span>
-<span id="L371"><span class="lineNum">     371</span>              :    assign lsu_pmu_load_external_m  = lsu_pkt_m.valid &amp; lsu_pkt_m.load &amp; addr_external_m;</span>
-<span id="L372"><span class="lineNum">     372</span>              :    assign lsu_pmu_store_external_m = lsu_pkt_m.valid &amp; lsu_pkt_m.store &amp; addr_external_m;</span>
-<span id="L373"><span class="lineNum">     373</span>              : </span>
-<span id="L374"><span class="lineNum">     374</span>              :    el2_lsu_dccm_ctl #(.pt(pt)) dccm_ctl (</span>
-<span id="L375"><span class="lineNum">     375</span>              :       .lsu_addr_d(lsu_addr_d[31:0]),</span>
-<span id="L376"><span class="lineNum">     376</span>              :       .end_addr_d(end_addr_d[pt.DCCM_BITS-1:0]),</span>
-<span id="L377"><span class="lineNum">     377</span>              :       .lsu_addr_m(lsu_addr_m[pt.DCCM_BITS-1:0]),</span>
-<span id="L378"><span class="lineNum">     378</span>              :       .lsu_addr_r(lsu_addr_r[31:0]),</span>
-<span id="L379"><span class="lineNum">     379</span>              : </span>
-<span id="L380"><span class="lineNum">     380</span>              :       .end_addr_m(end_addr_m[pt.DCCM_BITS-1:0]),</span>
-<span id="L381"><span class="lineNum">     381</span>              :       .end_addr_r(end_addr_r[pt.DCCM_BITS-1:0]),</span>
-<span id="L382"><span class="lineNum">     382</span>              :       .*</span>
-<span id="L383"><span class="lineNum">     383</span>              :    );</span>
-<span id="L384"><span class="lineNum">     384</span>              : </span>
-<span id="L385"><span class="lineNum">     385</span>              :    el2_lsu_stbuf #(.pt(pt)) stbuf (</span>
-<span id="L386"><span class="lineNum">     386</span>              :       .lsu_addr_d(lsu_addr_d[pt.LSU_SB_BITS-1:0]),</span>
-<span id="L387"><span class="lineNum">     387</span>              :       .end_addr_d(end_addr_d[pt.LSU_SB_BITS-1:0]),</span>
-<span id="L388"><span class="lineNum">     388</span>              : </span>
-<span id="L389"><span class="lineNum">     389</span>              :       .*</span>
-<span id="L390"><span class="lineNum">     390</span>              : </span>
-<span id="L391"><span class="lineNum">     391</span>              :    );</span>
-<span id="L392"><span class="lineNum">     392</span>              : </span>
-<span id="L393"><span class="lineNum">     393</span>              :    el2_lsu_ecc #(.pt(pt)) ecc (</span>
-<span id="L394"><span class="lineNum">     394</span>              :       .lsu_addr_r(lsu_addr_r[pt.DCCM_BITS-1:0]),</span>
-<span id="L395"><span class="lineNum">     395</span>              :       .end_addr_r(end_addr_r[pt.DCCM_BITS-1:0]),</span>
-<span id="L396"><span class="lineNum">     396</span>              :       .lsu_addr_m(lsu_addr_m[pt.DCCM_BITS-1:0]),</span>
-<span id="L397"><span class="lineNum">     397</span>              :       .end_addr_m(end_addr_m[pt.DCCM_BITS-1:0]),</span>
-<span id="L398"><span class="lineNum">     398</span>              :       .*</span>
-<span id="L399"><span class="lineNum">     399</span>              :    );</span>
-<span id="L400"><span class="lineNum">     400</span>              : </span>
-<span id="L401"><span class="lineNum">     401</span>              :    el2_lsu_trigger #(.pt(pt)) trigger (</span>
-<span id="L402"><span class="lineNum">     402</span>              :       .store_data_m(store_data_m[31:0]),</span>
-<span id="L403"><span class="lineNum">     403</span>              :       .*</span>
-<span id="L404"><span class="lineNum">     404</span>              :    );</span>
-<span id="L405"><span class="lineNum">     405</span>              : </span>
-<span id="L406"><span class="lineNum">     406</span>              :    // Clk domain</span>
-<span id="L407"><span class="lineNum">     407</span>              :    el2_lsu_clkdomain #(.pt(pt)) clkdomain (.*);</span>
+<span id="L364"><span class="lineNum">     364</span>              :    // Bus signals</span>
+<span id="L365"><span class="lineNum">     365</span>              :    assign lsu_busreq_m = lsu_pkt_m.valid &amp; ((lsu_pkt_m.load | lsu_pkt_m.store) &amp; addr_external_m) &amp; ~flush_m_up &amp; ~lsu_exc_m &amp; ~lsu_pkt_m.fast_int;</span>
+<span id="L366"><span class="lineNum">     366</span>              : </span>
+<span id="L367"><span class="lineNum">     367</span>              :    // Dual signals</span>
+<span id="L368"><span class="lineNum">     368</span>              :    assign ldst_dual_d  = (lsu_addr_d[2] != end_addr_d[2]);</span>
+<span id="L369"><span class="lineNum">     369</span>              :    assign ldst_dual_m  = (lsu_addr_m[2] != end_addr_m[2]);</span>
+<span id="L370"><span class="lineNum">     370</span>              :    assign ldst_dual_r  = (lsu_addr_r[2] != end_addr_r[2]);</span>
+<span id="L371"><span class="lineNum">     371</span>              : </span>
+<span id="L372"><span class="lineNum">     372</span>              :    // PMU signals</span>
+<span id="L373"><span class="lineNum">     373</span>              :    assign lsu_pmu_misaligned_m     = lsu_pkt_m.valid &amp; ((lsu_pkt_m.half &amp; lsu_addr_m[0]) | (lsu_pkt_m.word &amp; (|lsu_addr_m[1:0])));</span>
+<span id="L374"><span class="lineNum">     374</span>              :    assign lsu_pmu_load_external_m  = lsu_pkt_m.valid &amp; lsu_pkt_m.load &amp; addr_external_m;</span>
+<span id="L375"><span class="lineNum">     375</span>              :    assign lsu_pmu_store_external_m = lsu_pkt_m.valid &amp; lsu_pkt_m.store &amp; addr_external_m;</span>
+<span id="L376"><span class="lineNum">     376</span>              : </span>
+<span id="L377"><span class="lineNum">     377</span>              :    el2_lsu_dccm_ctl #(.pt(pt)) dccm_ctl (</span>
+<span id="L378"><span class="lineNum">     378</span>              :       .lsu_addr_d(lsu_addr_d[31:0]),</span>
+<span id="L379"><span class="lineNum">     379</span>              :       .end_addr_d(end_addr_d[pt.DCCM_BITS-1:0]),</span>
+<span id="L380"><span class="lineNum">     380</span>              :       .lsu_addr_m(lsu_addr_m[pt.DCCM_BITS-1:0]),</span>
+<span id="L381"><span class="lineNum">     381</span>              :       .lsu_addr_r(lsu_addr_r[31:0]),</span>
+<span id="L382"><span class="lineNum">     382</span>              : </span>
+<span id="L383"><span class="lineNum">     383</span>              :       .end_addr_m(end_addr_m[pt.DCCM_BITS-1:0]),</span>
+<span id="L384"><span class="lineNum">     384</span>              :       .end_addr_r(end_addr_r[pt.DCCM_BITS-1:0]),</span>
+<span id="L385"><span class="lineNum">     385</span>              :       .*</span>
+<span id="L386"><span class="lineNum">     386</span>              :    );</span>
+<span id="L387"><span class="lineNum">     387</span>              : </span>
+<span id="L388"><span class="lineNum">     388</span>              :    el2_lsu_stbuf #(.pt(pt)) stbuf (</span>
+<span id="L389"><span class="lineNum">     389</span>              :       .lsu_addr_d(lsu_addr_d[pt.LSU_SB_BITS-1:0]),</span>
+<span id="L390"><span class="lineNum">     390</span>              :       .end_addr_d(end_addr_d[pt.LSU_SB_BITS-1:0]),</span>
+<span id="L391"><span class="lineNum">     391</span>              : </span>
+<span id="L392"><span class="lineNum">     392</span>              :       .*</span>
+<span id="L393"><span class="lineNum">     393</span>              : </span>
+<span id="L394"><span class="lineNum">     394</span>              :    );</span>
+<span id="L395"><span class="lineNum">     395</span>              : </span>
+<span id="L396"><span class="lineNum">     396</span>              :    el2_lsu_ecc #(.pt(pt)) ecc (</span>
+<span id="L397"><span class="lineNum">     397</span>              :       .lsu_addr_r(lsu_addr_r[pt.DCCM_BITS-1:0]),</span>
+<span id="L398"><span class="lineNum">     398</span>              :       .end_addr_r(end_addr_r[pt.DCCM_BITS-1:0]),</span>
+<span id="L399"><span class="lineNum">     399</span>              :       .lsu_addr_m(lsu_addr_m[pt.DCCM_BITS-1:0]),</span>
+<span id="L400"><span class="lineNum">     400</span>              :       .end_addr_m(end_addr_m[pt.DCCM_BITS-1:0]),</span>
+<span id="L401"><span class="lineNum">     401</span>              :       .*</span>
+<span id="L402"><span class="lineNum">     402</span>              :    );</span>
+<span id="L403"><span class="lineNum">     403</span>              : </span>
+<span id="L404"><span class="lineNum">     404</span>              :    el2_lsu_trigger #(.pt(pt)) trigger (</span>
+<span id="L405"><span class="lineNum">     405</span>              :       .store_data_m(store_data_m[31:0]),</span>
+<span id="L406"><span class="lineNum">     406</span>              :       .*</span>
+<span id="L407"><span class="lineNum">     407</span>              :    );</span>
 <span id="L408"><span class="lineNum">     408</span>              : </span>
-<span id="L409"><span class="lineNum">     409</span>              :    // Bus interface</span>
-<span id="L410"><span class="lineNum">     410</span>              :    el2_lsu_bus_intf #(.pt(pt)) bus_intf (</span>
-<span id="L411"><span class="lineNum">     411</span>              :       .lsu_addr_m(lsu_addr_m[31:0] &amp; {32{addr_external_m &amp; lsu_pkt_m.valid}}),</span>
-<span id="L412"><span class="lineNum">     412</span>              :       .lsu_addr_r(lsu_addr_r[31:0] &amp; {32{lsu_busreq_r}}),</span>
-<span id="L413"><span class="lineNum">     413</span>              : </span>
-<span id="L414"><span class="lineNum">     414</span>              :       .end_addr_m(end_addr_m[31:0] &amp; {32{addr_external_m &amp; lsu_pkt_m.valid}}),</span>
-<span id="L415"><span class="lineNum">     415</span>              :       .end_addr_r(end_addr_r[31:0] &amp; {32{lsu_busreq_r}}),</span>
+<span id="L409"><span class="lineNum">     409</span>              :    // Clk domain</span>
+<span id="L410"><span class="lineNum">     410</span>              :    el2_lsu_clkdomain #(.pt(pt)) clkdomain (.*);</span>
+<span id="L411"><span class="lineNum">     411</span>              : </span>
+<span id="L412"><span class="lineNum">     412</span>              :    // Bus interface</span>
+<span id="L413"><span class="lineNum">     413</span>              :    el2_lsu_bus_intf #(.pt(pt)) bus_intf (</span>
+<span id="L414"><span class="lineNum">     414</span>              :       .lsu_addr_m(lsu_addr_m[31:0] &amp; {32{addr_external_m &amp; lsu_pkt_m.valid}}),</span>
+<span id="L415"><span class="lineNum">     415</span>              :       .lsu_addr_r(lsu_addr_r[31:0] &amp; {32{lsu_busreq_r}}),</span>
 <span id="L416"><span class="lineNum">     416</span>              : </span>
-<span id="L417"><span class="lineNum">     417</span>              :       .store_data_r(store_data_r[31:0] &amp; {32{lsu_busreq_r}}),</span>
-<span id="L418"><span class="lineNum">     418</span>              :       .*</span>
-<span id="L419"><span class="lineNum">     419</span>              :    );</span>
-<span id="L420"><span class="lineNum">     420</span>              : </span>
-<span id="L421"><span class="lineNum">     421</span>              :    //Flops</span>
-<span id="L422"><span class="lineNum">     422</span>              :    rvdff #(3) dma_mem_tag_mff     (.*, .din(dma_mem_tag_d[2:0]), .dout(dma_mem_tag_m[2:0]), .clk(lsu_c1_m_clk));</span>
-<span id="L423"><span class="lineNum">     423</span>              :    rvdff #(2) lsu_raw_fwd_r_ff    (.*, .din({lsu_raw_fwd_hi_m, lsu_raw_fwd_lo_m}),     .dout({lsu_raw_fwd_hi_r, lsu_raw_fwd_lo_r}),     .clk(lsu_c2_r_clk));</span>
-<span id="L424"><span class="lineNum">     424</span>              : </span>
-<span id="L425"><span class="lineNum">     425</span>              : `ifdef RV_ASSERT_ON</span>
-<span id="L426"><span class="lineNum">     426</span>              :    logic [1:0] store_data_bypass_sel;</span>
-<span id="L427"><span class="lineNum">     427</span>              :    assign store_data_bypass_sel[1:0] =  {lsu_p.store_data_bypass_d, lsu_p.store_data_bypass_m};</span>
-<span id="L428"><span class="lineNum">     428</span>              : </span>
-<span id="L429"><span class="lineNum">     429</span>              :    property exception_no_lsu_flush;</span>
-<span id="L430"><span class="lineNum">     430</span>              :       @(posedge clk)  disable iff(~rst_l) lsu_lsc_ctl.lsu_error_pkt_m.exc_valid |-&gt; ##[1:2] (flush_r );</span>
-<span id="L431"><span class="lineNum">     431</span>              :    endproperty</span>
-<span id="L432"><span class="lineNum">     432</span>              :    assert_exception_no_lsu_flush: assert property (exception_no_lsu_flush) else</span>
-<span id="L433"><span class="lineNum">     433</span>              :       $display("No flush within 2 cycles of exception");</span>
-<span id="L434"><span class="lineNum">     434</span>              : </span>
-<span id="L435"><span class="lineNum">     435</span>              :    // offset should be zero for fast interrupt</span>
-<span id="L436"><span class="lineNum">     436</span>              :    property offset_0_fastint;</span>
-<span id="L437"><span class="lineNum">     437</span>              :       @(posedge clk) disable iff(~rst_l) (lsu_p.valid &amp; lsu_p.fast_int) |-&gt; (dec_lsu_offset_d[11:0] == 12'b0);</span>
-<span id="L438"><span class="lineNum">     438</span>              :    endproperty</span>
-<span id="L439"><span class="lineNum">     439</span>              :    assert_offset_0_fastint: assert property (offset_0_fastint) else</span>
-<span id="L440"><span class="lineNum">     440</span>              :       $display("dec_tlu_offset_d not zero for fast interrupt redirect");</span>
-<span id="L441"><span class="lineNum">     441</span>              : </span>
-<span id="L442"><span class="lineNum">     442</span>              :    // DMA req should assert dccm rden/wren</span>
-<span id="L443"><span class="lineNum">     443</span>              :    property dmareq_dccm_wren_or_rden;</span>
-<span id="L444"><span class="lineNum">     444</span>              :       @(posedge clk) disable iff(~rst_l) dma_dccm_req |-&gt; (dccm_rden | dccm_wren | addr_in_pic_d);</span>
-<span id="L445"><span class="lineNum">     445</span>              :    endproperty</span>
-<span id="L446"><span class="lineNum">     446</span>              :    assert_dmareq_dccm_wren_or_rden: assert property(dmareq_dccm_wren_or_rden) else</span>
-<span id="L447"><span class="lineNum">     447</span>              :       $display("dccm rden or wren not asserted during DMA request");</span>
-<span id="L448"><span class="lineNum">     448</span>              : </span>
-<span id="L449"><span class="lineNum">     449</span>              :    // fastint_stall should cause load/store stall next cycle</span>
-<span id="L450"><span class="lineNum">     450</span>              :    property fastint_stall_imply_loadstore_stall;</span>
-<span id="L451"><span class="lineNum">     451</span>              :       @(posedge clk) disable iff(~rst_l) (lsu_fastint_stall_any &amp; (lsu_commit_r | lsu_pkt_r.dma)) |-&gt; ##1 ((lsu_load_stall_any | lsu_store_stall_any) | ~ld_single_ecc_error_r_ff);</span>
-<span id="L452"><span class="lineNum">     452</span>              :    endproperty</span>
-<span id="L453"><span class="lineNum">     453</span>              :    assert_fastint_stall_imply_loadstore_stall: assert property (fastint_stall_imply_loadstore_stall) else</span>
-<span id="L454"><span class="lineNum">     454</span>              :       $display("fastint_stall should be followed by lsu_load/store_stall_any");</span>
-<span id="L455"><span class="lineNum">     455</span>              : </span>
-<span id="L456"><span class="lineNum">     456</span>              :    // Single ECC error implies rfnpc flush</span>
-<span id="L457"><span class="lineNum">     457</span>              :    property single_ecc_error_rfnpc_flush;</span>
-<span id="L458"><span class="lineNum">     458</span>              :       @(posedge clk) disable iff(~rst_l) (lsu_error_pkt_r.single_ecc_error &amp; lsu_pkt_r.load) |=&gt; ~lsu_commit_r;</span>
-<span id="L459"><span class="lineNum">     459</span>              :    endproperty</span>
-<span id="L460"><span class="lineNum">     460</span>              :    assert_single_ecc_error_rfnpc_flush: assert property (single_ecc_error_rfnpc_flush) else</span>
-<span id="L461"><span class="lineNum">     461</span>              :      $display("LSU commit next cycle after single ecc error");</span>
-<span id="L462"><span class="lineNum">     462</span>              : </span>
-<span id="L463"><span class="lineNum">     463</span>              : `endif</span>
-<span id="L464"><span class="lineNum">     464</span>              : </span>
-<span id="L465"><span class="lineNum">     465</span>              : endmodule // el2_lsu</span>
+<span id="L417"><span class="lineNum">     417</span>              :       .end_addr_m(end_addr_m[31:0] &amp; {32{addr_external_m &amp; lsu_pkt_m.valid}}),</span>
+<span id="L418"><span class="lineNum">     418</span>              :       .end_addr_r(end_addr_r[31:0] &amp; {32{lsu_busreq_r}}),</span>
+<span id="L419"><span class="lineNum">     419</span>              : </span>
+<span id="L420"><span class="lineNum">     420</span>              :       .store_data_r(store_data_r[31:0] &amp; {32{lsu_busreq_r}}),</span>
+<span id="L421"><span class="lineNum">     421</span>              :       .*</span>
+<span id="L422"><span class="lineNum">     422</span>              :    );</span>
+<span id="L423"><span class="lineNum">     423</span>              : </span>
+<span id="L424"><span class="lineNum">     424</span>              :    //Flops</span>
+<span id="L425"><span class="lineNum">     425</span>              :    rvdff #(3) dma_mem_tag_mff     (.*, .din(dma_mem_tag_d[2:0]), .dout(dma_mem_tag_m[2:0]), .clk(lsu_c1_m_clk));</span>
+<span id="L426"><span class="lineNum">     426</span>              :    rvdff #(2) lsu_raw_fwd_r_ff    (.*, .din({lsu_raw_fwd_hi_m, lsu_raw_fwd_lo_m}),     .dout({lsu_raw_fwd_hi_r, lsu_raw_fwd_lo_r}),     .clk(lsu_c2_r_clk));</span>
+<span id="L427"><span class="lineNum">     427</span>              : </span>
+<span id="L428"><span class="lineNum">     428</span>              : `ifdef RV_ASSERT_ON</span>
+<span id="L429"><span class="lineNum">     429</span>              :    logic [1:0] store_data_bypass_sel;</span>
+<span id="L430"><span class="lineNum">     430</span>              :    assign store_data_bypass_sel[1:0] =  {lsu_p.store_data_bypass_d, lsu_p.store_data_bypass_m};</span>
+<span id="L431"><span class="lineNum">     431</span>              : </span>
+<span id="L432"><span class="lineNum">     432</span>              :    property exception_no_lsu_flush;</span>
+<span id="L433"><span class="lineNum">     433</span>              :       @(posedge clk)  disable iff(~rst_l) lsu_lsc_ctl.lsu_error_pkt_m.exc_valid |-&gt; ##[1:2] (flush_r );</span>
+<span id="L434"><span class="lineNum">     434</span>              :    endproperty</span>
+<span id="L435"><span class="lineNum">     435</span>              :    assert_exception_no_lsu_flush: assert property (exception_no_lsu_flush) else</span>
+<span id="L436"><span class="lineNum">     436</span>              :       $display("No flush within 2 cycles of exception");</span>
+<span id="L437"><span class="lineNum">     437</span>              : </span>
+<span id="L438"><span class="lineNum">     438</span>              :    // offset should be zero for fast interrupt</span>
+<span id="L439"><span class="lineNum">     439</span>              :    property offset_0_fastint;</span>
+<span id="L440"><span class="lineNum">     440</span>              :       @(posedge clk) disable iff(~rst_l) (lsu_p.valid &amp; lsu_p.fast_int) |-&gt; (dec_lsu_offset_d[11:0] == 12'b0);</span>
+<span id="L441"><span class="lineNum">     441</span>              :    endproperty</span>
+<span id="L442"><span class="lineNum">     442</span>              :    assert_offset_0_fastint: assert property (offset_0_fastint) else</span>
+<span id="L443"><span class="lineNum">     443</span>              :       $display("dec_tlu_offset_d not zero for fast interrupt redirect");</span>
+<span id="L444"><span class="lineNum">     444</span>              : </span>
+<span id="L445"><span class="lineNum">     445</span>              :    // DMA req should assert dccm rden/wren</span>
+<span id="L446"><span class="lineNum">     446</span>              :    property dmareq_dccm_wren_or_rden;</span>
+<span id="L447"><span class="lineNum">     447</span>              :       @(posedge clk) disable iff(~rst_l) dma_dccm_req |-&gt; (dccm_rden | dccm_wren | addr_in_pic_d);</span>
+<span id="L448"><span class="lineNum">     448</span>              :    endproperty</span>
+<span id="L449"><span class="lineNum">     449</span>              :    assert_dmareq_dccm_wren_or_rden: assert property(dmareq_dccm_wren_or_rden) else</span>
+<span id="L450"><span class="lineNum">     450</span>              :       $display("dccm rden or wren not asserted during DMA request");</span>
+<span id="L451"><span class="lineNum">     451</span>              : </span>
+<span id="L452"><span class="lineNum">     452</span>              :    // fastint_stall should cause load/store stall next cycle</span>
+<span id="L453"><span class="lineNum">     453</span>              :    property fastint_stall_imply_loadstore_stall;</span>
+<span id="L454"><span class="lineNum">     454</span>              :       @(posedge clk) disable iff(~rst_l) (lsu_fastint_stall_any &amp; (lsu_commit_r | lsu_pkt_r.dma)) |-&gt; ##1 ((lsu_load_stall_any | lsu_store_stall_any) | ~ld_single_ecc_error_r_ff);</span>
+<span id="L455"><span class="lineNum">     455</span>              :    endproperty</span>
+<span id="L456"><span class="lineNum">     456</span>              :    assert_fastint_stall_imply_loadstore_stall: assert property (fastint_stall_imply_loadstore_stall) else</span>
+<span id="L457"><span class="lineNum">     457</span>              :       $display("fastint_stall should be followed by lsu_load/store_stall_any");</span>
+<span id="L458"><span class="lineNum">     458</span>              : </span>
+<span id="L459"><span class="lineNum">     459</span>              :    // Single ECC error implies rfnpc flush</span>
+<span id="L460"><span class="lineNum">     460</span>              :    property single_ecc_error_rfnpc_flush;</span>
+<span id="L461"><span class="lineNum">     461</span>              :       @(posedge clk) disable iff(~rst_l) (lsu_error_pkt_r.single_ecc_error &amp; lsu_pkt_r.load) |=&gt; ~lsu_commit_r;</span>
+<span id="L462"><span class="lineNum">     462</span>              :    endproperty</span>
+<span id="L463"><span class="lineNum">     463</span>              :    assert_single_ecc_error_rfnpc_flush: assert property (single_ecc_error_rfnpc_flush) else</span>
+<span id="L464"><span class="lineNum">     464</span>              :      $display("LSU commit next cycle after single ecc error");</span>
+<span id="L465"><span class="lineNum">     465</span>              : </span>
+<span id="L466"><span class="lineNum">     466</span>              : `endif</span>
+<span id="L467"><span class="lineNum">     467</span>              : </span>
+<span id="L468"><span class="lineNum">     468</span>              : endmodule // el2_lsu</span>
         </pre>
 </td>
 </tr>
