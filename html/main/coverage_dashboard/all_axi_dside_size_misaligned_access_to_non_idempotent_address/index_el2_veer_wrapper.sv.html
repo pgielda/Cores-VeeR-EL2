@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    08-11-2024
+                    15-11-2024
                 </td>
                 <td></td>
                 
@@ -533,7 +533,7 @@
 <span id="L429"><span class="lineNum">     429</span> <span class="tlaGNC">           4 :    input logic                             i_cpu_run_req, // Async restart req to CPU</span></span>
 <span id="L430"><span class="lineNum">     430</span> <span class="tlaGNC">           4 :    output logic                            o_cpu_run_ack, // Core response to run req</span></span>
 <span id="L431"><span class="lineNum">     431</span>              : </span>
-<span id="L432"><span class="lineNum">     432</span>              :    /* exclude signals that are tied to constant value or left unconnected in tb_top.sv */</span>
+<span id="L432"><span class="lineNum">     432</span>              :    // Excluding scan_mode and mbist_mode from coverage as their usage is determined by the integrator of the VeeR core.</span>
 <span id="L433"><span class="lineNum">     433</span>              :    /* verilator coverage_off */</span>
 <span id="L434"><span class="lineNum">     434</span>              :    input logic                             scan_mode,     // To enable scan mode</span>
 <span id="L435"><span class="lineNum">     435</span>              :    input logic                             mbist_mode,    // to enable mbist</span>
