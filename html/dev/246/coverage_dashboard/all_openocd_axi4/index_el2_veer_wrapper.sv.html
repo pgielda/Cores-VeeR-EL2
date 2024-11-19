@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    12-11-2024
+                    19-11-2024
                 </td>
                 <td></td>
                 
@@ -131,7 +131,7 @@
 <span id="L27"><span class="lineNum">      27</span>              : `include "el2_param.vh"</span>
 <span id="L28"><span class="lineNum">      28</span>              : )</span>
 <span id="L29"><span class="lineNum">      29</span>              : (</span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     6084410 :    input logic                             clk,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     6084642 :    input logic                             clk,</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           2 :    input logic                             rst_l,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           2 :    input logic                             dbg_rst_l,</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:1]                      rst_vec,</span></span>
@@ -540,7 +540,7 @@
 <span id="L436"><span class="lineNum">     436</span> <span class="tlaUNC">           0 :    input logic                             i_cpu_run_req, // Async restart req to CPU</span></span>
 <span id="L437"><span class="lineNum">     437</span> <span class="tlaUNC">           0 :    output logic                            o_cpu_run_ack, // Core response to run req</span></span>
 <span id="L438"><span class="lineNum">     438</span>              : </span>
-<span id="L439"><span class="lineNum">     439</span>              :    /* exclude signals that are tied to constant value or left unconnected in tb_top.sv */</span>
+<span id="L439"><span class="lineNum">     439</span>              :    // Excluding scan_mode and mbist_mode from coverage as their usage is determined by the integrator of the VeeR core.</span>
 <span id="L440"><span class="lineNum">     440</span>              :    /* verilator coverage_off */</span>
 <span id="L441"><span class="lineNum">     441</span>              :    input logic                             scan_mode,     // To enable scan mode</span>
 <span id="L442"><span class="lineNum">     442</span>              :    input logic                             mbist_mode,    // to enable mbist</span>
@@ -557,8 +557,8 @@
 <span id="L453"><span class="lineNum">     453</span>              :    /* verilator coverage_on */</span>
 <span id="L454"><span class="lineNum">     454</span>              : );</span>
 <span id="L455"><span class="lineNum">     455</span>              : </span>
-<span id="L456"><span class="lineNum">     456</span> <span class="tlaGNC tlaBgGNC">     6084410 :    logic                             active_l2clk;</span></span>
-<span id="L457"><span class="lineNum">     457</span> <span class="tlaGNC">     6084410 :    logic                             free_l2clk;</span></span>
+<span id="L456"><span class="lineNum">     456</span> <span class="tlaGNC tlaBgGNC">     6084642 :    logic                             active_l2clk;</span></span>
+<span id="L457"><span class="lineNum">     457</span> <span class="tlaGNC">     6084642 :    logic                             free_l2clk;</span></span>
 <span id="L458"><span class="lineNum">     458</span>              : </span>
 <span id="L459"><span class="lineNum">     459</span>              :    // DCCM ports</span>
 <span id="L460"><span class="lineNum">     460</span> <span class="tlaUNC tlaBgUNC">           0 :    logic         dccm_wren;</span></span>

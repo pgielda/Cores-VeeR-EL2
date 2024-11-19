@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    12-11-2024
+                    19-11-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ffa800;">
-        33.1%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ffb400;">
+        35.4%
     </td>
     <td class="headerCovSummaryEntry">
-        42
+        45
     </td>
     <td class="headerCovSummaryEntry">
         127
@@ -140,9 +140,9 @@
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaUNC">           0 :    input logic [31:1]                      jtag_id,</span></span>
 <span id="L37"><span class="lineNum">      37</span>              : </span>
 <span id="L38"><span class="lineNum">      38</span>              : </span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC tlaBgGNC">          14 :    output logic [31:0]                     trace_rv_i_insn_ip,</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC tlaBgGNC">          12 :    output logic [31:0]                     trace_rv_i_insn_ip,</span></span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [31:0]                     trace_rv_i_address_ip,</span></span>
-<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">         400 :    output logic                            trace_rv_i_valid_ip,</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">         396 :    output logic                            trace_rv_i_valid_ip,</span></span>
 <span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">           4 :    output logic                            trace_rv_i_exception_ip,</span></span>
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [4:0]                      trace_rv_i_ecause_ip,</span></span>
 <span id="L44"><span class="lineNum">      44</span> <span class="tlaUNC">           0 :    output logic                            trace_rv_i_interrupt_ip,</span></span>
@@ -449,9 +449,9 @@
 <span id="L345"><span class="lineNum">     345</span>              :    /*verilator coverage_on*/</span>
 <span id="L346"><span class="lineNum">     346</span> <span class="tlaUNC">           0 :    output logic [3:0]                      sb_hprot,</span></span>
 <span id="L347"><span class="lineNum">     347</span> <span class="tlaUNC">           0 :    output logic [2:0]                      sb_hsize,</span></span>
-<span id="L348"><span class="lineNum">     348</span> <span class="tlaGNC tlaBgGNC">        1944 :    output logic [1:0]                      sb_htrans,</span></span>
+<span id="L348"><span class="lineNum">     348</span> <span class="tlaGNC tlaBgGNC">        1912 :    output logic [1:0]                      sb_htrans,</span></span>
 <span id="L349"><span class="lineNum">     349</span> <span class="tlaGNC">         224 :    output logic                            sb_hwrite,</span></span>
-<span id="L350"><span class="lineNum">     350</span> <span class="tlaGNC">          68 :    output logic [63:0]                     sb_hwdata,</span></span>
+<span id="L350"><span class="lineNum">     350</span> <span class="tlaGNC">          64 :    output logic [63:0]                     sb_hwdata,</span></span>
 <span id="L351"><span class="lineNum">     351</span>              : </span>
 <span id="L352"><span class="lineNum">     352</span>              :    /* exclude signals that are tied to constant value in this file */</span>
 <span id="L353"><span class="lineNum">     353</span>              :    /*verilator coverage_off*/</span>
@@ -506,12 +506,12 @@
 <span id="L402"><span class="lineNum">     402</span> <span class="tlaUNC">           0 :    output logic                            dec_tlu_perfcnt3,</span></span>
 <span id="L403"><span class="lineNum">     403</span>              : </span>
 <span id="L404"><span class="lineNum">     404</span>              :    // ports added by the soc team</span>
-<span id="L405"><span class="lineNum">     405</span> <span class="tlaGNC tlaBgGNC">     1640044 :    input logic                             jtag_tck,    // JTAG clk</span></span>
-<span id="L406"><span class="lineNum">     406</span> <span class="tlaGNC">       98516 :    input logic                             jtag_tms,    // JTAG TMS</span></span>
-<span id="L407"><span class="lineNum">     407</span> <span class="tlaGNC">      126814 :    input logic                             jtag_tdi,    // JTAG tdi</span></span>
+<span id="L405"><span class="lineNum">     405</span> <span class="tlaGNC tlaBgGNC">     1657866 :    input logic                             jtag_tck,    // JTAG clk</span></span>
+<span id="L406"><span class="lineNum">     406</span> <span class="tlaGNC">       99580 :    input logic                             jtag_tms,    // JTAG TMS</span></span>
+<span id="L407"><span class="lineNum">     407</span> <span class="tlaGNC">      128286 :    input logic                             jtag_tdi,    // JTAG tdi</span></span>
 <span id="L408"><span class="lineNum">     408</span> <span class="tlaGNC">           2 :    input logic                             jtag_trst_n, // JTAG Reset</span></span>
-<span id="L409"><span class="lineNum">     409</span> <span class="tlaGNC">      123690 :    output logic                            jtag_tdo,    // JTAG TDO</span></span>
-<span id="L410"><span class="lineNum">     410</span> <span class="tlaGNC">       49254 :    output logic                            jtag_tdoEn,  // JTAG Test Data Output enable</span></span>
+<span id="L409"><span class="lineNum">     409</span> <span class="tlaGNC">      125190 :    output logic                            jtag_tdo,    // JTAG TDO</span></span>
+<span id="L410"><span class="lineNum">     410</span> <span class="tlaGNC">       49786 :    output logic                            jtag_tdoEn,  // JTAG Test Data Output enable</span></span>
 <span id="L411"><span class="lineNum">     411</span>              : </span>
 <span id="L412"><span class="lineNum">     412</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:4] core_id,</span></span>
 <span id="L413"><span class="lineNum">     413</span>              : </span>
@@ -540,7 +540,7 @@
 <span id="L436"><span class="lineNum">     436</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                             i_cpu_run_req, // Async restart req to CPU</span></span>
 <span id="L437"><span class="lineNum">     437</span> <span class="tlaUNC">           0 :    output logic                            o_cpu_run_ack, // Core response to run req</span></span>
 <span id="L438"><span class="lineNum">     438</span>              : </span>
-<span id="L439"><span class="lineNum">     439</span>              :    /* exclude signals that are tied to constant value or left unconnected in tb_top.sv */</span>
+<span id="L439"><span class="lineNum">     439</span>              :    // Excluding scan_mode and mbist_mode from coverage as their usage is determined by the integrator of the VeeR core.</span>
 <span id="L440"><span class="lineNum">     440</span>              :    /* verilator coverage_off */</span>
 <span id="L441"><span class="lineNum">     441</span>              :    input logic                             scan_mode,     // To enable scan mode</span>
 <span id="L442"><span class="lineNum">     442</span>              :    input logic                             mbist_mode,    // to enable mbist</span>
@@ -578,7 +578,7 @@
 <span id="L474"><span class="lineNum">     474</span>              :    // Icache &amp; Itag ports</span>
 <span id="L475"><span class="lineNum">     475</span> <span class="tlaUNC">           0 :    logic [31:1]  ic_rw_addr;</span></span>
 <span id="L476"><span class="lineNum">     476</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_NUM_WAYS-1:0]   ic_wr_en  ;     // Which way to write</span></span>
-<span id="L477"><span class="lineNum">     477</span> <span class="tlaGNC tlaBgGNC">         312 :    logic         ic_rd_en ;</span></span>
+<span id="L477"><span class="lineNum">     477</span> <span class="tlaGNC tlaBgGNC">         308 :    logic         ic_rd_en ;</span></span>
 <span id="L478"><span class="lineNum">     478</span>              : </span>
 <span id="L479"><span class="lineNum">     479</span>              : </span>
 <span id="L480"><span class="lineNum">     480</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [pt.ICACHE_NUM_WAYS-1:0]   ic_tag_valid;   // Valid from the I$ tag valid outside (in flops).</span></span>
@@ -587,15 +587,15 @@
 <span id="L483"><span class="lineNum">     483</span> <span class="tlaUNC">           0 :    logic         ic_tag_perr;                       // Ic tag parity error</span></span>
 <span id="L484"><span class="lineNum">     484</span>              : </span>
 <span id="L485"><span class="lineNum">     485</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_INDEX_HI:3]  ic_debug_addr;     // Read/Write addresss to the Icache.</span></span>
-<span id="L486"><span class="lineNum">     486</span> <span class="tlaUNC">           0 :    logic         ic_debug_rd_en;                    // Icache debug rd</span></span>
-<span id="L487"><span class="lineNum">     487</span> <span class="tlaUNC">           0 :    logic         ic_debug_wr_en;                    // Icache debug wr</span></span>
-<span id="L488"><span class="lineNum">     488</span> <span class="tlaUNC">           0 :    logic         ic_debug_tag_array;                // Debug tag array</span></span>
-<span id="L489"><span class="lineNum">     489</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_NUM_WAYS-1:0]   ic_debug_way;   // Debug way. Rd or Wr.</span></span>
+<span id="L486"><span class="lineNum">     486</span> <span class="tlaGNC tlaBgGNC">          16 :    logic         ic_debug_rd_en;                    // Icache debug rd</span></span>
+<span id="L487"><span class="lineNum">     487</span> <span class="tlaGNC">          16 :    logic         ic_debug_wr_en;                    // Icache debug wr</span></span>
+<span id="L488"><span class="lineNum">     488</span> <span class="tlaGNC">           6 :    logic         ic_debug_tag_array;                // Debug tag array</span></span>
+<span id="L489"><span class="lineNum">     489</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [pt.ICACHE_NUM_WAYS-1:0]   ic_debug_way;   // Debug way. Rd or Wr.</span></span>
 <span id="L490"><span class="lineNum">     490</span>              : </span>
 <span id="L491"><span class="lineNum">     491</span> <span class="tlaUNC">           0 :    logic [25:0]  ictag_debug_rd_data;               // Debug icache tag.</span></span>
 <span id="L492"><span class="lineNum">     492</span> <span class="tlaGNC tlaBgGNC">           4 :    logic [pt.ICACHE_BANKS_WAY-1:0][70:0]  ic_wr_data;</span></span>
-<span id="L493"><span class="lineNum">     493</span> <span class="tlaGNC">         306 :    logic [63:0]  ic_rd_data;</span></span>
-<span id="L494"><span class="lineNum">     494</span> <span class="tlaGNC">         298 :    logic [70:0]  ic_debug_rd_data;                  // Data read from Icache. 2x64bits + parity bits. F2 stage. With ECC</span></span>
+<span id="L493"><span class="lineNum">     493</span> <span class="tlaGNC">         304 :    logic [63:0]  ic_rd_data;</span></span>
+<span id="L494"><span class="lineNum">     494</span> <span class="tlaGNC">         296 :    logic [70:0]  ic_debug_rd_data;                  // Data read from Icache. 2x64bits + parity bits. F2 stage. With ECC</span></span>
 <span id="L495"><span class="lineNum">     495</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [70:0]  ic_debug_wr_data;                  // Debug wr cache.</span></span>
 <span id="L496"><span class="lineNum">     496</span>              : </span>
 <span id="L497"><span class="lineNum">     497</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_BANKS_WAY-1:0] ic_eccerr;       // ecc error per bank</span></span>
@@ -969,18 +969,18 @@
 <span id="L865"><span class="lineNum">     865</span>              : `endif //  `ifdef RV_BUILD_AHB_LITE</span>
 <span id="L866"><span class="lineNum">     866</span>              : </span>
 <span id="L867"><span class="lineNum">     867</span>              :    // DMI (core)</span>
-<span id="L868"><span class="lineNum">     868</span> <span class="tlaGNC tlaBgGNC">       17928 :    logic                   dmi_en;</span></span>
+<span id="L868"><span class="lineNum">     868</span> <span class="tlaGNC tlaBgGNC">       18118 :    logic                   dmi_en;</span></span>
 <span id="L869"><span class="lineNum">     869</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [6:0]             dmi_addr;</span></span>
-<span id="L870"><span class="lineNum">     870</span> <span class="tlaGNC tlaBgGNC">        6602 :    logic                   dmi_wr_en;</span></span>
-<span id="L871"><span class="lineNum">     871</span> <span class="tlaGNC">          60 :    logic [31:0]            dmi_wdata;</span></span>
-<span id="L872"><span class="lineNum">     872</span> <span class="tlaGNC">         106 :    logic [31:0]            dmi_rdata;</span></span>
+<span id="L870"><span class="lineNum">     870</span> <span class="tlaGNC tlaBgGNC">        6720 :    logic                   dmi_wr_en;</span></span>
+<span id="L871"><span class="lineNum">     871</span> <span class="tlaGNC">          64 :    logic [31:0]            dmi_wdata;</span></span>
+<span id="L872"><span class="lineNum">     872</span> <span class="tlaGNC">         104 :    logic [31:0]            dmi_rdata;</span></span>
 <span id="L873"><span class="lineNum">     873</span>              : </span>
 <span id="L874"><span class="lineNum">     874</span>              :    // DMI (core)</span>
-<span id="L875"><span class="lineNum">     875</span> <span class="tlaGNC">       17928 :    logic                   dmi_reg_en;</span></span>
+<span id="L875"><span class="lineNum">     875</span> <span class="tlaGNC">       18118 :    logic                   dmi_reg_en;</span></span>
 <span id="L876"><span class="lineNum">     876</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [6:0]             dmi_reg_addr;</span></span>
-<span id="L877"><span class="lineNum">     877</span> <span class="tlaGNC tlaBgGNC">        6602 :    logic                   dmi_reg_wr_en;</span></span>
-<span id="L878"><span class="lineNum">     878</span> <span class="tlaGNC">          60 :    logic [31:0]            dmi_reg_wdata;</span></span>
-<span id="L879"><span class="lineNum">     879</span> <span class="tlaGNC">         106 :    logic [31:0]            dmi_reg_rdata;</span></span>
+<span id="L877"><span class="lineNum">     877</span> <span class="tlaGNC tlaBgGNC">        6720 :    logic                   dmi_reg_wr_en;</span></span>
+<span id="L878"><span class="lineNum">     878</span> <span class="tlaGNC">          64 :    logic [31:0]            dmi_reg_wdata;</span></span>
+<span id="L879"><span class="lineNum">     879</span> <span class="tlaGNC">         104 :    logic [31:0]            dmi_reg_rdata;</span></span>
 <span id="L880"><span class="lineNum">     880</span>              : </span>
 <span id="L881"><span class="lineNum">     881</span>              : `ifdef RV_LOCKSTEP_REGFILE_ENABLE</span>
 <span id="L882"><span class="lineNum">     882</span>              :    el2_regfile_if regfile ();</span>

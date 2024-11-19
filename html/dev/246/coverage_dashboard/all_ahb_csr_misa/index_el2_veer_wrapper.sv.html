@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    12-11-2024
+                    19-11-2024
                 </td>
                 <td></td>
                 
@@ -131,7 +131,7 @@
 <span id="L27"><span class="lineNum">      27</span>              : `include "el2_param.vh"</span>
 <span id="L28"><span class="lineNum">      28</span>              : )</span>
 <span id="L29"><span class="lineNum">      29</span>              : (</span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">       39100 :    input logic                             clk,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">       28304 :    input logic                             clk,</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           2 :    input logic                             rst_l,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           2 :    input logic                             dbg_rst_l,</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:1]                      rst_vec,</span></span>
@@ -142,7 +142,7 @@
 <span id="L38"><span class="lineNum">      38</span>              : </span>
 <span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC tlaBgGNC">         220 :    output logic [31:0]                     trace_rv_i_insn_ip,</span></span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">           2 :    output logic [31:0]                     trace_rv_i_address_ip,</span></span>
-<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">        2632 :    output logic                            trace_rv_i_valid_ip,</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">        1836 :    output logic                            trace_rv_i_valid_ip,</span></span>
 <span id="L42"><span class="lineNum">      42</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic                            trace_rv_i_exception_ip,</span></span>
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaUNC">           0 :    output logic [4:0]                      trace_rv_i_ecause_ip,</span></span>
 <span id="L44"><span class="lineNum">      44</span> <span class="tlaUNC">           0 :    output logic                            trace_rv_i_interrupt_ip,</span></span>
@@ -411,7 +411,7 @@
 <span id="L307"><span class="lineNum">     307</span>              :    /*verilator coverage_on*/</span>
 <span id="L308"><span class="lineNum">     308</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [3:0]                      hprot,</span></span>
 <span id="L309"><span class="lineNum">     309</span> <span class="tlaUNC">           0 :    output logic [2:0]                      hsize,</span></span>
-<span id="L310"><span class="lineNum">     310</span> <span class="tlaGNC tlaBgGNC">        2652 :    output logic [1:0]                      htrans,</span></span>
+<span id="L310"><span class="lineNum">     310</span> <span class="tlaGNC tlaBgGNC">        1852 :    output logic [1:0]                      htrans,</span></span>
 <span id="L311"><span class="lineNum">     311</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic                            hwrite,</span></span>
 <span id="L312"><span class="lineNum">     312</span>              : </span>
 <span id="L313"><span class="lineNum">     313</span>              :    /* exclude signals that are tied to constant value in this file */</span>
@@ -430,7 +430,7 @@
 <span id="L326"><span class="lineNum">     326</span>              :    /*verilator coverage_on*/</span>
 <span id="L327"><span class="lineNum">     327</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [3:0]                      lsu_hprot,</span></span>
 <span id="L328"><span class="lineNum">     328</span> <span class="tlaUNC">           0 :    output logic [2:0]                      lsu_hsize,</span></span>
-<span id="L329"><span class="lineNum">     329</span> <span class="tlaGNC tlaBgGNC">         700 :    output logic [1:0]                      lsu_htrans,</span></span>
+<span id="L329"><span class="lineNum">     329</span> <span class="tlaGNC tlaBgGNC">         500 :    output logic [1:0]                      lsu_htrans,</span></span>
 <span id="L330"><span class="lineNum">     330</span> <span class="tlaGNC">         150 :    output logic                            lsu_hwrite,</span></span>
 <span id="L331"><span class="lineNum">     331</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [63:0]                     lsu_hwdata,</span></span>
 <span id="L332"><span class="lineNum">     332</span>              : </span>
@@ -540,7 +540,7 @@
 <span id="L436"><span class="lineNum">     436</span> <span class="tlaGNC">           4 :    input logic                             i_cpu_run_req, // Async restart req to CPU</span></span>
 <span id="L437"><span class="lineNum">     437</span> <span class="tlaGNC">           4 :    output logic                            o_cpu_run_ack, // Core response to run req</span></span>
 <span id="L438"><span class="lineNum">     438</span>              : </span>
-<span id="L439"><span class="lineNum">     439</span>              :    /* exclude signals that are tied to constant value or left unconnected in tb_top.sv */</span>
+<span id="L439"><span class="lineNum">     439</span>              :    // Excluding scan_mode and mbist_mode from coverage as their usage is determined by the integrator of the VeeR core.</span>
 <span id="L440"><span class="lineNum">     440</span>              :    /* verilator coverage_off */</span>
 <span id="L441"><span class="lineNum">     441</span>              :    input logic                             scan_mode,     // To enable scan mode</span>
 <span id="L442"><span class="lineNum">     442</span>              :    input logic                             mbist_mode,    // to enable mbist</span>
@@ -557,8 +557,8 @@
 <span id="L453"><span class="lineNum">     453</span>              :    /* verilator coverage_on */</span>
 <span id="L454"><span class="lineNum">     454</span>              : );</span>
 <span id="L455"><span class="lineNum">     455</span>              : </span>
-<span id="L456"><span class="lineNum">     456</span> <span class="tlaGNC">       39100 :    logic                             active_l2clk;</span></span>
-<span id="L457"><span class="lineNum">     457</span> <span class="tlaGNC">       39100 :    logic                             free_l2clk;</span></span>
+<span id="L456"><span class="lineNum">     456</span> <span class="tlaGNC">       28304 :    logic                             active_l2clk;</span></span>
+<span id="L457"><span class="lineNum">     457</span> <span class="tlaGNC">       28304 :    logic                             free_l2clk;</span></span>
 <span id="L458"><span class="lineNum">     458</span>              : </span>
 <span id="L459"><span class="lineNum">     459</span>              :    // DCCM ports</span>
 <span id="L460"><span class="lineNum">     460</span> <span class="tlaUNC tlaBgUNC">           0 :    logic         dccm_wren;</span></span>
@@ -594,15 +594,15 @@
 <span id="L490"><span class="lineNum">     490</span>              : </span>
 <span id="L491"><span class="lineNum">     491</span> <span class="tlaUNC">           0 :    logic [25:0]  ictag_debug_rd_data;               // Debug icache tag.</span></span>
 <span id="L492"><span class="lineNum">     492</span> <span class="tlaGNC tlaBgGNC">          96 :    logic [pt.ICACHE_BANKS_WAY-1:0][70:0]  ic_wr_data;</span></span>
-<span id="L493"><span class="lineNum">     493</span> <span class="tlaGNC">         496 :    logic [63:0]  ic_rd_data;</span></span>
+<span id="L493"><span class="lineNum">     493</span> <span class="tlaGNC">         444 :    logic [63:0]  ic_rd_data;</span></span>
 <span id="L494"><span class="lineNum">     494</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [70:0]  ic_debug_rd_data;                  // Data read from Icache. 2x64bits + parity bits. F2 stage. With ECC</span></span>
 <span id="L495"><span class="lineNum">     495</span> <span class="tlaUNC">           0 :    logic [70:0]  ic_debug_wr_data;                  // Debug wr cache.</span></span>
 <span id="L496"><span class="lineNum">     496</span>              : </span>
 <span id="L497"><span class="lineNum">     497</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_BANKS_WAY-1:0] ic_eccerr;       // ecc error per bank</span></span>
 <span id="L498"><span class="lineNum">     498</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_BANKS_WAY-1:0] ic_parerr;       // parity error per bank</span></span>
 <span id="L499"><span class="lineNum">     499</span>              : </span>
-<span id="L500"><span class="lineNum">     500</span> <span class="tlaGNC tlaBgGNC">         496 :    logic [63:0]  ic_premux_data;</span></span>
-<span id="L501"><span class="lineNum">     501</span> <span class="tlaGNC">        2388 :    logic         ic_sel_premux_data;</span></span>
+<span id="L500"><span class="lineNum">     500</span> <span class="tlaGNC tlaBgGNC">         444 :    logic [63:0]  ic_premux_data;</span></span>
+<span id="L501"><span class="lineNum">     501</span> <span class="tlaGNC">        1580 :    logic         ic_sel_premux_data;</span></span>
 <span id="L502"><span class="lineNum">     502</span>              : </span>
 <span id="L503"><span class="lineNum">     503</span>              :    // ICCM ports</span>
 <span id="L504"><span class="lineNum">     504</span> <span class="tlaGNC">           8 :    logic [pt.ICCM_BITS-1:1]    iccm_rw_addr;</span></span>
