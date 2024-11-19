@@ -315,8 +315,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#monitored-ios" class="md-nav__link">
+    <span class="md-ellipsis">Monitored IOs</span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shadow-core-control" class="md-nav__link">
+    <span class="md-ellipsis">Shadow Core Control</span>
+  </a>
   
 </li>
       
@@ -677,7 +691,7 @@
 
 
 <h1 id="dual-core-lockstep-dcls"><span class="section-number">5. </span>Dual-Core Lockstep (DCLS)<a class="headerlink" href="#dual-core-lockstep-dcls" title="Link to this heading">¶</a></h1>
-<p>This chapter describes the proposed Dual-Core Lockstep functionality and its future implementation in the VeeR EL2 Core, as required by Caliptra 2.0 and required for side-channel mitigation scenarios, although it may be useful for other applications like rad-hardening or other safety related-scenarios which DCLS is often also used for.</p>
+<p>This chapter describes the proposed Dual-Core Lockstep functionality and its future implementation in the VeeR EL2 Core, as required by Caliptra 2.0 for side-channel mitigation scenarios, although it may be useful for other applications like rad-hardening or other safety related-scenarios which DCLS is often also used for.</p>
 <h2 id="veer-el2-dcls-overview"><span class="section-number">5.1. </span>VeeR EL2 DCLS Overview<a class="headerlink" href="#veer-el2-dcls-overview" title="Link to this heading">¶</a></h2>
 <p>The lockstep feature will be added as an optional feature of VeeR EL2, disabled by default.
 If enabled, another copy of the VeeR EL2 CPU core will be additionally instantiated in the design.
@@ -686,26 +700,25 @@ This second core will be referred to as a Shadow Core in this chapter.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">DCCM</span></code> and <code class="docutils literal notranslate"><span class="pre">ICCM</span></code> memories are not duplicated, and only the main VeeR EL2 CPU core has access to them.
 The Shadow Core is only supplied with the delayed inputs of the main core, including the relevant <code class="docutils literal notranslate"><span class="pre">DCCM</span></code> and <code class="docutils literal notranslate"><span class="pre">ICCM</span></code> data, without any ability to read from or write to those memories by itself.</p>
 <p>Similarly, <code class="docutils literal notranslate"><span class="pre">Icache</span></code> is not duplicated with only the main VeeR EL2 CPU core having direct access.
-Shadow Core will receive a delayed copy of main core’s <code class="docutils literal notranslate"><span class="pre">Icache</span></code> inputs.
-The copy of main core’s <code class="docutils literal notranslate"><span class="pre">Icache</span></code> outputs will be passed into the <code class="docutils literal notranslate"><span class="pre">Equivalency</span> <span class="pre">Checker</span></code> to be validated against Shadow Core’s <code class="docutils literal notranslate"><span class="pre">Icache</span></code> outputs.</p>
-<p>Both cores operate on separate register files.</p>
-<p>The Shadow Core’s register file can be monitored via the exposed <code class="docutils literal notranslate"><span class="pre">Register</span> <span class="pre">File</span> <span class="pre">Interface</span></code>.</p>
+The Shadow Core will receive a delayed copy of main core’s <code class="docutils literal notranslate"><span class="pre">Icache</span></code> inputs.
+The copy of main core’s <code class="docutils literal notranslate"><span class="pre">Icache</span></code> outputs will be passed into the <code class="docutils literal notranslate"><span class="pre">Equivalency</span> <span class="pre">Checker</span></code> to be validated against the Shadow Core’s <code class="docutils literal notranslate"><span class="pre">Icache</span></code> outputs.</p>
 <p>The diagram below outlines the architecture of the proposed solution.</p>
 <p><img alt="VeeR DCLS Overview" src="_images/dcls_block_diagram.png" /></p>
 <p>Outputs and the register file from the main core are delayed by <code class="docutils literal notranslate"><span class="pre">DELAY</span></code> cycles and passed to the <code class="docutils literal notranslate"><span class="pre">Equivalency</span> <span class="pre">Checker</span></code> for verification against the outputs and the register file of the Shadow Core.</p>
-<p>If the <code class="docutils literal notranslate"><span class="pre">Equivalency</span> <span class="pre">Checker</span></code> detects a mismatch between the cores, the logic will assert a panic signal.</p>
-<p>It is up to the integrator to provide the error handling for the corruption detection.</p>
-<p><a class="reference internal" href="#monitored-registers">Monitored registers</a> are exposed for comparison purposes from the <a class="reference external" href="https://github.com/chipsalliance/Cores-VeeR-EL2/blob/795eb588e34b6815033b769d54fcf7cfac4aae3a/design/dec/el2_dec_tlu_ctl.sv">el2_dec_tlu_ctl</a> and <a class="reference external" href="https://github.com/chipsalliance/Cores-VeeR-EL2/blob/795eb588e34b6815033b769d54fcf7cfac4aae3a/design/dec/el2_dec_gpr_ctl.sv">el2_dec_gpr_ctl</a> modules through the <a class="reference external" href="https://github.com/chipsalliance/Cores-VeeR-EL2/blob/795eb588e34b6815033b769d54fcf7cfac4aae3a/design/dec/el2_dec.sv">el2_dec</a> instantiated in <a class="reference external" href="https://github.com/chipsalliance/Cores-VeeR-EL2/blob/795eb588e34b6815033b769d54fcf7cfac4aae3a/design/el2_veer.sv#L924">el2_veer</a> module.</p>
 <h3 id="error-policy"><span class="section-number">5.1.1. </span>Error Policy<a class="headerlink" href="#error-policy" title="Link to this heading">¶</a></h3>
-<p>Depending on the application and its security requirements, one of the following error policies can be configured:</p>
+<p>The Dual Core Lockstep module will report an error when detected by asserting a single bit output signal.
+It is up to the integrator to provide a logic to handle the detected error.
+The error can be artifficially injected by using <a class="reference internal" href="#shadow-core-control">Shadow Core Control</a> capabilities.
+The corruption error will be reported always when all of the following requirements are met:</p>
 <ul class="simple">
-<li><p>Detected error will be reported using the detection bit and the cores’ execution flow will proceed.</p></li>
-<li><p>Detected error will trigger an interrupt and halt the execution until the interrupt is handled.</p></li>
-<li><p>Detected error will escalate the problem to the external controller and await the reset of the system.</p></li>
+<li><p>Input and Output signals of both Main Core and Shadow Core differ OR an error injection feature is enabled,</p></li>
+<li><p>The Shadow Core is out of reset,</p></li>
+<li><p>The Shadow Core is not disabled.</p></li>
 </ul>
-<p>It is up to the integrator to choose the error policy and provide a handler logic (e.g. external reset block).</p>
 <h3 id="monitored-registers"><span class="section-number">5.1.2. </span>Monitored Registers<a class="headerlink" href="#monitored-registers" title="Link to this heading">¶</a></h3>
-<p>To determine whether a discrepancy has occurred, the outputs from both cores will be compared taking into account a reasonable subset of the VeeR EL2 registers, as defined in the table below:</p>
+<p>The Shadow Core can have its internal copy of the register file by setting a proper VeeR EL2 configuration flag.
+Even though every discrepancy between register files of the Main Core and Shadow Core will eventually lead to difference between IOs of these modules, it might take some time for the mismatch to manifest.
+To determine whether a discrepancy has occurred immediately, the register files from both cores will be compared taking into account a reasonable subset of the VeeR EL2 registers, as defined in the table below:</p>
 <table class="docutils data align-center" id="tab-dcls-monitored-veer-el2-registers">
 <caption><span class="caption-number">Table 5.1 </span><span class="caption-text">Monitored VeeR EL2 Registers</span><a class="headerlink" href="#tab-dcls-monitored-veer-el2-registers" title="Link to this table">¶</a></caption>
 <tbody>
@@ -772,26 +785,1438 @@ The copy of main core’s <code class="docutils literal notranslate"><span class
 <p class="admonition-title">Note</p>
 <p>Should the monitored registers be dependent on the VeeR configuration?</p>
 </div>
-<h2 id="configuration"><span class="section-number">5.2. </span>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
+<h3 id="monitored-ios"><span class="section-number">5.1.3. </span>Monitored IOs<a class="headerlink" href="#monitored-ios" title="Link to this heading">¶</a></h3>
+<p>Since the Shadow Core module must replicate the behavior of the Main Core without any differences, it contains the same input and output ports.
+Input ports are delayed and routed to the copy of the VeeR EL2 CPU, output ports are compared with the delayed output ports of the Main Core.
+Refer to <a class="reference internal" href="#tab-shadow-core-tracked-signals"><span class="std std-ref">Core Complex signals tracked by the Shadow Core</span></a> for list of ports routed to the Shadow Core.</p>
+<table class="docutils data align-default" id="tab-shadow-core-tracked-signals">
+<caption><span class="caption-number">Table 5.2 </span><span class="caption-text">Core Complex signals tracked by the Shadow Core</span><a class="headerlink" href="#tab-shadow-core-tracked-signals" title="Link to this table">¶</a></caption>
+<tbody>
+<tr class="row-odd"><td><p><strong>Signal</strong></p></td>
+<td><p><strong>Dir</strong></p></td>
+<td><p><strong>Description</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Clock Enables</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ifu_bus_clk_en</p></td>
+<td><p>in</p></td>
+<td><p>IFU master system bus clock enable</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_bus_clk_en</p></td>
+<td><p>in</p></td>
+<td><p>LSU master system bus clock enable</p></td>
+</tr>
+<tr class="row-odd"><td><p>dbg_bus_clk_en</p></td>
+<td><p>in</p></td>
+<td><p>Debug master system bus clock enable</p></td>
+</tr>
+<tr class="row-even"><td><p>dma_bus_clk_en</p></td>
+<td><p>in</p></td>
+<td><p>DMA slave system bus clock enable</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Reset</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>rst_vec[31:1]</p></td>
+<td><p>in</p></td>
+<td><p>Core reset vector</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Interrupts</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>nmi_int</p></td>
+<td><p>in</p></td>
+<td><p>Non-Maskable Interrupt (async)</p></td>
+</tr>
+<tr class="row-odd"><td><p>nmi_vec[31:1]</p></td>
+<td><p>in</p></td>
+<td><p>Non-Maskable Interrupt vector</p></td>
+</tr>
+<tr class="row-even"><td><p>soft_int</p></td>
+<td><p>in</p></td>
+<td><p>Standard RISC-V software interrupt (async)</p></td>
+</tr>
+<tr class="row-odd"><td><p>timer_int</p></td>
+<td><p>in</p></td>
+<td><p>Standard RISC-V timer interrupt (async)</p></td>
+</tr>
+<tr class="row-even"><td><p>extintsrc_req[pt.PIC_TOTAL_INT:1]</p></td>
+<td><p>in</p></td>
+<td><p>External interrupts (async)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Core ID</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>core_id[31:4]</p></td>
+<td><p>in</p></td>
+<td><p>Core ID (mapped to <code class="docutils literal notranslate"><span class="pre">mhartid[31:4]</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>System Bus Interfaces</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><em><strong>AXI4</strong></em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><em><strong>Instruction Fetch Unit Master AXI4</strong></em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><em>Write address channel signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ifu_axi_awvalid</p></td>
+<td><p>out</p></td>
+<td><p>Write address valid (hardwired to 0)</p></td>
+</tr>
+<tr class="row-even"><td><p>ifu_axi_awready</p></td>
+<td><p>in</p></td>
+<td><p>Write address ready</p></td>
+</tr>
+<tr class="row-odd"><td><p>ifu_axi_awid[pt.IFU_BUS_TAG-1:0]</p></td>
+<td><p>out</p></td>
+<td><p>Write address ID</p></td>
+</tr>
+<tr class="row-even"><td><p>ifu_axi_awaddr[31:0]</p></td>
+<td><p>out</p></td>
+<td><p>Write address</p></td>
+</tr>
+<tr class="row-odd"><td><p>ifu_axi_awlen[7:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst length</p></td>
+</tr>
+<tr class="row-even"><td><p>ifu_axi_awsize[2:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst size</p></td>
+</tr>
+<tr class="row-odd"><td><p>ifu_axi_awburst[1:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst type</p></td>
+</tr>
+<tr class="row-even"><td><p>ifu_axi_awlock</p></td>
+<td><p>out</p></td>
+<td><p>Lock type</p></td>
+</tr>
+<tr class="row-odd"><td><p>ifu_axi_awcache[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Memory type</p></td>
+</tr>
+<tr class="row-even"><td><p>ifu_axi_awprot[2:0]</p></td>
+<td><p>out</p></td>
+<td><p>Protection type</p></td>
+</tr>
+<tr class="row-odd"><td><p>ifu_axi_awqos[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Quality of Service (QoS)</p></td>
+</tr>
+<tr class="row-even"><td><p>ifu_axi_awregion[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Region identifier</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Write data channel signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ifu_axi_wvalid</p></td>
+<td><p>out</p></td>
+<td><p>Write valid (hardwired to 0)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ifu_axi_wready</p></td>
+<td><p>in</p></td>
+<td><p>Write ready</p></td>
+</tr>
+<tr class="row-even"><td><p>ifu_axi_wdata[63:0]</p></td>
+<td><p>out</p></td>
+<td><p>Write data</p></td>
+</tr>
+<tr class="row-odd"><td><p>ifu_axi_wstrb[7:0]</p></td>
+<td><p>out</p></td>
+<td><p>Write strobes</p></td>
+</tr>
+<tr class="row-even"><td><p>ifu_axi_wlast</p></td>
+<td><p>out</p></td>
+<td><p>Write last</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Write response channel signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ifu_axi_bvalid</p></td>
+<td><p>in</p></td>
+<td><p>Write response valid</p></td>
+</tr>
+<tr class="row-odd"><td><p>ifu_axi_bready</p></td>
+<td><p>out</p></td>
+<td><p>Write response ready (hardwired to 0)</p></td>
+</tr>
+<tr class="row-even"><td><p>ifu_axi_bid[pt.IFU_BUS_TAG-1:0]</p></td>
+<td><p>in</p></td>
+<td><p>Response ID tag</p></td>
+</tr>
+<tr class="row-odd"><td><p>ifu_axi_bresp[1:0]</p></td>
+<td><p>in</p></td>
+<td><p>Write response</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Read address channel signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ifu_axi_arvalid</p></td>
+<td><p>out</p></td>
+<td><p>Read address valid</p></td>
+</tr>
+<tr class="row-even"><td><p>ifu_axi_arready</p></td>
+<td><p>in</p></td>
+<td><p>Read address ready</p></td>
+</tr>
+<tr class="row-odd"><td><p>ifu_axi_arid[pt.IFU_BUS_TAG-1:0]</p></td>
+<td><p>out</p></td>
+<td><p>Read address ID</p></td>
+</tr>
+<tr class="row-even"><td><p>ifu_axi_araddr[31:0]</p></td>
+<td><p>out</p></td>
+<td><p>Read address</p></td>
+</tr>
+<tr class="row-odd"><td><p>ifu_axi_arlen[7:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst length (hardwired to 0b0000_0000)</p></td>
+</tr>
+<tr class="row-even"><td><p>ifu_axi_arsize[2:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst size (hardwired to 0b011)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ifu_axi_arburst[1:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst type (hardwired to 0b01)</p></td>
+</tr>
+<tr class="row-even"><td><p>ifu_axi_arlock</p></td>
+<td><p>out</p></td>
+<td><p>Lock type (hardwired to 0)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ifu_axi_arcache[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Memory type (hardwired to 0b1111)</p></td>
+</tr>
+<tr class="row-even"><td><p>ifu_axi_arprot[2:0]</p></td>
+<td><p>out</p></td>
+<td><p>Protection type (hardwired to 0b100)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ifu_axi_arqos[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Quality of Service (QoS) (hardwired to 0b0000)</p></td>
+</tr>
+<tr class="row-even"><td><p>ifu_axi_arregion[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Region identifier</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Read data channel signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ifu_axi_rvalid</p></td>
+<td><p>in</p></td>
+<td><p>Read valid</p></td>
+</tr>
+<tr class="row-odd"><td><p>ifu_axi_rready</p></td>
+<td><p>out</p></td>
+<td><p>Read ready</p></td>
+</tr>
+<tr class="row-even"><td><p>ifu_axi_rid[pt.IFU_BUS_TAG-1:0]</p></td>
+<td><p>in</p></td>
+<td><p>Read ID tag</p></td>
+</tr>
+<tr class="row-odd"><td><p>ifu_axi_rdata[63:0]</p></td>
+<td><p>in</p></td>
+<td><p>Read data</p></td>
+</tr>
+<tr class="row-even"><td><p>ifu_axi_rresp[1:0]</p></td>
+<td><p>in</p></td>
+<td><p>Read response</p></td>
+</tr>
+<tr class="row-odd"><td><p>ifu_axi_rlast</p></td>
+<td><p>in</p></td>
+<td><p>Read last</p></td>
+</tr>
+<tr class="row-even"><td><p><em><strong>Load/Store Unit Master AXI4</strong></em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><em>Write address channel signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>lsu_axi_awvalid</p></td>
+<td><p>out</p></td>
+<td><p>Write address valid</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_axi_awready</p></td>
+<td><p>in</p></td>
+<td><p>Write address ready</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_axi_awid[pt.LSU_BUS_TAG-1:0]</p></td>
+<td><p>out</p></td>
+<td><p>Write address ID</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_axi_awaddr[31:0]</p></td>
+<td><p>out</p></td>
+<td><p>Write address</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_axi_awlen[7:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst length (hardwired to 0b0000_0000)</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_axi_awsize[2:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst size</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_axi_awburst[1:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst type (hardwired to 0b01)</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_axi_awlock</p></td>
+<td><p>out</p></td>
+<td><p>Lock type (hardwired to 0)</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_axi_awcache[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Memory type</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_axi_awprot[2:0]</p></td>
+<td><p>out</p></td>
+<td><p>Protection type (hardwired to 0b000)</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_axi_awqos[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Quality of Service (QoS) (hardwired to 0b0000)</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_axi_awregion[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Region identifier</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Write data channel signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_axi_wvalid</p></td>
+<td><p>out</p></td>
+<td><p>Write valid</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_axi_wready</p></td>
+<td><p>in</p></td>
+<td><p>Write ready</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_axi_wdata[63:0]</p></td>
+<td><p>out</p></td>
+<td><p>Write data</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_axi_wstrb[7:0]</p></td>
+<td><p>out</p></td>
+<td><p>Write strobes</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_axi_wlast</p></td>
+<td><p>out</p></td>
+<td><p>Write last</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Write response channel signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_axi_bvalid</p></td>
+<td><p>in</p></td>
+<td><p>Write response valid</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_axi_bready</p></td>
+<td><p>out</p></td>
+<td><p>Write response ready</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_axi_bid[pt.LSU_BUS_TAG-1:0]</p></td>
+<td><p>in</p></td>
+<td><p>Response ID tag</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_axi_bresp[1:0]</p></td>
+<td><p>in</p></td>
+<td><p>Write response</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Read address channel signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>lsu_axi_arvalid</p></td>
+<td><p>out</p></td>
+<td><p>Read address valid</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_axi_arready</p></td>
+<td><p>in</p></td>
+<td><p>Read address ready</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_axi_arid[pt.LSU_BUS_TAG-1:0]</p></td>
+<td><p>out</p></td>
+<td><p>Read address ID</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_axi_araddr[31:0]</p></td>
+<td><p>out</p></td>
+<td><p>Read address</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_axi_arlen[7:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst length (hardwired to 0b0000_0000)</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_axi_arsize[2:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst size</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_axi_arburst[1:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst type (hardwired to 0b01)</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_axi_arlock</p></td>
+<td><p>out</p></td>
+<td><p>Lock type (hardwired to 0)</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_axi_arcache[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Memory type</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_axi_arprot[2:0]</p></td>
+<td><p>out</p></td>
+<td><p>Protection type (hardwired to 0b000)</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_axi_arqos[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Quality of Service (QoS) (hardwired to 0b0000)</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_axi_arregion[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Region identifier</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Read data channel signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_axi_rvalid</p></td>
+<td><p>in</p></td>
+<td><p>Read valid</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_axi_rready</p></td>
+<td><p>out</p></td>
+<td><p>Read ready</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_axi_rid[pt.LSU_BUS_TAG-1:0]</p></td>
+<td><p>in</p></td>
+<td><p>Read ID tag</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_axi_rdata[63:0]</p></td>
+<td><p>in</p></td>
+<td><p>Read data</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_axi_rresp[1:0]</p></td>
+<td><p>in</p></td>
+<td><p>Read response</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_axi_rlast</p></td>
+<td><p>in</p></td>
+<td><p>Read last</p></td>
+</tr>
+<tr class="row-odd"><td><p><em><strong>System Bus (Debug) Master AXI4</strong></em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><em>Write address channel signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>sb_axi_awvalid</p></td>
+<td><p>out</p></td>
+<td><p>Write address valid</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_axi_awready</p></td>
+<td><p>in</p></td>
+<td><p>Write address ready</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_axi_awid[pt.SB_BUS_TAG-1:0]</p></td>
+<td><p>out</p></td>
+<td><p>Write address ID (hardwired to 0)</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_axi_awaddr[31:0]</p></td>
+<td><p>out</p></td>
+<td><p>Write address</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_axi_awlen[7:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst length (hardwired to 0b0000_0000)</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_axi_awsize[2:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst size</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_axi_awburst[1:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst type (hardwired to 0b01)</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_axi_awlock</p></td>
+<td><p>out</p></td>
+<td><p>Lock type (hardwired to 0)</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_axi_awcache[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Memory type (hardwired to 0b1111)</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_axi_awprot[2:0]</p></td>
+<td><p>out</p></td>
+<td><p>Protection type (hardwired to 0b000)</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_axi_awqos[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Quality of Service (QoS) (hardwired to 0b0000)</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_axi_awregion[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Region identifier</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Write data channel signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>sb_axi_wvalid</p></td>
+<td><p>out</p></td>
+<td><p>Write valid</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_axi_wready</p></td>
+<td><p>in</p></td>
+<td><p>Write ready</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_axi_wdata[63:0]</p></td>
+<td><p>out</p></td>
+<td><p>Write data</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_axi_wstrb[7:0]</p></td>
+<td><p>out</p></td>
+<td><p>Write strobes</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_axi_wlast</p></td>
+<td><p>out</p></td>
+<td><p>Write last</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Write response channel signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>sb_axi_bvalid</p></td>
+<td><p>in</p></td>
+<td><p>Write response valid</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_axi_bready</p></td>
+<td><p>out</p></td>
+<td><p>Write response ready</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_axi_bid[pt.SB_BUS_TAG-1:0]</p></td>
+<td><p>in</p></td>
+<td><p>Response ID tag</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_axi_bresp[1:0]</p></td>
+<td><p>in</p></td>
+<td><p>Write response</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Read address channel signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>sb_axi_arvalid</p></td>
+<td><p>out</p></td>
+<td><p>Read address valid</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_axi_arready</p></td>
+<td><p>in</p></td>
+<td><p>Read address ready</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_axi_arid[pt.SB_BUS_TAG-1:0]</p></td>
+<td><p>out</p></td>
+<td><p>Read address ID (hardwired to 0)</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_axi_araddr[31:0]</p></td>
+<td><p>out</p></td>
+<td><p>Read address</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_axi_arlen[7:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst length (hardwired to 0b0000_0000)</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_axi_arsize[2:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst size</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_axi_arburst[1:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst type (hardwired to 0b01)</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_axi_arlock</p></td>
+<td><p>out</p></td>
+<td><p>Lock type (hardwired to 0)</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_axi_arcache[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Memory type (hardwired to 0b0000)</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_axi_arprot[2:0]</p></td>
+<td><p>out</p></td>
+<td><p>Protection type (hardwired to 0b000)</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_axi_arqos[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Quality of Service (QoS) (hardwired to 0b0000)</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_axi_arregion[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Region identifier</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Read data channel signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>sb_axi_rvalid</p></td>
+<td><p>in</p></td>
+<td><p>Read valid</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_axi_rready</p></td>
+<td><p>out</p></td>
+<td><p>Read ready</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_axi_rid[pt.SB_BUS_TAG-1:0]</p></td>
+<td><p>in</p></td>
+<td><p>Read ID tag</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_axi_rdata[63:0]</p></td>
+<td><p>in</p></td>
+<td><p>Read data</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_axi_rresp[1:0]</p></td>
+<td><p>in</p></td>
+<td><p>Read response</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_axi_rlast</p></td>
+<td><p>in</p></td>
+<td><p>Read last</p></td>
+</tr>
+<tr class="row-even"><td><p><em><strong>DMA Slave AXI4</strong></em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><em>Write address channel signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>dma_axi_awvalid</p></td>
+<td><p>in</p></td>
+<td><p>Write address valid</p></td>
+</tr>
+<tr class="row-odd"><td><p>dma_axi_awready</p></td>
+<td><p>out</p></td>
+<td><p>Write address ready</p></td>
+</tr>
+<tr class="row-even"><td><p>dma_axi_awid[pt.DMA_BUS_TAG-1:0]</p></td>
+<td><p>in</p></td>
+<td><p>Write address ID</p></td>
+</tr>
+<tr class="row-odd"><td><p>dma_axi_awaddr[31:0]</p></td>
+<td><p>in</p></td>
+<td><p>Write address</p></td>
+</tr>
+<tr class="row-even"><td><p>dma_axi_awlen[7:0]</p></td>
+<td><p>in</p></td>
+<td><p>Burst length</p></td>
+</tr>
+<tr class="row-odd"><td><p>dma_axi_awsize[2:0]</p></td>
+<td><p>in</p></td>
+<td><p>Burst size</p></td>
+</tr>
+<tr class="row-even"><td><p>dma_axi_awburst[1:0]</p></td>
+<td><p>in</p></td>
+<td><p>Burst type</p></td>
+</tr>
+<tr class="row-odd"><td><p>dma_axi_awprot[2:0]</p></td>
+<td><p>in</p></td>
+<td><p>Protection type</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Write data channel signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>dma_axi_wvalid</p></td>
+<td><p>in</p></td>
+<td><p>Write valid</p></td>
+</tr>
+<tr class="row-even"><td><p>dma_axi_wready</p></td>
+<td><p>out</p></td>
+<td><p>Write ready</p></td>
+</tr>
+<tr class="row-odd"><td><p>dma_axi_wdata[63:0]</p></td>
+<td><p>in</p></td>
+<td><p>Write data</p></td>
+</tr>
+<tr class="row-even"><td><p>dma_axi_wstrb[7:0]</p></td>
+<td><p>in</p></td>
+<td><p>Write strobes</p></td>
+</tr>
+<tr class="row-odd"><td><p>dma_axi_wlast</p></td>
+<td><p>in</p></td>
+<td><p>Write last</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Write response channel signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>dma_axi_bvalid</p></td>
+<td><p>out</p></td>
+<td><p>Write response valid</p></td>
+</tr>
+<tr class="row-even"><td><p>dma_axi_bready</p></td>
+<td><p>in</p></td>
+<td><p>Write response ready</p></td>
+</tr>
+<tr class="row-odd"><td><p>dma_axi_bid[pt.DMA_BUS_TAG-1:0]</p></td>
+<td><p>out</p></td>
+<td><p>Response ID tag</p></td>
+</tr>
+<tr class="row-even"><td><p>dma_axi_bresp[1:0]</p></td>
+<td><p>out</p></td>
+<td><p>Write response</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Read address channel signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>dma_axi_arvalid</p></td>
+<td><p>in</p></td>
+<td><p>Read address valid</p></td>
+</tr>
+<tr class="row-odd"><td><p>dma_axi_arready</p></td>
+<td><p>out</p></td>
+<td><p>Read address ready</p></td>
+</tr>
+<tr class="row-even"><td><p>dma_axi_arid[pt.DMA_BUS_TAG-1:0]</p></td>
+<td><p>in</p></td>
+<td><p>Read address ID</p></td>
+</tr>
+<tr class="row-odd"><td><p>dma_axi_araddr[31:0]</p></td>
+<td><p>in</p></td>
+<td><p>Read address</p></td>
+</tr>
+<tr class="row-even"><td><p>dma_axi_arlen[7:0]</p></td>
+<td><p>in</p></td>
+<td><p>Burst length</p></td>
+</tr>
+<tr class="row-odd"><td><p>dma_axi_arsize[2:0]</p></td>
+<td><p>in</p></td>
+<td><p>Burst size</p></td>
+</tr>
+<tr class="row-even"><td><p>dma_axi_arburst[1:0]</p></td>
+<td><p>in</p></td>
+<td><p>Burst type</p></td>
+</tr>
+<tr class="row-odd"><td><p>dma_axi_arprot[2:0]</p></td>
+<td><p>in</p></td>
+<td><p>Protection type</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Read data channel signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>dma_axi_rvalid</p></td>
+<td><p>out</p></td>
+<td><p>Read valid</p></td>
+</tr>
+<tr class="row-even"><td><p>dma_axi_rready</p></td>
+<td><p>in</p></td>
+<td><p>Read ready</p></td>
+</tr>
+<tr class="row-odd"><td><p>dma_axi_rid[pt.DMA_BUS_TAG-1:0]</p></td>
+<td><p>out</p></td>
+<td><p>Read ID tag</p></td>
+</tr>
+<tr class="row-even"><td><p>dma_axi_rdata[63:0]</p></td>
+<td><p>out</p></td>
+<td><p>Read data</p></td>
+</tr>
+<tr class="row-odd"><td><p>dma_axi_rresp[1:0]</p></td>
+<td><p>out</p></td>
+<td><p>Read response</p></td>
+</tr>
+<tr class="row-even"><td><p>dma_axi_rlast</p></td>
+<td><p>out</p></td>
+<td><p>Read last</p></td>
+</tr>
+<tr class="row-odd"><td><p><em><strong>AHB-Lite</strong></em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><em><strong>Instruction Fetch Unit Master AHB-Lite</strong></em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><em>Master signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>haddr[31:0]</p></td>
+<td><p>out</p></td>
+<td><p>System address</p></td>
+</tr>
+<tr class="row-odd"><td><p>hburst[2:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst type (hardwired to 0b000)</p></td>
+</tr>
+<tr class="row-even"><td><p>hmastlock</p></td>
+<td><p>out</p></td>
+<td><p>Locked transfer (hardwired to 0)</p></td>
+</tr>
+<tr class="row-odd"><td><p>hprot[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Protection control</p></td>
+</tr>
+<tr class="row-even"><td><p>hsize[2:0]</p></td>
+<td><p>out</p></td>
+<td><p>Transfer size</p></td>
+</tr>
+<tr class="row-odd"><td><p>htrans[1:0]</p></td>
+<td><p>out</p></td>
+<td><p>Transfer type</p></td>
+</tr>
+<tr class="row-even"><td><p>hwrite</p></td>
+<td><p>out</p></td>
+<td><p>Write transfer</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Slave signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>hrdata[63:0]</p></td>
+<td><p>in</p></td>
+<td><p>Read data</p></td>
+</tr>
+<tr class="row-odd"><td><p>hready</p></td>
+<td><p>in</p></td>
+<td><p>Transfer finished</p></td>
+</tr>
+<tr class="row-even"><td><p>hresp</p></td>
+<td><p>in</p></td>
+<td><p>Slave transfer response</p></td>
+</tr>
+<tr class="row-odd"><td><p><em><strong>Load/Store Unit Master AHB-Lite</strong></em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><em>Master signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_haddr[31:0]</p></td>
+<td><p>out</p></td>
+<td><p>System address</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_hburst[2:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst type (hardwired to 0b000)</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_hmastlock</p></td>
+<td><p>out</p></td>
+<td><p>Locked transfer (hardwired to 0)</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_hprot[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Protection control</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_hsize[2:0]</p></td>
+<td><p>out</p></td>
+<td><p>Transfer size</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_htrans[1:0]</p></td>
+<td><p>out</p></td>
+<td><p>Transfer type</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_hwdata[63:0]</p></td>
+<td><p>out</p></td>
+<td><p>Write data</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_hwrite</p></td>
+<td><p>out</p></td>
+<td><p>Write transfer</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Slave signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>lsu_hrdata[63:0]</p></td>
+<td><p>in</p></td>
+<td><p>Read data</p></td>
+</tr>
+<tr class="row-odd"><td><p>lsu_hready</p></td>
+<td><p>in</p></td>
+<td><p>Transfer finished</p></td>
+</tr>
+<tr class="row-even"><td><p>lsu_hresp</p></td>
+<td><p>in</p></td>
+<td><p>Slave transfer response</p></td>
+</tr>
+<tr class="row-odd"><td><p><em><strong>System Bus (Debug) Master AHB-Lite</strong></em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><em>Master signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>sb_haddr[31:0]</p></td>
+<td><p>out</p></td>
+<td><p>System address</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_hburst[2:0]</p></td>
+<td><p>out</p></td>
+<td><p>Burst type (hardwired to 0b000)</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_hmastlock</p></td>
+<td><p>out</p></td>
+<td><p>Locked transfer (hardwired to 0)</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_hprot[3:0]</p></td>
+<td><p>out</p></td>
+<td><p>Protection control</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_hsize[2:0]</p></td>
+<td><p>out</p></td>
+<td><p>Transfer size</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_htrans[1:0]</p></td>
+<td><p>out</p></td>
+<td><p>Transfer type</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_hwdata[63:0]</p></td>
+<td><p>out</p></td>
+<td><p>Write data</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_hwrite</p></td>
+<td><p>out</p></td>
+<td><p>Write transfer</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Slave signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>sb_hrdata[63:0]</p></td>
+<td><p>in</p></td>
+<td><p>Read data</p></td>
+</tr>
+<tr class="row-odd"><td><p>sb_hready</p></td>
+<td><p>in</p></td>
+<td><p>Transfer finished</p></td>
+</tr>
+<tr class="row-even"><td><p>sb_hresp</p></td>
+<td><p>in</p></td>
+<td><p>Slave transfer response</p></td>
+</tr>
+<tr class="row-odd"><td><p><em><strong>DMA Slave AHB-Lite</strong></em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><em>Slave signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>dma_haddr[31:0]</p></td>
+<td><p>in</p></td>
+<td><p>System address</p></td>
+</tr>
+<tr class="row-even"><td><p>dma_hburst[2:0]</p></td>
+<td><p>in</p></td>
+<td><p>Burst type</p></td>
+</tr>
+<tr class="row-odd"><td><p>dma_hmastlock</p></td>
+<td><p>in</p></td>
+<td><p>Locked transfer</p></td>
+</tr>
+<tr class="row-even"><td><p>dma_hprot[3:0]</p></td>
+<td><p>in</p></td>
+<td><p>Protection control</p></td>
+</tr>
+<tr class="row-odd"><td><p>dma_hsize[2:0]</p></td>
+<td><p>in</p></td>
+<td><p>Transfer size</p></td>
+</tr>
+<tr class="row-even"><td><p>dma_htrans[1:0]</p></td>
+<td><p>in</p></td>
+<td><p>Transfer type</p></td>
+</tr>
+<tr class="row-odd"><td><p>dma_hwdata[63:0]</p></td>
+<td><p>in</p></td>
+<td><p>Write data</p></td>
+</tr>
+<tr class="row-even"><td><p>dma_hwrite</p></td>
+<td><p>in</p></td>
+<td><p>Write transfer</p></td>
+</tr>
+<tr class="row-odd"><td><p>dma_hsel</p></td>
+<td><p>in</p></td>
+<td><p>Slave select</p></td>
+</tr>
+<tr class="row-even"><td><p>dma_hreadyin</p></td>
+<td><p>in</p></td>
+<td><p>Transfer finished in</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Master signals</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>dma_hrdata[63:0]</p></td>
+<td><p>out</p></td>
+<td><p>Read data</p></td>
+</tr>
+<tr class="row-odd"><td><p>dma_hreadyout</p></td>
+<td><p>out</p></td>
+<td><p>Transfer finished</p></td>
+</tr>
+<tr class="row-even"><td><p>dma_hresp</p></td>
+<td><p>out</p></td>
+<td><p>Slave transfer response</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Memory interfaces</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><em><strong>Data Close-Coupled Memory</strong></em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>dccm_clk_override</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>dccm_ecc_double_error</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>dccm_ecc_single_error</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>dccm_rd_addr_hi</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>dccm_rd_addr_lo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>dccm_rd_data_hi</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>dccm_rd_data_lo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>dccm_rden</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>dccm_wr_addr_hi</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>dccm_wr_addr_lo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>dccm_wr_data_hi</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>dccm_wr_data_lo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>dccm_wren</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>dec_tlu_core_ecc_disable</p></td>
+<td><p>out</p></td>
+<td><p>Disable core ECC</p></td>
+</tr>
+<tr class="row-odd"><td><p><em><strong>Inctruction Close-Coupled Memory</strong></em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>iccm_buf_correct_ecc</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>iccm_correction_state</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>iccm_ecc_double_error</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>iccm_ecc_single_error</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>iccm_rd_data</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>iccm_rd_data_ecc</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>iccm_rden</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>iccm_rw_addr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>iccm_wr_data</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>iccm_wr_size</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>iccm_wren</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>icm_clk_override</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><em><strong>Instruction Cache Memory</strong></em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ic_debug_addr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ic_debug_rd_data</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ic_debug_rd_en</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ic_debug_tag_array</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ic_debug_way</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ic_debug_wr_data</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ic_debug_wr_en</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ic_eccerr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ic_parerr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ic_premux_data</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ic_rd_data</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ic_rd_en</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ic_rd_hit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ic_rw_addr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ic_sel_premux_data</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ic_tag_perr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ic_tag_valid</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ic_wr_data</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ic_wr_en</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ictag_debug_rd_data</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Power Management Unit (PMU) Interface</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>i_cpu_halt_req</p></td>
+<td><p>in</p></td>
+<td><p>PMU halt request to core (async)</p></td>
+</tr>
+<tr class="row-odd"><td><p>o_cpu_halt_ack</p></td>
+<td><p>out</p></td>
+<td><p>Core acknowledgement for PMU halt request</p></td>
+</tr>
+<tr class="row-even"><td><p>o_cpu_halt_status</p></td>
+<td><p>out</p></td>
+<td><p>Core halted indication</p></td>
+</tr>
+<tr class="row-odd"><td><p>i_cpu_run_req</p></td>
+<td><p>in</p></td>
+<td><p>PMU run request to core (async)</p></td>
+</tr>
+<tr class="row-even"><td><p>o_cpu_run_ack</p></td>
+<td><p>out</p></td>
+<td><p>Core acknowledgement for PMU run request</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Multi-Processor Controller (MPC) Debug Interface</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>mpc_debug_halt_req</p></td>
+<td><p>in</p></td>
+<td><p>MPC debug halt request to core (async)</p></td>
+</tr>
+<tr class="row-odd"><td><p>mpc_debug_halt_ack</p></td>
+<td><p>out</p></td>
+<td><p>Core acknowledgement for MPC debug halt request</p></td>
+</tr>
+<tr class="row-even"><td><p>mpc_debug_run_req</p></td>
+<td><p>in</p></td>
+<td><p>MPC debug run request to core (async)</p></td>
+</tr>
+<tr class="row-odd"><td><p>mpc_debug_run_ack</p></td>
+<td><p>out</p></td>
+<td><p>Core acknowledgement for MPC debug run request</p></td>
+</tr>
+<tr class="row-even"><td><p>mpc_reset_run_req</p></td>
+<td><p>in</p></td>
+<td><p>Core start state control out of reset</p></td>
+</tr>
+<tr class="row-odd"><td><p>o_debug_mode_status</p></td>
+<td><p>out</p></td>
+<td><p>Core in Debug Mode indication</p></td>
+</tr>
+<tr class="row-even"><td><p>debug_brkpt_status</p></td>
+<td><p>out</p></td>
+<td><p>Hardware/software breakpoint indication</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Performance Counter Activity</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>dec_tlu_perfcnt0</p></td>
+<td><p>out</p></td>
+<td><p>Performance counter 0 incrementing</p></td>
+</tr>
+<tr class="row-odd"><td><p>dec_tlu_perfcnt1</p></td>
+<td><p>out</p></td>
+<td><p>Performance counter 1 incrementing</p></td>
+</tr>
+<tr class="row-even"><td><p>dec_tlu_perfcnt2</p></td>
+<td><p>out</p></td>
+<td><p>Performance counter 2 incrementing</p></td>
+</tr>
+<tr class="row-odd"><td><p>dec_tlu_perfcnt3</p></td>
+<td><p>out</p></td>
+<td><p>Performance counter 3 incrementing</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Trace Port</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>trace_rv_i_insn_ip[31:0]</p></td>
+<td><p>out</p></td>
+<td><p>Instruction opcode</p></td>
+</tr>
+<tr class="row-even"><td><p>trace_rv_i_address_ip[31:0]</p></td>
+<td><p>out</p></td>
+<td><p>Instruction address</p></td>
+</tr>
+<tr class="row-odd"><td><p>trace_rv_i_valid_ip</p></td>
+<td><p>out</p></td>
+<td><p>Instruction trace valid</p></td>
+</tr>
+<tr class="row-even"><td><p>trace_rv_i_exception_ip</p></td>
+<td><p>out</p></td>
+<td><p>Exception</p></td>
+</tr>
+<tr class="row-odd"><td><p>trace_rv_i_ecause_ip[4:0]</p></td>
+<td><p>out</p></td>
+<td><p>Exception cause</p></td>
+</tr>
+<tr class="row-even"><td><p>trace_rv_i_interrupt_ip</p></td>
+<td><p>out</p></td>
+<td><p>Interrupt exception</p></td>
+</tr>
+<tr class="row-odd"><td><p>trace_rv_i_tval_ip[31:0]</p></td>
+<td><p>out</p></td>
+<td><p>Exception trap value</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Debug Module Interface</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>dmi_reg_addr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>dmi_reg_en</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>dmi_reg_rdata</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>dmi_reg_wdata</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>dmi_reg_wr_en</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Debug JTAG Port</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>jtag_tck</p></td>
+<td><p>in</p></td>
+<td><p>JTAG Test Clock (async)</p></td>
+</tr>
+<tr class="row-even"><td><p>jtag_tms</p></td>
+<td><p>in</p></td>
+<td><p>JTAG Test Mode Select (async, sync to jtag_tck)</p></td>
+</tr>
+<tr class="row-odd"><td><p>jtag_tdi</p></td>
+<td><p>in</p></td>
+<td><p>JTAG Test Data In (async, sync to jtag_tck)</p></td>
+</tr>
+<tr class="row-even"><td><p>jtag_trst_n</p></td>
+<td><p>in</p></td>
+<td><p>JTAG Test Reset (async)</p></td>
+</tr>
+<tr class="row-odd"><td><p>jtag_tdo</p></td>
+<td><p>out</p></td>
+<td><p>JTAG Test Data Out (async, sync to jtag_tck)</p></td>
+</tr>
+<tr class="row-even"><td><p>jtag_id[31:1]</p></td>
+<td><p>in</p></td>
+<td><p>JTAG IDCODE register value (bit 0 tied internally to 1)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Testing</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>scan_mode</p></td>
+<td><p>in</p></td>
+<td><p>May be used to enable logic scan test, if implemented (must be ‘0’ for normal core operation)</p></td>
+</tr>
+<tr class="row-odd"><td><p>mbist_mode</p></td>
+<td><p>in</p></td>
+<td><p>May be used to enable MBIST for core-internal memories, if implemented (should be tied to ‘0’ if not used)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Signals not compared due to their special meaning:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">clk</span></code> - <a class="reference internal" href="clocks.html#clocking"><span class="std std-ref">core complex clock</span></a>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">free_l2clk</span></code> - core complex clock always enabled, routed through one clock header,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">active_l2clk</span></code> - core complex clock enabled when the core is active, routed through one clock header,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rst_l</span></code> - <a class="reference internal" href="clocks.html#core-complex-reset-rst-l"><span class="std std-ref">core complex reset</span></a>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dbg_rst_l</span></code> - <a class="reference internal" href="clocks.html#debug-module-reset-dbg-rst-l"><span class="std std-ref">debug module reset</span></a>.</p></li>
+</ul>
+<h2 id="shadow-core-control"><span class="section-number">5.2. </span>Shadow Core Control<a class="headerlink" href="#shadow-core-control" title="Link to this heading">¶</a></h2>
+<p>The DCLS module exposes control logic that can be potentially connected to the external CSR.
+Specific signals available as the module ports are described in the <a class="reference internal" href="#tab-shadow-core-control-signals"><span class="std std-ref">Shadow Core Control Signals</span></a>.
+The error injection logic is a part of the Shadow Core and its purpose is to test whether the lockstep module operates correctly and to disable it if needed.
+Error is injected by asserting the <code class="docutils literal notranslate"><span class="pre">corruption_detected_o</span></code> output signal even if there is no corruption error detected between the Shadow Core and the Main Core.</p>
+<table class="docutils data align-default" id="tab-shadow-core-control-signals">
+<caption><span class="caption-number">Table 5.3 </span><span class="caption-text">Shadow Core Control Signals</span><a class="headerlink" href="#tab-shadow-core-control-signals" title="Link to this table">¶</a></caption>
+<tbody>
+<tr class="row-odd"><td><p><strong>Signal</strong></p></td>
+<td><p><strong>Direction</strong></p></td>
+<td><p><strong>Width</strong></p></td>
+<td><p><strong>Description</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>disable_corruption_detection_i</p></td>
+<td><p>input</p></td>
+<td><p>1</p></td>
+<td><p>Disable all error injection features</p></td>
+</tr>
+<tr class="row-odd"><td><p>lockstep_err_injection_en_i</p></td>
+<td><p>input</p></td>
+<td><p>1</p></td>
+<td><p>Activate an error injection to the Shadow Core</p></td>
+</tr>
+<tr class="row-even"><td><p>corruption_detected_o</p></td>
+<td><p>output</p></td>
+<td><p>1</p></td>
+<td><p>Indicate that a Shadow Core detected an error (corruption in comparison to the Main Core)</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuration"><span class="section-number">5.3. </span>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The DCLS feature is not supported in the Debug Mode.
-Entering the Debug Mode with DCLS configured will disable the DCLS until the next reset.</p>
+<p>The DCLS feature is not supported in Debug Mode.
+Entering Debug Mode with DCLS enabled will disable DCLS until the next reset.</p>
 </div>
-<p>The DCLS feature can be enabled via: <code class="docutils literal notranslate"><span class="pre">--set=dcls_enable</span></code> option.</p>
-<p>The delay can be specified with <code class="docutils literal notranslate"><span class="pre">--set=dcls_delay</span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4</span> <span class="pre">}</span></code>, with the delay between 2 and 4 cycles.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The range of allowed delays can be discussed in detail and adjusted later.</p>
-</div>
-<h2 id="validation-plan"><span class="section-number">5.3. </span>Validation Plan<a class="headerlink" href="#validation-plan" title="Link to this heading">¶</a></h2>
+<p>The DCLS feature can be enabled via <code class="docutils literal notranslate"><span class="pre">-set</span> <span class="pre">lockstep_enable=1</span></code> option.
+There are two configuration options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-set</span> <span class="pre">lockstep_delay={2,</span> <span class="pre">3,</span> <span class="pre">4}</span></code> - the delay applied on the Shadow Core between 2 and 4 cycles,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-set</span> <span class="pre">lockstep_regfile_enable=1</span></code> - enable exposing the VeeR Register File so the Shadow Core will have an internal copy to compare with the Main Core Register File.</p></li>
+</ul>
+<p>The configuration options are ignored and their macros are not generated if the Dual Core Lockstep feature is disabled.</p>
+<h2 id="validation-plan"><span class="section-number">5.4. </span>Validation Plan<a class="headerlink" href="#validation-plan" title="Link to this heading">¶</a></h2>
 <p>The DCLS feature will be tested within:</p>
 <ul class="simple">
 <li><p>Software DCLS <a class="reference external" href="https://github.com/chipsalliance/Cores-VeeR-EL2/tree/main/testbench/tests/dcls/dcls.c">smoke test</a> - covers VeeR CPU core with the Shadow Core execution flow.</p></li>
 <li><p>RTL <code class="docutils literal notranslate"><span class="pre">el2_veer_lockstep</span></code> <a class="reference external" href="https://github.com/chipsalliance/Cores-VeeR-EL2/tree/main/verification/block/dcls">module tests</a> - covers the Shadow Core by itself.</p></li>
 </ul>
 <table class="docutils data align-center" id="vp-block-name-list-table">
-<caption><span class="caption-number">Table 5.2 </span><span class="caption-text">Validation Plan</span><a class="headerlink" href="#vp-block-name-list-table" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">Table 5.4 </span><span class="caption-text">Validation Plan</span><a class="headerlink" href="#vp-block-name-list-table" title="Link to this table">¶</a></caption>
 <tbody>
 <tr class="row-odd"><td><p><strong>Function</strong></p></td>
 <td><p><strong>VeeR EL2 CPU core input corruption detection</strong></p></td>
@@ -946,7 +2371,7 @@ Entering the Debug Mode with DCLS configured will disable the DCLS until the nex
   <small>
     
       Last update:
-      2024-10-15
+      2024-11-19
     
   </small>
 </div>
