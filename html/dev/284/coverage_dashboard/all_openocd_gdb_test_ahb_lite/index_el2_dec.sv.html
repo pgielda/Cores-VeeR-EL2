@@ -258,7 +258,7 @@
 <span id="L154"><span class="lineNum">     154</span>              : </span>
 <span id="L155"><span class="lineNum">     155</span> <span class="tlaUNC">           0 :     input logic iccm_dma_sb_error,  // ICCM DMA single bit error</span></span>
 <span id="L156"><span class="lineNum">     156</span>              : </span>
-<span id="L157"><span class="lineNum">     157</span> <span class="tlaGNC tlaBgGNC">     1625289 :     input logic exu_flush_final,  // slot0 flush</span></span>
+<span id="L157"><span class="lineNum">     157</span> <span class="tlaGNC tlaBgGNC">     1625288 :     input logic exu_flush_final,  // slot0 flush</span></span>
 <span id="L158"><span class="lineNum">     158</span>              : </span>
 <span id="L159"><span class="lineNum">     159</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic [31:1] exu_npc_r,  // next PC</span></span>
 <span id="L160"><span class="lineNum">     160</span>              : </span>
@@ -356,7 +356,7 @@
 <span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC tlaBgGNC">         836 :     output logic        dec_csr_ren_d,    // CSR read enable</span></span>
 <span id="L253"><span class="lineNum">     253</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic [31:0] dec_csr_rddata_d, // CSR read data</span></span>
 <span id="L254"><span class="lineNum">     254</span>              : </span>
-<span id="L255"><span class="lineNum">     255</span> <span class="tlaGNC tlaBgGNC">     1625285 :     output logic dec_tlu_flush_lower_r,  // tlu flush due to late mp, exception, rfpc, or int</span></span>
+<span id="L255"><span class="lineNum">     255</span> <span class="tlaGNC tlaBgGNC">     1625284 :     output logic dec_tlu_flush_lower_r,  // tlu flush due to late mp, exception, rfpc, or int</span></span>
 <span id="L256"><span class="lineNum">     256</span> <span class="tlaGNC">     1625283 :     output logic dec_tlu_flush_lower_wb,</span></span>
 <span id="L257"><span class="lineNum">     257</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic [31:1] dec_tlu_flush_path_r,  // tlu flush target</span></span>
 <span id="L258"><span class="lineNum">     258</span> <span class="tlaUNC">           0 :     output logic        dec_tlu_i0_kill_writeb_r,    // I0 is flushed, don't writeback any results to arch state</span></span>
@@ -382,12 +382,12 @@
 <span id="L278"><span class="lineNum">     278</span>              : </span>
 <span id="L279"><span class="lineNum">     279</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic [31:0] dec_tlu_mrac_ff,  // CSR for memory region control</span></span>
 <span id="L280"><span class="lineNum">     280</span>              : </span>
-<span id="L281"><span class="lineNum">     281</span> <span class="tlaGNC tlaBgGNC">     1626342 :     output logic [1:0] dec_data_en,  // clock-gate control logic</span></span>
+<span id="L281"><span class="lineNum">     281</span> <span class="tlaGNC tlaBgGNC">     1626341 :     output logic [1:0] dec_data_en,  // clock-gate control logic</span></span>
 <span id="L282"><span class="lineNum">     282</span> <span class="tlaGNC">     1626341 :     output logic [1:0] dec_ctl_en,</span></span>
 <span id="L283"><span class="lineNum">     283</span>              : </span>
 <span id="L284"><span class="lineNum">     284</span> <span class="tlaGNC">           4 :     input logic [15:0] ifu_i0_cinst,  // 16b compressed instruction</span></span>
 <span id="L285"><span class="lineNum">     285</span>              : </span>
-<span id="L286"><span class="lineNum">     286</span> <span class="tlaGNC">     1625289 :     output el2_trace_pkt_t trace_rv_trace_pkt,  // trace packet</span></span>
+<span id="L286"><span class="lineNum">     286</span> <span class="tlaGNC">     1625291 :     output el2_trace_pkt_t trace_rv_trace_pkt,  // trace packet</span></span>
 <span id="L287"><span class="lineNum">     287</span>              : </span>
 <span id="L288"><span class="lineNum">     288</span>              :     // PMP signals</span>
 <span id="L289"><span class="lineNum">     289</span> <span class="tlaUNC tlaBgUNC">           0 :     output el2_pmp_cfg_pkt_t        pmp_pmpcfg [pt.PMP_ENTRIES],</span></span>
@@ -423,7 +423,7 @@
 <span id="L319"><span class="lineNum">     319</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic dec_tlu_dccm_clk_override,   // override DCCM clock domain gating</span></span>
 <span id="L320"><span class="lineNum">     320</span> <span class="tlaUNC">           0 :     output logic dec_tlu_icm_clk_override,    // override ICCM clock domain gating</span></span>
 <span id="L321"><span class="lineNum">     321</span>              : </span>
-<span id="L322"><span class="lineNum">     322</span> <span class="tlaGNC tlaBgGNC">     1625291 :     output logic dec_tlu_i0_commit_cmt,  // committed i0 instruction</span></span>
+<span id="L322"><span class="lineNum">     322</span> <span class="tlaGNC tlaBgGNC">     1625292 :     output logic dec_tlu_i0_commit_cmt,  // committed i0 instruction</span></span>
 <span id="L323"><span class="lineNum">     323</span>              :     // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L324"><span class="lineNum">     324</span>              :     /*verilator coverage_off*/</span>
 <span id="L325"><span class="lineNum">     325</span>              :     input  logic scan_mode               // Flop scan mode control</span>
@@ -494,7 +494,7 @@
 <span id="L390"><span class="lineNum">     390</span>              : </span>
 <span id="L391"><span class="lineNum">     391</span> <span class="tlaUNC">           0 :   logic [31:1] dec_tlu_i0_pc_r;</span></span>
 <span id="L392"><span class="lineNum">     392</span> <span class="tlaUNC">           0 :   logic dec_tlu_i0_kill_writeb_wb;</span></span>
-<span id="L393"><span class="lineNum">     393</span> <span class="tlaGNC tlaBgGNC">     1626339 :   logic dec_tlu_i0_valid_r;</span></span>
+<span id="L393"><span class="lineNum">     393</span> <span class="tlaGNC tlaBgGNC">     1626340 :   logic dec_tlu_i0_valid_r;</span></span>
 <span id="L394"><span class="lineNum">     394</span>              : </span>
 <span id="L395"><span class="lineNum">     395</span> <span class="tlaUNC tlaBgUNC">           0 :   logic dec_pause_state;</span></span>
 <span id="L396"><span class="lineNum">     396</span>              : </span>
@@ -507,7 +507,7 @@
 <span id="L403"><span class="lineNum">     403</span> <span class="tlaGNC tlaBgGNC">          24 :   logic dec_tlu_i0_valid_wb1, dec_tlu_int_valid_wb1;</span></span>
 <span id="L404"><span class="lineNum">     404</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [ 4:0] dec_tlu_exc_cause_wb1;</span></span>
 <span id="L405"><span class="lineNum">     405</span> <span class="tlaUNC">           0 :   logic [31:0] dec_tlu_mtval_wb1;</span></span>
-<span id="L406"><span class="lineNum">     406</span> <span class="tlaGNC tlaBgGNC">     1625265 :   logic        dec_tlu_i0_exc_valid_wb1;</span></span>
+<span id="L406"><span class="lineNum">     406</span> <span class="tlaGNC tlaBgGNC">     1625267 :   logic        dec_tlu_i0_exc_valid_wb1;</span></span>
 <span id="L407"><span class="lineNum">     407</span>              : </span>
 <span id="L408"><span class="lineNum">     408</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [ 4:0] div_waddr_wb;</span></span>
 <span id="L409"><span class="lineNum">     409</span> <span class="tlaUNC">           0 :   logic        dec_div_active;</span></span>

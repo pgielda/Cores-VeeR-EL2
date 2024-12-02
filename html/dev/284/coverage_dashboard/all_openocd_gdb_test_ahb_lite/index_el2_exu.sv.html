@@ -131,7 +131,7 @@
 <span id="L27"><span class="lineNum">      27</span>              :    input logic          scan_mode,                                     // Scan control</span>
 <span id="L28"><span class="lineNum">      28</span>              :    /*verilator coverage_on*/</span>
 <span id="L29"><span class="lineNum">      29</span>              : </span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">     1626342 :    input logic  [1:0]   dec_data_en,                                   // Clock enable {x,r}, one cycle pulse</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">     1626341 :    input logic  [1:0]   dec_data_en,                                   // Clock enable {x,r}, one cycle pulse</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">     1626341 :    input logic  [1:0]   dec_ctl_en,                                    // Clock enable {x,r}, two cycle pulse</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">         116 :    input logic  [31:0]  dbg_cmd_wrdata,                                // Debug data   to primary I0 RS1</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :    input el2_alu_pkt_t i0_ap,                                         // DEC alu {valid,predecodes}</span></span>
@@ -168,7 +168,7 @@
 <span id="L64"><span class="lineNum">      64</span>              : </span>
 <span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC tlaBgGNC">           4 :    input logic  [31:1]  pred_correct_npc_x,                            // DEC NPC for correctly predicted branch</span></span>
 <span id="L66"><span class="lineNum">      66</span>              : </span>
-<span id="L67"><span class="lineNum">      67</span> <span class="tlaGNC">     1625285 :    input logic          dec_tlu_flush_lower_r,                         // Flush divide and secondary ALUs</span></span>
+<span id="L67"><span class="lineNum">      67</span> <span class="tlaGNC">     1625284 :    input logic          dec_tlu_flush_lower_r,                         // Flush divide and secondary ALUs</span></span>
 <span id="L68"><span class="lineNum">      68</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic  [31:1]  dec_tlu_flush_path_r,                          // Redirect target</span></span>
 <span id="L69"><span class="lineNum">      69</span>              : </span>
 <span id="L70"><span class="lineNum">      70</span>              : </span>
@@ -179,7 +179,7 @@
 <span id="L75"><span class="lineNum">      75</span> <span class="tlaUNC">           0 :    output logic [31:0]  exu_lsu_rs1_d,                                 // LSU operand</span></span>
 <span id="L76"><span class="lineNum">      76</span> <span class="tlaUNC">           0 :    output logic [31:0]  exu_lsu_rs2_d,                                 // LSU operand</span></span>
 <span id="L77"><span class="lineNum">      77</span>              : </span>
-<span id="L78"><span class="lineNum">      78</span> <span class="tlaGNC tlaBgGNC">     1625289 :    output logic         exu_flush_final,                               // Pipe is being flushed this cycle</span></span>
+<span id="L78"><span class="lineNum">      78</span> <span class="tlaGNC tlaBgGNC">     1625288 :    output logic         exu_flush_final,                               // Pipe is being flushed this cycle</span></span>
 <span id="L79"><span class="lineNum">      79</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [31:1]  exu_flush_path_final,                          // Target for the oldest flush source</span></span>
 <span id="L80"><span class="lineNum">      80</span>              : </span>
 <span id="L81"><span class="lineNum">      81</span> <span class="tlaUNC">           0 :    output logic [31:0]  exu_i0_result_x,                               // Primary ALU result to DEC</span></span>
