@@ -139,7 +139,7 @@
 <span id="L35"><span class="lineNum">      35</span>              : );</span>
 <span id="L36"><span class="lineNum">      36</span>              : </span>
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaUNC">           0 :    logic [3:0][31:0]  dec_i0_match_data;</span></span>
-<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC tlaBgGNC">           1 :    logic [3:0]        dec_i0_trigger_data_match;</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC tlaBgGNC">           2 :    logic [3:0]        dec_i0_trigger_data_match;</span></span>
 <span id="L39"><span class="lineNum">      39</span>              : </span>
 <span id="L40"><span class="lineNum">      40</span>              :    for (genvar i=0; i&lt;4; i++) begin : genblock</span>
 <span id="L41"><span class="lineNum">      41</span>              :       assign dec_i0_match_data[i][31:0] = ({32{~trigger_pkt_any[i].select &amp; trigger_pkt_any[i].execute}} &amp; {dec_i0_pc_d[31:1], trigger_pkt_any[i].tdata2[0]});      // select=0; do a PC match</span>

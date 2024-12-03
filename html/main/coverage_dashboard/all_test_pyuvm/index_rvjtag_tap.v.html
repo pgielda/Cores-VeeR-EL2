@@ -161,7 +161,7 @@
 <span id="L57"><span class="lineNum">      57</span>              : ///////////////////////////////////////////////////////</span>
 <span id="L58"><span class="lineNum">      58</span> <span class="tlaUNC">           0 : logic[3:0] state, nstate;</span></span>
 <span id="L59"><span class="lineNum">      59</span> <span class="tlaUNC">           0 : logic [4:0] ir;</span></span>
-<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC tlaBgGNC">           1 : wire jtag_reset;</span></span>
+<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC tlaBgGNC">           2 : wire jtag_reset;</span></span>
 <span id="L61"><span class="lineNum">      61</span> <span class="tlaUNC tlaBgUNC">           0 : wire shift_dr;</span></span>
 <span id="L62"><span class="lineNum">      62</span> <span class="tlaUNC">           0 : wire pause_dr;</span></span>
 <span id="L63"><span class="lineNum">      63</span> <span class="tlaUNC">           0 : wire update_dr;</span></span>
@@ -264,9 +264,9 @@
 <span id="L160"><span class="lineNum">     160</span>              : end</span>
 <span id="L161"><span class="lineNum">     161</span>              : </span>
 <span id="L162"><span class="lineNum">     162</span>              : // SR next value</span>
-<span id="L163"><span class="lineNum">     163</span> <span class="tlaGNC tlaBgGNC">           1 : always_comb begin</span></span>
-<span id="L164"><span class="lineNum">     164</span> <span class="tlaGNC">           1 :     nsr = sr;</span></span>
-<span id="L165"><span class="lineNum">     165</span> <span class="tlaGNC">           1 :     case(1)</span></span>
+<span id="L163"><span class="lineNum">     163</span> <span class="tlaGNC tlaBgGNC">           2 : always_comb begin</span></span>
+<span id="L164"><span class="lineNum">     164</span> <span class="tlaGNC">           2 :     nsr = sr;</span></span>
+<span id="L165"><span class="lineNum">     165</span> <span class="tlaGNC">           2 :     case(1)</span></span>
 <span id="L166"><span class="lineNum">     166</span> <span class="tlaUNC tlaBgUNC">           0 :     shift_dr:   begin</span></span>
 <span id="L167"><span class="lineNum">     167</span> <span class="tlaUNC">           0 :                     case(1)</span></span>
 <span id="L168"><span class="lineNum">     168</span> <span class="tlaUNC">           0 :                     dr_en[1]:   nsr = {tdi, sr[USER_DR_LENGTH-1:1]};</span></span>
