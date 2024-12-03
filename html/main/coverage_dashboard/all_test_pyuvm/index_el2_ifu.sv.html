@@ -129,9 +129,9 @@
 <span id="L25"><span class="lineNum">      25</span>              : `include "el2_param.vh"</span>
 <span id="L26"><span class="lineNum">      26</span>              :  )</span>
 <span id="L27"><span class="lineNum">      27</span>              :   (</span>
-<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC tlaBgGNC">          48 :    input logic free_l2clk,                   // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
-<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">          48 :    input logic active_clk,                   // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">          48 :    input logic clk,                          // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC tlaBgGNC">          24 :    input logic free_l2clk,                   // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">          24 :    input logic active_clk,                   // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">          24 :    input logic clk,                          // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic rst_l,                        // reset, active low</span></span>
 <span id="L32"><span class="lineNum">      32</span>              : </span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC">           0 :    input logic dec_i0_decode_d,              // Valid instruction at D and not blocked</span></span>
@@ -286,7 +286,7 @@
 <span id="L182"><span class="lineNum">     182</span> <span class="tlaUNC">           0 :    output logic[31:1] ifu_i0_pc,      // Instruction 0 pc. From Aligner to Decode</span></span>
 <span id="L183"><span class="lineNum">     183</span> <span class="tlaUNC">           0 :    output logic ifu_i0_pc4,           // Instruction 0 is 4 byte. From Aligner to Decode</span></span>
 <span id="L184"><span class="lineNum">     184</span>              : </span>
-<span id="L185"><span class="lineNum">     185</span> <span class="tlaGNC tlaBgGNC">           2 :    output logic ifu_miss_state_idle,   // There is no outstanding miss. Cache miss state is idle.</span></span>
+<span id="L185"><span class="lineNum">     185</span> <span class="tlaGNC tlaBgGNC">           1 :    output logic ifu_miss_state_idle,   // There is no outstanding miss. Cache miss state is idle.</span></span>
 <span id="L186"><span class="lineNum">     186</span>              : </span>
 <span id="L187"><span class="lineNum">     187</span> <span class="tlaUNC tlaBgUNC">           0 :    output el2_br_pkt_t i0_brp,           // Instruction 0 branch packet. From Aligner to Decode</span></span>
 <span id="L188"><span class="lineNum">     188</span> <span class="tlaUNC">           0 :    output logic [pt.BTB_ADDR_HI:pt.BTB_ADDR_LO] ifu_i0_bp_index, // BP index</span></span>
@@ -343,17 +343,17 @@
 <span id="L239"><span class="lineNum">     239</span>              : </span>
 <span id="L240"><span class="lineNum">     240</span> <span class="tlaUNC">           0 :    logic        ic_write_stall;</span></span>
 <span id="L241"><span class="lineNum">     241</span> <span class="tlaUNC">           0 :    logic        ic_dma_active;</span></span>
-<span id="L242"><span class="lineNum">     242</span> <span class="tlaGNC tlaBgGNC">           2 :    logic        ifc_dma_access_ok;</span></span>
+<span id="L242"><span class="lineNum">     242</span> <span class="tlaGNC tlaBgGNC">           1 :    logic        ifc_dma_access_ok;</span></span>
 <span id="L243"><span class="lineNum">     243</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [1:0]  ic_access_fault_f;</span></span>
 <span id="L244"><span class="lineNum">     244</span> <span class="tlaUNC">           0 :    logic [1:0]  ic_access_fault_type_f;</span></span>
-<span id="L245"><span class="lineNum">     245</span> <span class="tlaGNC tlaBgGNC">           2 :    logic        ifu_ic_mb_empty;</span></span>
+<span id="L245"><span class="lineNum">     245</span> <span class="tlaGNC tlaBgGNC">           1 :    logic        ifu_ic_mb_empty;</span></span>
 <span id="L246"><span class="lineNum">     246</span>              : </span>
 <span id="L247"><span class="lineNum">     247</span> <span class="tlaUNC tlaBgUNC">           0 :    logic ic_hit_f;</span></span>
 <span id="L248"><span class="lineNum">     248</span>              : </span>
 <span id="L249"><span class="lineNum">     249</span> <span class="tlaUNC">           0 :    logic [1:0] ifu_bp_way_f; // way indication; right justified</span></span>
 <span id="L250"><span class="lineNum">     250</span> <span class="tlaUNC">           0 :    logic       ifu_bp_hit_taken_f; // kill next fetch; taken target found</span></span>
 <span id="L251"><span class="lineNum">     251</span> <span class="tlaUNC">           0 :    logic [31:1] ifu_bp_btb_target_f; //  predicted target PC</span></span>
-<span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC tlaBgGNC">           2 :    logic        ifu_bp_inst_mask_f; // tell ic which valids to kill because of a taken branch; right justified</span></span>
+<span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC tlaBgGNC">           1 :    logic        ifu_bp_inst_mask_f; // tell ic which valids to kill because of a taken branch; right justified</span></span>
 <span id="L253"><span class="lineNum">     253</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [1:0]  ifu_bp_hist1_f; // history counters for all 4 potential branches; right justified</span></span>
 <span id="L254"><span class="lineNum">     254</span> <span class="tlaUNC">           0 :    logic [1:0]  ifu_bp_hist0_f; // history counters for all 4 potential branches; right justified</span></span>
 <span id="L255"><span class="lineNum">     255</span> <span class="tlaUNC">           0 :    logic [11:0] ifu_bp_poffset_f; // predicted target</span></span>
@@ -380,7 +380,7 @@
 <span id="L276"><span class="lineNum">     276</span>              :    assign ifu_fetch_val[1:0] = ic_fetch_val_f[1:0];</span>
 <span id="L277"><span class="lineNum">     277</span>              :    assign ifu_fetch_pc[31:1] = ifc_fetch_addr_f[31:1];</span>
 <span id="L278"><span class="lineNum">     278</span>              : </span>
-<span id="L279"><span class="lineNum">     279</span> <span class="tlaGNC tlaBgGNC">           2 :  logic                       ifc_fetch_uncacheable_bf;      // The fetch request is uncacheable space. BF stage</span></span>
+<span id="L279"><span class="lineNum">     279</span> <span class="tlaGNC tlaBgGNC">           1 :  logic                       ifc_fetch_uncacheable_bf;      // The fetch request is uncacheable space. BF stage</span></span>
 <span id="L280"><span class="lineNum">     280</span> <span class="tlaUNC tlaBgUNC">           0 :  logic                       ifc_fetch_req_bf;              // Fetch request. Comes with the address.  BF stage</span></span>
 <span id="L281"><span class="lineNum">     281</span> <span class="tlaUNC">           0 :  logic                       ifc_fetch_req_bf_raw;          // Fetch request without some qualifications. Used for clock-gating. BF stage</span></span>
 <span id="L282"><span class="lineNum">     282</span> <span class="tlaUNC">           0 :  logic                       ifc_iccm_access_bf;            // This request is to the ICCM. Do not generate misses to the bus.</span></span>
