@@ -312,15 +312,15 @@
 <span id="L208"><span class="lineNum">     208</span>              : </span>
 <span id="L209"><span class="lineNum">     209</span>              : module rvdffpcie #( parameter WIDTH=31 )</span>
 <span id="L210"><span class="lineNum">     210</span>              :    (</span>
-<span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC tlaBgGNC">          12 :      input  logic [WIDTH-1:0] din,</span></span>
+<span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC tlaBgGNC">           8 :      input  logic [WIDTH-1:0] din,</span></span>
 <span id="L212"><span class="lineNum">     212</span> <span class="tlaGNC">    48000024 :      input  logic             clk,</span></span>
 <span id="L213"><span class="lineNum">     213</span> <span class="tlaGNC">          12 :      input  logic             rst_l,</span></span>
-<span id="L214"><span class="lineNum">     214</span> <span class="tlaGNC">        7148 :      input  logic             en,</span></span>
+<span id="L214"><span class="lineNum">     214</span> <span class="tlaGNC">        7132 :      input  logic             en,</span></span>
 <span id="L215"><span class="lineNum">     215</span>              :      // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L216"><span class="lineNum">     216</span>              :      /*verilator coverage_off*/</span>
 <span id="L217"><span class="lineNum">     217</span>              :      input  logic             scan_mode,</span>
 <span id="L218"><span class="lineNum">     218</span>              :      /*verilator coverage_on*/</span>
-<span id="L219"><span class="lineNum">     219</span> <span class="tlaGNC">          12 :      output logic [WIDTH-1:0] dout</span></span>
+<span id="L219"><span class="lineNum">     219</span> <span class="tlaGNC">           8 :      output logic [WIDTH-1:0] dout</span></span>
 <span id="L220"><span class="lineNum">     220</span>              :      );</span>
 <span id="L221"><span class="lineNum">     221</span>              : </span>
 <span id="L222"><span class="lineNum">     222</span>              : </span>
@@ -600,13 +600,13 @@
 <span id="L496"><span class="lineNum">     496</span>              : module rvbradder</span>
 <span id="L497"><span class="lineNum">     497</span>              :   (</span>
 <span id="L498"><span class="lineNum">     498</span> <span class="tlaUNC tlaBgUNC">           0 :     input [31:1] pc,</span></span>
-<span id="L499"><span class="lineNum">     499</span> <span class="tlaGNC tlaBgGNC">       18468 :     input [12:1] offset,</span></span>
+<span id="L499"><span class="lineNum">     499</span> <span class="tlaGNC tlaBgGNC">       18368 :     input [12:1] offset,</span></span>
 <span id="L500"><span class="lineNum">     500</span>              : </span>
 <span id="L501"><span class="lineNum">     501</span> <span class="tlaGNC">           8 :     output [31:1] dout</span></span>
 <span id="L502"><span class="lineNum">     502</span>              :     );</span>
 <span id="L503"><span class="lineNum">     503</span>              : </span>
-<span id="L504"><span class="lineNum">     504</span> <span class="tlaGNC">       18626 :    logic          cout;</span></span>
-<span id="L505"><span class="lineNum">     505</span> <span class="tlaGNC">       18626 :    logic          sign;</span></span>
+<span id="L504"><span class="lineNum">     504</span> <span class="tlaGNC">       18524 :    logic          cout;</span></span>
+<span id="L505"><span class="lineNum">     505</span> <span class="tlaGNC">       18524 :    logic          sign;</span></span>
 <span id="L506"><span class="lineNum">     506</span>              : </span>
 <span id="L507"><span class="lineNum">     507</span> <span class="tlaGNC">           8 :    logic [31:13]  pc_inc;</span></span>
 <span id="L508"><span class="lineNum">     508</span> <span class="tlaGNC">           4 :    logic [31:13]  pc_dec;</span></span>
@@ -693,7 +693,7 @@
 <span id="L589"><span class="lineNum">     589</span> <span class="tlaUNC">           0 :      input  logic [WIDTH-1:0] mask,     // this will have the mask in the lower bit positions</span></span>
 <span id="L590"><span class="lineNum">     590</span> <span class="tlaUNC">           0 :      input  logic [WIDTH-1:0] data,     // this is what needs to be matched on the upper bits with the mask's upper bits</span></span>
 <span id="L591"><span class="lineNum">     591</span> <span class="tlaUNC">           0 :      input  logic             masken,   // when 1 : do mask. 0 : full match</span></span>
-<span id="L592"><span class="lineNum">     592</span> <span class="tlaGNC tlaBgGNC">          14 :      output logic             match</span></span>
+<span id="L592"><span class="lineNum">     592</span> <span class="tlaGNC tlaBgGNC">          16 :      output logic             match</span></span>
 <span id="L593"><span class="lineNum">     593</span>              :      );</span>
 <span id="L594"><span class="lineNum">     594</span>              : </span>
 <span id="L595"><span class="lineNum">     595</span> <span class="tlaGNC">           8 :    logic [WIDTH-1:0]          matchvec;</span></span>
@@ -778,7 +778,7 @@
 <span id="L674"><span class="lineNum">     674</span>              : endmodule // rvecc_encode</span>
 <span id="L675"><span class="lineNum">     675</span>              : </span>
 <span id="L676"><span class="lineNum">     676</span>              : module rvecc_decode  (</span>
-<span id="L677"><span class="lineNum">     677</span> <span class="tlaGNC tlaBgGNC">         316 :                       input         en,</span></span>
+<span id="L677"><span class="lineNum">     677</span> <span class="tlaGNC tlaBgGNC">         312 :                       input         en,</span></span>
 <span id="L678"><span class="lineNum">     678</span> <span class="tlaUNC tlaBgUNC">           0 :                       input [31:0]  din,</span></span>
 <span id="L679"><span class="lineNum">     679</span> <span class="tlaUNC">           0 :                       input [6:0]   ecc_in,</span></span>
 <span id="L680"><span class="lineNum">     680</span> <span class="tlaGNC tlaBgGNC">           2 :                       input         sed_ded,    // only do detection and no correction. Used for the I$</span></span>
@@ -843,9 +843,9 @@
 <span id="L739"><span class="lineNum">     739</span>              : </span>
 <span id="L740"><span class="lineNum">     740</span>              : </span>
 <span id="L741"><span class="lineNum">     741</span>              : module rvecc_decode_64  (</span>
-<span id="L742"><span class="lineNum">     742</span> <span class="tlaGNC">       18282 :                       input         en,</span></span>
-<span id="L743"><span class="lineNum">     743</span> <span class="tlaGNC">         330 :                       input [63:0]  din,</span></span>
-<span id="L744"><span class="lineNum">     744</span> <span class="tlaGNC">         330 :                       input [6:0]   ecc_in,</span></span>
+<span id="L742"><span class="lineNum">     742</span> <span class="tlaGNC">       18182 :                       input         en,</span></span>
+<span id="L743"><span class="lineNum">     743</span> <span class="tlaGNC">         326 :                       input [63:0]  din,</span></span>
+<span id="L744"><span class="lineNum">     744</span> <span class="tlaGNC">         326 :                       input [6:0]   ecc_in,</span></span>
 <span id="L745"><span class="lineNum">     745</span> <span class="tlaUNC tlaBgUNC">           0 :                       output        ecc_error</span></span>
 <span id="L746"><span class="lineNum">     746</span>              :                       );</span>
 <span id="L747"><span class="lineNum">     747</span>              : </span>
