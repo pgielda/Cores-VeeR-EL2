@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    03-12-2024
+                    05-12-2024
                 </td>
                 <td></td>
                 
@@ -136,10 +136,10 @@
 <span id="L32"><span class="lineNum">      32</span>              : #(</span>
 <span id="L33"><span class="lineNum">      33</span>              :     `include "el2_param.vh"</span>
 <span id="L34"><span class="lineNum">      34</span>              : ) (</span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">          48 :     input logic clk,                          // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">          48 :     input logic active_clk,                   // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
-<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">          48 :     input logic free_clk,                     // Clock always.                  Through two clock headers. For flops without second clock header built in.</span></span>
-<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">          48 :     input logic free_l2clk,                   // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">          24 :     input logic clk,                          // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">          24 :     input logic active_clk,                   // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">          24 :     input logic free_clk,                     // Clock always.                  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">          24 :     input logic free_l2clk,                   // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
 <span id="L39"><span class="lineNum">      39</span>              : </span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic lsu_fastint_stall_any,        // needed by lsu for 2nd pass of dma with ecc correction, stall next cycle</span></span>
 <span id="L41"><span class="lineNum">      41</span>              : </span>
@@ -153,7 +153,7 @@
 <span id="L49"><span class="lineNum">      49</span> <span class="tlaUNC">           0 :     input logic        rst_l,   // reset, active low</span></span>
 <span id="L50"><span class="lineNum">      50</span> <span class="tlaUNC">           0 :     input logic [31:1] rst_vec, // reset vector, from core pins</span></span>
 <span id="L51"><span class="lineNum">      51</span>              : </span>
-<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC tlaBgGNC">          11 :     input logic        nmi_int,  // NMI pin</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC tlaBgGNC">           5 :     input logic        nmi_int,  // NMI pin</span></span>
 <span id="L53"><span class="lineNum">      53</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic [31:1] nmi_vec,  // NMI vector, from pins</span></span>
 <span id="L54"><span class="lineNum">      54</span>              : </span>
 <span id="L55"><span class="lineNum">      55</span> <span class="tlaUNC">           0 :     input logic i_cpu_halt_req,  // Asynchronous Halt request to CPU</span></span>
@@ -228,7 +228,7 @@
 <span id="L124"><span class="lineNum">     124</span> <span class="tlaUNC">           0 :     input logic ifu_i0_icaf_second,  // i0 has access fault on second 2B of 4B inst</span></span>
 <span id="L125"><span class="lineNum">     125</span> <span class="tlaUNC">           0 :     input logic ifu_i0_dbecc,        // icache/iccm double-bit error</span></span>
 <span id="L126"><span class="lineNum">     126</span>              : </span>
-<span id="L127"><span class="lineNum">     127</span> <span class="tlaGNC tlaBgGNC">           2 :     input logic lsu_idle_any,  // lsu idle for halting</span></span>
+<span id="L127"><span class="lineNum">     127</span> <span class="tlaGNC tlaBgGNC">           1 :     input logic lsu_idle_any,  // lsu idle for halting</span></span>
 <span id="L128"><span class="lineNum">     128</span>              : </span>
 <span id="L129"><span class="lineNum">     129</span> <span class="tlaUNC tlaBgUNC">           0 :     input el2_br_pkt_t                                 i0_brp,           // branch packet</span></span>
 <span id="L130"><span class="lineNum">     130</span> <span class="tlaUNC">           0 :     input logic        [pt.BTB_ADDR_HI:pt.BTB_ADDR_LO] ifu_i0_bp_index,  // BP index</span></span>
@@ -272,8 +272,8 @@
 <span id="L168"><span class="lineNum">     168</span> <span class="tlaUNC">           0 :     input logic [31:1] exu_i0_pc_x,   // pc's for e1 from the alu's</span></span>
 <span id="L169"><span class="lineNum">     169</span>              : </span>
 <span id="L170"><span class="lineNum">     170</span> <span class="tlaUNC">           0 :     input logic mexintpend,  // External interrupt pending</span></span>
-<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC tlaBgGNC">           9 :     input logic timer_int,   // Timer interrupt pending (from pin)</span></span>
-<span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">           8 :     input logic soft_int,    // Software interrupt pending (from pin)</span></span>
+<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC tlaBgGNC">           3 :     input logic timer_int,   // Timer interrupt pending (from pin)</span></span>
+<span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">           7 :     input logic soft_int,    // Software interrupt pending (from pin)</span></span>
 <span id="L173"><span class="lineNum">     173</span>              : </span>
 <span id="L174"><span class="lineNum">     174</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic [7:0] pic_claimid,  // PIC claimid</span></span>
 <span id="L175"><span class="lineNum">     175</span> <span class="tlaUNC">           0 :     input logic [3:0] pic_pl,       // PIC priv level</span></span>
@@ -290,7 +290,7 @@
 <span id="L186"><span class="lineNum">     186</span>              :     // Debug start</span>
 <span id="L187"><span class="lineNum">     187</span> <span class="tlaUNC">           0 :     input logic dbg_halt_req,        // DM requests a halt</span></span>
 <span id="L188"><span class="lineNum">     188</span> <span class="tlaUNC">           0 :     input logic dbg_resume_req,      // DM requests a resume</span></span>
-<span id="L189"><span class="lineNum">     189</span> <span class="tlaGNC tlaBgGNC">           2 :     input logic ifu_miss_state_idle, // I-side miss buffer empty</span></span>
+<span id="L189"><span class="lineNum">     189</span> <span class="tlaGNC tlaBgGNC">           1 :     input logic ifu_miss_state_idle, // I-side miss buffer empty</span></span>
 <span id="L190"><span class="lineNum">     190</span>              : </span>
 <span id="L191"><span class="lineNum">     191</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic        dec_tlu_dbg_halted,        // Core is halted and ready for debug command</span></span>
 <span id="L192"><span class="lineNum">     192</span> <span class="tlaUNC">           0 :     output logic        dec_tlu_debug_mode,        // Core is in debug mode</span></span>
@@ -346,7 +346,7 @@
 <span id="L242"><span class="lineNum">     242</span> <span class="tlaUNC">           0 :     output logic [31:0] dec_i0_result_r,  // Result R-stage</span></span>
 <span id="L243"><span class="lineNum">     243</span>              : </span>
 <span id="L244"><span class="lineNum">     244</span> <span class="tlaUNC">           0 :     output el2_lsu_pkt_t lsu_p,           // lsu packet</span></span>
-<span id="L245"><span class="lineNum">     245</span> <span class="tlaGNC tlaBgGNC">           2 :     output logic         dec_qual_lsu_d,  // LSU instruction at D.  Use to quiet LSU operands</span></span>
+<span id="L245"><span class="lineNum">     245</span> <span class="tlaGNC tlaBgGNC">           1 :     output logic         dec_qual_lsu_d,  // LSU instruction at D.  Use to quiet LSU operands</span></span>
 <span id="L246"><span class="lineNum">     246</span> <span class="tlaUNC tlaBgUNC">           0 :     output el2_mul_pkt_t mul_p,           // mul packet</span></span>
 <span id="L247"><span class="lineNum">     247</span> <span class="tlaUNC">           0 :     output el2_div_pkt_t div_p,           // div packet</span></span>
 <span id="L248"><span class="lineNum">     248</span> <span class="tlaUNC">           0 :     output logic         dec_div_cancel,  // cancel divide operation</span></span>
@@ -407,11 +407,11 @@
 <span id="L303"><span class="lineNum">     303</span>              : </span>
 <span id="L304"><span class="lineNum">     304</span>              :     // feature disable from mfdc</span>
 <span id="L305"><span class="lineNum">     305</span> <span class="tlaUNC">           0 :     output logic dec_tlu_external_ldfwd_disable,  // disable external load forwarding</span></span>
-<span id="L306"><span class="lineNum">     306</span> <span class="tlaGNC tlaBgGNC">           2 :     output logic dec_tlu_sideeffect_posted_disable,  // disable posted stores to side-effect address</span></span>
+<span id="L306"><span class="lineNum">     306</span> <span class="tlaGNC tlaBgGNC">           1 :     output logic dec_tlu_sideeffect_posted_disable,  // disable posted stores to side-effect address</span></span>
 <span id="L307"><span class="lineNum">     307</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic dec_tlu_core_ecc_disable,  // disable core ECC</span></span>
 <span id="L308"><span class="lineNum">     308</span> <span class="tlaUNC">           0 :     output logic dec_tlu_bpred_disable,  // disable branch prediction</span></span>
 <span id="L309"><span class="lineNum">     309</span> <span class="tlaUNC">           0 :     output logic dec_tlu_wb_coalescing_disable,  // disable writebuffer coalescing</span></span>
-<span id="L310"><span class="lineNum">     310</span> <span class="tlaGNC tlaBgGNC">           2 :     output logic [2:0] dec_tlu_dma_qos_prty,  // DMA QoS priority coming from MFDC [18:16]</span></span>
+<span id="L310"><span class="lineNum">     310</span> <span class="tlaGNC tlaBgGNC">           1 :     output logic [2:0] dec_tlu_dma_qos_prty,  // DMA QoS priority coming from MFDC [18:16]</span></span>
 <span id="L311"><span class="lineNum">     311</span>              : </span>
 <span id="L312"><span class="lineNum">     312</span>              :     // clock gating overrides from mcgc</span>
 <span id="L313"><span class="lineNum">     313</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic dec_tlu_misc_clk_override,   // override misc clock domain gating</span></span>
@@ -419,7 +419,7 @@
 <span id="L315"><span class="lineNum">     315</span> <span class="tlaUNC">           0 :     output logic dec_tlu_lsu_clk_override,    // override load/store clock domain gating</span></span>
 <span id="L316"><span class="lineNum">     316</span> <span class="tlaUNC">           0 :     output logic dec_tlu_bus_clk_override,    // override bus clock domain gating</span></span>
 <span id="L317"><span class="lineNum">     317</span> <span class="tlaUNC">           0 :     output logic dec_tlu_pic_clk_override,    // override PIC clock domain gating</span></span>
-<span id="L318"><span class="lineNum">     318</span> <span class="tlaGNC tlaBgGNC">           2 :     output logic dec_tlu_picio_clk_override,  // override PICIO clock domain gating</span></span>
+<span id="L318"><span class="lineNum">     318</span> <span class="tlaGNC tlaBgGNC">           1 :     output logic dec_tlu_picio_clk_override,  // override PICIO clock domain gating</span></span>
 <span id="L319"><span class="lineNum">     319</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic dec_tlu_dccm_clk_override,   // override DCCM clock domain gating</span></span>
 <span id="L320"><span class="lineNum">     320</span> <span class="tlaUNC">           0 :     output logic dec_tlu_icm_clk_override,    // override ICCM clock domain gating</span></span>
 <span id="L321"><span class="lineNum">     321</span>              : </span>
