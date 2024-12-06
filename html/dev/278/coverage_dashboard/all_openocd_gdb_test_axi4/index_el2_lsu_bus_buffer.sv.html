@@ -58,11 +58,11 @@
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff3800;">
-        11.1%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff4f00;">
+        15.6%
     </td>
     <td class="headerCovSummaryEntry">
-        27
+        38
     </td>
     <td class="headerCovSummaryEntry">
         243
@@ -155,11 +155,11 @@
 <span id="L51"><span class="lineNum">      51</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                          lsu_busm_clk,</span></span>
 <span id="L52"><span class="lineNum">      52</span>              : </span>
 <span id="L53"><span class="lineNum">      53</span>              : </span>
-<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC tlaBgGNC">      812710 :    input logic                          dec_lsu_valid_raw_d,            // Raw valid for address computation</span></span>
-<span id="L55"><span class="lineNum">      55</span> <span class="tlaUNC tlaBgUNC">           0 :    input el2_lsu_pkt_t                 lsu_pkt_m,                      // lsu packet flowing down the pipe</span></span>
-<span id="L56"><span class="lineNum">      56</span> <span class="tlaUNC">           0 :    input el2_lsu_pkt_t                 lsu_pkt_r,                      // lsu packet flowing down the pipe</span></span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC tlaBgGNC">           2 :    input logic                          dec_lsu_valid_raw_d,            // Raw valid for address computation</span></span>
+<span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">           2 :    input el2_lsu_pkt_t                 lsu_pkt_m,                      // lsu packet flowing down the pipe</span></span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">           2 :    input el2_lsu_pkt_t                 lsu_pkt_r,                      // lsu packet flowing down the pipe</span></span>
 <span id="L57"><span class="lineNum">      57</span>              : </span>
-<span id="L58"><span class="lineNum">      58</span> <span class="tlaUNC">           0 :    input logic [31:0]                   lsu_addr_m,                     // lsu address flowing down the pipe</span></span>
+<span id="L58"><span class="lineNum">      58</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:0]                   lsu_addr_m,                     // lsu address flowing down the pipe</span></span>
 <span id="L59"><span class="lineNum">      59</span> <span class="tlaUNC">           0 :    input logic [31:0]                   end_addr_m,                     // lsu address flowing down the pipe</span></span>
 <span id="L60"><span class="lineNum">      60</span> <span class="tlaUNC">           0 :    input logic [31:0]                   lsu_addr_r,                     // lsu address flowing down the pipe</span></span>
 <span id="L61"><span class="lineNum">      61</span> <span class="tlaUNC">           0 :    input logic [31:0]                   end_addr_r,                     // lsu address flowing down the pipe</span></span>
@@ -170,9 +170,9 @@
 <span id="L66"><span class="lineNum">      66</span> <span class="tlaUNC">           0 :    input logic                          lsu_busreq_m,                   // bus request is in m</span></span>
 <span id="L67"><span class="lineNum">      67</span> <span class="tlaUNC">           0 :    output logic                         lsu_busreq_r,                   // bus request is in r</span></span>
 <span id="L68"><span class="lineNum">      68</span> <span class="tlaUNC">           0 :    input logic                          ld_full_hit_m,                  // load can get all its byte from a write buffer entry</span></span>
-<span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC tlaBgGNC">      812716 :    input logic                          flush_m_up,                     // flush</span></span>
-<span id="L70"><span class="lineNum">      70</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                          flush_r,                        // flush</span></span>
-<span id="L71"><span class="lineNum">      71</span> <span class="tlaUNC">           0 :    input logic                          lsu_commit_r,                   // lsu instruction in r commits</span></span>
+<span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC tlaBgGNC">          18 :    input logic                          flush_m_up,                     // flush</span></span>
+<span id="L70"><span class="lineNum">      70</span> <span class="tlaGNC">           2 :    input logic                          flush_r,                        // flush</span></span>
+<span id="L71"><span class="lineNum">      71</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                          lsu_commit_r,                   // lsu instruction in r commits</span></span>
 <span id="L72"><span class="lineNum">      72</span> <span class="tlaUNC">           0 :    input logic                          is_sideeffects_r,               // lsu attribute is side_effects</span></span>
 <span id="L73"><span class="lineNum">      73</span> <span class="tlaUNC">           0 :    input logic                          ldst_dual_d,                    // load/store is unaligned at 32 bit boundary</span></span>
 <span id="L74"><span class="lineNum">      74</span> <span class="tlaUNC">           0 :    input logic                          ldst_dual_m,                    // load/store is unaligned at 32 bit boundary</span></span>
@@ -273,7 +273,7 @@
 <span id="L169"><span class="lineNum">     169</span>              :    output logic                            lsu_axi_rready,</span>
 <span id="L170"><span class="lineNum">     170</span>              :    /*verilator coverage_on*/</span>
 <span id="L171"><span class="lineNum">     171</span> <span class="tlaUNC">           0 :    input  logic [pt.LSU_BUS_TAG-1:0]       lsu_axi_rid,</span></span>
-<span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC tlaBgGNC">           2 :    input  logic [63:0]                     lsu_axi_rdata,</span></span>
+<span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC tlaBgGNC">           4 :    input  logic [63:0]                     lsu_axi_rdata,</span></span>
 <span id="L173"><span class="lineNum">     173</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic [1:0]                      lsu_axi_rresp,</span></span>
 <span id="L174"><span class="lineNum">     174</span>              : </span>
 <span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC tlaBgGNC">           1 :    input logic                             lsu_bus_clk_en,</span></span>
@@ -291,17 +291,17 @@
 <span id="L187"><span class="lineNum">     187</span>              :    localparam TIMER_MAX = TIMER - 1;  // Maximum value of timer</span>
 <span id="L188"><span class="lineNum">     188</span>              :    localparam TIMER_LOG2 = (TIMER &lt; 2) ? 1 : $clog2(TIMER);</span>
 <span id="L189"><span class="lineNum">     189</span>              : </span>
-<span id="L190"><span class="lineNum">     190</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [3:0]                          ldst_byteen_hi_m, ldst_byteen_lo_m;</span></span>
-<span id="L191"><span class="lineNum">     191</span> <span class="tlaUNC">           0 :    logic [DEPTH-1:0]                    ld_addr_hitvec_lo, ld_addr_hitvec_hi;</span></span>
+<span id="L190"><span class="lineNum">     190</span> <span class="tlaGNC">           1 :    logic [3:0]                          ldst_byteen_hi_m, ldst_byteen_lo_m;</span></span>
+<span id="L191"><span class="lineNum">     191</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [DEPTH-1:0]                    ld_addr_hitvec_lo, ld_addr_hitvec_hi;</span></span>
 <span id="L192"><span class="lineNum">     192</span> <span class="tlaUNC">           0 :    logic [3:0][DEPTH-1:0]               ld_byte_hitvec_lo, ld_byte_hitvec_hi;</span></span>
 <span id="L193"><span class="lineNum">     193</span> <span class="tlaUNC">           0 :    logic [3:0][DEPTH-1:0]               ld_byte_hitvecfn_lo, ld_byte_hitvecfn_hi;</span></span>
 <span id="L194"><span class="lineNum">     194</span>              : </span>
 <span id="L195"><span class="lineNum">     195</span> <span class="tlaUNC">           0 :    logic                                ld_addr_ibuf_hit_lo, ld_addr_ibuf_hit_hi;</span></span>
 <span id="L196"><span class="lineNum">     196</span> <span class="tlaUNC">           0 :    logic [3:0]                          ld_byte_ibuf_hit_lo, ld_byte_ibuf_hit_hi;</span></span>
 <span id="L197"><span class="lineNum">     197</span>              : </span>
-<span id="L198"><span class="lineNum">     198</span> <span class="tlaUNC">           0 :    logic [3:0]                          ldst_byteen_r;</span></span>
-<span id="L199"><span class="lineNum">     199</span> <span class="tlaUNC">           0 :    logic [3:0]                          ldst_byteen_hi_r, ldst_byteen_lo_r;</span></span>
-<span id="L200"><span class="lineNum">     200</span> <span class="tlaUNC">           0 :    logic [31:0]                         store_data_hi_r, store_data_lo_r;</span></span>
+<span id="L198"><span class="lineNum">     198</span> <span class="tlaGNC tlaBgGNC">           1 :    logic [3:0]                          ldst_byteen_r;</span></span>
+<span id="L199"><span class="lineNum">     199</span> <span class="tlaGNC">           1 :    logic [3:0]                          ldst_byteen_hi_r, ldst_byteen_lo_r;</span></span>
+<span id="L200"><span class="lineNum">     200</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [31:0]                         store_data_hi_r, store_data_lo_r;</span></span>
 <span id="L201"><span class="lineNum">     201</span> <span class="tlaGNC tlaBgGNC">           1 :    logic                                is_aligned_r;                   // Aligned load/store</span></span>
 <span id="L202"><span class="lineNum">     202</span> <span class="tlaGNC">           1 :    logic                                ldst_samedw_r;</span></span>
 <span id="L203"><span class="lineNum">     203</span>              : </span>
@@ -330,7 +330,7 @@
 <span id="L226"><span class="lineNum">     226</span> <span class="tlaUNC">           0 :    logic                                bus_rsp_read, bus_rsp_write;</span></span>
 <span id="L227"><span class="lineNum">     227</span> <span class="tlaUNC">           0 :    logic [pt.LSU_BUS_TAG-1:0]           bus_rsp_read_tag, bus_rsp_write_tag;</span></span>
 <span id="L228"><span class="lineNum">     228</span> <span class="tlaUNC">           0 :    logic                                bus_rsp_read_error, bus_rsp_write_error;</span></span>
-<span id="L229"><span class="lineNum">     229</span> <span class="tlaGNC tlaBgGNC">           2 :    logic [63:0]                         bus_rsp_rdata;</span></span>
+<span id="L229"><span class="lineNum">     229</span> <span class="tlaGNC tlaBgGNC">           4 :    logic [63:0]                         bus_rsp_rdata;</span></span>
 <span id="L230"><span class="lineNum">     230</span>              : </span>
 <span id="L231"><span class="lineNum">     231</span>              :    // Bus buffer signals</span>
 <span id="L232"><span class="lineNum">     232</span> <span class="tlaUNC tlaBgUNC">           0 :    state_t [DEPTH-1:0]                  buf_state;</span></span>
@@ -363,16 +363,16 @@
 <span id="L259"><span class="lineNum">     259</span> <span class="tlaUNC tlaBgUNC">           0 :    logic   [DEPTH-1:0]                  buf_nomerge_in;</span></span>
 <span id="L260"><span class="lineNum">     260</span> <span class="tlaUNC">           0 :    logic   [DEPTH-1:0]                  buf_sideeffect_in;</span></span>
 <span id="L261"><span class="lineNum">     261</span> <span class="tlaUNC">           0 :    logic   [DEPTH-1:0]                  buf_unsign_in;</span></span>
-<span id="L262"><span class="lineNum">     262</span> <span class="tlaUNC">           0 :    logic   [DEPTH-1:0][1:0]             buf_sz_in;</span></span>
-<span id="L263"><span class="lineNum">     263</span> <span class="tlaUNC">           0 :    logic   [DEPTH-1:0]                  buf_write_in;</span></span>
-<span id="L264"><span class="lineNum">     264</span> <span class="tlaUNC">           0 :    logic   [DEPTH-1:0]                  buf_wr_en;</span></span>
+<span id="L262"><span class="lineNum">     262</span> <span class="tlaGNC tlaBgGNC">           2 :    logic   [DEPTH-1:0][1:0]             buf_sz_in;</span></span>
+<span id="L263"><span class="lineNum">     263</span> <span class="tlaGNC">           2 :    logic   [DEPTH-1:0]                  buf_write_in;</span></span>
+<span id="L264"><span class="lineNum">     264</span> <span class="tlaUNC tlaBgUNC">           0 :    logic   [DEPTH-1:0]                  buf_wr_en;</span></span>
 <span id="L265"><span class="lineNum">     265</span> <span class="tlaUNC">           0 :    logic   [DEPTH-1:0]                  buf_dualhi_in;</span></span>
 <span id="L266"><span class="lineNum">     266</span> <span class="tlaUNC">           0 :    logic   [DEPTH-1:0][DEPTH_LOG2-1:0]  buf_dualtag_in;</span></span>
 <span id="L267"><span class="lineNum">     267</span> <span class="tlaUNC">           0 :    logic   [DEPTH-1:0]                  buf_ldfwd_en;</span></span>
 <span id="L268"><span class="lineNum">     268</span> <span class="tlaUNC">           0 :    logic   [DEPTH-1:0]                  buf_ldfwd_in;</span></span>
 <span id="L269"><span class="lineNum">     269</span> <span class="tlaUNC">           0 :    logic   [DEPTH-1:0][DEPTH_LOG2-1:0]  buf_ldfwdtag_in;</span></span>
-<span id="L270"><span class="lineNum">     270</span> <span class="tlaUNC">           0 :    logic   [DEPTH-1:0][3:0]             buf_byteen_in;</span></span>
-<span id="L271"><span class="lineNum">     271</span> <span class="tlaUNC">           0 :    logic   [DEPTH-1:0][31:0]            buf_addr_in;</span></span>
+<span id="L270"><span class="lineNum">     270</span> <span class="tlaGNC tlaBgGNC">           1 :    logic   [DEPTH-1:0][3:0]             buf_byteen_in;</span></span>
+<span id="L271"><span class="lineNum">     271</span> <span class="tlaUNC tlaBgUNC">           0 :    logic   [DEPTH-1:0][31:0]            buf_addr_in;</span></span>
 <span id="L272"><span class="lineNum">     272</span> <span class="tlaUNC">           0 :    logic   [DEPTH-1:0][31:0]            buf_data_in;</span></span>
 <span id="L273"><span class="lineNum">     273</span> <span class="tlaUNC">           0 :    logic   [DEPTH-1:0]                  buf_error_en;</span></span>
 <span id="L274"><span class="lineNum">     274</span> <span class="tlaUNC">           0 :    logic   [DEPTH-1:0]                  buf_data_en;</span></span>
@@ -406,10 +406,10 @@
 <span id="L302"><span class="lineNum">     302</span> <span class="tlaUNC">           0 :    logic [DEPTH-1:0]                   ibuf_drainvec_vld;</span></span>
 <span id="L303"><span class="lineNum">     303</span> <span class="tlaUNC">           0 :    logic [DEPTH_LOG2-1:0]              ibuf_tag_in;</span></span>
 <span id="L304"><span class="lineNum">     304</span> <span class="tlaUNC">           0 :    logic [DEPTH_LOG2-1:0]              ibuf_dualtag_in;</span></span>
-<span id="L305"><span class="lineNum">     305</span> <span class="tlaUNC">           0 :    logic [1:0]                         ibuf_sz_in;</span></span>
-<span id="L306"><span class="lineNum">     306</span> <span class="tlaUNC">           0 :    logic [31:0]                        ibuf_addr_in;</span></span>
-<span id="L307"><span class="lineNum">     307</span> <span class="tlaUNC">           0 :    logic [3:0]                         ibuf_byteen_in;</span></span>
-<span id="L308"><span class="lineNum">     308</span> <span class="tlaUNC">           0 :    logic [31:0]                        ibuf_data_in;</span></span>
+<span id="L305"><span class="lineNum">     305</span> <span class="tlaGNC tlaBgGNC">           2 :    logic [1:0]                         ibuf_sz_in;</span></span>
+<span id="L306"><span class="lineNum">     306</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [31:0]                        ibuf_addr_in;</span></span>
+<span id="L307"><span class="lineNum">     307</span> <span class="tlaGNC tlaBgGNC">           1 :    logic [3:0]                         ibuf_byteen_in;</span></span>
+<span id="L308"><span class="lineNum">     308</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [31:0]                        ibuf_data_in;</span></span>
 <span id="L309"><span class="lineNum">     309</span> <span class="tlaGNC tlaBgGNC">           1 :    logic [TIMER_LOG2-1:0]              ibuf_timer_in;</span></span>
 <span id="L310"><span class="lineNum">     310</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [3:0]                         ibuf_byteen_out;</span></span>
 <span id="L311"><span class="lineNum">     311</span> <span class="tlaUNC">           0 :    logic [31:0]                        ibuf_data_out;</span></span>

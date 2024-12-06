@@ -58,14 +58,14 @@
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff6f00;">
-        21.8%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff7300;">
+        22.6%
     </td>
     <td class="headerCovSummaryEntry">
         12
     </td>
     <td class="headerCovSummaryEntry">
-        55
+        53
     </td>
 
             </tr>
@@ -249,128 +249,128 @@
 <span id="L145"><span class="lineNum">     145</span> <span class="tlaUNC">           0 :    logic [31:0]             ahb_haddr_q;</span></span>
 <span id="L146"><span class="lineNum">     146</span> <span class="tlaUNC">           0 :    logic                    ahb_hresp_q;</span></span>
 <span id="L147"><span class="lineNum">     147</span>              : </span>
-<span id="L148"><span class="lineNum">     148</span>              :     //Miscellaneous signals</span>
-<span id="L149"><span class="lineNum">     149</span> <span class="tlaUNC">           0 :    logic                    ahb_addr_in_dccm, ahb_addr_in_iccm, ahb_addr_in_pic;</span></span>
-<span id="L150"><span class="lineNum">     150</span> <span class="tlaUNC">           0 :    logic                    ahb_addr_in_dccm_region_nc, ahb_addr_in_iccm_region_nc, ahb_addr_in_pic_region_nc;</span></span>
-<span id="L151"><span class="lineNum">     151</span>              :    // signals needed for the read data coming back from the core and to block any further commands as AHB is a blocking bus</span>
-<span id="L152"><span class="lineNum">     152</span> <span class="tlaUNC">           0 :    logic                    buf_rdata_en;</span></span>
-<span id="L153"><span class="lineNum">     153</span>              : </span>
-<span id="L154"><span class="lineNum">     154</span> <span class="tlaUNC">           0 :    logic                    ahb_addr_clk_en, buf_rdata_clk_en;</span></span>
-<span id="L155"><span class="lineNum">     155</span> <span class="tlaUNC">           0 :    logic                    bus_clk, ahb_addr_clk, buf_rdata_clk;</span></span>
-<span id="L156"><span class="lineNum">     156</span>              :    // Command buffer is the holding station where we convert to AXI and send to core</span>
-<span id="L157"><span class="lineNum">     157</span> <span class="tlaUNC">           0 :    logic                    cmdbuf_wr_en, cmdbuf_rst;</span></span>
-<span id="L158"><span class="lineNum">     158</span> <span class="tlaUNC">           0 :    logic                    cmdbuf_full;</span></span>
-<span id="L159"><span class="lineNum">     159</span> <span class="tlaUNC">           0 :    logic                    cmdbuf_vld, cmdbuf_write;</span></span>
-<span id="L160"><span class="lineNum">     160</span> <span class="tlaUNC">           0 :    logic [1:0]              cmdbuf_size;</span></span>
-<span id="L161"><span class="lineNum">     161</span> <span class="tlaUNC">           0 :    logic [7:0]              cmdbuf_wstrb;</span></span>
-<span id="L162"><span class="lineNum">     162</span> <span class="tlaUNC">           0 :    logic [31:0]             cmdbuf_addr;</span></span>
-<span id="L163"><span class="lineNum">     163</span> <span class="tlaUNC">           0 :    logic [63:0]             cmdbuf_wdata;</span></span>
-<span id="L164"><span class="lineNum">     164</span>              : </span>
-<span id="L165"><span class="lineNum">     165</span>              : // FSM to control the bus states and when to block the hready and load the command buffer</span>
-<span id="L166"><span class="lineNum">     166</span> <span class="tlaGNC tlaBgGNC">           1 :    always_comb begin</span></span>
-<span id="L167"><span class="lineNum">     167</span> <span class="tlaGNC">           1 :       buf_nxtstate      = IDLE;</span></span>
-<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC">           1 :       buf_state_en      = 1'b0;</span></span>
-<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">           1 :       buf_rdata_en      = 1'b0;              // signal to load the buffer when the core sends read data back</span></span>
-<span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">           1 :       buf_read_error_in = 1'b0;              // signal indicating that an error came back with the read from the core</span></span>
-<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">           1 :       cmdbuf_wr_en      = 1'b0;              // all clear from the gasket to load the buffer with the command for reads, command/dat for writes</span></span>
-<span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">           1 :       case (buf_state)</span></span>
-<span id="L173"><span class="lineNum">     173</span> <span class="tlaGNC">     1995777 :          IDLE: begin  // No commands recieved</span></span>
-<span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC">     1995777 :                   buf_nxtstate      = ahb_hwrite ? WR : RD;</span></span>
-<span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC">     1995777 :                   buf_state_en      = ahb_hready &amp; ahb_htrans[1] &amp; ahb_hsel;                 // only transition on a valid hrtans</span></span>
-<span id="L176"><span class="lineNum">     176</span>              :           end</span>
-<span id="L177"><span class="lineNum">     177</span> <span class="tlaUNC tlaBgUNC">           0 :          WR: begin // Write command recieved last cycle</span></span>
-<span id="L178"><span class="lineNum">     178</span> <span class="tlaUNC">           0 :                   buf_nxtstate      = (ahb_hresp | (ahb_htrans[1:0] == 2'b0) | ~ahb_hsel) ? IDLE : ahb_hwrite  ? WR : RD;</span></span>
-<span id="L179"><span class="lineNum">     179</span> <span class="tlaUNC">           0 :                   buf_state_en      = (~cmdbuf_full | ahb_hresp) ;</span></span>
-<span id="L180"><span class="lineNum">     180</span> <span class="tlaUNC">           0 :                   cmdbuf_wr_en      = ~cmdbuf_full &amp; ~(ahb_hresp | ((ahb_htrans[1:0] == 2'b01) &amp; ahb_hsel));   // Dont send command to the buffer in case of an error or when the master is not ready with the data now.</span></span>
-<span id="L181"><span class="lineNum">     181</span>              :          end</span>
-<span id="L182"><span class="lineNum">     182</span> <span class="tlaUNC">           0 :          RD: begin // Read command recieved last cycle.</span></span>
-<span id="L183"><span class="lineNum">     183</span> <span class="tlaUNC">           0 :                  buf_nxtstate      = ahb_hresp ? IDLE :PEND;                                       // If error go to idle, else wait for read data</span></span>
-<span id="L184"><span class="lineNum">     184</span> <span class="tlaUNC">           0 :                  buf_state_en      = (~cmdbuf_full | ahb_hresp);                                   // only when command can go, or if its an error</span></span>
-<span id="L185"><span class="lineNum">     185</span> <span class="tlaUNC">           0 :                  cmdbuf_wr_en      = ~ahb_hresp &amp; ~cmdbuf_full;                                    // send command only when no error</span></span>
-<span id="L186"><span class="lineNum">     186</span>              :          end</span>
-<span id="L187"><span class="lineNum">     187</span> <span class="tlaUNC">           0 :          PEND: begin // Read Command has been sent. Waiting on Data.</span></span>
-<span id="L188"><span class="lineNum">     188</span> <span class="tlaUNC">           0 :                  buf_nxtstate      = IDLE;                                                          // go back for next command and present data next cycle</span></span>
-<span id="L189"><span class="lineNum">     189</span> <span class="tlaUNC">           0 :                  buf_state_en      = axi_rvalid &amp; ~cmdbuf_write;                                    // read data is back</span></span>
-<span id="L190"><span class="lineNum">     190</span> <span class="tlaUNC">           0 :                  buf_rdata_en      = buf_state_en;                                                  // buffer the read data coming back from core</span></span>
-<span id="L191"><span class="lineNum">     191</span> <span class="tlaUNC">           0 :                  buf_read_error_in = buf_state_en &amp; |axi_rresp[1:0];                                // buffer error flag if return has Error ( ECC )</span></span>
-<span id="L192"><span class="lineNum">     192</span>              :          end</span>
-<span id="L193"><span class="lineNum">     193</span>              :      endcase</span>
-<span id="L194"><span class="lineNum">     194</span>              :    end // always_comb begin</span>
-<span id="L195"><span class="lineNum">     195</span>              : </span>
-<span id="L196"><span class="lineNum">     196</span>              :     rvdffs_fpga #($bits(state_t)) state_reg (.*, .din(buf_nxtstate), .dout({buf_state}), .en(buf_state_en), .clk(bus_clk), .clken(bus_clk_en), .rawclk(clk));</span>
-<span id="L197"><span class="lineNum">     197</span>              : </span>
-<span id="L198"><span class="lineNum">     198</span>              :    assign master_wstrb[7:0]   = ({8{ahb_hsize_q[2:0] == 3'b0}}  &amp; (8'b1    &lt;&lt; ahb_haddr_q[2:0])) |</span>
-<span id="L199"><span class="lineNum">     199</span>              :                                 ({8{ahb_hsize_q[2:0] == 3'b1}}  &amp; (8'b11   &lt;&lt; ahb_haddr_q[2:0])) |</span>
-<span id="L200"><span class="lineNum">     200</span>              :                                 ({8{ahb_hsize_q[2:0] == 3'b10}} &amp; (8'b1111 &lt;&lt; ahb_haddr_q[2:0])) |</span>
-<span id="L201"><span class="lineNum">     201</span>              :                                 ({8{ahb_hsize_q[2:0] == 3'b11}} &amp; 8'b1111_1111);</span>
-<span id="L202"><span class="lineNum">     202</span>              : </span>
-<span id="L203"><span class="lineNum">     203</span>              :    // AHB signals</span>
-<span id="L204"><span class="lineNum">     204</span>              :    assign ahb_hreadyout       = ahb_hresp ? (ahb_hresp_q &amp; ~ahb_hready_q) :</span>
-<span id="L205"><span class="lineNum">     205</span>              :                                          ((~cmdbuf_full | (buf_state == IDLE)) &amp; ~(buf_state == RD | buf_state == PEND)  &amp; ~buf_read_error);</span>
-<span id="L206"><span class="lineNum">     206</span>              : </span>
-<span id="L207"><span class="lineNum">     207</span>              :    assign ahb_hready          = ahb_hreadyout &amp; ahb_hreadyin;</span>
-<span id="L208"><span class="lineNum">     208</span>              :    assign ahb_htrans_in[1:0]  = {2{ahb_hsel}} &amp; ahb_htrans[1:0];</span>
-<span id="L209"><span class="lineNum">     209</span>              :    assign ahb_hrdata[63:0]    = buf_rdata[63:0];</span>
-<span id="L210"><span class="lineNum">     210</span>              :    if (CHECK_RANGES) begin</span>
-<span id="L211"><span class="lineNum">     211</span>              :        assign ahb_hresp    = ((ahb_htrans_q[1:0] != 2'b0) &amp; (buf_state != IDLE)  &amp;</span>
-<span id="L212"><span class="lineNum">     212</span>              :                              ((~(ahb_addr_in_dccm | ahb_addr_in_iccm)) |                                                                                   // request not for ICCM or DCCM</span>
-<span id="L213"><span class="lineNum">     213</span>              :                              ((ahb_addr_in_iccm | (ahb_addr_in_dccm &amp;  ahb_hwrite_q)) &amp; ~((ahb_hsize_q[1:0] == 2'b10) | (ahb_hsize_q[1:0] == 2'b11))) |    // ICCM Rd/Wr OR DCCM Wr not the right size</span>
-<span id="L214"><span class="lineNum">     214</span>              :                              ((ahb_hsize_q[2:0] == 3'h1) &amp; ahb_haddr_q[0])   |                                                                             // HW size but unaligned</span>
-<span id="L215"><span class="lineNum">     215</span>              :                              ((ahb_hsize_q[2:0] == 3'h2) &amp; (|ahb_haddr_q[1:0])) |                                                                          // W size but unaligned</span>
-<span id="L216"><span class="lineNum">     216</span>              :                              ((ahb_hsize_q[2:0] == 3'h3) &amp; (|ahb_haddr_q[2:0])))) |                                                                        // DW size but unaligned</span>
-<span id="L217"><span class="lineNum">     217</span>              :                              buf_read_error |                                                                                                              // Read ECC error</span>
-<span id="L218"><span class="lineNum">     218</span>              :                              (ahb_hresp_q &amp; ~ahb_hready_q);</span>
-<span id="L219"><span class="lineNum">     219</span>              :    end else begin // !CHECK_RANGES</span>
-<span id="L220"><span class="lineNum">     220</span>              :        assign ahb_hresp    = ((ahb_htrans_q[1:0] != 2'b0) &amp; (buf_state != IDLE)  &amp;</span>
-<span id="L221"><span class="lineNum">     221</span>              :                              (((ahb_hsize_q[2:0] == 3'h1) &amp; ahb_haddr_q[0]) |       // HW size but unaligned</span>
-<span id="L222"><span class="lineNum">     222</span>              :                              ((ahb_hsize_q[2:0] == 3'h2) &amp; (|ahb_haddr_q[1:0])) |   // W size but unaligned</span>
-<span id="L223"><span class="lineNum">     223</span>              :                              ((ahb_hsize_q[2:0] == 3'h3) &amp; (|ahb_haddr_q[2:0])))) | // DW size but unaligned</span>
-<span id="L224"><span class="lineNum">     224</span>              :                              buf_read_error |                                       // Read ECC error</span>
-<span id="L225"><span class="lineNum">     225</span>              :                              (ahb_hresp_q &amp; ~ahb_hready_q);</span>
-<span id="L226"><span class="lineNum">     226</span>              :    end // CHECK_RANGES</span>
-<span id="L227"><span class="lineNum">     227</span>              : </span>
-<span id="L228"><span class="lineNum">     228</span>              :    // Buffer signals - needed for the read data and ECC error response</span>
-<span id="L229"><span class="lineNum">     229</span>              :    rvdff_fpga  #(.WIDTH(64)) buf_rdata_ff     (.din(axi_rdata[63:0]),   .dout(buf_rdata[63:0]), .clk(buf_rdata_clk), .clken(buf_rdata_clk_en), .rawclk(clk), .*);</span>
-<span id="L230"><span class="lineNum">     230</span>              :    rvdff_fpga  #(.WIDTH(1))  buf_read_error_ff(.din(buf_read_error_in), .dout(buf_read_error),  .clk(bus_clk),       .clken(bus_clk_en),       .rawclk(clk), .*);          // buf_read_error will be high only one cycle</span>
-<span id="L231"><span class="lineNum">     231</span>              : </span>
-<span id="L232"><span class="lineNum">     232</span>              :    // All the Master signals are captured before presenting it to the command buffer. We check for Hresp before sending it to the cmd buffer.</span>
-<span id="L233"><span class="lineNum">     233</span>              :    rvdff_fpga #(.WIDTH(1))  hresp_ff  (.din(ahb_hresp),          .dout(ahb_hresp_q),       .clk(bus_clk),      .clken(bus_clk_en),      .rawclk(clk), .*);</span>
-<span id="L234"><span class="lineNum">     234</span>              :    rvdff_fpga #(.WIDTH(1))  hready_ff (.din(ahb_hready),         .dout(ahb_hready_q),      .clk(bus_clk),      .clken(bus_clk_en),      .rawclk(clk), .*);</span>
-<span id="L235"><span class="lineNum">     235</span>              :    rvdff_fpga #(.WIDTH(2))  htrans_ff (.din(ahb_htrans_in[1:0]), .dout(ahb_htrans_q[1:0]), .clk(bus_clk),      .clken(bus_clk_en),      .rawclk(clk), .*);</span>
-<span id="L236"><span class="lineNum">     236</span>              :    rvdff_fpga #(.WIDTH(3))  hsize_ff  (.din(ahb_hsize[2:0]),     .dout(ahb_hsize_q[2:0]),  .clk(ahb_addr_clk), .clken(ahb_addr_clk_en), .rawclk(clk), .*);</span>
-<span id="L237"><span class="lineNum">     237</span>              :    rvdff_fpga #(.WIDTH(1))  hwrite_ff (.din(ahb_hwrite),         .dout(ahb_hwrite_q),      .clk(ahb_addr_clk), .clken(ahb_addr_clk_en), .rawclk(clk), .*);</span>
-<span id="L238"><span class="lineNum">     238</span>              :    rvdff_fpga #(.WIDTH(32)) haddr_ff  (.din(ahb_haddr[31:0]),    .dout(ahb_haddr_q[31:0]), .clk(ahb_addr_clk), .clken(ahb_addr_clk_en), .rawclk(clk), .*);</span>
-<span id="L239"><span class="lineNum">     239</span>              : </span>
-<span id="L240"><span class="lineNum">     240</span>              :    if (CHECK_RANGES) begin</span>
-<span id="L241"><span class="lineNum">     241</span>              :        // Address check  dccm</span>
-<span id="L242"><span class="lineNum">     242</span>              :        rvrangecheck #(.CCM_SADR(pt.DCCM_SADR),</span>
-<span id="L243"><span class="lineNum">     243</span>              :                       .CCM_SIZE(pt.DCCM_SIZE)) addr_dccm_rangecheck (</span>
-<span id="L244"><span class="lineNum">     244</span>              :           .addr(ahb_haddr_q[31:0]),</span>
-<span id="L245"><span class="lineNum">     245</span>              :           .in_range(ahb_addr_in_dccm),</span>
-<span id="L246"><span class="lineNum">     246</span>              :           .in_region(ahb_addr_in_dccm_region_nc)</span>
-<span id="L247"><span class="lineNum">     247</span>              :        );</span>
-<span id="L248"><span class="lineNum">     248</span>              : </span>
-<span id="L249"><span class="lineNum">     249</span>              :       // Address check  iccm</span>
-<span id="L250"><span class="lineNum">     250</span>              :       if (pt.ICCM_ENABLE == 1) begin: GenICCM</span>
-<span id="L251"><span class="lineNum">     251</span>              :          rvrangecheck #(.CCM_SADR(pt.ICCM_SADR),</span>
-<span id="L252"><span class="lineNum">     252</span>              :                         .CCM_SIZE(pt.ICCM_SIZE)) addr_iccm_rangecheck (</span>
-<span id="L253"><span class="lineNum">     253</span>              :             .addr(ahb_haddr_q[31:0]),</span>
-<span id="L254"><span class="lineNum">     254</span>              :             .in_range(ahb_addr_in_iccm),</span>
-<span id="L255"><span class="lineNum">     255</span>              :             .in_region(ahb_addr_in_iccm_region_nc)</span>
-<span id="L256"><span class="lineNum">     256</span>              :          );</span>
-<span id="L257"><span class="lineNum">     257</span>              :       end else begin: GenNoICCM</span>
-<span id="L258"><span class="lineNum">     258</span>              :          assign ahb_addr_in_iccm = '0;</span>
-<span id="L259"><span class="lineNum">     259</span>              :          assign ahb_addr_in_iccm_region_nc = '0;</span>
-<span id="L260"><span class="lineNum">     260</span>              :       end</span>
-<span id="L261"><span class="lineNum">     261</span>              : </span>
-<span id="L262"><span class="lineNum">     262</span>              :       // PIC memory address check</span>
-<span id="L263"><span class="lineNum">     263</span>              :       rvrangecheck #(.CCM_SADR(pt.PIC_BASE_ADDR),</span>
-<span id="L264"><span class="lineNum">     264</span>              :                      .CCM_SIZE(pt.PIC_SIZE)) addr_pic_rangecheck (</span>
-<span id="L265"><span class="lineNum">     265</span>              :          .addr(ahb_haddr_q[31:0]),</span>
-<span id="L266"><span class="lineNum">     266</span>              :          .in_range(ahb_addr_in_pic),</span>
-<span id="L267"><span class="lineNum">     267</span>              :          .in_region(ahb_addr_in_pic_region_nc)</span>
-<span id="L268"><span class="lineNum">     268</span>              :       );</span>
-<span id="L269"><span class="lineNum">     269</span>              :    end // CHECK_RANGES</span>
+<span id="L148"><span class="lineNum">     148</span>              :    // signals needed for the read data coming back from the core and to block any further commands as AHB is a blocking bus</span>
+<span id="L149"><span class="lineNum">     149</span> <span class="tlaUNC">           0 :    logic                    buf_rdata_en;</span></span>
+<span id="L150"><span class="lineNum">     150</span>              : </span>
+<span id="L151"><span class="lineNum">     151</span> <span class="tlaUNC">           0 :    logic                    ahb_addr_clk_en, buf_rdata_clk_en;</span></span>
+<span id="L152"><span class="lineNum">     152</span> <span class="tlaUNC">           0 :    logic                    bus_clk, ahb_addr_clk, buf_rdata_clk;</span></span>
+<span id="L153"><span class="lineNum">     153</span>              :    // Command buffer is the holding station where we convert to AXI and send to core</span>
+<span id="L154"><span class="lineNum">     154</span> <span class="tlaUNC">           0 :    logic                    cmdbuf_wr_en, cmdbuf_rst;</span></span>
+<span id="L155"><span class="lineNum">     155</span> <span class="tlaUNC">           0 :    logic                    cmdbuf_full;</span></span>
+<span id="L156"><span class="lineNum">     156</span> <span class="tlaUNC">           0 :    logic                    cmdbuf_vld, cmdbuf_write;</span></span>
+<span id="L157"><span class="lineNum">     157</span> <span class="tlaUNC">           0 :    logic [1:0]              cmdbuf_size;</span></span>
+<span id="L158"><span class="lineNum">     158</span> <span class="tlaUNC">           0 :    logic [7:0]              cmdbuf_wstrb;</span></span>
+<span id="L159"><span class="lineNum">     159</span> <span class="tlaUNC">           0 :    logic [31:0]             cmdbuf_addr;</span></span>
+<span id="L160"><span class="lineNum">     160</span> <span class="tlaUNC">           0 :    logic [63:0]             cmdbuf_wdata;</span></span>
+<span id="L161"><span class="lineNum">     161</span>              : </span>
+<span id="L162"><span class="lineNum">     162</span>              : // FSM to control the bus states and when to block the hready and load the command buffer</span>
+<span id="L163"><span class="lineNum">     163</span> <span class="tlaGNC tlaBgGNC">           1 :    always_comb begin</span></span>
+<span id="L164"><span class="lineNum">     164</span> <span class="tlaGNC">           1 :       buf_nxtstate      = IDLE;</span></span>
+<span id="L165"><span class="lineNum">     165</span> <span class="tlaGNC">           1 :       buf_state_en      = 1'b0;</span></span>
+<span id="L166"><span class="lineNum">     166</span> <span class="tlaGNC">           1 :       buf_rdata_en      = 1'b0;              // signal to load the buffer when the core sends read data back</span></span>
+<span id="L167"><span class="lineNum">     167</span> <span class="tlaGNC">           1 :       buf_read_error_in = 1'b0;              // signal indicating that an error came back with the read from the core</span></span>
+<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC">           1 :       cmdbuf_wr_en      = 1'b0;              // all clear from the gasket to load the buffer with the command for reads, command/dat for writes</span></span>
+<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">           1 :       case (buf_state)</span></span>
+<span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">     1662896 :          IDLE: begin  // No commands recieved</span></span>
+<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">     1662896 :                   buf_nxtstate      = ahb_hwrite ? WR : RD;</span></span>
+<span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">     1662896 :                   buf_state_en      = ahb_hready &amp; ahb_htrans[1] &amp; ahb_hsel;                 // only transition on a valid hrtans</span></span>
+<span id="L173"><span class="lineNum">     173</span>              :           end</span>
+<span id="L174"><span class="lineNum">     174</span> <span class="tlaUNC tlaBgUNC">           0 :          WR: begin // Write command recieved last cycle</span></span>
+<span id="L175"><span class="lineNum">     175</span> <span class="tlaUNC">           0 :                   buf_nxtstate      = (ahb_hresp | (ahb_htrans[1:0] == 2'b0) | ~ahb_hsel) ? IDLE : ahb_hwrite  ? WR : RD;</span></span>
+<span id="L176"><span class="lineNum">     176</span> <span class="tlaUNC">           0 :                   buf_state_en      = (~cmdbuf_full | ahb_hresp) ;</span></span>
+<span id="L177"><span class="lineNum">     177</span> <span class="tlaUNC">           0 :                   cmdbuf_wr_en      = ~cmdbuf_full &amp; ~(ahb_hresp | ((ahb_htrans[1:0] == 2'b01) &amp; ahb_hsel));   // Dont send command to the buffer in case of an error or when the master is not ready with the data now.</span></span>
+<span id="L178"><span class="lineNum">     178</span>              :          end</span>
+<span id="L179"><span class="lineNum">     179</span> <span class="tlaUNC">           0 :          RD: begin // Read command recieved last cycle.</span></span>
+<span id="L180"><span class="lineNum">     180</span> <span class="tlaUNC">           0 :                  buf_nxtstate      = ahb_hresp ? IDLE :PEND;                                       // If error go to idle, else wait for read data</span></span>
+<span id="L181"><span class="lineNum">     181</span> <span class="tlaUNC">           0 :                  buf_state_en      = (~cmdbuf_full | ahb_hresp);                                   // only when command can go, or if its an error</span></span>
+<span id="L182"><span class="lineNum">     182</span> <span class="tlaUNC">           0 :                  cmdbuf_wr_en      = ~ahb_hresp &amp; ~cmdbuf_full;                                    // send command only when no error</span></span>
+<span id="L183"><span class="lineNum">     183</span>              :          end</span>
+<span id="L184"><span class="lineNum">     184</span> <span class="tlaUNC">           0 :          PEND: begin // Read Command has been sent. Waiting on Data.</span></span>
+<span id="L185"><span class="lineNum">     185</span> <span class="tlaUNC">           0 :                  buf_nxtstate      = IDLE;                                                          // go back for next command and present data next cycle</span></span>
+<span id="L186"><span class="lineNum">     186</span> <span class="tlaUNC">           0 :                  buf_state_en      = axi_rvalid &amp; ~cmdbuf_write;                                    // read data is back</span></span>
+<span id="L187"><span class="lineNum">     187</span> <span class="tlaUNC">           0 :                  buf_rdata_en      = buf_state_en;                                                  // buffer the read data coming back from core</span></span>
+<span id="L188"><span class="lineNum">     188</span> <span class="tlaUNC">           0 :                  buf_read_error_in = buf_state_en &amp; |axi_rresp[1:0];                                // buffer error flag if return has Error ( ECC )</span></span>
+<span id="L189"><span class="lineNum">     189</span>              :          end</span>
+<span id="L190"><span class="lineNum">     190</span>              :      endcase</span>
+<span id="L191"><span class="lineNum">     191</span>              :    end // always_comb begin</span>
+<span id="L192"><span class="lineNum">     192</span>              : </span>
+<span id="L193"><span class="lineNum">     193</span>              :     rvdffs_fpga #($bits(state_t)) state_reg (.*, .din(buf_nxtstate), .dout({buf_state}), .en(buf_state_en), .clk(bus_clk), .clken(bus_clk_en), .rawclk(clk));</span>
+<span id="L194"><span class="lineNum">     194</span>              : </span>
+<span id="L195"><span class="lineNum">     195</span>              :    assign master_wstrb[7:0]   = ({8{ahb_hsize_q[2:0] == 3'b0}}  &amp; (8'b1    &lt;&lt; ahb_haddr_q[2:0])) |</span>
+<span id="L196"><span class="lineNum">     196</span>              :                                 ({8{ahb_hsize_q[2:0] == 3'b1}}  &amp; (8'b11   &lt;&lt; ahb_haddr_q[2:0])) |</span>
+<span id="L197"><span class="lineNum">     197</span>              :                                 ({8{ahb_hsize_q[2:0] == 3'b10}} &amp; (8'b1111 &lt;&lt; ahb_haddr_q[2:0])) |</span>
+<span id="L198"><span class="lineNum">     198</span>              :                                 ({8{ahb_hsize_q[2:0] == 3'b11}} &amp; 8'b1111_1111);</span>
+<span id="L199"><span class="lineNum">     199</span>              : </span>
+<span id="L200"><span class="lineNum">     200</span>              :    // AHB signals</span>
+<span id="L201"><span class="lineNum">     201</span>              :    assign ahb_hreadyout       = ahb_hresp ? (ahb_hresp_q &amp; ~ahb_hready_q) :</span>
+<span id="L202"><span class="lineNum">     202</span>              :                                          ((~cmdbuf_full | (buf_state == IDLE)) &amp; ~(buf_state == RD | buf_state == PEND)  &amp; ~buf_read_error);</span>
+<span id="L203"><span class="lineNum">     203</span>              : </span>
+<span id="L204"><span class="lineNum">     204</span>              :    assign ahb_hready          = ahb_hreadyout &amp; ahb_hreadyin;</span>
+<span id="L205"><span class="lineNum">     205</span>              :    assign ahb_htrans_in[1:0]  = {2{ahb_hsel}} &amp; ahb_htrans[1:0];</span>
+<span id="L206"><span class="lineNum">     206</span>              :    assign ahb_hrdata[63:0]    = buf_rdata[63:0];</span>
+<span id="L207"><span class="lineNum">     207</span>              : </span>
+<span id="L208"><span class="lineNum">     208</span>              :    if (CHECK_RANGES) begin</span>
+<span id="L209"><span class="lineNum">     209</span>              :        // Miscellaneous signals</span>
+<span id="L210"><span class="lineNum">     210</span>              :        logic                    ahb_addr_in_dccm, ahb_addr_in_iccm, ahb_addr_in_pic;</span>
+<span id="L211"><span class="lineNum">     211</span>              :        logic                    ahb_addr_in_dccm_region_nc, ahb_addr_in_iccm_region_nc, ahb_addr_in_pic_region_nc;</span>
+<span id="L212"><span class="lineNum">     212</span>              : </span>
+<span id="L213"><span class="lineNum">     213</span>              :        assign ahb_hresp    = ((ahb_htrans_q[1:0] != 2'b0) &amp; (buf_state != IDLE)  &amp;</span>
+<span id="L214"><span class="lineNum">     214</span>              :                              ((~(ahb_addr_in_dccm | ahb_addr_in_iccm)) |                                                                                   // request not for ICCM or DCCM</span>
+<span id="L215"><span class="lineNum">     215</span>              :                              ((ahb_addr_in_iccm | (ahb_addr_in_dccm &amp;  ahb_hwrite_q)) &amp; ~((ahb_hsize_q[1:0] == 2'b10) | (ahb_hsize_q[1:0] == 2'b11))) |    // ICCM Rd/Wr OR DCCM Wr not the right size</span>
+<span id="L216"><span class="lineNum">     216</span>              :                              ((ahb_hsize_q[2:0] == 3'h1) &amp; ahb_haddr_q[0])   |                                                                             // HW size but unaligned</span>
+<span id="L217"><span class="lineNum">     217</span>              :                              ((ahb_hsize_q[2:0] == 3'h2) &amp; (|ahb_haddr_q[1:0])) |                                                                          // W size but unaligned</span>
+<span id="L218"><span class="lineNum">     218</span>              :                              ((ahb_hsize_q[2:0] == 3'h3) &amp; (|ahb_haddr_q[2:0])))) |                                                                        // DW size but unaligned</span>
+<span id="L219"><span class="lineNum">     219</span>              :                              buf_read_error |                                                                                                              // Read ECC error</span>
+<span id="L220"><span class="lineNum">     220</span>              :                              (ahb_hresp_q &amp; ~ahb_hready_q);</span>
+<span id="L221"><span class="lineNum">     221</span>              : </span>
+<span id="L222"><span class="lineNum">     222</span>              :        // Address check  dccm</span>
+<span id="L223"><span class="lineNum">     223</span>              :        rvrangecheck #(.CCM_SADR(pt.DCCM_SADR),</span>
+<span id="L224"><span class="lineNum">     224</span>              :                       .CCM_SIZE(pt.DCCM_SIZE)) addr_dccm_rangecheck (</span>
+<span id="L225"><span class="lineNum">     225</span>              :           .addr(ahb_haddr_q[31:0]),</span>
+<span id="L226"><span class="lineNum">     226</span>              :           .in_range(ahb_addr_in_dccm),</span>
+<span id="L227"><span class="lineNum">     227</span>              :           .in_region(ahb_addr_in_dccm_region_nc)</span>
+<span id="L228"><span class="lineNum">     228</span>              :        );</span>
+<span id="L229"><span class="lineNum">     229</span>              : </span>
+<span id="L230"><span class="lineNum">     230</span>              :       // Address check  iccm</span>
+<span id="L231"><span class="lineNum">     231</span>              :       if (pt.ICCM_ENABLE == 1) begin: GenICCM</span>
+<span id="L232"><span class="lineNum">     232</span>              :          rvrangecheck #(.CCM_SADR(pt.ICCM_SADR),</span>
+<span id="L233"><span class="lineNum">     233</span>              :                         .CCM_SIZE(pt.ICCM_SIZE)) addr_iccm_rangecheck (</span>
+<span id="L234"><span class="lineNum">     234</span>              :             .addr(ahb_haddr_q[31:0]),</span>
+<span id="L235"><span class="lineNum">     235</span>              :             .in_range(ahb_addr_in_iccm),</span>
+<span id="L236"><span class="lineNum">     236</span>              :             .in_region(ahb_addr_in_iccm_region_nc)</span>
+<span id="L237"><span class="lineNum">     237</span>              :          );</span>
+<span id="L238"><span class="lineNum">     238</span>              :       end else begin: GenNoICCM</span>
+<span id="L239"><span class="lineNum">     239</span>              :          assign ahb_addr_in_iccm = '0;</span>
+<span id="L240"><span class="lineNum">     240</span>              :          assign ahb_addr_in_iccm_region_nc = '0;</span>
+<span id="L241"><span class="lineNum">     241</span>              :       end</span>
+<span id="L242"><span class="lineNum">     242</span>              : </span>
+<span id="L243"><span class="lineNum">     243</span>              :       // PIC memory address check</span>
+<span id="L244"><span class="lineNum">     244</span>              :       rvrangecheck #(.CCM_SADR(pt.PIC_BASE_ADDR),</span>
+<span id="L245"><span class="lineNum">     245</span>              :                      .CCM_SIZE(pt.PIC_SIZE)) addr_pic_rangecheck (</span>
+<span id="L246"><span class="lineNum">     246</span>              :          .addr(ahb_haddr_q[31:0]),</span>
+<span id="L247"><span class="lineNum">     247</span>              :          .in_range(ahb_addr_in_pic),</span>
+<span id="L248"><span class="lineNum">     248</span>              :          .in_region(ahb_addr_in_pic_region_nc)</span>
+<span id="L249"><span class="lineNum">     249</span>              :       );</span>
+<span id="L250"><span class="lineNum">     250</span>              :    end else begin // !CHECK_RANGES</span>
+<span id="L251"><span class="lineNum">     251</span>              :        assign ahb_hresp    = ((ahb_htrans_q[1:0] != 2'b0) &amp; (buf_state != IDLE)  &amp;</span>
+<span id="L252"><span class="lineNum">     252</span>              :                              (((ahb_hsize_q[2:0] == 3'h1) &amp; ahb_haddr_q[0]) |       // HW size but unaligned</span>
+<span id="L253"><span class="lineNum">     253</span>              :                              ((ahb_hsize_q[2:0] == 3'h2) &amp; (|ahb_haddr_q[1:0])) |   // W size but unaligned</span>
+<span id="L254"><span class="lineNum">     254</span>              :                              ((ahb_hsize_q[2:0] == 3'h3) &amp; (|ahb_haddr_q[2:0])))) | // DW size but unaligned</span>
+<span id="L255"><span class="lineNum">     255</span>              :                              buf_read_error |                                       // Read ECC error</span>
+<span id="L256"><span class="lineNum">     256</span>              :                              (ahb_hresp_q &amp; ~ahb_hready_q);</span>
+<span id="L257"><span class="lineNum">     257</span>              :    end // CHECK_RANGES</span>
+<span id="L258"><span class="lineNum">     258</span>              : </span>
+<span id="L259"><span class="lineNum">     259</span>              :    // Buffer signals - needed for the read data and ECC error response</span>
+<span id="L260"><span class="lineNum">     260</span>              :    rvdff_fpga  #(.WIDTH(64)) buf_rdata_ff     (.din(axi_rdata[63:0]),   .dout(buf_rdata[63:0]), .clk(buf_rdata_clk), .clken(buf_rdata_clk_en), .rawclk(clk), .*);</span>
+<span id="L261"><span class="lineNum">     261</span>              :    rvdff_fpga  #(.WIDTH(1))  buf_read_error_ff(.din(buf_read_error_in), .dout(buf_read_error),  .clk(bus_clk),       .clken(bus_clk_en),       .rawclk(clk), .*);          // buf_read_error will be high only one cycle</span>
+<span id="L262"><span class="lineNum">     262</span>              : </span>
+<span id="L263"><span class="lineNum">     263</span>              :    // All the Master signals are captured before presenting it to the command buffer. We check for Hresp before sending it to the cmd buffer.</span>
+<span id="L264"><span class="lineNum">     264</span>              :    rvdff_fpga #(.WIDTH(1))  hresp_ff  (.din(ahb_hresp),          .dout(ahb_hresp_q),       .clk(bus_clk),      .clken(bus_clk_en),      .rawclk(clk), .*);</span>
+<span id="L265"><span class="lineNum">     265</span>              :    rvdff_fpga #(.WIDTH(1))  hready_ff (.din(ahb_hready),         .dout(ahb_hready_q),      .clk(bus_clk),      .clken(bus_clk_en),      .rawclk(clk), .*);</span>
+<span id="L266"><span class="lineNum">     266</span>              :    rvdff_fpga #(.WIDTH(2))  htrans_ff (.din(ahb_htrans_in[1:0]), .dout(ahb_htrans_q[1:0]), .clk(bus_clk),      .clken(bus_clk_en),      .rawclk(clk), .*);</span>
+<span id="L267"><span class="lineNum">     267</span>              :    rvdff_fpga #(.WIDTH(3))  hsize_ff  (.din(ahb_hsize[2:0]),     .dout(ahb_hsize_q[2:0]),  .clk(ahb_addr_clk), .clken(ahb_addr_clk_en), .rawclk(clk), .*);</span>
+<span id="L268"><span class="lineNum">     268</span>              :    rvdff_fpga #(.WIDTH(1))  hwrite_ff (.din(ahb_hwrite),         .dout(ahb_hwrite_q),      .clk(ahb_addr_clk), .clken(ahb_addr_clk_en), .rawclk(clk), .*);</span>
+<span id="L269"><span class="lineNum">     269</span>              :    rvdff_fpga #(.WIDTH(32)) haddr_ff  (.din(ahb_haddr[31:0]),    .dout(ahb_haddr_q[31:0]), .clk(ahb_addr_clk), .clken(ahb_addr_clk_en), .rawclk(clk), .*);</span>
 <span id="L270"><span class="lineNum">     270</span>              : </span>
 <span id="L271"><span class="lineNum">     271</span>              :    // Command Buffer - Holding for the commands to be sent for the AXI. It will be converted to the AXI signals.</span>
 <span id="L272"><span class="lineNum">     272</span>              :    assign cmdbuf_rst         = (((axi_awvalid &amp; axi_awready) | (axi_arvalid &amp; axi_arready)) &amp; ~cmdbuf_wr_en) | (ahb_hresp &amp; ~cmdbuf_write);</span>
