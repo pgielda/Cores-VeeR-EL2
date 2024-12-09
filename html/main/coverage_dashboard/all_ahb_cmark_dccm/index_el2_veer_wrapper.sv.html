@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    04-12-2024
+                    09-12-2024
                 </td>
                 <td></td>
                 
@@ -131,7 +131,7 @@
 <span id="L27"><span class="lineNum">      27</span>              : `include "el2_param.vh"</span>
 <span id="L28"><span class="lineNum">      28</span>              : )</span>
 <span id="L29"><span class="lineNum">      29</span>              : (</span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     3952958 :    input logic                             clk,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     3952960 :    input logic                             clk,</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           1 :    input logic                             rst_l,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           1 :    input logic                             dbg_rst_l,</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:1]                      rst_vec,</span></span>
@@ -548,8 +548,8 @@
 <span id="L444"><span class="lineNum">     444</span>              :    /* verilator coverage_on */</span>
 <span id="L445"><span class="lineNum">     445</span>              : );</span>
 <span id="L446"><span class="lineNum">     446</span>              : </span>
-<span id="L447"><span class="lineNum">     447</span> <span class="tlaGNC">     3952958 :    logic                             active_l2clk;</span></span>
-<span id="L448"><span class="lineNum">     448</span> <span class="tlaGNC">     3952958 :    logic                             free_l2clk;</span></span>
+<span id="L447"><span class="lineNum">     447</span> <span class="tlaGNC">     3952960 :    logic                             active_l2clk;</span></span>
+<span id="L448"><span class="lineNum">     448</span> <span class="tlaGNC">     3952960 :    logic                             free_l2clk;</span></span>
 <span id="L449"><span class="lineNum">     449</span>              : </span>
 <span id="L450"><span class="lineNum">     450</span>              :    // DCCM ports</span>
 <span id="L451"><span class="lineNum">     451</span> <span class="tlaGNC">       29644 :    logic         dccm_wren;</span></span>
@@ -568,8 +568,8 @@
 <span id="L464"><span class="lineNum">     464</span>              : </span>
 <span id="L465"><span class="lineNum">     465</span>              :    // Icache &amp; Itag ports</span>
 <span id="L466"><span class="lineNum">     466</span> <span class="tlaGNC">           5 :    logic [31:1]  ic_rw_addr;</span></span>
-<span id="L467"><span class="lineNum">     467</span> <span class="tlaGNC">      231030 :    logic [pt.ICACHE_NUM_WAYS-1:0]   ic_wr_en  ;     // Which way to write</span></span>
-<span id="L468"><span class="lineNum">     468</span> <span class="tlaGNC">      305545 :    logic         ic_rd_en ;</span></span>
+<span id="L467"><span class="lineNum">     467</span> <span class="tlaGNC">      231031 :    logic [pt.ICACHE_NUM_WAYS-1:0]   ic_wr_en  ;     // Which way to write</span></span>
+<span id="L468"><span class="lineNum">     468</span> <span class="tlaGNC">      305546 :    logic         ic_rd_en ;</span></span>
 <span id="L469"><span class="lineNum">     469</span>              : </span>
 <span id="L470"><span class="lineNum">     470</span>              : </span>
 <span id="L471"><span class="lineNum">     471</span> <span class="tlaGNC">      295703 :    logic [pt.ICACHE_NUM_WAYS-1:0]   ic_tag_valid;   // Valid from the I$ tag valid outside (in flops).</span></span>

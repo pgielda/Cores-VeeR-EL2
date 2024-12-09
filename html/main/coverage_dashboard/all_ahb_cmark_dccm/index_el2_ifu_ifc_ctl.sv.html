@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    04-12-2024
+                    09-12-2024
                 </td>
                 <td></td>
                 
@@ -130,8 +130,8 @@
 <span id="L26"><span class="lineNum">      26</span>              : `include "el2_param.vh"</span>
 <span id="L27"><span class="lineNum">      27</span>              :  )</span>
 <span id="L28"><span class="lineNum">      28</span>              :   (</span>
-<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC tlaBgGNC">     3952958 :    input logic clk,                         // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">     3952958 :    input logic free_l2clk,                  // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC tlaBgGNC">     3952960 :    input logic clk,                         // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">     3952960 :    input logic free_l2clk,                  // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
 <span id="L31"><span class="lineNum">      31</span>              : </span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           1 :    input logic rst_l, // reset enable, from core pin</span></span>
 <span id="L33"><span class="lineNum">      33</span>              :    // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
@@ -153,7 +153,7 @@
 <span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">       33368 :    input logic [31:1] ifu_bp_btb_target_f, //  predicted target PC</span></span>
 <span id="L50"><span class="lineNum">      50</span>              : </span>
 <span id="L51"><span class="lineNum">      51</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic ic_dma_active, // IC DMA active, stop fetching</span></span>
-<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC tlaBgGNC">      265540 :    input logic ic_write_stall, // IC is writing, stop fetching</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC tlaBgGNC">      265541 :    input logic ic_write_stall, // IC is writing, stop fetching</span></span>
 <span id="L53"><span class="lineNum">      53</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic dma_iccm_stall_any, // force a stall in the fetch pipe for DMA ICCM access</span></span>
 <span id="L54"><span class="lineNum">      54</span>              : </span>
 <span id="L55"><span class="lineNum">      55</span> <span class="tlaUNC">           0 :    input logic [31:0]  dec_tlu_mrac_ff ,   // side_effect and cacheable for each region</span></span>
@@ -166,7 +166,7 @@
 <span id="L62"><span class="lineNum">      62</span> <span class="tlaGNC">      105409 :    output logic  ifu_pmu_fetch_stall, // pmu event measuring fetch stall</span></span>
 <span id="L63"><span class="lineNum">      63</span>              : </span>
 <span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC">           2 :    output logic                       ifc_fetch_uncacheable_bf,      // The fetch request is uncacheable space. BF stage</span></span>
-<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC">      336635 :    output logic                      ifc_fetch_req_bf,              // Fetch request. Comes with the address.  BF stage</span></span>
+<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC">      336636 :    output logic                      ifc_fetch_req_bf,              // Fetch request. Comes with the address.  BF stage</span></span>
 <span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC">           5 :    output logic                       ifc_fetch_req_bf_raw,          // Fetch request without some qualifications. Used for clock-gating. BF stage</span></span>
 <span id="L67"><span class="lineNum">      67</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic                       ifc_iccm_access_bf,            // This request is to the ICCM. Do not generate misses to the bus.</span></span>
 <span id="L68"><span class="lineNum">      68</span> <span class="tlaUNC">           0 :    output logic                       ifc_region_acc_fault_bf,       // Access fault. in ICCM region but offset is outside defined ICCM.</span></span>
@@ -183,7 +183,7 @@
 <span id="L79"><span class="lineNum">      79</span> <span class="tlaGNC">       99402 :    logic     fb_full_f_ns, fb_full_f;</span></span>
 <span id="L80"><span class="lineNum">      80</span> <span class="tlaGNC">           6 :    logic     fb_right, fb_right2, fb_left, wfm, idle;</span></span>
 <span id="L81"><span class="lineNum">      81</span> <span class="tlaGNC">      169040 :    logic     sel_last_addr_bf, sel_next_addr_bf;</span></span>
-<span id="L82"><span class="lineNum">      82</span> <span class="tlaGNC">      301484 :    logic     miss_f, miss_a;</span></span>
+<span id="L82"><span class="lineNum">      82</span> <span class="tlaGNC">      301485 :    logic     miss_f, miss_a;</span></span>
 <span id="L83"><span class="lineNum">      83</span> <span class="tlaUNC tlaBgUNC">           0 :    logic     flush_fb, dma_iccm_stall_any_f;</span></span>
 <span id="L84"><span class="lineNum">      84</span> <span class="tlaGNC tlaBgGNC">           4 :    logic     mb_empty_mod, goto_idle, leave_idle;</span></span>
 <span id="L85"><span class="lineNum">      85</span> <span class="tlaGNC">      332185 :    logic     fetch_bf_en;</span></span>
