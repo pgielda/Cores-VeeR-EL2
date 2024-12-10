@@ -5,6 +5,7 @@
  * [all coverage](external:coverage_dashboard/all/index.html)
 
 ## Individual test reports
+ * [ahb_bitmanip](external:coverage_dashboard/all_ahb_bitmanip/index.html)
  * [ahb_cmark](external:coverage_dashboard/all_ahb_cmark/index.html)
  * [ahb_cmark_dccm](external:coverage_dashboard/all_ahb_cmark_dccm/index.html)
  * [ahb_cmark_iccm](external:coverage_dashboard/all_ahb_cmark_iccm/index.html)
@@ -24,6 +25,7 @@
  * [ahb_perf_counters](external:coverage_dashboard/all_ahb_perf_counters/index.html)
  * [ahb_pmp](external:coverage_dashboard/all_ahb_pmp/index.html)
  * [ahb_write_unaligned](external:coverage_dashboard/all_ahb_write_unaligned/index.html)
+ * [axi_bitmanip](external:coverage_dashboard/all_axi_bitmanip/index.html)
  * [axi_clk_override](external:coverage_dashboard/all_axi_clk_override/index.html)
  * [axi_cmark](external:coverage_dashboard/all_axi_cmark/index.html)
  * [axi_cmark_dccm](external:coverage_dashboard/all_axi_cmark_dccm/index.html)
