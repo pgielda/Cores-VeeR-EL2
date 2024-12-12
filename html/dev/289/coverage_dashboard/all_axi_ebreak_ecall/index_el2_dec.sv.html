@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    11-12-2024
+                    12-12-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ffea00;">
-        46.0%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ffec00;">
+        46.4%
     </td>
     <td class="headerCovSummaryEntry">
-        116
+        117
     </td>
     <td class="headerCovSummaryEntry">
         252
@@ -136,10 +136,10 @@
 <span id="L32"><span class="lineNum">      32</span>              : #(</span>
 <span id="L33"><span class="lineNum">      33</span>              :     `include "el2_param.vh"</span>
 <span id="L34"><span class="lineNum">      34</span>              : ) (</span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">        3728 :     input logic clk,                          // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">        3728 :     input logic active_clk,                   // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
-<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">        3728 :     input logic free_clk,                     // Clock always.                  Through two clock headers. For flops without second clock header built in.</span></span>
-<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">        3728 :     input logic free_l2clk,                   // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">        3632 :     input logic clk,                          // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">        3632 :     input logic active_clk,                   // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">        3632 :     input logic free_clk,                     // Clock always.                  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">        3632 :     input logic free_l2clk,                   // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
 <span id="L39"><span class="lineNum">      39</span>              : </span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic lsu_fastint_stall_any,        // needed by lsu for 2nd pass of dma with ecc correction, stall next cycle</span></span>
 <span id="L41"><span class="lineNum">      41</span>              : </span>
@@ -188,11 +188,11 @@
 <span id="L84"><span class="lineNum">      84</span> <span class="tlaUNC">           0 :     input logic [pt.LSU_NUM_NBLOAD_WIDTH-1:0] lsu_nonblock_load_data_tag,  // -&gt; corresponding tag</span></span>
 <span id="L85"><span class="lineNum">      85</span> <span class="tlaUNC">           0 :     input logic [31:0] lsu_nonblock_load_data,  // nonblock load data</span></span>
 <span id="L86"><span class="lineNum">      86</span>              : </span>
-<span id="L87"><span class="lineNum">      87</span> <span class="tlaGNC tlaBgGNC">          92 :     input logic lsu_pmu_bus_trxn,          // D side bus transaction</span></span>
+<span id="L87"><span class="lineNum">      87</span> <span class="tlaGNC tlaBgGNC">         104 :     input logic lsu_pmu_bus_trxn,          // D side bus transaction</span></span>
 <span id="L88"><span class="lineNum">      88</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic lsu_pmu_bus_misaligned,    // D side bus misaligned</span></span>
 <span id="L89"><span class="lineNum">      89</span> <span class="tlaUNC">           0 :     input logic lsu_pmu_bus_error,         // D side bus error</span></span>
-<span id="L90"><span class="lineNum">      90</span> <span class="tlaUNC">           0 :     input logic lsu_pmu_bus_busy,          // D side bus busy</span></span>
-<span id="L91"><span class="lineNum">      91</span> <span class="tlaUNC">           0 :     input logic lsu_pmu_misaligned_m,      // D side load or store misaligned</span></span>
+<span id="L90"><span class="lineNum">      90</span> <span class="tlaGNC tlaBgGNC">          12 :     input logic lsu_pmu_bus_busy,          // D side bus busy</span></span>
+<span id="L91"><span class="lineNum">      91</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic lsu_pmu_misaligned_m,      // D side load or store misaligned</span></span>
 <span id="L92"><span class="lineNum">      92</span> <span class="tlaUNC">           0 :     input logic lsu_pmu_load_external_m,   // D side bus load</span></span>
 <span id="L93"><span class="lineNum">      93</span> <span class="tlaGNC tlaBgGNC">          92 :     input logic lsu_pmu_store_external_m,  // D side bus store</span></span>
 <span id="L94"><span class="lineNum">      94</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic dma_pmu_dccm_read,         // DMA DCCM read</span></span>
@@ -208,8 +208,8 @@
 <span id="L104"><span class="lineNum">     104</span> <span class="tlaGNC">         218 :     input logic ifu_pmu_ic_miss,        // icache miss</span></span>
 <span id="L105"><span class="lineNum">     105</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic ifu_pmu_ic_hit,         // icache hit</span></span>
 <span id="L106"><span class="lineNum">     106</span> <span class="tlaUNC">           0 :     input logic ifu_pmu_bus_error,      // Instruction side bus error</span></span>
-<span id="L107"><span class="lineNum">     107</span> <span class="tlaGNC tlaBgGNC">        1439 :     input logic ifu_pmu_bus_busy,       // Instruction side bus busy</span></span>
-<span id="L108"><span class="lineNum">     108</span> <span class="tlaGNC">        1657 :     input logic ifu_pmu_bus_trxn,       // Instruction side bus transaction</span></span>
+<span id="L107"><span class="lineNum">     107</span> <span class="tlaGNC tlaBgGNC">        1440 :     input logic ifu_pmu_bus_busy,       // Instruction side bus busy</span></span>
+<span id="L108"><span class="lineNum">     108</span> <span class="tlaGNC">        1658 :     input logic ifu_pmu_bus_trxn,       // Instruction side bus transaction</span></span>
 <span id="L109"><span class="lineNum">     109</span>              : </span>
 <span id="L110"><span class="lineNum">     110</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic ifu_ic_error_start,         // IC single bit error</span></span>
 <span id="L111"><span class="lineNum">     111</span> <span class="tlaUNC">           0 :     input logic ifu_iccm_rd_ecc_single_err, // ICCM single bit error</span></span>

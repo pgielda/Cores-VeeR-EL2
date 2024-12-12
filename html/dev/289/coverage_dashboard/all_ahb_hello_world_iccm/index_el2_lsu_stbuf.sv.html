@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    11-12-2024
+                    12-12-2024
                 </td>
                 <td></td>
                 
@@ -137,11 +137,11 @@
 <span id="L33"><span class="lineNum">      33</span>              : `include "el2_param.vh"</span>
 <span id="L34"><span class="lineNum">      34</span>              :  )</span>
 <span id="L35"><span class="lineNum">      35</span>              : (</span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">       11817 :    input logic                           clk,                         // core clock</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">       11802 :    input logic                           clk,                         // core clock</span></span>
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">           1 :    input logic                           rst_l,                       // reset</span></span>
 <span id="L38"><span class="lineNum">      38</span>              : </span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">       11817 :    input logic                           lsu_stbuf_c1_clk,            // stbuf clock</span></span>
-<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">       11817 :    input logic                           lsu_free_c2_clk,             // free clk</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">       11802 :    input logic                           lsu_stbuf_c1_clk,            // stbuf clock</span></span>
+<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">       11802 :    input logic                           lsu_free_c2_clk,             // free clk</span></span>
 <span id="L41"><span class="lineNum">      41</span>              : </span>
 <span id="L42"><span class="lineNum">      42</span>              :    // Store Buffer input</span>
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                           store_stbuf_reqvld_r,        // core instruction goes to stbuf</span></span>
@@ -177,8 +177,8 @@
 <span id="L73"><span class="lineNum">      73</span>              : </span>
 <span id="L74"><span class="lineNum">      74</span>              :    // Forwarding signals</span>
 <span id="L75"><span class="lineNum">      75</span> <span class="tlaUNC">           0 :    input logic                           lsu_cmpen_m,                 // needed for forwarding stbuf - load</span></span>
-<span id="L76"><span class="lineNum">      76</span> <span class="tlaGNC tlaBgGNC">         621 :    input el2_lsu_pkt_t                  lsu_pkt_m,                   // LSU packet M-stage</span></span>
-<span id="L77"><span class="lineNum">      77</span> <span class="tlaGNC">         621 :    input el2_lsu_pkt_t                  lsu_pkt_r,                   // LSU packet R-stage</span></span>
+<span id="L76"><span class="lineNum">      76</span> <span class="tlaGNC tlaBgGNC">         615 :    input el2_lsu_pkt_t                  lsu_pkt_m,                   // LSU packet M-stage</span></span>
+<span id="L77"><span class="lineNum">      77</span> <span class="tlaGNC">         615 :    input el2_lsu_pkt_t                  lsu_pkt_r,                   // LSU packet R-stage</span></span>
 <span id="L78"><span class="lineNum">      78</span>              : </span>
 <span id="L79"><span class="lineNum">      79</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [pt.DCCM_DATA_WIDTH-1:0] stbuf_fwddata_hi_m,          // stbuf data</span></span>
 <span id="L80"><span class="lineNum">      80</span> <span class="tlaUNC">           0 :    output logic [pt.DCCM_DATA_WIDTH-1:0] stbuf_fwddata_lo_m,          // stbuf data</span></span>

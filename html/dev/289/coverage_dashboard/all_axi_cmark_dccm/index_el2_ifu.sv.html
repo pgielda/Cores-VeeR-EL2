@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    11-12-2024
+                    12-12-2024
                 </td>
                 <td></td>
                 
@@ -129,9 +129,9 @@
 <span id="L25"><span class="lineNum">      25</span>              : `include "el2_param.vh"</span>
 <span id="L26"><span class="lineNum">      26</span>              :  )</span>
 <span id="L27"><span class="lineNum">      27</span>              :   (</span>
-<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC tlaBgGNC">     1814144 :    input logic free_l2clk,                   // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
-<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">     1814144 :    input logic active_clk,                   // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">     1814144 :    input logic clk,                          // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC tlaBgGNC">     1814046 :    input logic free_l2clk,                   // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">     1814046 :    input logic active_clk,                   // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">     1814046 :    input logic clk,                          // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           1 :    input logic rst_l,                        // reset, active low</span></span>
 <span id="L32"><span class="lineNum">      32</span>              : </span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">      172496 :    input logic dec_i0_decode_d,              // Valid instruction at D and not blocked</span></span>
@@ -200,7 +200,7 @@
 <span id="L96"><span class="lineNum">      96</span> <span class="tlaGNC">       93696 :    input  logic [63:0]                     ifu_axi_rdata,</span></span>
 <span id="L97"><span class="lineNum">      97</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic [1:0]                      ifu_axi_rresp,</span></span>
 <span id="L98"><span class="lineNum">      98</span>              : </span>
-<span id="L99"><span class="lineNum">      99</span> <span class="tlaGNC tlaBgGNC">           3 :    input  logic                      ifu_bus_clk_en,</span></span>
+<span id="L99"><span class="lineNum">      99</span> <span class="tlaGNC tlaBgGNC">           1 :    input  logic                      ifu_bus_clk_en,</span></span>
 <span id="L100"><span class="lineNum">     100</span>              : </span>
 <span id="L101"><span class="lineNum">     101</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic                      dma_iccm_req,</span></span>
 <span id="L102"><span class="lineNum">     102</span> <span class="tlaUNC">           0 :    input  logic [31:0]               dma_mem_addr,</span></span>

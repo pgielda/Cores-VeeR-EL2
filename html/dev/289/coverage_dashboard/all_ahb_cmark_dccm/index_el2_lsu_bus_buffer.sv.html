@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    11-12-2024
+                    12-12-2024
                 </td>
                 <td></td>
                 
@@ -79,14 +79,14 @@
     <td class="headerCovSummary rowLeft">
         Branch
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #6bff00;">
-        79.0%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #4cff00;">
+        84.9%
     </td>
     <td class="headerCovSummaryEntry">
         124
     </td>
     <td class="headerCovSummaryEntry">
-        157
+        146
     </td>
 
             </tr>
@@ -132,7 +132,7 @@
 <span id="L28"><span class="lineNum">      28</span>              : #(</span>
 <span id="L29"><span class="lineNum">      29</span>              : `include "el2_param.vh"</span>
 <span id="L30"><span class="lineNum">      30</span>              :  )(</span>
-<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC tlaBgGNC">     3953059 :    input logic                          clk,                                // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC tlaBgGNC">     3952960 :    input logic                          clk,                                // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                          clk_override,                       // Override non-functional clock gating</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC tlaBgGNC">           1 :    input logic                          rst_l,                              // reset, active low</span></span>
 <span id="L34"><span class="lineNum">      34</span>              :    // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
@@ -147,11 +147,11 @@
 <span id="L43"><span class="lineNum">      43</span>              :    // various clocks needed for the bus reads and writes</span>
 <span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC tlaBgGNC">        2320 :    input logic                          lsu_bus_obuf_c1_clken,</span></span>
 <span id="L45"><span class="lineNum">      45</span> <span class="tlaGNC">         986 :    input logic                          lsu_busm_clken,</span></span>
-<span id="L46"><span class="lineNum">      46</span> <span class="tlaGNC">     3953059 :    input logic                          lsu_c2_r_clk,</span></span>
-<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC">     3953059 :    input logic                          lsu_bus_ibuf_c1_clk,</span></span>
+<span id="L46"><span class="lineNum">      46</span> <span class="tlaGNC">     3952960 :    input logic                          lsu_c2_r_clk,</span></span>
+<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC">     3952960 :    input logic                          lsu_bus_ibuf_c1_clk,</span></span>
 <span id="L48"><span class="lineNum">      48</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                          lsu_bus_obuf_c1_clk,</span></span>
-<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC tlaBgGNC">     3953059 :    input logic                          lsu_bus_buf_c1_clk,</span></span>
-<span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC">     3953059 :    input logic                          lsu_free_c2_clk,</span></span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC tlaBgGNC">     3952960 :    input logic                          lsu_bus_buf_c1_clk,</span></span>
+<span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC">     3952960 :    input logic                          lsu_free_c2_clk,</span></span>
 <span id="L51"><span class="lineNum">      51</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                          lsu_busm_clk,</span></span>
 <span id="L52"><span class="lineNum">      52</span>              : </span>
 <span id="L53"><span class="lineNum">      53</span>              : </span>
@@ -276,8 +276,8 @@
 <span id="L172"><span class="lineNum">     172</span> <span class="tlaUNC">           0 :    input  logic [63:0]                     lsu_axi_rdata,</span></span>
 <span id="L173"><span class="lineNum">     173</span> <span class="tlaUNC">           0 :    input  logic [1:0]                      lsu_axi_rresp,</span></span>
 <span id="L174"><span class="lineNum">     174</span>              : </span>
-<span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC tlaBgGNC">           3 :    input logic                             lsu_bus_clk_en,</span></span>
-<span id="L176"><span class="lineNum">     176</span> <span class="tlaGNC">           3 :    input logic                             lsu_bus_clk_en_q</span></span>
+<span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC tlaBgGNC">         101 :    input logic                             lsu_bus_clk_en,</span></span>
+<span id="L176"><span class="lineNum">     176</span> <span class="tlaGNC">         101 :    input logic                             lsu_bus_clk_en_q</span></span>
 <span id="L177"><span class="lineNum">     177</span>              : </span>
 <span id="L178"><span class="lineNum">     178</span>              : );</span>
 <span id="L179"><span class="lineNum">     179</span>              : </span>
@@ -438,7 +438,7 @@
 <span id="L334"><span class="lineNum">     334</span> <span class="tlaGNC">        1278 :    logic                               obuf_rst;</span></span>
 <span id="L335"><span class="lineNum">     335</span> <span class="tlaGNC">           1 :    logic                               obuf_write_in;</span></span>
 <span id="L336"><span class="lineNum">     336</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                               obuf_nosend_in;</span></span>
-<span id="L337"><span class="lineNum">     337</span> <span class="tlaGNC tlaBgGNC">           3 :    logic                               obuf_rdrsp_pend_en;</span></span>
+<span id="L337"><span class="lineNum">     337</span> <span class="tlaGNC tlaBgGNC">         101 :    logic                               obuf_rdrsp_pend_en;</span></span>
 <span id="L338"><span class="lineNum">     338</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                               obuf_rdrsp_pend_in;</span></span>
 <span id="L339"><span class="lineNum">     339</span> <span class="tlaGNC tlaBgGNC">           1 :    logic                               obuf_sideeffect_in;</span></span>
 <span id="L340"><span class="lineNum">     340</span> <span class="tlaGNC">           1 :    logic                               obuf_aligned_in;</span></span>
@@ -472,15 +472,15 @@
 <span id="L368"><span class="lineNum">     368</span>              :    //------------------------------------------------------------------------------</span>
 <span id="L369"><span class="lineNum">     369</span>              : </span>
 <span id="L370"><span class="lineNum">     370</span>              :    // Function to do 8 to 3 bit encoding</span>
-<span id="L371"><span class="lineNum">     371</span> <span class="tlaGNC tlaBgGNC">     5384595 :    function automatic logic [2:0] f_Enc8to3;</span></span>
+<span id="L371"><span class="lineNum">     371</span> <span class="tlaGNC tlaBgGNC">     5384252 :    function automatic logic [2:0] f_Enc8to3;</span></span>
 <span id="L372"><span class="lineNum">     372</span>              :       input logic [7:0] Dec_value;</span>
 <span id="L373"><span class="lineNum">     373</span>              : </span>
 <span id="L374"><span class="lineNum">     374</span>              :       logic [2:0]       Enc_value;</span>
-<span id="L375"><span class="lineNum">     375</span> <span class="tlaGNC">     5384595 :       Enc_value[0] = Dec_value[1] | Dec_value[3] | Dec_value[5] | Dec_value[7];</span></span>
-<span id="L376"><span class="lineNum">     376</span> <span class="tlaGNC">     5384595 :       Enc_value[1] = Dec_value[2] | Dec_value[3] | Dec_value[6] | Dec_value[7];</span></span>
-<span id="L377"><span class="lineNum">     377</span> <span class="tlaGNC">     5384595 :       Enc_value[2] = Dec_value[4] | Dec_value[5] | Dec_value[6] | Dec_value[7];</span></span>
+<span id="L375"><span class="lineNum">     375</span> <span class="tlaGNC">     5384252 :       Enc_value[0] = Dec_value[1] | Dec_value[3] | Dec_value[5] | Dec_value[7];</span></span>
+<span id="L376"><span class="lineNum">     376</span> <span class="tlaGNC">     5384252 :       Enc_value[1] = Dec_value[2] | Dec_value[3] | Dec_value[6] | Dec_value[7];</span></span>
+<span id="L377"><span class="lineNum">     377</span> <span class="tlaGNC">     5384252 :       Enc_value[2] = Dec_value[4] | Dec_value[5] | Dec_value[6] | Dec_value[7];</span></span>
 <span id="L378"><span class="lineNum">     378</span>              : </span>
-<span id="L379"><span class="lineNum">     379</span> <span class="tlaGNC">     5384595 :       return Enc_value[2:0];</span></span>
+<span id="L379"><span class="lineNum">     379</span> <span class="tlaGNC">     5384252 :       return Enc_value[2:0];</span></span>
 <span id="L380"><span class="lineNum">     380</span>              :    endfunction // f_Enc8to3</span>
 <span id="L381"><span class="lineNum">     381</span>              : </span>
 <span id="L382"><span class="lineNum">     382</span>              :    // Buffer hit logic for bus load forwarding</span>
@@ -785,14 +785,14 @@
 <span id="L681"><span class="lineNum">     681</span> <span class="tlaGNC">           4 :          buf_ldfwdtag_in[i]       = '0;</span></span>
 <span id="L682"><span class="lineNum">     682</span>              : </span>
 <span id="L683"><span class="lineNum">     683</span> <span class="tlaGNC">           4 :          case (buf_state[i])</span></span>
-<span id="L684"><span class="lineNum">     684</span> <span class="tlaGNC">     3070589 :             IDLE: begin</span></span>
-<span id="L685"><span class="lineNum">     685</span> <span class="tlaGNC">     3070589 :                      buf_nxtstate[i] = lsu_bus_clk_en ? CMD : START_WAIT;</span></span>
-<span id="L686"><span class="lineNum">     686</span> <span class="tlaGNC">     3070589 :                      buf_state_en[i] = (lsu_busreq_r &amp; lsu_commit_r &amp; (((ibuf_byp | ldst_dual_r) &amp; ~ibuf_merge_en &amp; (i == WrPtr0_r)) | (ibuf_byp &amp; ldst_dual_r &amp; (i == WrPtr1_r)))) |</span></span>
-<span id="L687"><span class="lineNum">     687</span> <span class="tlaGNC">     3070589 :                                        (ibuf_drain_vld &amp; (i == ibuf_tag));</span></span>
-<span id="L688"><span class="lineNum">     688</span> <span class="tlaGNC">     3070589 :                      buf_wr_en[i]    = buf_state_en[i];</span></span>
-<span id="L689"><span class="lineNum">     689</span> <span class="tlaGNC">     3070589 :                      buf_data_en[i]  = buf_state_en[i];</span></span>
-<span id="L690"><span class="lineNum">     690</span> <span class="tlaGNC">     3070589 :                      buf_data_in[i]   = (ibuf_drain_vld &amp; (i == ibuf_tag)) ? ibuf_data_out[31:0] : store_data_lo_r[31:0];</span></span>
-<span id="L691"><span class="lineNum">     691</span> <span class="tlaGNC">     3070589 :                      buf_cmd_state_bus_en[i]  = '0;</span></span>
+<span id="L684"><span class="lineNum">     684</span> <span class="tlaGNC">     3070393 :             IDLE: begin</span></span>
+<span id="L685"><span class="lineNum">     685</span> <span class="tlaGNC">     3070393 :                      buf_nxtstate[i] = lsu_bus_clk_en ? CMD : START_WAIT;</span></span>
+<span id="L686"><span class="lineNum">     686</span> <span class="tlaGNC">     3070393 :                      buf_state_en[i] = (lsu_busreq_r &amp; lsu_commit_r &amp; (((ibuf_byp | ldst_dual_r) &amp; ~ibuf_merge_en &amp; (i == WrPtr0_r)) | (ibuf_byp &amp; ldst_dual_r &amp; (i == WrPtr1_r)))) |</span></span>
+<span id="L687"><span class="lineNum">     687</span> <span class="tlaGNC">     3070393 :                                        (ibuf_drain_vld &amp; (i == ibuf_tag));</span></span>
+<span id="L688"><span class="lineNum">     688</span> <span class="tlaGNC">     3070393 :                      buf_wr_en[i]    = buf_state_en[i];</span></span>
+<span id="L689"><span class="lineNum">     689</span> <span class="tlaGNC">     3070393 :                      buf_data_en[i]  = buf_state_en[i];</span></span>
+<span id="L690"><span class="lineNum">     690</span> <span class="tlaGNC">     3070393 :                      buf_data_in[i]   = (ibuf_drain_vld &amp; (i == ibuf_tag)) ? ibuf_data_out[31:0] : store_data_lo_r[31:0];</span></span>
+<span id="L691"><span class="lineNum">     691</span> <span class="tlaGNC">     3070393 :                      buf_cmd_state_bus_en[i]  = '0;</span></span>
 <span id="L692"><span class="lineNum">     692</span>              :             end</span>
 <span id="L693"><span class="lineNum">     693</span> <span class="tlaUNC tlaBgUNC">           0 :             START_WAIT: begin</span></span>
 <span id="L694"><span class="lineNum">     694</span> <span class="tlaUNC">           0 :                      buf_nxtstate[i] = dec_tlu_force_halt ? IDLE : CMD;</span></span>
@@ -851,220 +851,223 @@
 <span id="L747"><span class="lineNum">     747</span> <span class="tlaUNC">           0 :                      buf_ldfwd_en[i]           = buf_state_en[i];</span></span>
 <span id="L748"><span class="lineNum">     748</span> <span class="tlaUNC">           0 :                      buf_cmd_state_bus_en[i]  = '0;</span></span>
 <span id="L749"><span class="lineNum">     749</span>              :             end</span>
-<span id="L750"><span class="lineNum">     750</span> <span class="tlaUNC">           0 :             default : begin</span></span>
-<span id="L751"><span class="lineNum">     751</span> <span class="tlaUNC">           0 :                      buf_nxtstate[i]          = IDLE;</span></span>
-<span id="L752"><span class="lineNum">     752</span> <span class="tlaUNC">           0 :                      buf_state_en[i]          = '0;</span></span>
-<span id="L753"><span class="lineNum">     753</span> <span class="tlaUNC">           0 :                      buf_resp_state_bus_en[i] = '0;</span></span>
-<span id="L754"><span class="lineNum">     754</span> <span class="tlaUNC">           0 :                      buf_state_bus_en[i]      = '0;</span></span>
-<span id="L755"><span class="lineNum">     755</span> <span class="tlaUNC">           0 :                      buf_wr_en[i]             = '0;</span></span>
-<span id="L756"><span class="lineNum">     756</span> <span class="tlaUNC">           0 :                      buf_data_in[i]           = '0;</span></span>
-<span id="L757"><span class="lineNum">     757</span> <span class="tlaUNC">           0 :                      buf_data_en[i]           = '0;</span></span>
-<span id="L758"><span class="lineNum">     758</span> <span class="tlaUNC">           0 :                      buf_error_en[i]          = '0;</span></span>
-<span id="L759"><span class="lineNum">     759</span> <span class="tlaUNC">           0 :                      buf_rst[i]               = '0;</span></span>
-<span id="L760"><span class="lineNum">     760</span> <span class="tlaUNC">           0 :                      buf_cmd_state_bus_en[i]  = '0;</span></span>
-<span id="L761"><span class="lineNum">     761</span>              :             end</span>
-<span id="L762"><span class="lineNum">     762</span>              :          endcase</span>
-<span id="L763"><span class="lineNum">     763</span>              :       end</span>
-<span id="L764"><span class="lineNum">     764</span>              : </span>
-<span id="L765"><span class="lineNum">     765</span>              :       rvdffs  #(.WIDTH($bits(state_t))) buf_state_ff     (.din(buf_nxtstate[i]),             .dout({buf_state[i]}),    .en(buf_state_en[i]),                                        .clk(lsu_bus_buf_c1_clk), .*);</span>
-<span id="L766"><span class="lineNum">     766</span>              :       rvdff   #(.WIDTH(DEPTH))          buf_ageff        (.din(buf_age_in[i]),               .dout(buf_ageQ[i]),                                                                    .clk(lsu_bus_buf_c1_clk), .*);</span>
-<span id="L767"><span class="lineNum">     767</span>              :       rvdff   #(.WIDTH(DEPTH))          buf_rspageff     (.din(buf_rspage_in[i]),            .dout(buf_rspageQ[i]),                                                                 .clk(lsu_bus_buf_c1_clk), .*);</span>
-<span id="L768"><span class="lineNum">     768</span>              :       rvdffs  #(.WIDTH(DEPTH_LOG2))     buf_dualtagff    (.din(buf_dualtag_in[i]),           .dout(buf_dualtag[i]),    .en(buf_wr_en[i]),                                           .clk(lsu_bus_buf_c1_clk), .*);</span>
-<span id="L769"><span class="lineNum">     769</span>              :       rvdffs  #(.WIDTH(1))              buf_dualff       (.din(buf_dual_in[i]),              .dout(buf_dual[i]),       .en(buf_wr_en[i]),                                           .clk(lsu_bus_buf_c1_clk), .*);</span>
-<span id="L770"><span class="lineNum">     770</span>              :       rvdffs  #(.WIDTH(1))              buf_samedwff     (.din(buf_samedw_in[i]),            .dout(buf_samedw[i]),     .en(buf_wr_en[i]),                                           .clk(lsu_bus_buf_c1_clk), .*);</span>
-<span id="L771"><span class="lineNum">     771</span>              :       rvdffs  #(.WIDTH(1))              buf_nomergeff    (.din(buf_nomerge_in[i]),           .dout(buf_nomerge[i]),    .en(buf_wr_en[i]),                                           .clk(lsu_bus_buf_c1_clk), .*);</span>
-<span id="L772"><span class="lineNum">     772</span>              :       rvdffs  #(.WIDTH(1))              buf_dualhiff     (.din(buf_dualhi_in[i]),            .dout(buf_dualhi[i]),     .en(buf_wr_en[i]),                                           .clk(lsu_bus_buf_c1_clk), .*);</span>
-<span id="L773"><span class="lineNum">     773</span>              :       rvdffs  #(.WIDTH(1))              buf_ldfwdff      (.din(buf_ldfwd_in[i]),             .dout(buf_ldfwd[i]),      .en(buf_ldfwd_en[i]),                                        .clk(lsu_bus_buf_c1_clk), .*);</span>
-<span id="L774"><span class="lineNum">     774</span>              :       rvdffs  #(.WIDTH(DEPTH_LOG2))     buf_ldfwdtagff   (.din(buf_ldfwdtag_in[i]),          .dout(buf_ldfwdtag[i]),   .en(buf_ldfwd_en[i]),                                        .clk(lsu_bus_buf_c1_clk), .*);</span>
-<span id="L775"><span class="lineNum">     775</span>              :       rvdffs  #(.WIDTH(1))              buf_sideeffectff (.din(buf_sideeffect_in[i]),        .dout(buf_sideeffect[i]), .en(buf_wr_en[i]),                                           .clk(lsu_bus_buf_c1_clk), .*);</span>
-<span id="L776"><span class="lineNum">     776</span>              :       rvdffs  #(.WIDTH(1))              buf_unsignff     (.din(buf_unsign_in[i]),            .dout(buf_unsign[i]),     .en(buf_wr_en[i]),                                           .clk(lsu_bus_buf_c1_clk), .*);</span>
-<span id="L777"><span class="lineNum">     777</span>              :       rvdffs  #(.WIDTH(1))              buf_writeff      (.din(buf_write_in[i]),             .dout(buf_write[i]),      .en(buf_wr_en[i]),                                           .clk(lsu_bus_buf_c1_clk), .*);</span>
-<span id="L778"><span class="lineNum">     778</span>              :       rvdffs  #(.WIDTH(2))              buf_szff         (.din(buf_sz_in[i]),                .dout(buf_sz[i]),         .en(buf_wr_en[i]),                                           .clk(lsu_bus_buf_c1_clk), .*);</span>
-<span id="L779"><span class="lineNum">     779</span>              :       rvdffe  #(.WIDTH(32))             buf_addrff       (.din(buf_addr_in[i][31:0]),        .dout(buf_addr[i]),       .en(buf_wr_en[i]),                                                                     .*);</span>
-<span id="L780"><span class="lineNum">     780</span>              :       rvdffs  #(.WIDTH(4))              buf_byteenff     (.din(buf_byteen_in[i][3:0]),       .dout(buf_byteen[i]),     .en(buf_wr_en[i]),                                           .clk(lsu_bus_buf_c1_clk), .*);</span>
-<span id="L781"><span class="lineNum">     781</span>              :       rvdffe  #(.WIDTH(32))             buf_dataff       (.din(buf_data_in[i][31:0]),        .dout(buf_data[i]),       .en(buf_data_en[i]),                                                                   .*);</span>
-<span id="L782"><span class="lineNum">     782</span>              :       rvdffsc #(.WIDTH(1))              buf_errorff      (.din(1'b1),                        .dout(buf_error[i]),      .en(buf_error_en[i]),                    .clear(buf_rst[i]), .clk(lsu_bus_buf_c1_clk), .*);</span>
-<span id="L783"><span class="lineNum">     783</span>              : </span>
-<span id="L784"><span class="lineNum">     784</span>              :    end</span>
-<span id="L785"><span class="lineNum">     785</span>              : </span>
-<span id="L786"><span class="lineNum">     786</span>              :    // buffer full logic</span>
-<span id="L787"><span class="lineNum">     787</span> <span class="tlaGNC tlaBgGNC">           1 :    always_comb begin</span></span>
-<span id="L788"><span class="lineNum">     788</span> <span class="tlaGNC">           1 :       buf_numvld_any[3:0] =  4'(({1'b0,lsu_busreq_m} &lt;&lt; ldst_dual_m) +</span></span>
-<span id="L789"><span class="lineNum">     789</span> <span class="tlaGNC">           1 :                                 ({1'b0,lsu_busreq_r} &lt;&lt; ldst_dual_r) +</span></span>
-<span id="L790"><span class="lineNum">     790</span> <span class="tlaGNC">           1 :                                 ibuf_valid);</span></span>
-<span id="L791"><span class="lineNum">     791</span> <span class="tlaGNC">           1 :       buf_numvld_wrcmd_any[3:0] = 4'b0;</span></span>
-<span id="L792"><span class="lineNum">     792</span> <span class="tlaGNC">           1 :       buf_numvld_cmd_any[3:0] = 4'b0;</span></span>
-<span id="L793"><span class="lineNum">     793</span> <span class="tlaGNC">           1 :       buf_numvld_pend_any[3:0] = 4'b0;</span></span>
-<span id="L794"><span class="lineNum">     794</span> <span class="tlaGNC">           1 :       any_done_wait_state = 1'b0;</span></span>
-<span id="L795"><span class="lineNum">     795</span> <span class="tlaGNC">           1 :       for (int i=0; i&lt;DEPTH; i++) begin</span></span>
-<span id="L796"><span class="lineNum">     796</span> <span class="tlaGNC">           4 :          buf_numvld_any[3:0] += {3'b0, (buf_state[i] != IDLE)};</span></span>
-<span id="L797"><span class="lineNum">     797</span> <span class="tlaGNC">           4 :          buf_numvld_wrcmd_any[3:0] += {3'b0, (buf_write[i] &amp; (buf_state[i] == CMD) &amp; ~buf_cmd_state_bus_en[i])};</span></span>
-<span id="L798"><span class="lineNum">     798</span> <span class="tlaGNC">           4 :          buf_numvld_cmd_any[3:0]   += {3'b0, ((buf_state[i] == CMD) &amp; ~buf_cmd_state_bus_en[i])};</span></span>
-<span id="L799"><span class="lineNum">     799</span> <span class="tlaGNC">           4 :          buf_numvld_pend_any[3:0]   += {3'b0, ((buf_state[i] == START_WAIT) | ((buf_state[i] == CMD) &amp; ~buf_cmd_state_bus_en[i]))};</span></span>
-<span id="L800"><span class="lineNum">     800</span> <span class="tlaGNC">           4 :          any_done_wait_state |= (buf_state[i] == DONE_WAIT);</span></span>
-<span id="L801"><span class="lineNum">     801</span>              :       end</span>
-<span id="L802"><span class="lineNum">     802</span>              :    end</span>
-<span id="L803"><span class="lineNum">     803</span>              : </span>
-<span id="L804"><span class="lineNum">     804</span>              :    assign lsu_bus_buffer_pend_any = (buf_numvld_pend_any != 0);</span>
-<span id="L805"><span class="lineNum">     805</span>              :    assign lsu_bus_buffer_full_any = (ldst_dual_d &amp; dec_lsu_valid_raw_d) ? (buf_numvld_any[3:0] &gt;= (DEPTH-1)) : (buf_numvld_any[3:0] == DEPTH);</span>
-<span id="L806"><span class="lineNum">     806</span>              :    assign lsu_bus_buffer_empty_any = ~(|buf_state[DEPTH-1:0]) &amp; ~ibuf_valid &amp; ~obuf_valid;</span>
-<span id="L807"><span class="lineNum">     807</span>              : </span>
-<span id="L808"><span class="lineNum">     808</span>              : </span>
-<span id="L809"><span class="lineNum">     809</span>              :    // Non blocking ports</span>
-<span id="L810"><span class="lineNum">     810</span>              :    assign lsu_nonblock_load_valid_m = lsu_busreq_m &amp; lsu_pkt_m.valid &amp; lsu_pkt_m.load &amp; ~flush_m_up &amp; ~ld_full_hit_m;</span>
-<span id="L811"><span class="lineNum">     811</span>              :    assign lsu_nonblock_load_tag_m[DEPTH_LOG2-1:0] = WrPtr0_m[DEPTH_LOG2-1:0];</span>
-<span id="L812"><span class="lineNum">     812</span>              :    assign lsu_nonblock_load_inv_r = lsu_nonblock_load_valid_r &amp; ~lsu_commit_r;</span>
-<span id="L813"><span class="lineNum">     813</span>              :    assign lsu_nonblock_load_inv_tag_r[DEPTH_LOG2-1:0] = WrPtr0_r[DEPTH_LOG2-1:0];      // r tag needs to be accurate even if there is no invalidate</span>
-<span id="L814"><span class="lineNum">     814</span>              : </span>
-<span id="L815"><span class="lineNum">     815</span> <span class="tlaGNC">           1 :    always_comb begin</span></span>
-<span id="L816"><span class="lineNum">     816</span> <span class="tlaGNC">           1 :       lsu_nonblock_load_data_ready = '0;</span></span>
-<span id="L817"><span class="lineNum">     817</span> <span class="tlaGNC">           1 :       lsu_nonblock_load_data_error = '0;</span></span>
-<span id="L818"><span class="lineNum">     818</span> <span class="tlaGNC">           1 :       lsu_nonblock_load_data_tag[DEPTH_LOG2-1:0] = '0;</span></span>
-<span id="L819"><span class="lineNum">     819</span> <span class="tlaGNC">           1 :       lsu_nonblock_load_data_lo[31:0] = '0;</span></span>
-<span id="L820"><span class="lineNum">     820</span> <span class="tlaGNC">           1 :       lsu_nonblock_load_data_hi[31:0] = '0;</span></span>
-<span id="L821"><span class="lineNum">     821</span> <span class="tlaGNC">           1 :       for (int i=0; i&lt;DEPTH; i++) begin</span></span>
-<span id="L822"><span class="lineNum">     822</span>              :           // Use buf_rst[i] instead of buf_state_en[i] for timing</span>
-<span id="L823"><span class="lineNum">     823</span> <span class="tlaGNC">           4 :           lsu_nonblock_load_data_ready      |= (buf_state[i] == DONE) &amp; ~buf_write[i];</span></span>
-<span id="L824"><span class="lineNum">     824</span> <span class="tlaGNC">           4 :           lsu_nonblock_load_data_error      |= (buf_state[i] == DONE) &amp; buf_error[i] &amp; ~buf_write[i];</span></span>
-<span id="L825"><span class="lineNum">     825</span> <span class="tlaGNC">           4 :           lsu_nonblock_load_data_tag[DEPTH_LOG2-1:0]   |= DEPTH_LOG2'(i) &amp; {DEPTH_LOG2{((buf_state[i] == DONE) &amp; ~buf_write[i] &amp; (~buf_dual[i] | ~buf_dualhi[i]))}};</span></span>
-<span id="L826"><span class="lineNum">     826</span> <span class="tlaGNC">           4 :           lsu_nonblock_load_data_lo[31:0]     |= buf_data[i][31:0] &amp; {32{((buf_state[i] == DONE) &amp; ~buf_write[i] &amp; (~buf_dual[i] | ~buf_dualhi[i]))}};</span></span>
-<span id="L827"><span class="lineNum">     827</span> <span class="tlaGNC">           4 :           lsu_nonblock_load_data_hi[31:0]     |= buf_data[i][31:0] &amp; {32{((buf_state[i] == DONE) &amp; ~buf_write[i] &amp; (buf_dual[i] &amp; buf_dualhi[i]))}};</span></span>
-<span id="L828"><span class="lineNum">     828</span>              :       end</span>
-<span id="L829"><span class="lineNum">     829</span>              :    end</span>
-<span id="L830"><span class="lineNum">     830</span>              : </span>
-<span id="L831"><span class="lineNum">     831</span>              :    assign lsu_nonblock_addr_offset[1:0] = buf_addr[lsu_nonblock_load_data_tag][1:0];</span>
-<span id="L832"><span class="lineNum">     832</span>              :    assign lsu_nonblock_sz[1:0]          = buf_sz[lsu_nonblock_load_data_tag][1:0];</span>
-<span id="L833"><span class="lineNum">     833</span>              :    assign lsu_nonblock_unsign           = buf_unsign[lsu_nonblock_load_data_tag];</span>
-<span id="L834"><span class="lineNum">     834</span>              :    assign lsu_nonblock_data_unalgn[31:0] = 32'({lsu_nonblock_load_data_hi[31:0], lsu_nonblock_load_data_lo[31:0]} &gt;&gt; 8*lsu_nonblock_addr_offset[1:0]);</span>
-<span id="L835"><span class="lineNum">     835</span>              : </span>
-<span id="L836"><span class="lineNum">     836</span>              :    assign lsu_nonblock_load_data_valid = lsu_nonblock_load_data_ready &amp; ~lsu_nonblock_load_data_error;</span>
-<span id="L837"><span class="lineNum">     837</span>              :    assign lsu_nonblock_load_data[31:0] = ({32{ lsu_nonblock_unsign &amp; (lsu_nonblock_sz[1:0] == 2'b00)}} &amp; {24'b0,lsu_nonblock_data_unalgn[7:0]}) |</span>
-<span id="L838"><span class="lineNum">     838</span>              :                                          ({32{ lsu_nonblock_unsign &amp; (lsu_nonblock_sz[1:0] == 2'b01)}} &amp; {16'b0,lsu_nonblock_data_unalgn[15:0]}) |</span>
-<span id="L839"><span class="lineNum">     839</span>              :                                          ({32{~lsu_nonblock_unsign &amp; (lsu_nonblock_sz[1:0] == 2'b00)}} &amp; {{24{lsu_nonblock_data_unalgn[7]}}, lsu_nonblock_data_unalgn[7:0]}) |</span>
-<span id="L840"><span class="lineNum">     840</span>              :                                          ({32{~lsu_nonblock_unsign &amp; (lsu_nonblock_sz[1:0] == 2'b01)}} &amp; {{16{lsu_nonblock_data_unalgn[15]}},lsu_nonblock_data_unalgn[15:0]}) |</span>
-<span id="L841"><span class="lineNum">     841</span>              :                                          ({32{(lsu_nonblock_sz[1:0] == 2'b10)}} &amp; lsu_nonblock_data_unalgn[31:0]);</span>
-<span id="L842"><span class="lineNum">     842</span>              : </span>
-<span id="L843"><span class="lineNum">     843</span>              :    // Determine if there is a pending return to sideeffect load/store</span>
-<span id="L844"><span class="lineNum">     844</span> <span class="tlaGNC">           1 :    always_comb begin</span></span>
-<span id="L845"><span class="lineNum">     845</span> <span class="tlaGNC">           1 :       bus_sideeffect_pend = obuf_valid &amp; obuf_sideeffect &amp; dec_tlu_sideeffect_posted_disable;</span></span>
-<span id="L846"><span class="lineNum">     846</span> <span class="tlaGNC">           1 :       for (int i=0; i&lt;DEPTH; i++) begin</span></span>
-<span id="L847"><span class="lineNum">     847</span> <span class="tlaGNC">           4 :          bus_sideeffect_pend |= ((buf_state[i] == RESP) &amp; buf_sideeffect[i] &amp; dec_tlu_sideeffect_posted_disable);</span></span>
-<span id="L848"><span class="lineNum">     848</span>              :       end</span>
-<span id="L849"><span class="lineNum">     849</span>              :    end</span>
-<span id="L850"><span class="lineNum">     850</span>              : </span>
-<span id="L851"><span class="lineNum">     851</span>              :    // We have no ordering rules for AXI. Need to check outstanding trxns to same address for AXI</span>
-<span id="L852"><span class="lineNum">     852</span> <span class="tlaGNC">           1 :    always_comb begin</span></span>
-<span id="L853"><span class="lineNum">     853</span> <span class="tlaGNC">           1 :       bus_addr_match_pending = '0;</span></span>
-<span id="L854"><span class="lineNum">     854</span> <span class="tlaGNC">           1 :       for (int i=0; i&lt;DEPTH; i++) begin</span></span>
-<span id="L855"><span class="lineNum">     855</span> <span class="tlaGNC">           4 :          bus_addr_match_pending |= (obuf_valid &amp; (obuf_addr[31:3] == buf_addr[i][31:3]) &amp; (buf_state[i] == RESP) &amp; ~((obuf_tag0 == (pt.LSU_BUS_TAG)'(i)) | (obuf_merge &amp; (obuf_tag1 == (pt.LSU_BUS_TAG)'(i)))));</span></span>
-<span id="L856"><span class="lineNum">     856</span>              :       end</span>
-<span id="L857"><span class="lineNum">     857</span>              :    end</span>
-<span id="L858"><span class="lineNum">     858</span>              : </span>
-<span id="L859"><span class="lineNum">     859</span>              :    // Generic bus signals</span>
-<span id="L860"><span class="lineNum">     860</span>              :    assign bus_cmd_ready                      = obuf_write ? ((obuf_cmd_done | obuf_data_done) ? (obuf_cmd_done ? lsu_axi_wready : lsu_axi_awready) : (lsu_axi_awready &amp; lsu_axi_wready)) : lsu_axi_arready;</span>
-<span id="L861"><span class="lineNum">     861</span>              :    assign bus_wcmd_sent                      = lsu_axi_awvalid &amp; lsu_axi_awready;</span>
-<span id="L862"><span class="lineNum">     862</span>              :    assign bus_wdata_sent                     = lsu_axi_wvalid &amp; lsu_axi_wready;</span>
-<span id="L863"><span class="lineNum">     863</span>              :    assign bus_cmd_sent                       = ((obuf_cmd_done | bus_wcmd_sent) &amp; (obuf_data_done | bus_wdata_sent)) | (lsu_axi_arvalid &amp; lsu_axi_arready);</span>
-<span id="L864"><span class="lineNum">     864</span>              : </span>
-<span id="L865"><span class="lineNum">     865</span>              :    assign bus_rsp_read                       = lsu_axi_rvalid &amp; lsu_axi_rready;</span>
-<span id="L866"><span class="lineNum">     866</span>              :    assign bus_rsp_write                      = lsu_axi_bvalid &amp; lsu_axi_bready;</span>
-<span id="L867"><span class="lineNum">     867</span>              :    assign bus_rsp_read_tag[pt.LSU_BUS_TAG-1:0]  = lsu_axi_rid[pt.LSU_BUS_TAG-1:0];</span>
-<span id="L868"><span class="lineNum">     868</span>              :    assign bus_rsp_write_tag[pt.LSU_BUS_TAG-1:0] = lsu_axi_bid[pt.LSU_BUS_TAG-1:0];</span>
-<span id="L869"><span class="lineNum">     869</span>              :    assign bus_rsp_write_error                = bus_rsp_write &amp; (lsu_axi_bresp[1:0] != 2'b0);</span>
-<span id="L870"><span class="lineNum">     870</span>              :    assign bus_rsp_read_error                 = bus_rsp_read  &amp; (lsu_axi_rresp[1:0] != 2'b0);</span>
-<span id="L871"><span class="lineNum">     871</span>              :    assign bus_rsp_rdata[63:0]                = lsu_axi_rdata[63:0];</span>
-<span id="L872"><span class="lineNum">     872</span>              : </span>
-<span id="L873"><span class="lineNum">     873</span>              :    // AXI command signals</span>
-<span id="L874"><span class="lineNum">     874</span>              :    assign lsu_axi_awvalid               = obuf_valid &amp; obuf_write &amp; ~obuf_cmd_done &amp; ~bus_addr_match_pending;</span>
-<span id="L875"><span class="lineNum">     875</span>              :    assign lsu_axi_awid[pt.LSU_BUS_TAG-1:0] = (pt.LSU_BUS_TAG)'(obuf_tag0);</span>
-<span id="L876"><span class="lineNum">     876</span>              :    assign lsu_axi_awaddr[31:0]          = obuf_sideeffect ? obuf_addr[31:0] : {obuf_addr[31:3],3'b0};</span>
-<span id="L877"><span class="lineNum">     877</span>              :    assign lsu_axi_awsize[2:0]           = obuf_sideeffect ? {1'b0, obuf_sz[1:0]} : 3'b011;</span>
-<span id="L878"><span class="lineNum">     878</span>              :    assign lsu_axi_awprot[2:0]           = 3'b001;</span>
-<span id="L879"><span class="lineNum">     879</span>              :    assign lsu_axi_awcache[3:0]          = obuf_sideeffect ? 4'b0 : 4'b1111;</span>
-<span id="L880"><span class="lineNum">     880</span>              :    assign lsu_axi_awregion[3:0]         = obuf_addr[31:28];</span>
-<span id="L881"><span class="lineNum">     881</span>              :    assign lsu_axi_awlen[7:0]            = '0;</span>
-<span id="L882"><span class="lineNum">     882</span>              :    assign lsu_axi_awburst[1:0]          = 2'b01;</span>
-<span id="L883"><span class="lineNum">     883</span>              :    assign lsu_axi_awqos[3:0]            = '0;</span>
-<span id="L884"><span class="lineNum">     884</span>              :    assign lsu_axi_awlock                = '0;</span>
-<span id="L885"><span class="lineNum">     885</span>              : </span>
-<span id="L886"><span class="lineNum">     886</span>              :    assign lsu_axi_wvalid                = obuf_valid &amp; obuf_write &amp; ~obuf_data_done &amp; ~bus_addr_match_pending;</span>
-<span id="L887"><span class="lineNum">     887</span>              :    assign lsu_axi_wstrb[7:0]            = obuf_byteen[7:0] &amp; {8{obuf_write}};</span>
-<span id="L888"><span class="lineNum">     888</span>              :    assign lsu_axi_wdata[63:0]           = obuf_data[63:0];</span>
-<span id="L889"><span class="lineNum">     889</span>              :    assign lsu_axi_wlast                 = '1;</span>
-<span id="L890"><span class="lineNum">     890</span>              : </span>
-<span id="L891"><span class="lineNum">     891</span>              :    assign lsu_axi_arvalid               = obuf_valid &amp; ~obuf_write &amp; ~obuf_nosend &amp; ~bus_addr_match_pending;</span>
-<span id="L892"><span class="lineNum">     892</span>              :    assign lsu_axi_arid[pt.LSU_BUS_TAG-1:0] = (pt.LSU_BUS_TAG)'(obuf_tag0);</span>
-<span id="L893"><span class="lineNum">     893</span>              :    assign lsu_axi_araddr[31:0]          = obuf_sideeffect ? obuf_addr[31:0] : {obuf_addr[31:3],3'b0};</span>
-<span id="L894"><span class="lineNum">     894</span>              :    assign lsu_axi_arsize[2:0]           = obuf_sideeffect ? {1'b0, obuf_sz[1:0]} : 3'b011;</span>
-<span id="L895"><span class="lineNum">     895</span>              :    assign lsu_axi_arprot[2:0]           = 3'b001;</span>
-<span id="L896"><span class="lineNum">     896</span>              :    assign lsu_axi_arcache[3:0]          = obuf_sideeffect ? 4'b0 : 4'b1111;</span>
-<span id="L897"><span class="lineNum">     897</span>              :    assign lsu_axi_arregion[3:0]         = obuf_addr[31:28];</span>
-<span id="L898"><span class="lineNum">     898</span>              :    assign lsu_axi_arlen[7:0]            = '0;</span>
-<span id="L899"><span class="lineNum">     899</span>              :    assign lsu_axi_arburst[1:0]          = 2'b01;</span>
-<span id="L900"><span class="lineNum">     900</span>              :    assign lsu_axi_arqos[3:0]            = '0;</span>
-<span id="L901"><span class="lineNum">     901</span>              :    assign lsu_axi_arlock                = '0;</span>
-<span id="L902"><span class="lineNum">     902</span>              : </span>
-<span id="L903"><span class="lineNum">     903</span>              :    assign lsu_axi_bready = 1;</span>
-<span id="L904"><span class="lineNum">     904</span>              :    assign lsu_axi_rready = 1;</span>
+<span id="L750"><span class="lineNum">     750</span>              :             /* buf_state is an enum and the existing members are handled above */</span>
+<span id="L751"><span class="lineNum">     751</span>              :             /*verilator coverage_off*/</span>
+<span id="L752"><span class="lineNum">     752</span>              :             default : begin</span>
+<span id="L753"><span class="lineNum">     753</span>              :                      buf_nxtstate[i]          = IDLE;</span>
+<span id="L754"><span class="lineNum">     754</span>              :                      buf_state_en[i]          = '0;</span>
+<span id="L755"><span class="lineNum">     755</span>              :                      buf_resp_state_bus_en[i] = '0;</span>
+<span id="L756"><span class="lineNum">     756</span>              :                      buf_state_bus_en[i]      = '0;</span>
+<span id="L757"><span class="lineNum">     757</span>              :                      buf_wr_en[i]             = '0;</span>
+<span id="L758"><span class="lineNum">     758</span>              :                      buf_data_in[i]           = '0;</span>
+<span id="L759"><span class="lineNum">     759</span>              :                      buf_data_en[i]           = '0;</span>
+<span id="L760"><span class="lineNum">     760</span>              :                      buf_error_en[i]          = '0;</span>
+<span id="L761"><span class="lineNum">     761</span>              :                      buf_rst[i]               = '0;</span>
+<span id="L762"><span class="lineNum">     762</span>              :                      buf_cmd_state_bus_en[i]  = '0;</span>
+<span id="L763"><span class="lineNum">     763</span>              :             end</span>
+<span id="L764"><span class="lineNum">     764</span>              :             /*verilator coverage_on*/</span>
+<span id="L765"><span class="lineNum">     765</span>              :          endcase</span>
+<span id="L766"><span class="lineNum">     766</span>              :       end</span>
+<span id="L767"><span class="lineNum">     767</span>              : </span>
+<span id="L768"><span class="lineNum">     768</span>              :       rvdffs  #(.WIDTH($bits(state_t))) buf_state_ff     (.din(buf_nxtstate[i]),             .dout({buf_state[i]}),    .en(buf_state_en[i]),                                        .clk(lsu_bus_buf_c1_clk), .*);</span>
+<span id="L769"><span class="lineNum">     769</span>              :       rvdff   #(.WIDTH(DEPTH))          buf_ageff        (.din(buf_age_in[i]),               .dout(buf_ageQ[i]),                                                                    .clk(lsu_bus_buf_c1_clk), .*);</span>
+<span id="L770"><span class="lineNum">     770</span>              :       rvdff   #(.WIDTH(DEPTH))          buf_rspageff     (.din(buf_rspage_in[i]),            .dout(buf_rspageQ[i]),                                                                 .clk(lsu_bus_buf_c1_clk), .*);</span>
+<span id="L771"><span class="lineNum">     771</span>              :       rvdffs  #(.WIDTH(DEPTH_LOG2))     buf_dualtagff    (.din(buf_dualtag_in[i]),           .dout(buf_dualtag[i]),    .en(buf_wr_en[i]),                                           .clk(lsu_bus_buf_c1_clk), .*);</span>
+<span id="L772"><span class="lineNum">     772</span>              :       rvdffs  #(.WIDTH(1))              buf_dualff       (.din(buf_dual_in[i]),              .dout(buf_dual[i]),       .en(buf_wr_en[i]),                                           .clk(lsu_bus_buf_c1_clk), .*);</span>
+<span id="L773"><span class="lineNum">     773</span>              :       rvdffs  #(.WIDTH(1))              buf_samedwff     (.din(buf_samedw_in[i]),            .dout(buf_samedw[i]),     .en(buf_wr_en[i]),                                           .clk(lsu_bus_buf_c1_clk), .*);</span>
+<span id="L774"><span class="lineNum">     774</span>              :       rvdffs  #(.WIDTH(1))              buf_nomergeff    (.din(buf_nomerge_in[i]),           .dout(buf_nomerge[i]),    .en(buf_wr_en[i]),                                           .clk(lsu_bus_buf_c1_clk), .*);</span>
+<span id="L775"><span class="lineNum">     775</span>              :       rvdffs  #(.WIDTH(1))              buf_dualhiff     (.din(buf_dualhi_in[i]),            .dout(buf_dualhi[i]),     .en(buf_wr_en[i]),                                           .clk(lsu_bus_buf_c1_clk), .*);</span>
+<span id="L776"><span class="lineNum">     776</span>              :       rvdffs  #(.WIDTH(1))              buf_ldfwdff      (.din(buf_ldfwd_in[i]),             .dout(buf_ldfwd[i]),      .en(buf_ldfwd_en[i]),                                        .clk(lsu_bus_buf_c1_clk), .*);</span>
+<span id="L777"><span class="lineNum">     777</span>              :       rvdffs  #(.WIDTH(DEPTH_LOG2))     buf_ldfwdtagff   (.din(buf_ldfwdtag_in[i]),          .dout(buf_ldfwdtag[i]),   .en(buf_ldfwd_en[i]),                                        .clk(lsu_bus_buf_c1_clk), .*);</span>
+<span id="L778"><span class="lineNum">     778</span>              :       rvdffs  #(.WIDTH(1))              buf_sideeffectff (.din(buf_sideeffect_in[i]),        .dout(buf_sideeffect[i]), .en(buf_wr_en[i]),                                           .clk(lsu_bus_buf_c1_clk), .*);</span>
+<span id="L779"><span class="lineNum">     779</span>              :       rvdffs  #(.WIDTH(1))              buf_unsignff     (.din(buf_unsign_in[i]),            .dout(buf_unsign[i]),     .en(buf_wr_en[i]),                                           .clk(lsu_bus_buf_c1_clk), .*);</span>
+<span id="L780"><span class="lineNum">     780</span>              :       rvdffs  #(.WIDTH(1))              buf_writeff      (.din(buf_write_in[i]),             .dout(buf_write[i]),      .en(buf_wr_en[i]),                                           .clk(lsu_bus_buf_c1_clk), .*);</span>
+<span id="L781"><span class="lineNum">     781</span>              :       rvdffs  #(.WIDTH(2))              buf_szff         (.din(buf_sz_in[i]),                .dout(buf_sz[i]),         .en(buf_wr_en[i]),                                           .clk(lsu_bus_buf_c1_clk), .*);</span>
+<span id="L782"><span class="lineNum">     782</span>              :       rvdffe  #(.WIDTH(32))             buf_addrff       (.din(buf_addr_in[i][31:0]),        .dout(buf_addr[i]),       .en(buf_wr_en[i]),                                                                     .*);</span>
+<span id="L783"><span class="lineNum">     783</span>              :       rvdffs  #(.WIDTH(4))              buf_byteenff     (.din(buf_byteen_in[i][3:0]),       .dout(buf_byteen[i]),     .en(buf_wr_en[i]),                                           .clk(lsu_bus_buf_c1_clk), .*);</span>
+<span id="L784"><span class="lineNum">     784</span>              :       rvdffe  #(.WIDTH(32))             buf_dataff       (.din(buf_data_in[i][31:0]),        .dout(buf_data[i]),       .en(buf_data_en[i]),                                                                   .*);</span>
+<span id="L785"><span class="lineNum">     785</span>              :       rvdffsc #(.WIDTH(1))              buf_errorff      (.din(1'b1),                        .dout(buf_error[i]),      .en(buf_error_en[i]),                    .clear(buf_rst[i]), .clk(lsu_bus_buf_c1_clk), .*);</span>
+<span id="L786"><span class="lineNum">     786</span>              : </span>
+<span id="L787"><span class="lineNum">     787</span>              :    end</span>
+<span id="L788"><span class="lineNum">     788</span>              : </span>
+<span id="L789"><span class="lineNum">     789</span>              :    // buffer full logic</span>
+<span id="L790"><span class="lineNum">     790</span> <span class="tlaGNC tlaBgGNC">           1 :    always_comb begin</span></span>
+<span id="L791"><span class="lineNum">     791</span> <span class="tlaGNC">           1 :       buf_numvld_any[3:0] =  4'(({1'b0,lsu_busreq_m} &lt;&lt; ldst_dual_m) +</span></span>
+<span id="L792"><span class="lineNum">     792</span> <span class="tlaGNC">           1 :                                 ({1'b0,lsu_busreq_r} &lt;&lt; ldst_dual_r) +</span></span>
+<span id="L793"><span class="lineNum">     793</span> <span class="tlaGNC">           1 :                                 ibuf_valid);</span></span>
+<span id="L794"><span class="lineNum">     794</span> <span class="tlaGNC">           1 :       buf_numvld_wrcmd_any[3:0] = 4'b0;</span></span>
+<span id="L795"><span class="lineNum">     795</span> <span class="tlaGNC">           1 :       buf_numvld_cmd_any[3:0] = 4'b0;</span></span>
+<span id="L796"><span class="lineNum">     796</span> <span class="tlaGNC">           1 :       buf_numvld_pend_any[3:0] = 4'b0;</span></span>
+<span id="L797"><span class="lineNum">     797</span> <span class="tlaGNC">           1 :       any_done_wait_state = 1'b0;</span></span>
+<span id="L798"><span class="lineNum">     798</span> <span class="tlaGNC">           1 :       for (int i=0; i&lt;DEPTH; i++) begin</span></span>
+<span id="L799"><span class="lineNum">     799</span> <span class="tlaGNC">           4 :          buf_numvld_any[3:0] += {3'b0, (buf_state[i] != IDLE)};</span></span>
+<span id="L800"><span class="lineNum">     800</span> <span class="tlaGNC">           4 :          buf_numvld_wrcmd_any[3:0] += {3'b0, (buf_write[i] &amp; (buf_state[i] == CMD) &amp; ~buf_cmd_state_bus_en[i])};</span></span>
+<span id="L801"><span class="lineNum">     801</span> <span class="tlaGNC">           4 :          buf_numvld_cmd_any[3:0]   += {3'b0, ((buf_state[i] == CMD) &amp; ~buf_cmd_state_bus_en[i])};</span></span>
+<span id="L802"><span class="lineNum">     802</span> <span class="tlaGNC">           4 :          buf_numvld_pend_any[3:0]   += {3'b0, ((buf_state[i] == START_WAIT) | ((buf_state[i] == CMD) &amp; ~buf_cmd_state_bus_en[i]))};</span></span>
+<span id="L803"><span class="lineNum">     803</span> <span class="tlaGNC">           4 :          any_done_wait_state |= (buf_state[i] == DONE_WAIT);</span></span>
+<span id="L804"><span class="lineNum">     804</span>              :       end</span>
+<span id="L805"><span class="lineNum">     805</span>              :    end</span>
+<span id="L806"><span class="lineNum">     806</span>              : </span>
+<span id="L807"><span class="lineNum">     807</span>              :    assign lsu_bus_buffer_pend_any = (buf_numvld_pend_any != 0);</span>
+<span id="L808"><span class="lineNum">     808</span>              :    assign lsu_bus_buffer_full_any = (ldst_dual_d &amp; dec_lsu_valid_raw_d) ? (buf_numvld_any[3:0] &gt;= (DEPTH-1)) : (buf_numvld_any[3:0] == DEPTH);</span>
+<span id="L809"><span class="lineNum">     809</span>              :    assign lsu_bus_buffer_empty_any = ~(|buf_state[DEPTH-1:0]) &amp; ~ibuf_valid &amp; ~obuf_valid;</span>
+<span id="L810"><span class="lineNum">     810</span>              : </span>
+<span id="L811"><span class="lineNum">     811</span>              : </span>
+<span id="L812"><span class="lineNum">     812</span>              :    // Non blocking ports</span>
+<span id="L813"><span class="lineNum">     813</span>              :    assign lsu_nonblock_load_valid_m = lsu_busreq_m &amp; lsu_pkt_m.valid &amp; lsu_pkt_m.load &amp; ~flush_m_up &amp; ~ld_full_hit_m;</span>
+<span id="L814"><span class="lineNum">     814</span>              :    assign lsu_nonblock_load_tag_m[DEPTH_LOG2-1:0] = WrPtr0_m[DEPTH_LOG2-1:0];</span>
+<span id="L815"><span class="lineNum">     815</span>              :    assign lsu_nonblock_load_inv_r = lsu_nonblock_load_valid_r &amp; ~lsu_commit_r;</span>
+<span id="L816"><span class="lineNum">     816</span>              :    assign lsu_nonblock_load_inv_tag_r[DEPTH_LOG2-1:0] = WrPtr0_r[DEPTH_LOG2-1:0];      // r tag needs to be accurate even if there is no invalidate</span>
+<span id="L817"><span class="lineNum">     817</span>              : </span>
+<span id="L818"><span class="lineNum">     818</span> <span class="tlaGNC">           1 :    always_comb begin</span></span>
+<span id="L819"><span class="lineNum">     819</span> <span class="tlaGNC">           1 :       lsu_nonblock_load_data_ready = '0;</span></span>
+<span id="L820"><span class="lineNum">     820</span> <span class="tlaGNC">           1 :       lsu_nonblock_load_data_error = '0;</span></span>
+<span id="L821"><span class="lineNum">     821</span> <span class="tlaGNC">           1 :       lsu_nonblock_load_data_tag[DEPTH_LOG2-1:0] = '0;</span></span>
+<span id="L822"><span class="lineNum">     822</span> <span class="tlaGNC">           1 :       lsu_nonblock_load_data_lo[31:0] = '0;</span></span>
+<span id="L823"><span class="lineNum">     823</span> <span class="tlaGNC">           1 :       lsu_nonblock_load_data_hi[31:0] = '0;</span></span>
+<span id="L824"><span class="lineNum">     824</span> <span class="tlaGNC">           1 :       for (int i=0; i&lt;DEPTH; i++) begin</span></span>
+<span id="L825"><span class="lineNum">     825</span>              :           // Use buf_rst[i] instead of buf_state_en[i] for timing</span>
+<span id="L826"><span class="lineNum">     826</span> <span class="tlaGNC">           4 :           lsu_nonblock_load_data_ready      |= (buf_state[i] == DONE) &amp; ~buf_write[i];</span></span>
+<span id="L827"><span class="lineNum">     827</span> <span class="tlaGNC">           4 :           lsu_nonblock_load_data_error      |= (buf_state[i] == DONE) &amp; buf_error[i] &amp; ~buf_write[i];</span></span>
+<span id="L828"><span class="lineNum">     828</span> <span class="tlaGNC">           4 :           lsu_nonblock_load_data_tag[DEPTH_LOG2-1:0]   |= DEPTH_LOG2'(i) &amp; {DEPTH_LOG2{((buf_state[i] == DONE) &amp; ~buf_write[i] &amp; (~buf_dual[i] | ~buf_dualhi[i]))}};</span></span>
+<span id="L829"><span class="lineNum">     829</span> <span class="tlaGNC">           4 :           lsu_nonblock_load_data_lo[31:0]     |= buf_data[i][31:0] &amp; {32{((buf_state[i] == DONE) &amp; ~buf_write[i] &amp; (~buf_dual[i] | ~buf_dualhi[i]))}};</span></span>
+<span id="L830"><span class="lineNum">     830</span> <span class="tlaGNC">           4 :           lsu_nonblock_load_data_hi[31:0]     |= buf_data[i][31:0] &amp; {32{((buf_state[i] == DONE) &amp; ~buf_write[i] &amp; (buf_dual[i] &amp; buf_dualhi[i]))}};</span></span>
+<span id="L831"><span class="lineNum">     831</span>              :       end</span>
+<span id="L832"><span class="lineNum">     832</span>              :    end</span>
+<span id="L833"><span class="lineNum">     833</span>              : </span>
+<span id="L834"><span class="lineNum">     834</span>              :    assign lsu_nonblock_addr_offset[1:0] = buf_addr[lsu_nonblock_load_data_tag][1:0];</span>
+<span id="L835"><span class="lineNum">     835</span>              :    assign lsu_nonblock_sz[1:0]          = buf_sz[lsu_nonblock_load_data_tag][1:0];</span>
+<span id="L836"><span class="lineNum">     836</span>              :    assign lsu_nonblock_unsign           = buf_unsign[lsu_nonblock_load_data_tag];</span>
+<span id="L837"><span class="lineNum">     837</span>              :    assign lsu_nonblock_data_unalgn[31:0] = 32'({lsu_nonblock_load_data_hi[31:0], lsu_nonblock_load_data_lo[31:0]} &gt;&gt; 8*lsu_nonblock_addr_offset[1:0]);</span>
+<span id="L838"><span class="lineNum">     838</span>              : </span>
+<span id="L839"><span class="lineNum">     839</span>              :    assign lsu_nonblock_load_data_valid = lsu_nonblock_load_data_ready &amp; ~lsu_nonblock_load_data_error;</span>
+<span id="L840"><span class="lineNum">     840</span>              :    assign lsu_nonblock_load_data[31:0] = ({32{ lsu_nonblock_unsign &amp; (lsu_nonblock_sz[1:0] == 2'b00)}} &amp; {24'b0,lsu_nonblock_data_unalgn[7:0]}) |</span>
+<span id="L841"><span class="lineNum">     841</span>              :                                          ({32{ lsu_nonblock_unsign &amp; (lsu_nonblock_sz[1:0] == 2'b01)}} &amp; {16'b0,lsu_nonblock_data_unalgn[15:0]}) |</span>
+<span id="L842"><span class="lineNum">     842</span>              :                                          ({32{~lsu_nonblock_unsign &amp; (lsu_nonblock_sz[1:0] == 2'b00)}} &amp; {{24{lsu_nonblock_data_unalgn[7]}}, lsu_nonblock_data_unalgn[7:0]}) |</span>
+<span id="L843"><span class="lineNum">     843</span>              :                                          ({32{~lsu_nonblock_unsign &amp; (lsu_nonblock_sz[1:0] == 2'b01)}} &amp; {{16{lsu_nonblock_data_unalgn[15]}},lsu_nonblock_data_unalgn[15:0]}) |</span>
+<span id="L844"><span class="lineNum">     844</span>              :                                          ({32{(lsu_nonblock_sz[1:0] == 2'b10)}} &amp; lsu_nonblock_data_unalgn[31:0]);</span>
+<span id="L845"><span class="lineNum">     845</span>              : </span>
+<span id="L846"><span class="lineNum">     846</span>              :    // Determine if there is a pending return to sideeffect load/store</span>
+<span id="L847"><span class="lineNum">     847</span> <span class="tlaGNC">           1 :    always_comb begin</span></span>
+<span id="L848"><span class="lineNum">     848</span> <span class="tlaGNC">           1 :       bus_sideeffect_pend = obuf_valid &amp; obuf_sideeffect &amp; dec_tlu_sideeffect_posted_disable;</span></span>
+<span id="L849"><span class="lineNum">     849</span> <span class="tlaGNC">           1 :       for (int i=0; i&lt;DEPTH; i++) begin</span></span>
+<span id="L850"><span class="lineNum">     850</span> <span class="tlaGNC">           4 :          bus_sideeffect_pend |= ((buf_state[i] == RESP) &amp; buf_sideeffect[i] &amp; dec_tlu_sideeffect_posted_disable);</span></span>
+<span id="L851"><span class="lineNum">     851</span>              :       end</span>
+<span id="L852"><span class="lineNum">     852</span>              :    end</span>
+<span id="L853"><span class="lineNum">     853</span>              : </span>
+<span id="L854"><span class="lineNum">     854</span>              :    // We have no ordering rules for AXI. Need to check outstanding trxns to same address for AXI</span>
+<span id="L855"><span class="lineNum">     855</span> <span class="tlaGNC">           1 :    always_comb begin</span></span>
+<span id="L856"><span class="lineNum">     856</span> <span class="tlaGNC">           1 :       bus_addr_match_pending = '0;</span></span>
+<span id="L857"><span class="lineNum">     857</span> <span class="tlaGNC">           1 :       for (int i=0; i&lt;DEPTH; i++) begin</span></span>
+<span id="L858"><span class="lineNum">     858</span> <span class="tlaGNC">           4 :          bus_addr_match_pending |= (obuf_valid &amp; (obuf_addr[31:3] == buf_addr[i][31:3]) &amp; (buf_state[i] == RESP) &amp; ~((obuf_tag0 == (pt.LSU_BUS_TAG)'(i)) | (obuf_merge &amp; (obuf_tag1 == (pt.LSU_BUS_TAG)'(i)))));</span></span>
+<span id="L859"><span class="lineNum">     859</span>              :       end</span>
+<span id="L860"><span class="lineNum">     860</span>              :    end</span>
+<span id="L861"><span class="lineNum">     861</span>              : </span>
+<span id="L862"><span class="lineNum">     862</span>              :    // Generic bus signals</span>
+<span id="L863"><span class="lineNum">     863</span>              :    assign bus_cmd_ready                      = obuf_write ? ((obuf_cmd_done | obuf_data_done) ? (obuf_cmd_done ? lsu_axi_wready : lsu_axi_awready) : (lsu_axi_awready &amp; lsu_axi_wready)) : lsu_axi_arready;</span>
+<span id="L864"><span class="lineNum">     864</span>              :    assign bus_wcmd_sent                      = lsu_axi_awvalid &amp; lsu_axi_awready;</span>
+<span id="L865"><span class="lineNum">     865</span>              :    assign bus_wdata_sent                     = lsu_axi_wvalid &amp; lsu_axi_wready;</span>
+<span id="L866"><span class="lineNum">     866</span>              :    assign bus_cmd_sent                       = ((obuf_cmd_done | bus_wcmd_sent) &amp; (obuf_data_done | bus_wdata_sent)) | (lsu_axi_arvalid &amp; lsu_axi_arready);</span>
+<span id="L867"><span class="lineNum">     867</span>              : </span>
+<span id="L868"><span class="lineNum">     868</span>              :    assign bus_rsp_read                       = lsu_axi_rvalid &amp; lsu_axi_rready;</span>
+<span id="L869"><span class="lineNum">     869</span>              :    assign bus_rsp_write                      = lsu_axi_bvalid &amp; lsu_axi_bready;</span>
+<span id="L870"><span class="lineNum">     870</span>              :    assign bus_rsp_read_tag[pt.LSU_BUS_TAG-1:0]  = lsu_axi_rid[pt.LSU_BUS_TAG-1:0];</span>
+<span id="L871"><span class="lineNum">     871</span>              :    assign bus_rsp_write_tag[pt.LSU_BUS_TAG-1:0] = lsu_axi_bid[pt.LSU_BUS_TAG-1:0];</span>
+<span id="L872"><span class="lineNum">     872</span>              :    assign bus_rsp_write_error                = bus_rsp_write &amp; (lsu_axi_bresp[1:0] != 2'b0);</span>
+<span id="L873"><span class="lineNum">     873</span>              :    assign bus_rsp_read_error                 = bus_rsp_read  &amp; (lsu_axi_rresp[1:0] != 2'b0);</span>
+<span id="L874"><span class="lineNum">     874</span>              :    assign bus_rsp_rdata[63:0]                = lsu_axi_rdata[63:0];</span>
+<span id="L875"><span class="lineNum">     875</span>              : </span>
+<span id="L876"><span class="lineNum">     876</span>              :    // AXI command signals</span>
+<span id="L877"><span class="lineNum">     877</span>              :    assign lsu_axi_awvalid               = obuf_valid &amp; obuf_write &amp; ~obuf_cmd_done &amp; ~bus_addr_match_pending;</span>
+<span id="L878"><span class="lineNum">     878</span>              :    assign lsu_axi_awid[pt.LSU_BUS_TAG-1:0] = (pt.LSU_BUS_TAG)'(obuf_tag0);</span>
+<span id="L879"><span class="lineNum">     879</span>              :    assign lsu_axi_awaddr[31:0]          = obuf_sideeffect ? obuf_addr[31:0] : {obuf_addr[31:3],3'b0};</span>
+<span id="L880"><span class="lineNum">     880</span>              :    assign lsu_axi_awsize[2:0]           = obuf_sideeffect ? {1'b0, obuf_sz[1:0]} : 3'b011;</span>
+<span id="L881"><span class="lineNum">     881</span>              :    assign lsu_axi_awprot[2:0]           = 3'b001;</span>
+<span id="L882"><span class="lineNum">     882</span>              :    assign lsu_axi_awcache[3:0]          = obuf_sideeffect ? 4'b0 : 4'b1111;</span>
+<span id="L883"><span class="lineNum">     883</span>              :    assign lsu_axi_awregion[3:0]         = obuf_addr[31:28];</span>
+<span id="L884"><span class="lineNum">     884</span>              :    assign lsu_axi_awlen[7:0]            = '0;</span>
+<span id="L885"><span class="lineNum">     885</span>              :    assign lsu_axi_awburst[1:0]          = 2'b01;</span>
+<span id="L886"><span class="lineNum">     886</span>              :    assign lsu_axi_awqos[3:0]            = '0;</span>
+<span id="L887"><span class="lineNum">     887</span>              :    assign lsu_axi_awlock                = '0;</span>
+<span id="L888"><span class="lineNum">     888</span>              : </span>
+<span id="L889"><span class="lineNum">     889</span>              :    assign lsu_axi_wvalid                = obuf_valid &amp; obuf_write &amp; ~obuf_data_done &amp; ~bus_addr_match_pending;</span>
+<span id="L890"><span class="lineNum">     890</span>              :    assign lsu_axi_wstrb[7:0]            = obuf_byteen[7:0] &amp; {8{obuf_write}};</span>
+<span id="L891"><span class="lineNum">     891</span>              :    assign lsu_axi_wdata[63:0]           = obuf_data[63:0];</span>
+<span id="L892"><span class="lineNum">     892</span>              :    assign lsu_axi_wlast                 = '1;</span>
+<span id="L893"><span class="lineNum">     893</span>              : </span>
+<span id="L894"><span class="lineNum">     894</span>              :    assign lsu_axi_arvalid               = obuf_valid &amp; ~obuf_write &amp; ~obuf_nosend &amp; ~bus_addr_match_pending;</span>
+<span id="L895"><span class="lineNum">     895</span>              :    assign lsu_axi_arid[pt.LSU_BUS_TAG-1:0] = (pt.LSU_BUS_TAG)'(obuf_tag0);</span>
+<span id="L896"><span class="lineNum">     896</span>              :    assign lsu_axi_araddr[31:0]          = obuf_sideeffect ? obuf_addr[31:0] : {obuf_addr[31:3],3'b0};</span>
+<span id="L897"><span class="lineNum">     897</span>              :    assign lsu_axi_arsize[2:0]           = obuf_sideeffect ? {1'b0, obuf_sz[1:0]} : 3'b011;</span>
+<span id="L898"><span class="lineNum">     898</span>              :    assign lsu_axi_arprot[2:0]           = 3'b001;</span>
+<span id="L899"><span class="lineNum">     899</span>              :    assign lsu_axi_arcache[3:0]          = obuf_sideeffect ? 4'b0 : 4'b1111;</span>
+<span id="L900"><span class="lineNum">     900</span>              :    assign lsu_axi_arregion[3:0]         = obuf_addr[31:28];</span>
+<span id="L901"><span class="lineNum">     901</span>              :    assign lsu_axi_arlen[7:0]            = '0;</span>
+<span id="L902"><span class="lineNum">     902</span>              :    assign lsu_axi_arburst[1:0]          = 2'b01;</span>
+<span id="L903"><span class="lineNum">     903</span>              :    assign lsu_axi_arqos[3:0]            = '0;</span>
+<span id="L904"><span class="lineNum">     904</span>              :    assign lsu_axi_arlock                = '0;</span>
 <span id="L905"><span class="lineNum">     905</span>              : </span>
-<span id="L906"><span class="lineNum">     906</span> <span class="tlaGNC">           1 :    always_comb begin</span></span>
-<span id="L907"><span class="lineNum">     907</span> <span class="tlaGNC">           1 :       lsu_imprecise_error_store_any = '0;</span></span>
-<span id="L908"><span class="lineNum">     908</span> <span class="tlaGNC">           1 :       lsu_imprecise_error_store_tag = '0;</span></span>
-<span id="L909"><span class="lineNum">     909</span> <span class="tlaGNC">           1 :       for (int i=0; i&lt;DEPTH; i++) begin</span></span>
-<span id="L910"><span class="lineNum">     910</span> <span class="tlaGNC">           4 :          lsu_imprecise_error_store_any |= lsu_bus_clk_en_q &amp; (buf_state[i] == DONE) &amp; buf_error[i] &amp; buf_write[i];</span></span>
-<span id="L911"><span class="lineNum">     911</span> <span class="tlaGNC">           4 :          lsu_imprecise_error_store_tag |= DEPTH_LOG2'(i) &amp; {DEPTH_LOG2{((buf_state[i] == DONE) &amp; buf_error[i] &amp; buf_write[i])}};</span></span>
-<span id="L912"><span class="lineNum">     912</span>              :       end</span>
-<span id="L913"><span class="lineNum">     913</span>              :    end</span>
-<span id="L914"><span class="lineNum">     914</span>              :    assign lsu_imprecise_error_load_any       = lsu_nonblock_load_data_error &amp; ~lsu_imprecise_error_store_any;   // This is to make sure we send only one imprecise error for load/store</span>
-<span id="L915"><span class="lineNum">     915</span>              :    assign lsu_imprecise_error_addr_any[31:0] = lsu_imprecise_error_store_any ? buf_addr[lsu_imprecise_error_store_tag[DEPTH_LOG2-1:0]] : buf_addr[lsu_nonblock_load_data_tag[DEPTH_LOG2-1:0]];</span>
-<span id="L916"><span class="lineNum">     916</span>              : </span>
-<span id="L917"><span class="lineNum">     917</span>              :    // PMU signals</span>
-<span id="L918"><span class="lineNum">     918</span>              :    assign lsu_pmu_bus_trxn  = (lsu_axi_awvalid &amp; lsu_axi_awready) | (lsu_axi_wvalid &amp; lsu_axi_wready) | (lsu_axi_arvalid &amp; lsu_axi_arready);</span>
-<span id="L919"><span class="lineNum">     919</span>              :    assign lsu_pmu_bus_misaligned = lsu_busreq_r &amp; ldst_dual_r &amp; lsu_commit_r;</span>
-<span id="L920"><span class="lineNum">     920</span>              :    assign lsu_pmu_bus_error = lsu_imprecise_error_load_any | lsu_imprecise_error_store_any;</span>
-<span id="L921"><span class="lineNum">     921</span>              :    assign lsu_pmu_bus_busy  = (lsu_axi_awvalid &amp; ~lsu_axi_awready) | (lsu_axi_wvalid &amp; ~lsu_axi_wready) | (lsu_axi_arvalid &amp; ~lsu_axi_arready);</span>
-<span id="L922"><span class="lineNum">     922</span>              : </span>
-<span id="L923"><span class="lineNum">     923</span>              :    rvdff_fpga #(.WIDTH(1))               lsu_axi_awvalid_ff (.din(lsu_axi_awvalid),                .dout(lsu_axi_awvalid_q),                .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
-<span id="L924"><span class="lineNum">     924</span>              :    rvdff_fpga #(.WIDTH(1))               lsu_axi_awready_ff (.din(lsu_axi_awready),                .dout(lsu_axi_awready_q),                .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
-<span id="L925"><span class="lineNum">     925</span>              :    rvdff_fpga #(.WIDTH(1))               lsu_axi_wvalid_ff  (.din(lsu_axi_wvalid),                 .dout(lsu_axi_wvalid_q),                 .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
-<span id="L926"><span class="lineNum">     926</span>              :    rvdff_fpga #(.WIDTH(1))               lsu_axi_wready_ff  (.din(lsu_axi_wready),                 .dout(lsu_axi_wready_q),                 .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
-<span id="L927"><span class="lineNum">     927</span>              :    rvdff_fpga #(.WIDTH(1))               lsu_axi_arvalid_ff (.din(lsu_axi_arvalid),                .dout(lsu_axi_arvalid_q),                .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
-<span id="L928"><span class="lineNum">     928</span>              :    rvdff_fpga #(.WIDTH(1))               lsu_axi_arready_ff (.din(lsu_axi_arready),                .dout(lsu_axi_arready_q),                .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
-<span id="L929"><span class="lineNum">     929</span>              : </span>
-<span id="L930"><span class="lineNum">     930</span>              :    rvdff_fpga  #(.WIDTH(1))              lsu_axi_bvalid_ff  (.din(lsu_axi_bvalid),                 .dout(lsu_axi_bvalid_q),                 .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
-<span id="L931"><span class="lineNum">     931</span>              :    rvdff_fpga  #(.WIDTH(1))              lsu_axi_bready_ff  (.din(lsu_axi_bready),                 .dout(lsu_axi_bready_q),                 .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
-<span id="L932"><span class="lineNum">     932</span>              :    rvdff_fpga  #(.WIDTH(2))              lsu_axi_bresp_ff   (.din(lsu_axi_bresp[1:0]),             .dout(lsu_axi_bresp_q[1:0]),             .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
-<span id="L933"><span class="lineNum">     933</span>              :    rvdff_fpga  #(.WIDTH(pt.LSU_BUS_TAG)) lsu_axi_bid_ff     (.din(lsu_axi_bid[pt.LSU_BUS_TAG-1:0]),.dout(lsu_axi_bid_q[pt.LSU_BUS_TAG-1:0]),.clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
-<span id="L934"><span class="lineNum">     934</span>              :    rvdffe      #(.WIDTH(64))             lsu_axi_rdata_ff   (.din(lsu_axi_rdata[63:0]),            .dout(lsu_axi_rdata_q[63:0]),            .en((lsu_axi_rvalid | clk_override) &amp; lsu_bus_clk_en), .*);</span>
-<span id="L935"><span class="lineNum">     935</span>              : </span>
-<span id="L936"><span class="lineNum">     936</span>              :    rvdff_fpga  #(.WIDTH(1))              lsu_axi_rvalid_ff  (.din(lsu_axi_rvalid),                 .dout(lsu_axi_rvalid_q),                 .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
-<span id="L937"><span class="lineNum">     937</span>              :    rvdff_fpga  #(.WIDTH(1))              lsu_axi_rready_ff  (.din(lsu_axi_rready),                 .dout(lsu_axi_rready_q),                 .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
-<span id="L938"><span class="lineNum">     938</span>              :    rvdff_fpga  #(.WIDTH(2))              lsu_axi_rresp_ff   (.din(lsu_axi_rresp[1:0]),             .dout(lsu_axi_rresp_q[1:0]),             .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
-<span id="L939"><span class="lineNum">     939</span>              :    rvdff_fpga  #(.WIDTH(pt.LSU_BUS_TAG)) lsu_axi_rid_ff     (.din(lsu_axi_rid[pt.LSU_BUS_TAG-1:0]),.dout(lsu_axi_rid_q[pt.LSU_BUS_TAG-1:0]),.clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
-<span id="L940"><span class="lineNum">     940</span>              : </span>
-<span id="L941"><span class="lineNum">     941</span>              :    rvdff #(.WIDTH(DEPTH_LOG2)) lsu_WrPtr0_rff (.din(WrPtr0_m), .dout(WrPtr0_r), .clk(lsu_c2_r_clk), .*);</span>
-<span id="L942"><span class="lineNum">     942</span>              :    rvdff #(.WIDTH(DEPTH_LOG2)) lsu_WrPtr1_rff (.din(WrPtr1_m), .dout(WrPtr1_r), .clk(lsu_c2_r_clk), .*);</span>
+<span id="L906"><span class="lineNum">     906</span>              :    assign lsu_axi_bready = 1;</span>
+<span id="L907"><span class="lineNum">     907</span>              :    assign lsu_axi_rready = 1;</span>
+<span id="L908"><span class="lineNum">     908</span>              : </span>
+<span id="L909"><span class="lineNum">     909</span> <span class="tlaGNC">           1 :    always_comb begin</span></span>
+<span id="L910"><span class="lineNum">     910</span> <span class="tlaGNC">           1 :       lsu_imprecise_error_store_any = '0;</span></span>
+<span id="L911"><span class="lineNum">     911</span> <span class="tlaGNC">           1 :       lsu_imprecise_error_store_tag = '0;</span></span>
+<span id="L912"><span class="lineNum">     912</span> <span class="tlaGNC">           1 :       for (int i=0; i&lt;DEPTH; i++) begin</span></span>
+<span id="L913"><span class="lineNum">     913</span> <span class="tlaGNC">           4 :          lsu_imprecise_error_store_any |= lsu_bus_clk_en_q &amp; (buf_state[i] == DONE) &amp; buf_error[i] &amp; buf_write[i];</span></span>
+<span id="L914"><span class="lineNum">     914</span> <span class="tlaGNC">           4 :          lsu_imprecise_error_store_tag |= DEPTH_LOG2'(i) &amp; {DEPTH_LOG2{((buf_state[i] == DONE) &amp; buf_error[i] &amp; buf_write[i])}};</span></span>
+<span id="L915"><span class="lineNum">     915</span>              :       end</span>
+<span id="L916"><span class="lineNum">     916</span>              :    end</span>
+<span id="L917"><span class="lineNum">     917</span>              :    assign lsu_imprecise_error_load_any       = lsu_nonblock_load_data_error &amp; ~lsu_imprecise_error_store_any;   // This is to make sure we send only one imprecise error for load/store</span>
+<span id="L918"><span class="lineNum">     918</span>              :    assign lsu_imprecise_error_addr_any[31:0] = lsu_imprecise_error_store_any ? buf_addr[lsu_imprecise_error_store_tag[DEPTH_LOG2-1:0]] : buf_addr[lsu_nonblock_load_data_tag[DEPTH_LOG2-1:0]];</span>
+<span id="L919"><span class="lineNum">     919</span>              : </span>
+<span id="L920"><span class="lineNum">     920</span>              :    // PMU signals</span>
+<span id="L921"><span class="lineNum">     921</span>              :    assign lsu_pmu_bus_trxn  = (lsu_axi_awvalid &amp; lsu_axi_awready) | (lsu_axi_wvalid &amp; lsu_axi_wready) | (lsu_axi_arvalid &amp; lsu_axi_arready);</span>
+<span id="L922"><span class="lineNum">     922</span>              :    assign lsu_pmu_bus_misaligned = lsu_busreq_r &amp; ldst_dual_r &amp; lsu_commit_r;</span>
+<span id="L923"><span class="lineNum">     923</span>              :    assign lsu_pmu_bus_error = lsu_imprecise_error_load_any | lsu_imprecise_error_store_any;</span>
+<span id="L924"><span class="lineNum">     924</span>              :    assign lsu_pmu_bus_busy  = (lsu_axi_awvalid &amp; ~lsu_axi_awready) | (lsu_axi_wvalid &amp; ~lsu_axi_wready) | (lsu_axi_arvalid &amp; ~lsu_axi_arready);</span>
+<span id="L925"><span class="lineNum">     925</span>              : </span>
+<span id="L926"><span class="lineNum">     926</span>              :    rvdff_fpga #(.WIDTH(1))               lsu_axi_awvalid_ff (.din(lsu_axi_awvalid),                .dout(lsu_axi_awvalid_q),                .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
+<span id="L927"><span class="lineNum">     927</span>              :    rvdff_fpga #(.WIDTH(1))               lsu_axi_awready_ff (.din(lsu_axi_awready),                .dout(lsu_axi_awready_q),                .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
+<span id="L928"><span class="lineNum">     928</span>              :    rvdff_fpga #(.WIDTH(1))               lsu_axi_wvalid_ff  (.din(lsu_axi_wvalid),                 .dout(lsu_axi_wvalid_q),                 .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
+<span id="L929"><span class="lineNum">     929</span>              :    rvdff_fpga #(.WIDTH(1))               lsu_axi_wready_ff  (.din(lsu_axi_wready),                 .dout(lsu_axi_wready_q),                 .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
+<span id="L930"><span class="lineNum">     930</span>              :    rvdff_fpga #(.WIDTH(1))               lsu_axi_arvalid_ff (.din(lsu_axi_arvalid),                .dout(lsu_axi_arvalid_q),                .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
+<span id="L931"><span class="lineNum">     931</span>              :    rvdff_fpga #(.WIDTH(1))               lsu_axi_arready_ff (.din(lsu_axi_arready),                .dout(lsu_axi_arready_q),                .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
+<span id="L932"><span class="lineNum">     932</span>              : </span>
+<span id="L933"><span class="lineNum">     933</span>              :    rvdff_fpga  #(.WIDTH(1))              lsu_axi_bvalid_ff  (.din(lsu_axi_bvalid),                 .dout(lsu_axi_bvalid_q),                 .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
+<span id="L934"><span class="lineNum">     934</span>              :    rvdff_fpga  #(.WIDTH(1))              lsu_axi_bready_ff  (.din(lsu_axi_bready),                 .dout(lsu_axi_bready_q),                 .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
+<span id="L935"><span class="lineNum">     935</span>              :    rvdff_fpga  #(.WIDTH(2))              lsu_axi_bresp_ff   (.din(lsu_axi_bresp[1:0]),             .dout(lsu_axi_bresp_q[1:0]),             .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
+<span id="L936"><span class="lineNum">     936</span>              :    rvdff_fpga  #(.WIDTH(pt.LSU_BUS_TAG)) lsu_axi_bid_ff     (.din(lsu_axi_bid[pt.LSU_BUS_TAG-1:0]),.dout(lsu_axi_bid_q[pt.LSU_BUS_TAG-1:0]),.clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
+<span id="L937"><span class="lineNum">     937</span>              :    rvdffe      #(.WIDTH(64))             lsu_axi_rdata_ff   (.din(lsu_axi_rdata[63:0]),            .dout(lsu_axi_rdata_q[63:0]),            .en((lsu_axi_rvalid | clk_override) &amp; lsu_bus_clk_en), .*);</span>
+<span id="L938"><span class="lineNum">     938</span>              : </span>
+<span id="L939"><span class="lineNum">     939</span>              :    rvdff_fpga  #(.WIDTH(1))              lsu_axi_rvalid_ff  (.din(lsu_axi_rvalid),                 .dout(lsu_axi_rvalid_q),                 .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
+<span id="L940"><span class="lineNum">     940</span>              :    rvdff_fpga  #(.WIDTH(1))              lsu_axi_rready_ff  (.din(lsu_axi_rready),                 .dout(lsu_axi_rready_q),                 .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
+<span id="L941"><span class="lineNum">     941</span>              :    rvdff_fpga  #(.WIDTH(2))              lsu_axi_rresp_ff   (.din(lsu_axi_rresp[1:0]),             .dout(lsu_axi_rresp_q[1:0]),             .clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
+<span id="L942"><span class="lineNum">     942</span>              :    rvdff_fpga  #(.WIDTH(pt.LSU_BUS_TAG)) lsu_axi_rid_ff     (.din(lsu_axi_rid[pt.LSU_BUS_TAG-1:0]),.dout(lsu_axi_rid_q[pt.LSU_BUS_TAG-1:0]),.clk(lsu_busm_clk), .clken(lsu_busm_clken), .rawclk(clk), .*);</span>
 <span id="L943"><span class="lineNum">     943</span>              : </span>
-<span id="L944"><span class="lineNum">     944</span>              :    rvdff #(.WIDTH(1)) lsu_busreq_rff (.din(lsu_busreq_m &amp; ~flush_r &amp; ~ld_full_hit_m),      .dout(lsu_busreq_r), .clk(lsu_c2_r_clk), .*);</span>
-<span id="L945"><span class="lineNum">     945</span>              :    rvdff #(.WIDTH(1)) lsu_nonblock_load_valid_rff  (.din(lsu_nonblock_load_valid_m),  .dout(lsu_nonblock_load_valid_r), .clk(lsu_c2_r_clk), .*);</span>
+<span id="L944"><span class="lineNum">     944</span>              :    rvdff #(.WIDTH(DEPTH_LOG2)) lsu_WrPtr0_rff (.din(WrPtr0_m), .dout(WrPtr0_r), .clk(lsu_c2_r_clk), .*);</span>
+<span id="L945"><span class="lineNum">     945</span>              :    rvdff #(.WIDTH(DEPTH_LOG2)) lsu_WrPtr1_rff (.din(WrPtr1_m), .dout(WrPtr1_r), .clk(lsu_c2_r_clk), .*);</span>
 <span id="L946"><span class="lineNum">     946</span>              : </span>
-<span id="L947"><span class="lineNum">     947</span>              : `ifdef RV_ASSERT_ON</span>
-<span id="L948"><span class="lineNum">     948</span>              : </span>
-<span id="L949"><span class="lineNum">     949</span>              :    for (genvar i=0; i&lt;4; i++) begin: GenByte</span>
-<span id="L950"><span class="lineNum">     950</span>              :       assert_ld_byte_hitvecfn_lo_onehot: assert #0 ($onehot0(ld_byte_hitvecfn_lo[i][DEPTH-1:0]));</span>
-<span id="L951"><span class="lineNum">     951</span>              :       assert_ld_byte_hitvecfn_hi_onehot: assert #0 ($onehot0(ld_byte_hitvecfn_hi[i][DEPTH-1:0]));</span>
-<span id="L952"><span class="lineNum">     952</span>              :    end</span>
-<span id="L953"><span class="lineNum">     953</span>              : </span>
-<span id="L954"><span class="lineNum">     954</span>              :    for (genvar i=0; i&lt;DEPTH; i++) begin: GenAssertAge</span>
-<span id="L955"><span class="lineNum">     955</span>              :       assert_bufempty_agevec: assert #0 (~(lsu_bus_buffer_empty_any &amp; |(buf_age[i])));</span>
-<span id="L956"><span class="lineNum">     956</span>              :    end</span>
-<span id="L957"><span class="lineNum">     957</span>              : </span>
-<span id="L958"><span class="lineNum">     958</span>              :    assert_CmdPtr0Dec_onehot: assert #0 ($onehot0(CmdPtr0Dec[DEPTH-1:0] &amp; ~{DEPTH{dec_tlu_force_halt}}));</span>
-<span id="L959"><span class="lineNum">     959</span>              :    assert_CmdPtr1Dec_onehot: assert #0 ($onehot0(CmdPtr1Dec[DEPTH-1:0] &amp; ~{DEPTH{dec_tlu_force_halt}}));</span>
+<span id="L947"><span class="lineNum">     947</span>              :    rvdff #(.WIDTH(1)) lsu_busreq_rff (.din(lsu_busreq_m &amp; ~flush_r &amp; ~ld_full_hit_m),      .dout(lsu_busreq_r), .clk(lsu_c2_r_clk), .*);</span>
+<span id="L948"><span class="lineNum">     948</span>              :    rvdff #(.WIDTH(1)) lsu_nonblock_load_valid_rff  (.din(lsu_nonblock_load_valid_m),  .dout(lsu_nonblock_load_valid_r), .clk(lsu_c2_r_clk), .*);</span>
+<span id="L949"><span class="lineNum">     949</span>              : </span>
+<span id="L950"><span class="lineNum">     950</span>              : `ifdef RV_ASSERT_ON</span>
+<span id="L951"><span class="lineNum">     951</span>              : </span>
+<span id="L952"><span class="lineNum">     952</span>              :    for (genvar i=0; i&lt;4; i++) begin: GenByte</span>
+<span id="L953"><span class="lineNum">     953</span>              :       assert_ld_byte_hitvecfn_lo_onehot: assert #0 ($onehot0(ld_byte_hitvecfn_lo[i][DEPTH-1:0]));</span>
+<span id="L954"><span class="lineNum">     954</span>              :       assert_ld_byte_hitvecfn_hi_onehot: assert #0 ($onehot0(ld_byte_hitvecfn_hi[i][DEPTH-1:0]));</span>
+<span id="L955"><span class="lineNum">     955</span>              :    end</span>
+<span id="L956"><span class="lineNum">     956</span>              : </span>
+<span id="L957"><span class="lineNum">     957</span>              :    for (genvar i=0; i&lt;DEPTH; i++) begin: GenAssertAge</span>
+<span id="L958"><span class="lineNum">     958</span>              :       assert_bufempty_agevec: assert #0 (~(lsu_bus_buffer_empty_any &amp; |(buf_age[i])));</span>
+<span id="L959"><span class="lineNum">     959</span>              :    end</span>
 <span id="L960"><span class="lineNum">     960</span>              : </span>
-<span id="L961"><span class="lineNum">     961</span>              : `endif</span>
-<span id="L962"><span class="lineNum">     962</span>              : </span>
-<span id="L963"><span class="lineNum">     963</span>              : endmodule // el2_lsu_bus_buffer</span>
+<span id="L961"><span class="lineNum">     961</span>              :    assert_CmdPtr0Dec_onehot: assert #0 ($onehot0(CmdPtr0Dec[DEPTH-1:0] &amp; ~{DEPTH{dec_tlu_force_halt}}));</span>
+<span id="L962"><span class="lineNum">     962</span>              :    assert_CmdPtr1Dec_onehot: assert #0 ($onehot0(CmdPtr1Dec[DEPTH-1:0] &amp; ~{DEPTH{dec_tlu_force_halt}}));</span>
+<span id="L963"><span class="lineNum">     963</span>              : </span>
+<span id="L964"><span class="lineNum">     964</span>              : `endif</span>
+<span id="L965"><span class="lineNum">     965</span>              : </span>
+<span id="L966"><span class="lineNum">     966</span>              : endmodule // el2_lsu_bus_buffer</span>
         </pre>
 </td>
 </tr>
