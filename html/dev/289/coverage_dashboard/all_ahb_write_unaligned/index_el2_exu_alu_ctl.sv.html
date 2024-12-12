@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    11-12-2024
+                    12-12-2024
                 </td>
                 <td></td>
                 
@@ -124,7 +124,7 @@
 <span id="L20"><span class="lineNum">      20</span>              : `include "el2_param.vh"</span>
 <span id="L21"><span class="lineNum">      21</span>              : )</span>
 <span id="L22"><span class="lineNum">      22</span>              :   (</span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">     5005843 :    input  logic                  clk,                // Top level clock</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">     5005914 :    input  logic                  clk,                // Top level clock</span></span>
 <span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           1 :    input  logic                  rst_l,              // Reset</span></span>
 <span id="L25"><span class="lineNum">      25</span>              :    // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L26"><span class="lineNum">      26</span>              :    /*verilator coverage_off*/</span>
@@ -133,8 +133,8 @@
 <span id="L29"><span class="lineNum">      29</span>              : </span>
 <span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">      499207 :    input  logic                  flush_upper_x,      // Branch flush from previous cycle</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">          20 :    input  logic                  flush_lower_r,      // Master flush of entire pipeline</span></span>
-<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">      500032 :    input  logic                  enable,             // Clock enable</span></span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">      499622 :    input  logic                  valid_in,           // Valid</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">      500030 :    input  logic                  enable,             // Clock enable</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">      499620 :    input  logic                  valid_in,           // Valid</span></span>
 <span id="L34"><span class="lineNum">      34</span> <span class="tlaUNC tlaBgUNC">           0 :    input  el2_alu_pkt_t         ap,                 // predecodes</span></span>
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">           2 :    input  logic                  csr_ren_in,         // CSR select</span></span>
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">        3906 :    input  logic        [31:0]    csr_rddata_in,      // CSR data</span></span>
@@ -161,15 +161,15 @@
 <span id="L57"><span class="lineNum">      57</span> <span class="tlaUNC tlaBgUNC">           0 :    logic               [31:0]    lout;</span></span>
 <span id="L58"><span class="lineNum">      58</span> <span class="tlaGNC tlaBgGNC">           2 :    logic               [31:0]    sout;</span></span>
 <span id="L59"><span class="lineNum">      59</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                         sel_shift;</span></span>
-<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC tlaBgGNC">      499568 :    logic                         sel_adder;</span></span>
+<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC tlaBgGNC">      499566 :    logic                         sel_adder;</span></span>
 <span id="L61"><span class="lineNum">      61</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                         slt_one;</span></span>
-<span id="L62"><span class="lineNum">      62</span> <span class="tlaGNC tlaBgGNC">      499360 :    logic                         actual_taken;</span></span>
+<span id="L62"><span class="lineNum">      62</span> <span class="tlaGNC tlaBgGNC">      499362 :    logic                         actual_taken;</span></span>
 <span id="L63"><span class="lineNum">      63</span> <span class="tlaGNC">           2 :    logic               [31:1]    pcout;</span></span>
-<span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC">          60 :    logic                         cond_mispredict;</span></span>
+<span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC">          62 :    logic                         cond_mispredict;</span></span>
 <span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC">      499142 :    logic                         target_mispredict;</span></span>
 <span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC">         672 :    logic                         eq, ne, lt, ge;</span></span>
 <span id="L67"><span class="lineNum">      67</span> <span class="tlaGNC">      499166 :    logic                         any_jal;</span></span>
-<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC">         173 :    logic               [1:0]     newhist;</span></span>
+<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC">         175 :    logic               [1:0]     newhist;</span></span>
 <span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC">      499166 :    logic                         sel_pc;</span></span>
 <span id="L70"><span class="lineNum">      70</span> <span class="tlaGNC">           2 :    logic               [31:0]    csr_write_data;</span></span>
 <span id="L71"><span class="lineNum">      71</span> <span class="tlaGNC">           2 :    logic               [31:0]    result;</span></span>
@@ -446,8 +446,8 @@
 <span id="L342"><span class="lineNum">     342</span>              : </span>
 <span id="L343"><span class="lineNum">     343</span> <span class="tlaGNC">           1 :         for (int i=0; i&lt;32; i++) begin</span></span>
 <span id="L344"><span class="lineNum">     344</span> <span class="tlaUNC tlaBgUNC">           0 :           if (bitmanip_lzd_os[31] == 1'b0 &amp;&amp; found == 0) begin</span></span>
-<span id="L345"><span class="lineNum">     345</span> <span class="tlaGNC tlaBgGNC">   192027424 :               bitmanip_dw_lzd_enc[5:0]=  bitmanip_dw_lzd_enc[5:0] + 6'b00_0001;</span></span>
-<span id="L346"><span class="lineNum">     346</span> <span class="tlaGNC">   192027424 :               bitmanip_lzd_os[31:0]   =  bitmanip_lzd_os[31:0] &lt;&lt; 1;</span></span>
+<span id="L345"><span class="lineNum">     345</span> <span class="tlaGNC tlaBgGNC">   192027744 :               bitmanip_dw_lzd_enc[5:0]=  bitmanip_dw_lzd_enc[5:0] + 6'b00_0001;</span></span>
+<span id="L346"><span class="lineNum">     346</span> <span class="tlaGNC">   192027744 :               bitmanip_lzd_os[31:0]   =  bitmanip_lzd_os[31:0] &lt;&lt; 1;</span></span>
 <span id="L347"><span class="lineNum">     347</span>              :            end</span>
 <span id="L348"><span class="lineNum">     348</span>              :            else</span>
 <span id="L349"><span class="lineNum">     349</span> <span class="tlaUNC tlaBgUNC">           0 :               found=1'b1;</span></span>

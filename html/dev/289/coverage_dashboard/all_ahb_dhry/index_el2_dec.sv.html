@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    11-12-2024
+                    12-12-2024
                 </td>
                 <td></td>
                 
@@ -136,10 +136,10 @@
 <span id="L32"><span class="lineNum">      32</span>              : #(</span>
 <span id="L33"><span class="lineNum">      33</span>              :     `include "el2_param.vh"</span>
 <span id="L34"><span class="lineNum">      34</span>              : ) (</span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">     3950043 :     input logic clk,                          // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">     3950043 :     input logic active_clk,                   // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
-<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">     3950043 :     input logic free_clk,                     // Clock always.                  Through two clock headers. For flops without second clock header built in.</span></span>
-<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">     3950043 :     input logic free_l2clk,                   // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">     3949944 :     input logic clk,                          // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">     3949944 :     input logic active_clk,                   // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">     3949944 :     input logic free_clk,                     // Clock always.                  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">     3949944 :     input logic free_l2clk,                   // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
 <span id="L39"><span class="lineNum">      39</span>              : </span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic lsu_fastint_stall_any,        // needed by lsu for 2nd pass of dma with ecc correction, stall next cycle</span></span>
 <span id="L41"><span class="lineNum">      41</span>              : </span>
@@ -180,9 +180,9 @@
 <span id="L76"><span class="lineNum">      76</span>              : </span>
 <span id="L77"><span class="lineNum">      77</span>              : </span>
 <span id="L78"><span class="lineNum">      78</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic lsu_nonblock_load_valid_m,  // valid nonblock load at m</span></span>
-<span id="L79"><span class="lineNum">      79</span> <span class="tlaGNC tlaBgGNC">         118 :     input logic [pt.LSU_NUM_NBLOAD_WIDTH-1:0] lsu_nonblock_load_tag_m,  // -&gt; corresponding tag</span></span>
+<span id="L79"><span class="lineNum">      79</span> <span class="tlaGNC tlaBgGNC">         120 :     input logic [pt.LSU_NUM_NBLOAD_WIDTH-1:0] lsu_nonblock_load_tag_m,  // -&gt; corresponding tag</span></span>
 <span id="L80"><span class="lineNum">      80</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic lsu_nonblock_load_inv_r,  // invalidate request for nonblock load r</span></span>
-<span id="L81"><span class="lineNum">      81</span> <span class="tlaGNC tlaBgGNC">         118 :     input logic [pt.LSU_NUM_NBLOAD_WIDTH-1:0] lsu_nonblock_load_inv_tag_r,  // -&gt; corresponding tag</span></span>
+<span id="L81"><span class="lineNum">      81</span> <span class="tlaGNC tlaBgGNC">         120 :     input logic [pt.LSU_NUM_NBLOAD_WIDTH-1:0] lsu_nonblock_load_inv_tag_r,  // -&gt; corresponding tag</span></span>
 <span id="L82"><span class="lineNum">      82</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic lsu_nonblock_load_data_valid,  // valid nonblock load data back</span></span>
 <span id="L83"><span class="lineNum">      83</span> <span class="tlaUNC">           0 :     input logic lsu_nonblock_load_data_error,  // nonblock load bus error</span></span>
 <span id="L84"><span class="lineNum">      84</span> <span class="tlaUNC">           0 :     input logic [pt.LSU_NUM_NBLOAD_WIDTH-1:0] lsu_nonblock_load_data_tag,  // -&gt; corresponding tag</span></span>
@@ -228,7 +228,7 @@
 <span id="L124"><span class="lineNum">     124</span> <span class="tlaUNC">           0 :     input logic ifu_i0_icaf_second,  // i0 has access fault on second 2B of 4B inst</span></span>
 <span id="L125"><span class="lineNum">     125</span> <span class="tlaUNC">           0 :     input logic ifu_i0_dbecc,        // icache/iccm double-bit error</span></span>
 <span id="L126"><span class="lineNum">     126</span>              : </span>
-<span id="L127"><span class="lineNum">     127</span> <span class="tlaGNC tlaBgGNC">      114319 :     input logic lsu_idle_any,  // lsu idle for halting</span></span>
+<span id="L127"><span class="lineNum">     127</span> <span class="tlaGNC tlaBgGNC">      114313 :     input logic lsu_idle_any,  // lsu idle for halting</span></span>
 <span id="L128"><span class="lineNum">     128</span>              : </span>
 <span id="L129"><span class="lineNum">     129</span> <span class="tlaGNC">       16080 :     input el2_br_pkt_t                                 i0_brp,           // branch packet</span></span>
 <span id="L130"><span class="lineNum">     130</span> <span class="tlaGNC">       18334 :     input logic        [pt.BTB_ADDR_HI:pt.BTB_ADDR_LO] ifu_i0_bp_index,  // BP index</span></span>
@@ -354,7 +354,7 @@
 <span id="L250"><span class="lineNum">     250</span> <span class="tlaGNC tlaBgGNC">        2164 :     output logic [11:0] dec_lsu_offset_d,  // 12b offset for load/store addresses</span></span>
 <span id="L251"><span class="lineNum">     251</span>              : </span>
 <span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC">           4 :     output logic        dec_csr_ren_d,    // CSR read enable</span></span>
-<span id="L253"><span class="lineNum">     253</span> <span class="tlaGNC">        1642 :     output logic [31:0] dec_csr_rddata_d, // CSR read data</span></span>
+<span id="L253"><span class="lineNum">     253</span> <span class="tlaGNC">        1638 :     output logic [31:0] dec_csr_rddata_d, // CSR read data</span></span>
 <span id="L254"><span class="lineNum">     254</span>              : </span>
 <span id="L255"><span class="lineNum">     255</span> <span class="tlaGNC">          10 :     output logic dec_tlu_flush_lower_r,  // tlu flush due to late mp, exception, rfpc, or int</span></span>
 <span id="L256"><span class="lineNum">     256</span> <span class="tlaGNC">          10 :     output logic dec_tlu_flush_lower_wb,</span></span>

@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    11-12-2024
+                    12-12-2024
                 </td>
                 <td></td>
                 
@@ -131,7 +131,7 @@
 <span id="L27"><span class="lineNum">      27</span>              : `include "el2_param.vh"</span>
 <span id="L28"><span class="lineNum">      28</span>              : )</span>
 <span id="L29"><span class="lineNum">      29</span>              : (</span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     5004161 :    input logic                             clk,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     5004198 :    input logic                             clk,</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           1 :    input logic                             rst_l,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           1 :    input logic                             dbg_rst_l,</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:1]                      rst_vec,</span></span>
@@ -142,8 +142,8 @@
 <span id="L38"><span class="lineNum">      38</span>              : </span>
 <span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC tlaBgGNC">          78 :    output logic [31:0]                     trace_rv_i_insn_ip,</span></span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">           2 :    output logic [31:0]                     trace_rv_i_address_ip,</span></span>
-<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">      500028 :    output logic                            trace_rv_i_valid_ip,</span></span>
-<span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">      499318 :    output logic                            trace_rv_i_exception_ip,</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">      500036 :    output logic                            trace_rv_i_valid_ip,</span></span>
+<span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">      499326 :    output logic                            trace_rv_i_exception_ip,</span></span>
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [4:0]                      trace_rv_i_ecause_ip,</span></span>
 <span id="L44"><span class="lineNum">      44</span> <span class="tlaUNC">           0 :    output logic                            trace_rv_i_interrupt_ip,</span></span>
 <span id="L45"><span class="lineNum">      45</span> <span class="tlaUNC">           0 :    output logic [31:0]                     trace_rv_i_tval_ip,</span></span>
@@ -411,7 +411,7 @@
 <span id="L307"><span class="lineNum">     307</span>              :    /*verilator coverage_on*/</span>
 <span id="L308"><span class="lineNum">     308</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [3:0]                      hprot,</span></span>
 <span id="L309"><span class="lineNum">     309</span> <span class="tlaUNC">           0 :    output logic [2:0]                      hsize,</span></span>
-<span id="L310"><span class="lineNum">     310</span> <span class="tlaGNC tlaBgGNC">      500035 :    output logic [1:0]                      htrans,</span></span>
+<span id="L310"><span class="lineNum">     310</span> <span class="tlaGNC tlaBgGNC">      500046 :    output logic [1:0]                      htrans,</span></span>
 <span id="L311"><span class="lineNum">     311</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic                            hwrite,</span></span>
 <span id="L312"><span class="lineNum">     312</span>              : </span>
 <span id="L313"><span class="lineNum">     313</span>              :    /* exclude signals that are tied to constant value in this file */</span>
@@ -480,10 +480,10 @@
 <span id="L376"><span class="lineNum">     376</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic                            dma_hresp,</span></span>
 <span id="L377"><span class="lineNum">     377</span>              : `endif</span>
 <span id="L378"><span class="lineNum">     378</span>              :    // clk ratio signals</span>
-<span id="L379"><span class="lineNum">     379</span> <span class="tlaGNC tlaBgGNC">           3 :    input logic                             lsu_bus_clk_en, // Clock ratio b/w cpu core clk &amp; AHB master interface</span></span>
-<span id="L380"><span class="lineNum">     380</span> <span class="tlaGNC">           3 :    input logic                             ifu_bus_clk_en, // Clock ratio b/w cpu core clk &amp; AHB master interface</span></span>
-<span id="L381"><span class="lineNum">     381</span> <span class="tlaGNC">           3 :    input logic                             dbg_bus_clk_en, // Clock ratio b/w cpu core clk &amp; AHB master interface</span></span>
-<span id="L382"><span class="lineNum">     382</span> <span class="tlaGNC">           3 :    input logic                             dma_bus_clk_en, // Clock ratio b/w cpu core clk &amp; AHB slave interface</span></span>
+<span id="L379"><span class="lineNum">     379</span> <span class="tlaGNC tlaBgGNC">          51 :    input logic                             lsu_bus_clk_en, // Clock ratio b/w cpu core clk &amp; AHB master interface</span></span>
+<span id="L380"><span class="lineNum">     380</span> <span class="tlaGNC">           1 :    input logic                             ifu_bus_clk_en, // Clock ratio b/w cpu core clk &amp; AHB master interface</span></span>
+<span id="L381"><span class="lineNum">     381</span> <span class="tlaGNC">           1 :    input logic                             dbg_bus_clk_en, // Clock ratio b/w cpu core clk &amp; AHB master interface</span></span>
+<span id="L382"><span class="lineNum">     382</span> <span class="tlaGNC">           1 :    input logic                             dma_bus_clk_en, // Clock ratio b/w cpu core clk &amp; AHB slave interface</span></span>
 <span id="L383"><span class="lineNum">     383</span>              : </span>
 <span id="L384"><span class="lineNum">     384</span>              :    // ICCM/DCCM ECC status</span>
 <span id="L385"><span class="lineNum">     385</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic                            iccm_ecc_single_error,</span></span>
@@ -548,8 +548,8 @@
 <span id="L444"><span class="lineNum">     444</span>              :    /* verilator coverage_on */</span>
 <span id="L445"><span class="lineNum">     445</span>              : );</span>
 <span id="L446"><span class="lineNum">     446</span>              : </span>
-<span id="L447"><span class="lineNum">     447</span> <span class="tlaGNC">     5004161 :    logic                             active_l2clk;</span></span>
-<span id="L448"><span class="lineNum">     448</span> <span class="tlaGNC">     5004161 :    logic                             free_l2clk;</span></span>
+<span id="L447"><span class="lineNum">     447</span> <span class="tlaGNC">     5004198 :    logic                             active_l2clk;</span></span>
+<span id="L448"><span class="lineNum">     448</span> <span class="tlaGNC">     5004198 :    logic                             free_l2clk;</span></span>
 <span id="L449"><span class="lineNum">     449</span>              : </span>
 <span id="L450"><span class="lineNum">     450</span>              :    // DCCM ports</span>
 <span id="L451"><span class="lineNum">     451</span> <span class="tlaUNC tlaBgUNC">           0 :    logic         dccm_wren;</span></span>
@@ -584,7 +584,7 @@
 <span id="L480"><span class="lineNum">     480</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_NUM_WAYS-1:0]   ic_debug_way;   // Debug way. Rd or Wr.</span></span>
 <span id="L481"><span class="lineNum">     481</span>              : </span>
 <span id="L482"><span class="lineNum">     482</span> <span class="tlaUNC">           0 :    logic [25:0]  ictag_debug_rd_data;               // Debug icache tag.</span></span>
-<span id="L483"><span class="lineNum">     483</span> <span class="tlaGNC tlaBgGNC">          30 :    logic [pt.ICACHE_BANKS_WAY-1:0][70:0]  ic_wr_data;</span></span>
+<span id="L483"><span class="lineNum">     483</span> <span class="tlaGNC tlaBgGNC">          32 :    logic [pt.ICACHE_BANKS_WAY-1:0][70:0]  ic_wr_data;</span></span>
 <span id="L484"><span class="lineNum">     484</span> <span class="tlaGNC">         154 :    logic [63:0]  ic_rd_data;</span></span>
 <span id="L485"><span class="lineNum">     485</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [70:0]  ic_debug_rd_data;                  // Data read from Icache. 2x64bits + parity bits. F2 stage. With ECC</span></span>
 <span id="L486"><span class="lineNum">     486</span> <span class="tlaUNC">           0 :    logic [70:0]  ic_debug_wr_data;                  // Debug wr cache.</span></span>
@@ -593,7 +593,7 @@
 <span id="L489"><span class="lineNum">     489</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_BANKS_WAY-1:0] ic_parerr;       // parity error per bank</span></span>
 <span id="L490"><span class="lineNum">     490</span>              : </span>
 <span id="L491"><span class="lineNum">     491</span> <span class="tlaGNC tlaBgGNC">         154 :    logic [63:0]  ic_premux_data;</span></span>
-<span id="L492"><span class="lineNum">     492</span> <span class="tlaGNC">      499915 :    logic         ic_sel_premux_data;</span></span>
+<span id="L492"><span class="lineNum">     492</span> <span class="tlaGNC">      499926 :    logic         ic_sel_premux_data;</span></span>
 <span id="L493"><span class="lineNum">     493</span>              : </span>
 <span id="L494"><span class="lineNum">     494</span>              :    // ICCM ports</span>
 <span id="L495"><span class="lineNum">     495</span> <span class="tlaGNC">           4 :    logic [pt.ICCM_BITS-1:1]    iccm_rw_addr;</span></span>

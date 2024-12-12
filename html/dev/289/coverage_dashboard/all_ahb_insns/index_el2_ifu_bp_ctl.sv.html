@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    11-12-2024
+                    12-12-2024
                 </td>
                 <td></td>
                 
@@ -135,15 +135,15 @@
 <span id="L31"><span class="lineNum">      31</span>              :  )</span>
 <span id="L32"><span class="lineNum">      32</span>              :   (</span>
 <span id="L33"><span class="lineNum">      33</span>              : </span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC tlaBgGNC">     8438520 :    input logic clk,</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC tlaBgGNC">     8438578 :    input logic clk,</span></span>
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">           1 :    input logic rst_l,</span></span>
 <span id="L36"><span class="lineNum">      36</span>              : </span>
-<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">      538066 :    input logic ic_hit_f,      // Icache hit, enables F address capture</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">      538076 :    input logic ic_hit_f,      // Icache hit, enables F address capture</span></span>
 <span id="L38"><span class="lineNum">      38</span>              : </span>
 <span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">         815 :    input logic [31:1] ifc_fetch_addr_f, // look up btb address</span></span>
-<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">      270011 :    input logic ifc_fetch_req_f,  // F1 valid</span></span>
+<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">      270017 :    input logic ifc_fetch_req_f,  // F1 valid</span></span>
 <span id="L41"><span class="lineNum">      41</span>              : </span>
-<span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">       65439 :    input el2_br_tlu_pkt_t dec_tlu_br0_r_pkt, // BP commit update packet, includes errors</span></span>
+<span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">       65440 :    input el2_br_tlu_pkt_t dec_tlu_br0_r_pkt, // BP commit update packet, includes errors</span></span>
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">       45549 :    input logic [pt.BHT_GHR_SIZE-1:0] exu_i0_br_fghr_r, // fghr to bp</span></span>
 <span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">        1634 :    input logic [pt.BTB_ADDR_HI:pt.BTB_ADDR_LO] exu_i0_br_index_r, // bp index</span></span>
 <span id="L45"><span class="lineNum">      45</span>              : </span>
@@ -169,12 +169,12 @@
 <span id="L65"><span class="lineNum">      65</span>              : </span>
 <span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC">       45549 :    output logic [pt.BHT_GHR_SIZE-1:0] ifu_bp_fghr_f, // fetch ghr</span></span>
 <span id="L67"><span class="lineNum">      67</span>              : </span>
-<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC">       52414 :    output logic [1:0] ifu_bp_way_f, // way</span></span>
+<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC">       52416 :    output logic [1:0] ifu_bp_way_f, // way</span></span>
 <span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC">         812 :    output logic [1:0] ifu_bp_ret_f, // predicted ret</span></span>
-<span id="L70"><span class="lineNum">      70</span> <span class="tlaGNC">       63570 :    output logic [1:0] ifu_bp_hist1_f, // history counters for all 4 potential branches, bit 1, right justified</span></span>
-<span id="L71"><span class="lineNum">      71</span> <span class="tlaGNC">      126054 :    output logic [1:0] ifu_bp_hist0_f, // history counters for all 4 potential branches, bit 0, right justified</span></span>
+<span id="L70"><span class="lineNum">      70</span> <span class="tlaGNC">       63573 :    output logic [1:0] ifu_bp_hist1_f, // history counters for all 4 potential branches, bit 1, right justified</span></span>
+<span id="L71"><span class="lineNum">      71</span> <span class="tlaGNC">      126055 :    output logic [1:0] ifu_bp_hist0_f, // history counters for all 4 potential branches, bit 0, right justified</span></span>
 <span id="L72"><span class="lineNum">      72</span> <span class="tlaGNC">       44334 :    output logic [1:0] ifu_bp_pc4_f, // pc4 indication, right justified</span></span>
-<span id="L73"><span class="lineNum">      73</span> <span class="tlaGNC">       64358 :    output logic [1:0] ifu_bp_valid_f, // branch valid, right justified</span></span>
+<span id="L73"><span class="lineNum">      73</span> <span class="tlaGNC">       64361 :    output logic [1:0] ifu_bp_valid_f, // branch valid, right justified</span></span>
 <span id="L74"><span class="lineNum">      74</span> <span class="tlaGNC">       22820 :    output logic [11:0] ifu_bp_poffset_f, // predicted target</span></span>
 <span id="L75"><span class="lineNum">      75</span>              : </span>
 <span id="L76"><span class="lineNum">      76</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [1:0] [$clog2(pt.BTB_SIZE)-1:0]    ifu_bp_fa_index_f, // predicted branch index (fully associative option)</span></span>
@@ -219,8 +219,8 @@
 <span id="L115"><span class="lineNum">     115</span> <span class="tlaGNC">          14 :    logic [1:0] exu_mp_hist; // new history</span></span>
 <span id="L116"><span class="lineNum">     116</span> <span class="tlaGNC">        2528 :    logic [11:0] exu_mp_tgt; // target offset</span></span>
 <span id="L117"><span class="lineNum">     117</span> <span class="tlaGNC">          62 :    logic [pt.BTB_ADDR_HI:pt.BTB_ADDR_LO] exu_mp_addr; // BTB/BHT address</span></span>
-<span id="L118"><span class="lineNum">     118</span> <span class="tlaGNC">      113147 :    logic                                   dec_tlu_br0_v_wb; // WB stage history update</span></span>
-<span id="L119"><span class="lineNum">     119</span> <span class="tlaGNC">       65439 :    logic [1:0]                             dec_tlu_br0_hist_wb; // new history</span></span>
+<span id="L118"><span class="lineNum">     118</span> <span class="tlaGNC">      113148 :    logic                                   dec_tlu_br0_v_wb; // WB stage history update</span></span>
+<span id="L119"><span class="lineNum">     119</span> <span class="tlaGNC">       65440 :    logic [1:0]                             dec_tlu_br0_hist_wb; // new history</span></span>
 <span id="L120"><span class="lineNum">     120</span> <span class="tlaGNC">        1634 :    logic [pt.BTB_ADDR_HI:pt.BTB_ADDR_LO] dec_tlu_br0_addr_wb; // addr</span></span>
 <span id="L121"><span class="lineNum">     121</span> <span class="tlaGNC">          16 :    logic                                   dec_tlu_br0_error_wb; // error; invalidate bank</span></span>
 <span id="L122"><span class="lineNum">     122</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                                   dec_tlu_br0_start_error_wb; // error; invalidate all 4 banks in fg</span></span>
@@ -255,7 +255,7 @@
 <span id="L151"><span class="lineNum">     151</span> <span class="tlaGNC tlaBgGNC">           4 :                         fetch_wrindex_dec, fetch_wrindex_p1_dec, fetch_wrlru_b0, fetch_wrlru_p1_b0,</span></span>
 <span id="L152"><span class="lineNum">     152</span> <span class="tlaUNC tlaBgUNC">           0 :                         mp_wrindex_dec, mp_wrlru_b0;</span></span>
 <span id="L153"><span class="lineNum">     153</span> <span class="tlaGNC tlaBgGNC">       71184 :    logic                btb_lru_rd_f, btb_lru_rd_p1_f, lru_update_valid_f;</span></span>
-<span id="L154"><span class="lineNum">     154</span> <span class="tlaGNC">       66076 :    logic  tag_match_way0_f, tag_match_way1_f;</span></span>
+<span id="L154"><span class="lineNum">     154</span> <span class="tlaGNC">       66079 :    logic  tag_match_way0_f, tag_match_way1_f;</span></span>
 <span id="L155"><span class="lineNum">     155</span> <span class="tlaGNC">       30066 :    logic [1:0] way_raw, bht_dir_f, btb_sel_f, wayhit_f, vwayhit_f, wayhit_p1_f;</span></span>
 <span id="L156"><span class="lineNum">     156</span> <span class="tlaGNC">         824 :    logic [1:0] bht_valid_f, bht_force_taken_f;</span></span>
 <span id="L157"><span class="lineNum">     157</span>              : </span>
@@ -278,9 +278,9 @@
 <span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC">        3044 :    logic                                         middle_of_bank;</span></span>
 <span id="L175"><span class="lineNum">     175</span>              : </span>
 <span id="L176"><span class="lineNum">     176</span>              : </span>
-<span id="L177"><span class="lineNum">     177</span> <span class="tlaGNC">       63496 :    logic [1:0]                                   bht_vbank0_rd_data_f, bht_vbank1_rd_data_f;</span></span>
+<span id="L177"><span class="lineNum">     177</span> <span class="tlaGNC">       63499 :    logic [1:0]                                   bht_vbank0_rd_data_f, bht_vbank1_rd_data_f;</span></span>
 <span id="L178"><span class="lineNum">     178</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                                         branch_error_bank_conflict_p1_f;</span></span>
-<span id="L179"><span class="lineNum">     179</span> <span class="tlaGNC tlaBgGNC">       54304 :    logic                                         tag_match_way0_p1_f, tag_match_way1_p1_f;</span></span>
+<span id="L179"><span class="lineNum">     179</span> <span class="tlaGNC tlaBgGNC">       54306 :    logic                                         tag_match_way0_p1_f, tag_match_way1_p1_f;</span></span>
 <span id="L180"><span class="lineNum">     180</span>              : </span>
 <span id="L181"><span class="lineNum">     181</span> <span class="tlaGNC">       12982 :    logic [1:0]                                   btb_vlru_rd_f, fetch_start_f, tag_match_vway1_expanded_f, tag_match_way0_expanded_p1_f, tag_match_way1_expanded_p1_f;</span></span>
 <span id="L182"><span class="lineNum">     182</span> <span class="tlaGNC">         815 :    logic [31:2] fetch_addr_p1_f;</span></span>
@@ -291,12 +291,12 @@
 <span id="L187"><span class="lineNum">     187</span>              : </span>
 <span id="L188"><span class="lineNum">     188</span> <span class="tlaGNC">       17848 :    logic                [BTB_DWIDTH-1:0] btb_bank0o_rd_data_f;</span></span>
 <span id="L189"><span class="lineNum">     189</span>              : </span>
-<span id="L190"><span class="lineNum">     190</span> <span class="tlaGNC">       28782 :    logic [1:0] tag_match_way0_expanded_f, tag_match_way1_expanded_f;</span></span>
+<span id="L190"><span class="lineNum">     190</span> <span class="tlaGNC">       28785 :    logic [1:0] tag_match_way0_expanded_f, tag_match_way1_expanded_f;</span></span>
 <span id="L191"><span class="lineNum">     191</span>              : </span>
 <span id="L192"><span class="lineNum">     192</span>              : </span>
-<span id="L193"><span class="lineNum">     193</span> <span class="tlaGNC">       43208 :     logic [1:0]                                  bht_bank0_rd_data_f;</span></span>
-<span id="L194"><span class="lineNum">     194</span> <span class="tlaGNC">      124130 :     logic [1:0]                                  bht_bank1_rd_data_f;</span></span>
-<span id="L195"><span class="lineNum">     195</span> <span class="tlaGNC">       44607 :     logic [1:0]                                  bht_bank0_rd_data_p1_f;</span></span>
+<span id="L193"><span class="lineNum">     193</span> <span class="tlaGNC">       43212 :     logic [1:0]                                  bht_bank0_rd_data_f;</span></span>
+<span id="L194"><span class="lineNum">     194</span> <span class="tlaGNC">      124133 :     logic [1:0]                                  bht_bank1_rd_data_f;</span></span>
+<span id="L195"><span class="lineNum">     195</span> <span class="tlaGNC">       44608 :     logic [1:0]                                  bht_bank0_rd_data_p1_f;</span></span>
 <span id="L196"><span class="lineNum">     196</span>              :    genvar                                        j, i;</span>
 <span id="L197"><span class="lineNum">     197</span>              : </span>
 <span id="L198"><span class="lineNum">     198</span>              :    assign exu_mp_valid = exu_mp_pkt.misp &amp; ~leak_one_f; // conditional branch mispredict</span>
@@ -464,7 +464,7 @@
 <span id="L360"><span class="lineNum">     360</span>              : </span>
 <span id="L361"><span class="lineNum">     361</span>              :  end // if (!pt.BTB_FULLYA)</span>
 <span id="L362"><span class="lineNum">     362</span>              :    // Detect end of cache line and mask as needed</span>
-<span id="L363"><span class="lineNum">     363</span> <span class="tlaGNC">       20733 :    logic eoc_near;</span></span>
+<span id="L363"><span class="lineNum">     363</span> <span class="tlaGNC">       20734 :    logic eoc_near;</span></span>
 <span id="L364"><span class="lineNum">     364</span> <span class="tlaGNC">        9735 :    logic eoc_mask;</span></span>
 <span id="L365"><span class="lineNum">     365</span>              :    assign eoc_near = &amp;ifc_fetch_addr_f[pt.ICACHE_BEAT_ADDR_HI:3];</span>
 <span id="L366"><span class="lineNum">     366</span>              :    assign eoc_mask = ~eoc_near| (|(~ifc_fetch_addr_f[2:1]));</span>

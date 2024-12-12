@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    11-12-2024
+                    12-12-2024
                 </td>
                 <td></td>
                 
@@ -124,7 +124,7 @@
 <span id="L20"><span class="lineNum">      20</span>              : `include "el2_param.vh"</span>
 <span id="L21"><span class="lineNum">      21</span>              : )</span>
 <span id="L22"><span class="lineNum">      22</span>              :   (</span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">     3950043 :    input logic           clk,                       // Top level clock</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">     3949944 :    input logic           clk,                       // Top level clock</span></span>
 <span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           1 :    input logic           rst_l,                     // Reset</span></span>
 <span id="L25"><span class="lineNum">      25</span>              :    // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L26"><span class="lineNum">      26</span>              :    /*verilator coverage_off*/</span>
@@ -1429,7 +1429,7 @@
 <span id="L1325"><span class="lineNum">    1325</span>              : // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *</span>
 <span id="L1326"><span class="lineNum">    1326</span>              : module el2_exu_div_new_4bit_fullshortq</span>
 <span id="L1327"><span class="lineNum">    1327</span>              :   (</span>
-<span id="L1328"><span class="lineNum">    1328</span> <span class="tlaGNC">     3950043 :    input  logic            clk,                       // Top level clock</span></span>
+<span id="L1328"><span class="lineNum">    1328</span> <span class="tlaGNC">     3949944 :    input  logic            clk,                       // Top level clock</span></span>
 <span id="L1329"><span class="lineNum">    1329</span> <span class="tlaGNC">           1 :    input  logic            rst_l,                     // Reset</span></span>
 <span id="L1330"><span class="lineNum">    1330</span>              :    // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L1331"><span class="lineNum">    1331</span>              :    /*verilator coverage_off*/</span>
@@ -1472,10 +1472,10 @@
 <span id="L1368"><span class="lineNum">    1368</span> <span class="tlaGNC">        2254 :    logic                   rq_enable;</span></span>
 <span id="L1369"><span class="lineNum">    1369</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                   r_sign_sel;</span></span>
 <span id="L1370"><span class="lineNum">    1370</span> <span class="tlaGNC tlaBgGNC">         106 :    logic                   r_restore_sel;</span></span>
-<span id="L1371"><span class="lineNum">    1371</span> <span class="tlaGNC">          12 :    logic                   r_adder01_sel, r_adder02_sel, r_adder03_sel;</span></span>
+<span id="L1371"><span class="lineNum">    1371</span> <span class="tlaGNC">           8 :    logic                   r_adder01_sel, r_adder02_sel, r_adder03_sel;</span></span>
 <span id="L1372"><span class="lineNum">    1372</span> <span class="tlaGNC">           4 :    logic                   r_adder04_sel, r_adder05_sel, r_adder06_sel, r_adder07_sel;</span></span>
 <span id="L1373"><span class="lineNum">    1373</span> <span class="tlaGNC">           2 :    logic                   r_adder08_sel, r_adder09_sel, r_adder10_sel, r_adder11_sel;</span></span>
-<span id="L1374"><span class="lineNum">    1374</span> <span class="tlaGNC">           2 :    logic                   r_adder12_sel, r_adder13_sel, r_adder14_sel, r_adder15_sel;</span></span>
+<span id="L1374"><span class="lineNum">    1374</span> <span class="tlaGNC">           6 :    logic                   r_adder12_sel, r_adder13_sel, r_adder14_sel, r_adder15_sel;</span></span>
 <span id="L1375"><span class="lineNum">    1375</span> <span class="tlaGNC">           4 :    logic        [32:0]     r_in, r_ff;</span></span>
 <span id="L1376"><span class="lineNum">    1376</span>              : </span>
 <span id="L1377"><span class="lineNum">    1377</span> <span class="tlaGNC">        2254 :    logic                   twos_comp_q_sel, twos_comp_b_sel;</span></span>
@@ -1839,13 +1839,13 @@
 <span id="L1735"><span class="lineNum">    1735</span>              : </span>
 <span id="L1736"><span class="lineNum">    1736</span>              : module el2_exu_div_cls</span>
 <span id="L1737"><span class="lineNum">    1737</span>              :   (</span>
-<span id="L1738"><span class="lineNum">    1738</span> <span class="tlaGNC">        2081 :    input  logic [32:0] operand,</span></span>
+<span id="L1738"><span class="lineNum">    1738</span> <span class="tlaGNC">        2077 :    input  logic [32:0] operand,</span></span>
 <span id="L1739"><span class="lineNum">    1739</span>              : </span>
-<span id="L1740"><span class="lineNum">    1740</span> <span class="tlaGNC">         384 :    output logic [4:0]  cls                  // Count leading sign bits - "n" format ignoring [32]</span></span>
+<span id="L1740"><span class="lineNum">    1740</span> <span class="tlaGNC">         376 :    output logic [4:0]  cls                  // Count leading sign bits - "n" format ignoring [32]</span></span>
 <span id="L1741"><span class="lineNum">    1741</span>              :    );</span>
 <span id="L1742"><span class="lineNum">    1742</span>              : </span>
 <span id="L1743"><span class="lineNum">    1743</span>              : </span>
-<span id="L1744"><span class="lineNum">    1744</span> <span class="tlaGNC">         133 :    logic [4:0]   cls_zeros;</span></span>
+<span id="L1744"><span class="lineNum">    1744</span> <span class="tlaGNC">         125 :    logic [4:0]   cls_zeros;</span></span>
 <span id="L1745"><span class="lineNum">    1745</span> <span class="tlaGNC">         291 :    logic [4:0]   cls_ones;</span></span>
 <span id="L1746"><span class="lineNum">    1746</span>              : </span>
 <span id="L1747"><span class="lineNum">    1747</span>              : </span>

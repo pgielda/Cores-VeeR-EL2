@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    11-12-2024
+                    12-12-2024
                 </td>
                 <td></td>
                 
@@ -124,7 +124,7 @@
 <span id="L20"><span class="lineNum">      20</span>              : `include "el2_param.vh"</span>
 <span id="L21"><span class="lineNum">      21</span>              : )</span>
 <span id="L22"><span class="lineNum">      22</span>              :   (</span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">        3584 :    input  logic                  clk,                // Top level clock</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">        3492 :    input  logic                  clk,                // Top level clock</span></span>
 <span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           1 :    input  logic                  rst_l,              // Reset</span></span>
 <span id="L25"><span class="lineNum">      25</span>              :    // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L26"><span class="lineNum">      26</span>              :    /*verilator coverage_off*/</span>
@@ -161,7 +161,7 @@
 <span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC">           2 :    logic               [31:0]    lout;</span></span>
 <span id="L58"><span class="lineNum">      58</span> <span class="tlaGNC">           2 :    logic               [31:0]    sout;</span></span>
 <span id="L59"><span class="lineNum">      59</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                         sel_shift;</span></span>
-<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC tlaBgGNC">         192 :    logic                         sel_adder;</span></span>
+<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC tlaBgGNC">         194 :    logic                         sel_adder;</span></span>
 <span id="L61"><span class="lineNum">      61</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                         slt_one;</span></span>
 <span id="L62"><span class="lineNum">      62</span> <span class="tlaGNC tlaBgGNC">         100 :    logic                         actual_taken;</span></span>
 <span id="L63"><span class="lineNum">      63</span> <span class="tlaGNC">           2 :    logic               [31:1]    pcout;</span></span>
@@ -446,8 +446,8 @@
 <span id="L342"><span class="lineNum">     342</span>              : </span>
 <span id="L343"><span class="lineNum">     343</span> <span class="tlaGNC">           1 :         for (int i=0; i&lt;32; i++) begin</span></span>
 <span id="L344"><span class="lineNum">     344</span> <span class="tlaUNC tlaBgUNC">           0 :           if (bitmanip_lzd_os[31] == 1'b0 &amp;&amp; found == 0) begin</span></span>
-<span id="L345"><span class="lineNum">     345</span> <span class="tlaGNC tlaBgGNC">      280512 :               bitmanip_dw_lzd_enc[5:0]=  bitmanip_dw_lzd_enc[5:0] + 6'b00_0001;</span></span>
-<span id="L346"><span class="lineNum">     346</span> <span class="tlaGNC">      280512 :               bitmanip_lzd_os[31:0]   =  bitmanip_lzd_os[31:0] &lt;&lt; 1;</span></span>
+<span id="L345"><span class="lineNum">     345</span> <span class="tlaGNC tlaBgGNC">      274688 :               bitmanip_dw_lzd_enc[5:0]=  bitmanip_dw_lzd_enc[5:0] + 6'b00_0001;</span></span>
+<span id="L346"><span class="lineNum">     346</span> <span class="tlaGNC">      274688 :               bitmanip_lzd_os[31:0]   =  bitmanip_lzd_os[31:0] &lt;&lt; 1;</span></span>
 <span id="L347"><span class="lineNum">     347</span>              :            end</span>
 <span id="L348"><span class="lineNum">     348</span>              :            else</span>
 <span id="L349"><span class="lineNum">     349</span> <span class="tlaUNC tlaBgUNC">           0 :               found=1'b1;</span></span>

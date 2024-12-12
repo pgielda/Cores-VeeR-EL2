@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    11-12-2024
+                    12-12-2024
                 </td>
                 <td></td>
                 
@@ -134,8 +134,8 @@
 <span id="L30"><span class="lineNum">      30</span>              :    input logic                                    scan_mode,                // Flop scan mode control</span>
 <span id="L31"><span class="lineNum">      31</span>              :    /*verilator coverage_on*/</span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC tlaBgGNC">           3 :    input logic                                    rst_l,                    // reset, active low</span></span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">       42129 :    input logic                                    clk,                      // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">       42129 :    input logic                                    active_clk,               // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">       41968 :    input logic                                    clk,                      // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">       41968 :    input logic                                    active_clk,               // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
 <span id="L35"><span class="lineNum">      35</span>              : </span>
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                                    ifu_async_error_start,    // ecc/parity related errors with current fetch - not sent down the pipe</span></span>
 <span id="L37"><span class="lineNum">      37</span>              : </span>
@@ -150,7 +150,7 @@
 <span id="L46"><span class="lineNum">      46</span>              : </span>
 <span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC">          66 :    input logic [31:0]                             ifu_fetch_data_f,         // fetch data in memory format - not right justified</span></span>
 <span id="L48"><span class="lineNum">      48</span>              : </span>
-<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">        1456 :    input logic [1:0]                              ifu_fetch_val,            // valids on a 2B boundary, right justified</span></span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">        1464 :    input logic [1:0]                              ifu_fetch_val,            // valids on a 2B boundary, right justified</span></span>
 <span id="L50"><span class="lineNum">      50</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:1]                             ifu_fetch_pc,             // starting pc of fetch</span></span>
 <span id="L51"><span class="lineNum">      51</span>              : </span>
 <span id="L52"><span class="lineNum">      52</span>              : </span>
@@ -177,7 +177,7 @@
 <span id="L73"><span class="lineNum">      73</span> <span class="tlaGNC tlaBgGNC">         170 :    input logic [1:0]                              ifu_bp_hist0_f,           // history counters for all 4 potential branches, bit 1, right justified</span></span>
 <span id="L74"><span class="lineNum">      74</span> <span class="tlaGNC">         431 :    input logic [1:0]                              ifu_bp_hist1_f,           // history counters for all 4 potential branches, bit 1, right justified</span></span>
 <span id="L75"><span class="lineNum">      75</span> <span class="tlaGNC">         214 :    input logic [1:0]                              ifu_bp_pc4_f,             // pc4 indication, right justified</span></span>
-<span id="L76"><span class="lineNum">      76</span> <span class="tlaGNC">         372 :    input logic [1:0]                              ifu_bp_way_f,             // way indication, right justified</span></span>
+<span id="L76"><span class="lineNum">      76</span> <span class="tlaGNC">         374 :    input logic [1:0]                              ifu_bp_way_f,             // way indication, right justified</span></span>
 <span id="L77"><span class="lineNum">      77</span> <span class="tlaGNC">         214 :    input logic [1:0]                              ifu_bp_valid_f,           // branch valid, right justified</span></span>
 <span id="L78"><span class="lineNum">      78</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [1:0]                              ifu_bp_ret_f,             // predicted ret indication, right justified</span></span>
 <span id="L79"><span class="lineNum">      79</span>              : </span>
@@ -196,7 +196,7 @@
 <span id="L92"><span class="lineNum">      92</span>              : </span>
 <span id="L93"><span class="lineNum">      93</span>              : </span>
 <span id="L94"><span class="lineNum">      94</span>              : </span>
-<span id="L95"><span class="lineNum">      95</span> <span class="tlaGNC">        2026 :    logic                                          ifvalid;</span></span>
+<span id="L95"><span class="lineNum">      95</span> <span class="tlaGNC">        2034 :    logic                                          ifvalid;</span></span>
 <span id="L96"><span class="lineNum">      96</span> <span class="tlaGNC">         190 :    logic                                          shift_f1_f0, shift_f2_f0, shift_f2_f1;</span></span>
 <span id="L97"><span class="lineNum">      97</span> <span class="tlaGNC">         266 :    logic                                          fetch_to_f0, fetch_to_f1, fetch_to_f2;</span></span>
 <span id="L98"><span class="lineNum">      98</span>              : </span>

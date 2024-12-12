@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    11-12-2024
+                    12-12-2024
                 </td>
                 <td></td>
                 
@@ -136,13 +136,13 @@
 <span id="L32"><span class="lineNum">      32</span>              : `include "el2_param.vh"</span>
 <span id="L33"><span class="lineNum">      33</span>              :  )</span>
 <span id="L34"><span class="lineNum">      34</span>              :   (</span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">     9298361 :    input logic                             lsu_c2_m_clk,            // clocks</span></span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">     9298361 :    input logic                             lsu_c2_r_clk,            // clocks</span></span>
-<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">     9298361 :    input logic                             lsu_c1_r_clk,            // clocks</span></span>
-<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">     9298361 :    input logic                             lsu_store_c1_r_clk,      // clocks</span></span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">     9298361 :    input logic                             lsu_free_c2_clk,         // clocks</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">     9298484 :    input logic                             lsu_c2_m_clk,            // clocks</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">     9298484 :    input logic                             lsu_c2_r_clk,            // clocks</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">     9298484 :    input logic                             lsu_c1_r_clk,            // clocks</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">     9298484 :    input logic                             lsu_store_c1_r_clk,      // clocks</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">     9298484 :    input logic                             lsu_free_c2_clk,         // clocks</span></span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                             clk_override,            // Override non-functional clock gating</span></span>
-<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">     9298361 :    input logic                             clk,                     // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">     9298484 :    input logic                             clk,                     // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
 <span id="L42"><span class="lineNum">      42</span>              : </span>
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">           1 :    input logic                             rst_l,                   // reset, active low</span></span>
 <span id="L44"><span class="lineNum">      44</span>              : </span>
@@ -155,18 +155,18 @@
 <span id="L51"><span class="lineNum">      51</span> <span class="tlaUNC">           0 :    input logic                             addr_in_dccm_m, addr_in_dccm_r,   // address in dccm per pipe stage</span></span>
 <span id="L52"><span class="lineNum">      52</span> <span class="tlaUNC">           0 :    input logic                             addr_in_pic_r,                    // address in pic  per pipe stage</span></span>
 <span id="L53"><span class="lineNum">      53</span> <span class="tlaUNC">           0 :    input logic                             lsu_raw_fwd_lo_r, lsu_raw_fwd_hi_r,</span></span>
-<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC tlaBgGNC">      251830 :    input logic                             lsu_commit_r,            // lsu instruction in r commits</span></span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC tlaBgGNC">      251836 :    input logic                             lsu_commit_r,            // lsu instruction in r commits</span></span>
 <span id="L55"><span class="lineNum">      55</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                             ldst_dual_m, ldst_dual_r,// load/store is unaligned at 32 bit boundary per pipe stage</span></span>
 <span id="L56"><span class="lineNum">      56</span>              : </span>
 <span id="L57"><span class="lineNum">      57</span>              :    // lsu address down the pipe</span>
-<span id="L58"><span class="lineNum">      58</span> <span class="tlaGNC tlaBgGNC">       63502 :    input logic [31:0]                      lsu_addr_d,</span></span>
-<span id="L59"><span class="lineNum">      59</span> <span class="tlaGNC">       61892 :    input logic [pt.DCCM_BITS-1:0]          lsu_addr_m,</span></span>
-<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC">       63502 :    input logic [31:0]                      lsu_addr_r,</span></span>
+<span id="L58"><span class="lineNum">      58</span> <span class="tlaGNC tlaBgGNC">       63506 :    input logic [31:0]                      lsu_addr_d,</span></span>
+<span id="L59"><span class="lineNum">      59</span> <span class="tlaGNC">       61896 :    input logic [pt.DCCM_BITS-1:0]          lsu_addr_m,</span></span>
+<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC">       63506 :    input logic [31:0]                      lsu_addr_r,</span></span>
 <span id="L61"><span class="lineNum">      61</span>              : </span>
 <span id="L62"><span class="lineNum">      62</span>              :    // lsu address down the pipe - needed to check unaligned</span>
-<span id="L63"><span class="lineNum">      63</span> <span class="tlaGNC">       63502 :    input logic [pt.DCCM_BITS-1:0]          end_addr_d,</span></span>
-<span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC">       63502 :    input logic [pt.DCCM_BITS-1:0]          end_addr_m,</span></span>
-<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC">       63502 :    input logic [pt.DCCM_BITS-1:0]          end_addr_r,</span></span>
+<span id="L63"><span class="lineNum">      63</span> <span class="tlaGNC">       63506 :    input logic [pt.DCCM_BITS-1:0]          end_addr_d,</span></span>
+<span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC">       63506 :    input logic [pt.DCCM_BITS-1:0]          end_addr_m,</span></span>
+<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC">       63506 :    input logic [pt.DCCM_BITS-1:0]          end_addr_r,</span></span>
 <span id="L66"><span class="lineNum">      66</span>              : </span>
 <span id="L67"><span class="lineNum">      67</span>              : </span>
 <span id="L68"><span class="lineNum">      68</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                             stbuf_reqvld_any,        // write enable</span></span>
@@ -240,8 +240,8 @@
 <span id="L136"><span class="lineNum">     136</span> <span class="tlaUNC">           0 :    output logic                            dccm_rden,               // dccm interface -- write</span></span>
 <span id="L137"><span class="lineNum">     137</span> <span class="tlaUNC">           0 :    output logic [pt.DCCM_BITS-1:0]         dccm_wr_addr_lo,         // dccm interface -- wr addr for lo bank</span></span>
 <span id="L138"><span class="lineNum">     138</span> <span class="tlaUNC">           0 :    output logic [pt.DCCM_BITS-1:0]         dccm_wr_addr_hi,         // dccm interface -- wr addr for hi bank</span></span>
-<span id="L139"><span class="lineNum">     139</span> <span class="tlaGNC tlaBgGNC">       61892 :    output logic [pt.DCCM_BITS-1:0]         dccm_rd_addr_lo,         // dccm interface -- read address for lo bank</span></span>
-<span id="L140"><span class="lineNum">     140</span> <span class="tlaGNC">       63502 :    output logic [pt.DCCM_BITS-1:0]         dccm_rd_addr_hi,         // dccm interface -- read address for hi bank</span></span>
+<span id="L139"><span class="lineNum">     139</span> <span class="tlaGNC tlaBgGNC">       61896 :    output logic [pt.DCCM_BITS-1:0]         dccm_rd_addr_lo,         // dccm interface -- read address for lo bank</span></span>
+<span id="L140"><span class="lineNum">     140</span> <span class="tlaGNC">       63506 :    output logic [pt.DCCM_BITS-1:0]         dccm_rd_addr_hi,         // dccm interface -- read address for hi bank</span></span>
 <span id="L141"><span class="lineNum">     141</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [pt.DCCM_FDATA_WIDTH-1:0]  dccm_wr_data_lo,         // dccm write data for lo bank</span></span>
 <span id="L142"><span class="lineNum">     142</span> <span class="tlaUNC">           0 :    output logic [pt.DCCM_FDATA_WIDTH-1:0]  dccm_wr_data_hi,         // dccm write data for hi bank</span></span>
 <span id="L143"><span class="lineNum">     143</span>              : </span>
