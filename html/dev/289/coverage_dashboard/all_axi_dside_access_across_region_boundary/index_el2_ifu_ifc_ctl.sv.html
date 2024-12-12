@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    12-12-2024
+                    11-12-2024
                 </td>
                 <td></td>
                 
@@ -130,8 +130,8 @@
 <span id="L26"><span class="lineNum">      26</span>              : `include "el2_param.vh"</span>
 <span id="L27"><span class="lineNum">      27</span>              :  )</span>
 <span id="L28"><span class="lineNum">      28</span>              :   (</span>
-<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC tlaBgGNC">        3632 :    input logic clk,                         // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">        3632 :    input logic free_l2clk,                  // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC tlaBgGNC">        3728 :    input logic clk,                         // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">        3728 :    input logic free_l2clk,                  // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
 <span id="L31"><span class="lineNum">      31</span>              : </span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           1 :    input logic rst_l, // reset enable, from core pin</span></span>
 <span id="L33"><span class="lineNum">      33</span>              :    // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
@@ -161,7 +161,7 @@
 <span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC tlaBgGNC">           2 :    output logic [31:1] ifc_fetch_addr_f, // fetch addr F</span></span>
 <span id="L58"><span class="lineNum">      58</span> <span class="tlaGNC">           2 :    output logic [31:1] ifc_fetch_addr_bf, // fetch addr BF</span></span>
 <span id="L59"><span class="lineNum">      59</span>              : </span>
-<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC">         797 :    output logic  ifc_fetch_req_f,  // fetch request valid F</span></span>
+<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC">         796 :    output logic  ifc_fetch_req_f,  // fetch request valid F</span></span>
 <span id="L61"><span class="lineNum">      61</span>              : </span>
 <span id="L62"><span class="lineNum">      62</span> <span class="tlaGNC">         215 :    output logic  ifu_pmu_fetch_stall, // pmu event measuring fetch stall</span></span>
 <span id="L63"><span class="lineNum">      63</span>              : </span>
@@ -183,10 +183,10 @@
 <span id="L79"><span class="lineNum">      79</span> <span class="tlaGNC">          14 :    logic     fb_full_f_ns, fb_full_f;</span></span>
 <span id="L80"><span class="lineNum">      80</span> <span class="tlaGNC">           6 :    logic     fb_right, fb_right2, fb_left, wfm, idle;</span></span>
 <span id="L81"><span class="lineNum">      81</span> <span class="tlaGNC">         220 :    logic     sel_last_addr_bf, sel_next_addr_bf;</span></span>
-<span id="L82"><span class="lineNum">      82</span> <span class="tlaGNC">         920 :    logic     miss_f, miss_a;</span></span>
+<span id="L82"><span class="lineNum">      82</span> <span class="tlaGNC">         919 :    logic     miss_f, miss_a;</span></span>
 <span id="L83"><span class="lineNum">      83</span> <span class="tlaUNC tlaBgUNC">           0 :    logic     flush_fb, dma_iccm_stall_any_f;</span></span>
 <span id="L84"><span class="lineNum">      84</span> <span class="tlaGNC tlaBgGNC">           4 :    logic     mb_empty_mod, goto_idle, leave_idle;</span></span>
-<span id="L85"><span class="lineNum">      85</span> <span class="tlaGNC">         799 :    logic     fetch_bf_en;</span></span>
+<span id="L85"><span class="lineNum">      85</span> <span class="tlaGNC">         798 :    logic     fetch_bf_en;</span></span>
 <span id="L86"><span class="lineNum">      86</span> <span class="tlaGNC">          92 :    logic         line_wrap;</span></span>
 <span id="L87"><span class="lineNum">      87</span> <span class="tlaGNC">          95 :    logic         fetch_addr_next_1;</span></span>
 <span id="L88"><span class="lineNum">      88</span>              : </span>

@@ -51,21 +51,21 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    05-12-2024
+                    12-12-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ffff00;">
-        50.0%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #faff00;">
+        50.8%
     </td>
     <td class="headerCovSummaryEntry">
         128
     </td>
     <td class="headerCovSummaryEntry">
-        256
+        252
     </td>
 
             </tr>
@@ -136,10 +136,10 @@
 <span id="L32"><span class="lineNum">      32</span>              : #(</span>
 <span id="L33"><span class="lineNum">      33</span>              :     `include "el2_param.vh"</span>
 <span id="L34"><span class="lineNum">      34</span>              : ) (</span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">      697253 :     input logic clk,                          // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">      697253 :     input logic active_clk,                   // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
-<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">      697253 :     input logic free_clk,                     // Clock always.                  Through two clock headers. For flops without second clock header built in.</span></span>
-<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">      697253 :     input logic free_l2clk,                   // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">      697257 :     input logic clk,                          // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">      697257 :     input logic active_clk,                   // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">      697257 :     input logic free_clk,                     // Clock always.                  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">      697257 :     input logic free_l2clk,                   // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
 <span id="L39"><span class="lineNum">      39</span>              : </span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic lsu_fastint_stall_any,        // needed by lsu for 2nd pass of dma with ecc correction, stall next cycle</span></span>
 <span id="L41"><span class="lineNum">      41</span>              : </span>
@@ -204,7 +204,7 @@
 <span id="L100"><span class="lineNum">     100</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic [ 1:0] lsu_fir_error, // Fast int lookup error</span></span>
 <span id="L101"><span class="lineNum">     101</span>              : </span>
 <span id="L102"><span class="lineNum">     102</span> <span class="tlaGNC tlaBgGNC">       22041 :     input logic ifu_pmu_instr_aligned,  // aligned instructions</span></span>
-<span id="L103"><span class="lineNum">     103</span> <span class="tlaGNC">        2621 :     input logic ifu_pmu_fetch_stall,    // fetch unit stalled</span></span>
+<span id="L103"><span class="lineNum">     103</span> <span class="tlaGNC">        2622 :     input logic ifu_pmu_fetch_stall,    // fetch unit stalled</span></span>
 <span id="L104"><span class="lineNum">     104</span> <span class="tlaGNC">        2662 :     input logic ifu_pmu_ic_miss,        // icache miss</span></span>
 <span id="L105"><span class="lineNum">     105</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic ifu_pmu_ic_hit,         // icache hit</span></span>
 <span id="L106"><span class="lineNum">     106</span> <span class="tlaUNC">           0 :     input logic ifu_pmu_bus_error,      // Instruction side bus error</span></span>
@@ -324,12 +324,12 @@
 <span id="L220"><span class="lineNum">     220</span>              : </span>
 <span id="L221"><span class="lineNum">     221</span> <span class="tlaGNC">      127735 :     input logic exu_i0_br_way_r,  // way hit or repl</span></span>
 <span id="L222"><span class="lineNum">     222</span>              : </span>
-<span id="L223"><span class="lineNum">     223</span> <span class="tlaGNC">       86378 :     output logic        dec_i0_rs1_en_d,  // Qualify GPR RS1 data</span></span>
+<span id="L223"><span class="lineNum">     223</span> <span class="tlaGNC">       86379 :     output logic        dec_i0_rs1_en_d,  // Qualify GPR RS1 data</span></span>
 <span id="L224"><span class="lineNum">     224</span> <span class="tlaGNC">      139490 :     output logic        dec_i0_rs2_en_d,  // Qualify GPR RS2 data</span></span>
 <span id="L225"><span class="lineNum">     225</span> <span class="tlaGNC">       14038 :     output logic [31:0] gpr_i0_rs1_d,     // gpr rs1 data</span></span>
 <span id="L226"><span class="lineNum">     226</span> <span class="tlaGNC">       18062 :     output logic [31:0] gpr_i0_rs2_d,     // gpr rs2 data</span></span>
 <span id="L227"><span class="lineNum">     227</span>              : </span>
-<span id="L228"><span class="lineNum">     228</span> <span class="tlaGNC">       22898 :     output logic [31:0] dec_i0_immed_d,    // immediate data</span></span>
+<span id="L228"><span class="lineNum">     228</span> <span class="tlaGNC">       22899 :     output logic [31:0] dec_i0_immed_d,    // immediate data</span></span>
 <span id="L229"><span class="lineNum">     229</span> <span class="tlaGNC">        7910 :     output logic [12:1] dec_i0_br_immed_d, // br immediate data</span></span>
 <span id="L230"><span class="lineNum">     230</span>              : </span>
 <span id="L231"><span class="lineNum">     231</span> <span class="tlaUNC tlaBgUNC">           0 :     output el2_alu_pkt_t i0_ap,  // alu packet</span></span>
@@ -337,7 +337,7 @@
 <span id="L233"><span class="lineNum">     233</span> <span class="tlaGNC tlaBgGNC">      126447 :     output logic dec_i0_alu_decode_d,  // schedule on D-stage alu</span></span>
 <span id="L234"><span class="lineNum">     234</span> <span class="tlaGNC">      116740 :     output logic dec_i0_branch_d,      // Branch in D-stage</span></span>
 <span id="L235"><span class="lineNum">     235</span>              : </span>
-<span id="L236"><span class="lineNum">     236</span> <span class="tlaGNC">       15997 :     output logic dec_i0_select_pc_d,  // select pc onto rs1 for jal's</span></span>
+<span id="L236"><span class="lineNum">     236</span> <span class="tlaGNC">       15998 :     output logic dec_i0_select_pc_d,  // select pc onto rs1 for jal's</span></span>
 <span id="L237"><span class="lineNum">     237</span>              : </span>
 <span id="L238"><span class="lineNum">     238</span> <span class="tlaGNC">           5 :     output logic [31:1] dec_i0_pc_d,             // pc's at decode</span></span>
 <span id="L239"><span class="lineNum">     239</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic [ 3:0] dec_i0_rs1_bypass_en_d,  // rs1 bypass enable</span></span>
@@ -354,7 +354,7 @@
 <span id="L250"><span class="lineNum">     250</span> <span class="tlaGNC tlaBgGNC">        1422 :     output logic [11:0] dec_lsu_offset_d,  // 12b offset for load/store addresses</span></span>
 <span id="L251"><span class="lineNum">     251</span>              : </span>
 <span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC">           4 :     output logic        dec_csr_ren_d,    // CSR read enable</span></span>
-<span id="L253"><span class="lineNum">     253</span> <span class="tlaGNC">         634 :     output logic [31:0] dec_csr_rddata_d, // CSR read data</span></span>
+<span id="L253"><span class="lineNum">     253</span> <span class="tlaGNC">           2 :     output logic [31:0] dec_csr_rddata_d, // CSR read data</span></span>
 <span id="L254"><span class="lineNum">     254</span>              : </span>
 <span id="L255"><span class="lineNum">     255</span> <span class="tlaGNC">          32 :     output logic dec_tlu_flush_lower_r,  // tlu flush due to late mp, exception, rfpc, or int</span></span>
 <span id="L256"><span class="lineNum">     256</span> <span class="tlaGNC">          32 :     output logic dec_tlu_flush_lower_wb,</span></span>
@@ -382,10 +382,10 @@
 <span id="L278"><span class="lineNum">     278</span>              : </span>
 <span id="L279"><span class="lineNum">     279</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic [31:0] dec_tlu_mrac_ff,  // CSR for memory region control</span></span>
 <span id="L280"><span class="lineNum">     280</span>              : </span>
-<span id="L281"><span class="lineNum">     281</span> <span class="tlaGNC tlaBgGNC">       22040 :     output logic [1:0] dec_data_en,  // clock-gate control logic</span></span>
-<span id="L282"><span class="lineNum">     282</span> <span class="tlaGNC">        3474 :     output logic [1:0] dec_ctl_en,</span></span>
+<span id="L281"><span class="lineNum">     281</span> <span class="tlaGNC tlaBgGNC">       22041 :     output logic [1:0] dec_data_en,  // clock-gate control logic</span></span>
+<span id="L282"><span class="lineNum">     282</span> <span class="tlaGNC">        3475 :     output logic [1:0] dec_ctl_en,</span></span>
 <span id="L283"><span class="lineNum">     283</span>              : </span>
-<span id="L284"><span class="lineNum">     284</span> <span class="tlaGNC">       72701 :     input logic [15:0] ifu_i0_cinst,  // 16b compressed instruction</span></span>
+<span id="L284"><span class="lineNum">     284</span> <span class="tlaGNC">       72702 :     input logic [15:0] ifu_i0_cinst,  // 16b compressed instruction</span></span>
 <span id="L285"><span class="lineNum">     285</span>              : </span>
 <span id="L286"><span class="lineNum">     286</span> <span class="tlaGNC">       22034 :     output el2_trace_pkt_t trace_rv_trace_pkt,  // trace packet</span></span>
 <span id="L287"><span class="lineNum">     287</span>              : </span>
@@ -396,12 +396,12 @@
 <span id="L292"><span class="lineNum">     292</span>              : `ifdef RV_USER_MODE</span>
 <span id="L293"><span class="lineNum">     293</span>              : </span>
 <span id="L294"><span class="lineNum">     294</span>              :     // Privilege mode</span>
-<span id="L295"><span class="lineNum">     295</span> <span class="tlaUNC">           0 :     output logic priv_mode,</span></span>
-<span id="L296"><span class="lineNum">     296</span> <span class="tlaUNC">           0 :     output logic priv_mode_eff,</span></span>
-<span id="L297"><span class="lineNum">     297</span> <span class="tlaUNC">           0 :     output logic priv_mode_ns,</span></span>
+<span id="L295"><span class="lineNum">     295</span>              :     output logic priv_mode,</span>
+<span id="L296"><span class="lineNum">     296</span>              :     output logic priv_mode_eff,</span>
+<span id="L297"><span class="lineNum">     297</span>              :     output logic priv_mode_ns,</span>
 <span id="L298"><span class="lineNum">     298</span>              : </span>
 <span id="L299"><span class="lineNum">     299</span>              :     // mseccfg CSR content for PMP</span>
-<span id="L300"><span class="lineNum">     300</span> <span class="tlaUNC">           0 :     output el2_mseccfg_pkt_t mseccfg,</span></span>
+<span id="L300"><span class="lineNum">     300</span>              :     output el2_mseccfg_pkt_t mseccfg,</span>
 <span id="L301"><span class="lineNum">     301</span>              : </span>
 <span id="L302"><span class="lineNum">     302</span>              : `endif</span>
 <span id="L303"><span class="lineNum">     303</span>              : </span>
@@ -444,7 +444,7 @@
 <span id="L340"><span class="lineNum">     340</span>              : </span>
 <span id="L341"><span class="lineNum">     341</span> <span class="tlaUNC tlaBgUNC">           0 :   logic dec_tlu_wr_pause_r;  // CSR write to pause reg is at R.</span></span>
 <span id="L342"><span class="lineNum">     342</span>              : </span>
-<span id="L343"><span class="lineNum">     343</span> <span class="tlaGNC tlaBgGNC">      104161 :   logic [4:0] dec_i0_rs1_d;</span></span>
+<span id="L343"><span class="lineNum">     343</span> <span class="tlaGNC tlaBgGNC">      104162 :   logic [4:0] dec_i0_rs1_d;</span></span>
 <span id="L344"><span class="lineNum">     344</span> <span class="tlaGNC">      107234 :   logic [4:0] dec_i0_rs2_d;</span></span>
 <span id="L345"><span class="lineNum">     345</span>              : </span>
 <span id="L346"><span class="lineNum">     346</span> <span class="tlaGNC">       15834 :   logic [31:0] dec_i0_instr_d;</span></span>

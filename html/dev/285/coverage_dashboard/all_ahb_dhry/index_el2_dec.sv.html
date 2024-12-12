@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    05-12-2024
+                    12-12-2024
                 </td>
                 <td></td>
                 
@@ -136,10 +136,10 @@
 <span id="L32"><span class="lineNum">      32</span>              : #(</span>
 <span id="L33"><span class="lineNum">      33</span>              :     `include "el2_param.vh"</span>
 <span id="L34"><span class="lineNum">      34</span>              : ) (</span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">     3949940 :     input logic clk,                          // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">     3949940 :     input logic active_clk,                   // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
-<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">     3949940 :     input logic free_clk,                     // Clock always.                  Through two clock headers. For flops without second clock header built in.</span></span>
-<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">     3949940 :     input logic free_l2clk,                   // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">     3949944 :     input logic clk,                          // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">     3949944 :     input logic active_clk,                   // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">     3949944 :     input logic free_clk,                     // Clock always.                  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">     3949944 :     input logic free_l2clk,                   // Clock always.                  Through one clock header.  For flops with    second header built in.</span></span>
 <span id="L39"><span class="lineNum">      39</span>              : </span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic lsu_fastint_stall_any,        // needed by lsu for 2nd pass of dma with ecc correction, stall next cycle</span></span>
 <span id="L41"><span class="lineNum">      41</span>              : </span>
@@ -383,11 +383,11 @@
 <span id="L279"><span class="lineNum">     279</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic [31:0] dec_tlu_mrac_ff,  // CSR for memory region control</span></span>
 <span id="L280"><span class="lineNum">     280</span>              : </span>
 <span id="L281"><span class="lineNum">     281</span> <span class="tlaGNC tlaBgGNC">      129170 :     output logic [1:0] dec_data_en,  // clock-gate control logic</span></span>
-<span id="L282"><span class="lineNum">     282</span> <span class="tlaGNC">      128943 :     output logic [1:0] dec_ctl_en,</span></span>
+<span id="L282"><span class="lineNum">     282</span> <span class="tlaGNC">      128944 :     output logic [1:0] dec_ctl_en,</span></span>
 <span id="L283"><span class="lineNum">     283</span>              : </span>
 <span id="L284"><span class="lineNum">     284</span> <span class="tlaGNC">       91272 :     input logic [15:0] ifu_i0_cinst,  // 16b compressed instruction</span></span>
 <span id="L285"><span class="lineNum">     285</span>              : </span>
-<span id="L286"><span class="lineNum">     286</span> <span class="tlaGNC">      129168 :     output el2_trace_pkt_t trace_rv_trace_pkt,  // trace packet</span></span>
+<span id="L286"><span class="lineNum">     286</span> <span class="tlaGNC">      129169 :     output el2_trace_pkt_t trace_rv_trace_pkt,  // trace packet</span></span>
 <span id="L287"><span class="lineNum">     287</span>              : </span>
 <span id="L288"><span class="lineNum">     288</span>              :     // PMP signals</span>
 <span id="L289"><span class="lineNum">     289</span> <span class="tlaUNC tlaBgUNC">           0 :     output el2_pmp_cfg_pkt_t        pmp_pmpcfg [pt.PMP_ENTRIES],</span></span>
@@ -423,7 +423,7 @@
 <span id="L319"><span class="lineNum">     319</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic dec_tlu_dccm_clk_override,   // override DCCM clock domain gating</span></span>
 <span id="L320"><span class="lineNum">     320</span> <span class="tlaUNC">           0 :     output logic dec_tlu_icm_clk_override,    // override ICCM clock domain gating</span></span>
 <span id="L321"><span class="lineNum">     321</span>              : </span>
-<span id="L322"><span class="lineNum">     322</span> <span class="tlaGNC tlaBgGNC">      129169 :     output logic dec_tlu_i0_commit_cmt,  // committed i0 instruction</span></span>
+<span id="L322"><span class="lineNum">     322</span> <span class="tlaGNC tlaBgGNC">      129170 :     output logic dec_tlu_i0_commit_cmt,  // committed i0 instruction</span></span>
 <span id="L323"><span class="lineNum">     323</span>              :     // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L324"><span class="lineNum">     324</span>              :     /*verilator coverage_off*/</span>
 <span id="L325"><span class="lineNum">     325</span>              :     input  logic scan_mode               // Flop scan mode control</span>
@@ -494,7 +494,7 @@
 <span id="L390"><span class="lineNum">     390</span>              : </span>
 <span id="L391"><span class="lineNum">     391</span> <span class="tlaGNC tlaBgGNC">           1 :   logic [31:1] dec_tlu_i0_pc_r;</span></span>
 <span id="L392"><span class="lineNum">     392</span> <span class="tlaUNC tlaBgUNC">           0 :   logic dec_tlu_i0_kill_writeb_wb;</span></span>
-<span id="L393"><span class="lineNum">     393</span> <span class="tlaGNC tlaBgGNC">      129169 :   logic dec_tlu_i0_valid_r;</span></span>
+<span id="L393"><span class="lineNum">     393</span> <span class="tlaGNC tlaBgGNC">      129170 :   logic dec_tlu_i0_valid_r;</span></span>
 <span id="L394"><span class="lineNum">     394</span>              : </span>
 <span id="L395"><span class="lineNum">     395</span> <span class="tlaUNC tlaBgUNC">           0 :   logic dec_pause_state;</span></span>
 <span id="L396"><span class="lineNum">     396</span>              : </span>
@@ -502,9 +502,9 @@
 <span id="L398"><span class="lineNum">     398</span>              : </span>
 <span id="L399"><span class="lineNum">     399</span> <span class="tlaUNC">           0 :   logic dec_tlu_flush_extint;  // Fast ext int started</span></span>
 <span id="L400"><span class="lineNum">     400</span>              : </span>
-<span id="L401"><span class="lineNum">     401</span> <span class="tlaGNC tlaBgGNC">       23090 :   logic [31:0] dec_i0_inst_wb;</span></span>
+<span id="L401"><span class="lineNum">     401</span> <span class="tlaGNC tlaBgGNC">       23091 :   logic [31:0] dec_i0_inst_wb;</span></span>
 <span id="L402"><span class="lineNum">     402</span> <span class="tlaGNC">           1 :   logic [31:1] dec_i0_pc_wb;</span></span>
-<span id="L403"><span class="lineNum">     403</span> <span class="tlaGNC">      129168 :   logic dec_tlu_i0_valid_wb1, dec_tlu_int_valid_wb1;</span></span>
+<span id="L403"><span class="lineNum">     403</span> <span class="tlaGNC">      129169 :   logic dec_tlu_i0_valid_wb1, dec_tlu_int_valid_wb1;</span></span>
 <span id="L404"><span class="lineNum">     404</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [ 4:0] dec_tlu_exc_cause_wb1;</span></span>
 <span id="L405"><span class="lineNum">     405</span> <span class="tlaUNC">           0 :   logic [31:0] dec_tlu_mtval_wb1;</span></span>
 <span id="L406"><span class="lineNum">     406</span> <span class="tlaUNC">           0 :   logic        dec_tlu_i0_exc_valid_wb1;</span></span>

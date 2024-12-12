@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    12-12-2024
+                    11-12-2024
                 </td>
                 <td></td>
                 
@@ -134,8 +134,8 @@
 <span id="L30"><span class="lineNum">      30</span>              :    input logic                                    scan_mode,                // Flop scan mode control</span>
 <span id="L31"><span class="lineNum">      31</span>              :    /*verilator coverage_on*/</span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC tlaBgGNC">           1 :    input logic                                    rst_l,                    // reset, active low</span></span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">        3492 :    input logic                                    clk,                      // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">        3492 :    input logic                                    active_clk,               // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">        3584 :    input logic                                    clk,                      // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">        3584 :    input logic                                    active_clk,               // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
 <span id="L35"><span class="lineNum">      35</span>              : </span>
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                                    ifu_async_error_start,    // ecc/parity related errors with current fetch - not sent down the pipe</span></span>
 <span id="L37"><span class="lineNum">      37</span>              : </span>
@@ -150,12 +150,12 @@
 <span id="L46"><span class="lineNum">      46</span>              : </span>
 <span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC">           6 :    input logic [31:0]                             ifu_fetch_data_f,         // fetch data in memory format - not right justified</span></span>
 <span id="L48"><span class="lineNum">      48</span>              : </span>
-<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">         212 :    input logic [1:0]                              ifu_fetch_val,            // valids on a 2B boundary, right justified</span></span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">         210 :    input logic [1:0]                              ifu_fetch_val,            // valids on a 2B boundary, right justified</span></span>
 <span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC">           2 :    input logic [31:1]                             ifu_fetch_pc,             // starting pc of fetch</span></span>
 <span id="L51"><span class="lineNum">      51</span>              : </span>
 <span id="L52"><span class="lineNum">      52</span>              : </span>
 <span id="L53"><span class="lineNum">      53</span>              : </span>
-<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">         206 :    output logic                                   ifu_i0_valid,             // Instruction 0 is valid</span></span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">         204 :    output logic                                   ifu_i0_valid,             // Instruction 0 is valid</span></span>
 <span id="L55"><span class="lineNum">      55</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic                                   ifu_i0_icaf,              // Instruction 0 has access fault</span></span>
 <span id="L56"><span class="lineNum">      56</span> <span class="tlaUNC">           0 :    output logic [1:0]                             ifu_i0_icaf_type,         // Instruction 0 access fault type</span></span>
 <span id="L57"><span class="lineNum">      57</span> <span class="tlaUNC">           0 :    output logic                                   ifu_i0_icaf_second,       // Instruction 0 has access fault on second 2B of 4B inst</span></span>
@@ -196,13 +196,13 @@
 <span id="L92"><span class="lineNum">      92</span>              : </span>
 <span id="L93"><span class="lineNum">      93</span>              : </span>
 <span id="L94"><span class="lineNum">      94</span>              : </span>
-<span id="L95"><span class="lineNum">      95</span> <span class="tlaGNC">         212 :    logic                                          ifvalid;</span></span>
+<span id="L95"><span class="lineNum">      95</span> <span class="tlaGNC">         210 :    logic                                          ifvalid;</span></span>
 <span id="L96"><span class="lineNum">      96</span> <span class="tlaGNC">           8 :    logic                                          shift_f1_f0, shift_f2_f0, shift_f2_f1;</span></span>
 <span id="L97"><span class="lineNum">      97</span> <span class="tlaGNC">           8 :    logic                                          fetch_to_f0, fetch_to_f1, fetch_to_f2;</span></span>
 <span id="L98"><span class="lineNum">      98</span>              : </span>
 <span id="L99"><span class="lineNum">      99</span> <span class="tlaGNC">           8 :    logic [1:0]                                    f2val_in, f2val;</span></span>
 <span id="L100"><span class="lineNum">     100</span> <span class="tlaGNC">          96 :    logic [1:0]                                    f1val_in, f1val;</span></span>
-<span id="L101"><span class="lineNum">     101</span> <span class="tlaGNC">         116 :    logic [1:0]                                    f0val_in, f0val;</span></span>
+<span id="L101"><span class="lineNum">     101</span> <span class="tlaGNC">         114 :    logic [1:0]                                    f0val_in, f0val;</span></span>
 <span id="L102"><span class="lineNum">     102</span> <span class="tlaGNC">           6 :    logic [1:0]                                    sf1val, sf0val;</span></span>
 <span id="L103"><span class="lineNum">     103</span>              : </span>
 <span id="L104"><span class="lineNum">     104</span> <span class="tlaGNC">           4 :    logic [31:0]                                   aligndata;</span></span>
@@ -215,8 +215,8 @@
 <span id="L111"><span class="lineNum">     111</span> <span class="tlaGNC">           8 :    logic                                          f2_valid, sf1_valid, sf0_valid;</span></span>
 <span id="L112"><span class="lineNum">     112</span>              : </span>
 <span id="L113"><span class="lineNum">     113</span> <span class="tlaGNC">           4 :    logic [31:0]                                   ifirst;</span></span>
-<span id="L114"><span class="lineNum">     114</span> <span class="tlaGNC">         116 :    logic [1:0]                                    alignval;</span></span>
-<span id="L115"><span class="lineNum">     115</span> <span class="tlaGNC">          14 :    logic [31:1]                                   firstpc, secondpc;</span></span>
+<span id="L114"><span class="lineNum">     114</span> <span class="tlaGNC">         114 :    logic [1:0]                                    alignval;</span></span>
+<span id="L115"><span class="lineNum">     115</span> <span class="tlaGNC">          12 :    logic [31:1]                                   firstpc, secondpc;</span></span>
 <span id="L116"><span class="lineNum">     116</span>              : </span>
 <span id="L117"><span class="lineNum">     117</span> <span class="tlaGNC">         142 :    logic [11:0]                                   f1poffset;</span></span>
 <span id="L118"><span class="lineNum">     118</span> <span class="tlaGNC">           2 :    logic [11:0]                                   f0poffset;</span></span>
@@ -265,7 +265,7 @@
 <span id="L161"><span class="lineNum">     161</span> <span class="tlaUNC">           0 :    logic [1:0]                                    alignicaf;</span></span>
 <span id="L162"><span class="lineNum">     162</span> <span class="tlaGNC tlaBgGNC">          88 :    logic                                          i0_brp_pc4;</span></span>
 <span id="L163"><span class="lineNum">     163</span>              : </span>
-<span id="L164"><span class="lineNum">     164</span> <span class="tlaGNC">          14 :    logic [pt.BTB_ADDR_HI:pt.BTB_ADDR_LO]          firstpc_hash, secondpc_hash;</span></span>
+<span id="L164"><span class="lineNum">     164</span> <span class="tlaGNC">          12 :    logic [pt.BTB_ADDR_HI:pt.BTB_ADDR_LO]          firstpc_hash, secondpc_hash;</span></span>
 <span id="L165"><span class="lineNum">     165</span>              : </span>
 <span id="L166"><span class="lineNum">     166</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                                          first_legal;</span></span>
 <span id="L167"><span class="lineNum">     167</span>              : </span>

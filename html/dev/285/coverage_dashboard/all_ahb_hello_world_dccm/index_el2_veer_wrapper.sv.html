@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    05-12-2024
+                    12-12-2024
                 </td>
                 <td></td>
                 
@@ -131,7 +131,7 @@
 <span id="L27"><span class="lineNum">      27</span>              : `include "el2_param.vh"</span>
 <span id="L28"><span class="lineNum">      28</span>              : )</span>
 <span id="L29"><span class="lineNum">      29</span>              : (</span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">       12352 :    input logic                             clk,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">       12356 :    input logic                             clk,</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           1 :    input logic                             rst_l,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           1 :    input logic                             dbg_rst_l,</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:1]                      rst_vec,</span></span>
@@ -411,7 +411,7 @@
 <span id="L307"><span class="lineNum">     307</span>              :    /*verilator coverage_on*/</span>
 <span id="L308"><span class="lineNum">     308</span> <span class="tlaUNC">           0 :    output logic [3:0]                      hprot,</span></span>
 <span id="L309"><span class="lineNum">     309</span> <span class="tlaUNC">           0 :    output logic [2:0]                      hsize,</span></span>
-<span id="L310"><span class="lineNum">     310</span> <span class="tlaGNC tlaBgGNC">         413 :    output logic [1:0]                      htrans,</span></span>
+<span id="L310"><span class="lineNum">     310</span> <span class="tlaGNC tlaBgGNC">         393 :    output logic [1:0]                      htrans,</span></span>
 <span id="L311"><span class="lineNum">     311</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic                            hwrite,</span></span>
 <span id="L312"><span class="lineNum">     312</span>              : </span>
 <span id="L313"><span class="lineNum">     313</span>              :    /* exclude signals that are tied to constant value in this file */</span>
@@ -548,8 +548,8 @@
 <span id="L444"><span class="lineNum">     444</span>              :    /* verilator coverage_on */</span>
 <span id="L445"><span class="lineNum">     445</span>              : );</span>
 <span id="L446"><span class="lineNum">     446</span>              : </span>
-<span id="L447"><span class="lineNum">     447</span> <span class="tlaGNC">       12352 :    logic                             active_l2clk;</span></span>
-<span id="L448"><span class="lineNum">     448</span> <span class="tlaGNC">       12352 :    logic                             free_l2clk;</span></span>
+<span id="L447"><span class="lineNum">     447</span> <span class="tlaGNC">       12356 :    logic                             active_l2clk;</span></span>
+<span id="L448"><span class="lineNum">     448</span> <span class="tlaGNC">       12356 :    logic                             free_l2clk;</span></span>
 <span id="L449"><span class="lineNum">     449</span>              : </span>
 <span id="L450"><span class="lineNum">     450</span>              :    // DCCM ports</span>
 <span id="L451"><span class="lineNum">     451</span> <span class="tlaUNC tlaBgUNC">           0 :    logic         dccm_wren;</span></span>
@@ -572,7 +572,7 @@
 <span id="L468"><span class="lineNum">     468</span> <span class="tlaGNC">         876 :    logic         ic_rd_en ;</span></span>
 <span id="L469"><span class="lineNum">     469</span>              : </span>
 <span id="L470"><span class="lineNum">     470</span>              : </span>
-<span id="L471"><span class="lineNum">     471</span> <span class="tlaGNC">        1008 :    logic [pt.ICACHE_NUM_WAYS-1:0]   ic_tag_valid;   // Valid from the I$ tag valid outside (in flops).</span></span>
+<span id="L471"><span class="lineNum">     471</span> <span class="tlaGNC">        1009 :    logic [pt.ICACHE_NUM_WAYS-1:0]   ic_tag_valid;   // Valid from the I$ tag valid outside (in flops).</span></span>
 <span id="L472"><span class="lineNum">     472</span>              : </span>
 <span id="L473"><span class="lineNum">     473</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [pt.ICACHE_NUM_WAYS-1:0]   ic_rd_hit;      // ic_rd_hit[3:0]</span></span>
 <span id="L474"><span class="lineNum">     474</span> <span class="tlaUNC">           0 :    logic         ic_tag_perr;                       // Ic tag parity error</span></span>
@@ -584,7 +584,7 @@
 <span id="L480"><span class="lineNum">     480</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_NUM_WAYS-1:0]   ic_debug_way;   // Debug way. Rd or Wr.</span></span>
 <span id="L481"><span class="lineNum">     481</span>              : </span>
 <span id="L482"><span class="lineNum">     482</span> <span class="tlaUNC">           0 :    logic [25:0]  ictag_debug_rd_data;               // Debug icache tag.</span></span>
-<span id="L483"><span class="lineNum">     483</span> <span class="tlaGNC tlaBgGNC">         745 :    logic [pt.ICACHE_BANKS_WAY-1:0][70:0]  ic_wr_data;</span></span>
+<span id="L483"><span class="lineNum">     483</span> <span class="tlaGNC tlaBgGNC">         746 :    logic [pt.ICACHE_BANKS_WAY-1:0][70:0]  ic_wr_data;</span></span>
 <span id="L484"><span class="lineNum">     484</span> <span class="tlaGNC">           2 :    logic [63:0]  ic_rd_data;</span></span>
 <span id="L485"><span class="lineNum">     485</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [70:0]  ic_debug_rd_data;                  // Data read from Icache. 2x64bits + parity bits. F2 stage. With ECC</span></span>
 <span id="L486"><span class="lineNum">     486</span> <span class="tlaUNC">           0 :    logic [70:0]  ic_debug_wr_data;                  // Debug wr cache.</span></span>

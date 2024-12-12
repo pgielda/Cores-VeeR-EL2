@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    05-12-2024
+                    12-12-2024
                 </td>
                 <td></td>
                 
@@ -873,12 +873,12 @@
 <span id="L769"><span class="lineNum">     769</span>              : `ifndef TECH_SPECIFIC_EC_RV_ICG</span>
 <span id="L770"><span class="lineNum">     770</span>              : module `TEC_RV_ICG</span>
 <span id="L771"><span class="lineNum">     771</span>              :   (</span>
-<span id="L772"><span class="lineNum">     772</span> <span class="tlaGNC">         514 :    input logic SE, EN, CK,</span></span>
+<span id="L772"><span class="lineNum">     772</span> <span class="tlaGNC">         642 :    input logic SE, EN, CK,</span></span>
 <span id="L773"><span class="lineNum">     773</span> <span class="tlaGNC">        5206 :    output Q</span></span>
 <span id="L774"><span class="lineNum">     774</span>              :    );</span>
 <span id="L775"><span class="lineNum">     775</span>              : </span>
-<span id="L776"><span class="lineNum">     776</span> <span class="tlaGNC">         514 :    logic  en_ff;</span></span>
-<span id="L777"><span class="lineNum">     777</span> <span class="tlaGNC">         514 :    logic  enable;</span></span>
+<span id="L776"><span class="lineNum">     776</span> <span class="tlaGNC">         642 :    logic  en_ff;</span></span>
+<span id="L777"><span class="lineNum">     777</span> <span class="tlaGNC">         642 :    logic  enable;</span></span>
 <span id="L778"><span class="lineNum">     778</span>              : </span>
 <span id="L779"><span class="lineNum">     779</span>              :    assign      enable = EN | SE;</span>
 <span id="L780"><span class="lineNum">     780</span>              : </span>
@@ -894,7 +894,7 @@
 <span id="L790"><span class="lineNum">     790</span>              : `ifndef RV_FPGA_OPTIMIZE</span>
 <span id="L791"><span class="lineNum">     791</span>              : module rvclkhdr</span>
 <span id="L792"><span class="lineNum">     792</span>              :   (</span>
-<span id="L793"><span class="lineNum">     793</span> <span class="tlaGNC">         514 :    input  logic en,</span></span>
+<span id="L793"><span class="lineNum">     793</span> <span class="tlaGNC">         642 :    input  logic en,</span></span>
 <span id="L794"><span class="lineNum">     794</span> <span class="tlaGNC">       21210 :    input  logic clk,</span></span>
 <span id="L795"><span class="lineNum">     795</span>              :    // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L796"><span class="lineNum">     796</span>              :    /*verilator coverage_off*/</span>
