@@ -90,6 +90,7 @@
  * [lib_ahb_to_axi4_test_write](external:coverage_dashboard/all_lib_ahb_to_axi4_test_write/index.html)
  * [lib_axi4_to_ahb_test_axi](external:coverage_dashboard/all_lib_axi4_to_ahb_test_axi/index.html)
  * [lib_axi4_to_ahb_test_axi_read_channel](external:coverage_dashboard/all_lib_axi4_to_ahb_test_axi_read_channel/index.html)
+ * [lib_axi4_to_ahb_test_axi_read_channel_multiple](external:coverage_dashboard/all_lib_axi4_to_ahb_test_axi_read_channel_multiple/index.html)
  * [lib_axi4_to_ahb_test_axi_write_channel](external:coverage_dashboard/all_lib_axi4_to_ahb_test_axi_write_channel/index.html)
  * [lsu_tl_test_lsu_tl](external:coverage_dashboard/all_lsu_tl_test_lsu_tl/index.html)
  * [openocd_ahb_lite](external:coverage_dashboard/all_openocd_ahb_lite/index.html)
