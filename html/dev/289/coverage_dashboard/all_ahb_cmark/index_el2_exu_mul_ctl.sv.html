@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    12-12-2024
+                    13-12-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ffa900;">
-        33.3%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ffb000;">
+        34.7%
     </td>
     <td class="headerCovSummaryEntry">
-        25
+        26
     </td>
     <td class="headerCovSummaryEntry">
         75
@@ -124,8 +124,8 @@
 <span id="L20"><span class="lineNum">      20</span>              : `include "el2_param.vh"</span>
 <span id="L21"><span class="lineNum">      21</span>              :  )</span>
 <span id="L22"><span class="lineNum">      22</span>              :   (</span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">     4822774 :    input logic          clk,              // Top level clock</span></span>
-<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           3 :    input logic          rst_l,            // Reset</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">     4825098 :    input logic          clk,              // Top level clock</span></span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           9 :    input logic          rst_l,            // Reset</span></span>
 <span id="L25"><span class="lineNum">      25</span>              :    // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L26"><span class="lineNum">      26</span>              :    /*verilator coverage_off*/</span>
 <span id="L27"><span class="lineNum">      27</span>              :    input logic          scan_mode,        // Scan mode</span>
@@ -137,16 +137,16 @@
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">         584 :    input logic [31:0]   rs2_in,           // B operand</span></span>
 <span id="L34"><span class="lineNum">      34</span>              : </span>
 <span id="L35"><span class="lineNum">      35</span>              : </span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">        1458 :    output logic [31:0]  result_x          // Result</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">        1460 :    output logic [31:0]  result_x          // Result</span></span>
 <span id="L37"><span class="lineNum">      37</span>              :   );</span>
 <span id="L38"><span class="lineNum">      38</span>              : </span>
 <span id="L39"><span class="lineNum">      39</span>              : </span>
-<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">       38164 :    logic                mul_x_enable;</span></span>
-<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">       38164 :    logic                bit_x_enable;</span></span>
+<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">       38172 :    logic                mul_x_enable;</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">       38172 :    logic                bit_x_enable;</span></span>
 <span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">           6 :    logic signed [32:0]  rs1_ext_in;</span></span>
-<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">        1178 :    logic signed [32:0]  rs2_ext_in;</span></span>
-<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">        9260 :    logic        [65:0]  prod_x;</span></span>
-<span id="L45"><span class="lineNum">      45</span> <span class="tlaGNC">           3 :    logic                low_x;</span></span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">        1186 :    logic signed [32:0]  rs2_ext_in;</span></span>
+<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">        9266 :    logic        [65:0]  prod_x;</span></span>
+<span id="L45"><span class="lineNum">      45</span> <span class="tlaGNC">           7 :    logic                low_x;</span></span>
 <span id="L46"><span class="lineNum">      46</span>              : </span>
 <span id="L47"><span class="lineNum">      47</span>              : </span>
 <span id="L48"><span class="lineNum">      48</span>              : </span>
@@ -282,7 +282,7 @@
 <span id="L178"><span class="lineNum">     178</span>              : </span>
 <span id="L179"><span class="lineNum">     179</span>              : </span>
 <span id="L180"><span class="lineNum">     180</span> <span class="tlaGNC tlaBgGNC">           4 :    logic signed [32:0]  rs1_x;</span></span>
-<span id="L181"><span class="lineNum">     181</span> <span class="tlaGNC">        1022 :    logic signed [32:0]  rs2_x;</span></span>
+<span id="L181"><span class="lineNum">     181</span> <span class="tlaGNC">        1026 :    logic signed [32:0]  rs2_x;</span></span>
 <span id="L182"><span class="lineNum">     182</span>              : </span>
 <span id="L183"><span class="lineNum">     183</span>              :    rvdffe #(34) i_a_x_ff         (.*, .clk(clk),  .din({mul_p.low,rs1_ext_in[32:0]}),        .dout({low_x,rs1_x[32:0]}),                 .en(mul_x_enable));</span>
 <span id="L184"><span class="lineNum">     184</span>              :    rvdffe #(33) i_b_x_ff         (.*, .clk(clk),  .din(           rs2_ext_in[32:0] ),        .dout(       rs2_x[32:0] ),                 .en(mul_x_enable));</span>
@@ -313,7 +313,7 @@
 <span id="L209"><span class="lineNum">     209</span> <span class="tlaGNC">           3 :        for (bcompress_i=0; bcompress_i&lt;32; bcompress_i++)</span></span>
 <span id="L210"><span class="lineNum">     210</span> <span class="tlaGNC">          96 :          begin</span></span>
 <span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC">          96 :              bcompress_test_bit_d              =  rs2_in[bcompress_i];</span></span>
-<span id="L212"><span class="lineNum">     212</span> <span class="tlaGNC">     4015456 :              if (bcompress_test_bit_d)</span></span>
+<span id="L212"><span class="lineNum">     212</span> <span class="tlaGNC">     4032672 :              if (bcompress_test_bit_d)</span></span>
 <span id="L213"><span class="lineNum">     213</span> <span class="tlaGNC">       96768 :                begin</span></span>
 <span id="L214"><span class="lineNum">     214</span> <span class="tlaGNC">       96768 :                   bcompress_d[bcompress_j]     =  rs1_in[bcompress_i];</span></span>
 <span id="L215"><span class="lineNum">     215</span> <span class="tlaGNC">       96768 :                   bcompress_j                  =  bcompress_j + 1;</span></span>
@@ -325,7 +325,7 @@
 <span id="L221"><span class="lineNum">     221</span>              : </span>
 <span id="L222"><span class="lineNum">     222</span>              :    // *** BDECOMPRESS == "scatter" ***</span>
 <span id="L223"><span class="lineNum">     223</span>              : </span>
-<span id="L224"><span class="lineNum">     224</span> <span class="tlaGNC">         586 :    logic        [31:0]    bdecompress_d;</span></span>
+<span id="L224"><span class="lineNum">     224</span> <span class="tlaGNC">         588 :    logic        [31:0]    bdecompress_d;</span></span>
 <span id="L225"><span class="lineNum">     225</span> <span class="tlaGNC">        2016 :    logic                  bdecompress_test_bit_d;</span></span>
 <span id="L226"><span class="lineNum">     226</span>              :    integer                bdecompress_i, bdecompress_j;</span>
 <span id="L227"><span class="lineNum">     227</span>              : </span>
@@ -340,7 +340,7 @@
 <span id="L236"><span class="lineNum">     236</span> <span class="tlaGNC">           3 :        for (bdecompress_i=0; bdecompress_i&lt;32; bdecompress_i++)</span></span>
 <span id="L237"><span class="lineNum">     237</span> <span class="tlaGNC">          96 :          begin</span></span>
 <span id="L238"><span class="lineNum">     238</span> <span class="tlaGNC">          96 :              bdecompress_test_bit_d            =  rs2_in[bdecompress_i];</span></span>
-<span id="L239"><span class="lineNum">     239</span> <span class="tlaGNC">     4015456 :              if (bdecompress_test_bit_d)</span></span>
+<span id="L239"><span class="lineNum">     239</span> <span class="tlaGNC">     4032672 :              if (bdecompress_test_bit_d)</span></span>
 <span id="L240"><span class="lineNum">     240</span> <span class="tlaGNC">       96768 :                begin</span></span>
 <span id="L241"><span class="lineNum">     241</span> <span class="tlaGNC">       96768 :                   bdecompress_d[bdecompress_i] =  rs1_in[bdecompress_j];</span></span>
 <span id="L242"><span class="lineNum">     242</span> <span class="tlaGNC">       96768 :                   bdecompress_j                =  bdecompress_j + 1;</span></span>
@@ -353,7 +353,7 @@
 <span id="L249"><span class="lineNum">     249</span>              : </span>
 <span id="L250"><span class="lineNum">     250</span>              :    // * * * * * * * * * * * * * * * * * *  BitManip  :  CLMUL, CLMULH, CLMULR  * * * * * * * * * * * * *</span>
 <span id="L251"><span class="lineNum">     251</span>              : </span>
-<span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC">       15522 :    logic        [62:0]    clmul_raw_d;</span></span>
+<span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC">       15528 :    logic        [62:0]    clmul_raw_d;</span></span>
 <span id="L253"><span class="lineNum">     253</span>              : </span>
 <span id="L254"><span class="lineNum">     254</span>              : </span>
 <span id="L255"><span class="lineNum">     255</span>              :    assign clmul_raw_d[62:0]      = ( {63{rs2_in[00]}} &amp; {31'b0,rs1_in[31:0]      } ) ^</span>
@@ -412,7 +412,7 @@
 <span id="L308"><span class="lineNum">     308</span> <span class="tlaGNC">        2682 :    logic        [31:0]    grev1_d;</span></span>
 <span id="L309"><span class="lineNum">     309</span> <span class="tlaGNC">        1394 :    logic        [31:0]    grev2_d;</span></span>
 <span id="L310"><span class="lineNum">     310</span> <span class="tlaGNC">         690 :    logic        [31:0]    grev4_d;</span></span>
-<span id="L311"><span class="lineNum">     311</span> <span class="tlaGNC">        8046 :    logic        [31:0]    grev8_d;</span></span>
+<span id="L311"><span class="lineNum">     311</span> <span class="tlaGNC">        8042 :    logic        [31:0]    grev8_d;</span></span>
 <span id="L312"><span class="lineNum">     312</span> <span class="tlaGNC">        3674 :    logic        [31:0]    grev_d;</span></span>
 <span id="L313"><span class="lineNum">     313</span>              : </span>
 <span id="L314"><span class="lineNum">     314</span>              : </span>
@@ -456,7 +456,7 @@
 <span id="L352"><span class="lineNum">     352</span> <span class="tlaGNC">        2936 :    logic        [31:0]    gorc1_d;</span></span>
 <span id="L353"><span class="lineNum">     353</span> <span class="tlaGNC">        2942 :    logic        [31:0]    gorc2_d;</span></span>
 <span id="L354"><span class="lineNum">     354</span> <span class="tlaGNC">        2944 :    logic        [31:0]    gorc4_d;</span></span>
-<span id="L355"><span class="lineNum">     355</span> <span class="tlaGNC">       17256 :    logic        [31:0]    gorc8_d;</span></span>
+<span id="L355"><span class="lineNum">     355</span> <span class="tlaGNC">       17260 :    logic        [31:0]    gorc8_d;</span></span>
 <span id="L356"><span class="lineNum">     356</span> <span class="tlaGNC">        5866 :    logic        [31:0]    gorc_d;</span></span>
 <span id="L357"><span class="lineNum">     357</span>              : </span>
 <span id="L358"><span class="lineNum">     358</span>              : </span>
@@ -626,8 +626,8 @@
 <span id="L522"><span class="lineNum">     522</span>              :    //       end</span>
 <span id="L523"><span class="lineNum">     523</span>              :    //   end</span>
 <span id="L524"><span class="lineNum">     524</span>              : </span>
-<span id="L525"><span class="lineNum">     525</span> <span class="tlaGNC">        1816 :    logic        [31:0]    xperm_n;</span></span>
-<span id="L526"><span class="lineNum">     526</span> <span class="tlaGNC">       16646 :    logic        [31:0]    xperm_b;</span></span>
+<span id="L525"><span class="lineNum">     525</span> <span class="tlaGNC">        1808 :    logic        [31:0]    xperm_n;</span></span>
+<span id="L526"><span class="lineNum">     526</span> <span class="tlaGNC">       16634 :    logic        [31:0]    xperm_b;</span></span>
 <span id="L527"><span class="lineNum">     527</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        [31:0]    xperm_h;</span></span>
 <span id="L528"><span class="lineNum">     528</span>              : </span>
 <span id="L529"><span class="lineNum">     529</span>              :    assign xperm_n[03:00]         =  { 4{    ~rs2_in[03]     }} &amp; 4'( (rs1_in[31:0] &gt;&gt; {rs2_in[02:00],2'b0}) &amp;     4'hf );   // This is a 8:1 mux with qualified selects</span>

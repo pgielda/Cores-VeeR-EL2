@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    12-12-2024
+                    13-12-2024
                 </td>
                 <td></td>
                 
@@ -128,7 +128,7 @@
 <span id="L24"><span class="lineNum">      24</span>              :     `include "el2_param.vh"</span>
 <span id="L25"><span class="lineNum">      25</span>              : ) (</span>
 <span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC tlaBgGNC">         563 :     input logic clk,       // Top level clock</span></span>
-<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">           1 :     input logic rst_l,     // Reset</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">           2 :     input logic rst_l,     // Reset</span></span>
 <span id="L28"><span class="lineNum">      28</span>              :     /* verilator coverage_off */</span>
 <span id="L29"><span class="lineNum">      29</span>              :     input logic scan_mode, // Scan mode</span>
 <span id="L30"><span class="lineNum">      30</span>              :     /* verilator coverage_on */</span>
@@ -155,9 +155,9 @@
 <span id="L51"><span class="lineNum">      51</span>              : </span>
 <span id="L52"><span class="lineNum">      52</span>              :   logic [                33:0]                     region_start_addr       [pt.PMP_ENTRIES];</span>
 <span id="L53"><span class="lineNum">      53</span>              :   logic [33:PMP_GRANULARITY+2]                     region_addr_mask        [pt.PMP_ENTRIES];</span>
-<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC tlaBgGNC">           5 :   logic [    PMP_CHANNELS-1:0][pt.PMP_ENTRIES-1:0] region_match_gt;</span></span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC tlaBgGNC">           6 :   logic [    PMP_CHANNELS-1:0][pt.PMP_ENTRIES-1:0] region_match_gt;</span></span>
 <span id="L55"><span class="lineNum">      55</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [    PMP_CHANNELS-1:0][pt.PMP_ENTRIES-1:0] region_match_lt;</span></span>
-<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC tlaBgGNC">           6 :   logic [    PMP_CHANNELS-1:0][pt.PMP_ENTRIES-1:0] region_match_eq;</span></span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC tlaBgGNC">           7 :   logic [    PMP_CHANNELS-1:0][pt.PMP_ENTRIES-1:0] region_match_eq;</span></span>
 <span id="L57"><span class="lineNum">      57</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [    PMP_CHANNELS-1:0][pt.PMP_ENTRIES-1:0] region_match_all;</span></span>
 <span id="L58"><span class="lineNum">      58</span> <span class="tlaUNC">           0 :   logic [    PMP_CHANNELS-1:0][pt.PMP_ENTRIES-1:0] region_basic_perm_check;</span></span>
 <span id="L59"><span class="lineNum">      59</span> <span class="tlaGNC tlaBgGNC">           1 :   logic [    PMP_CHANNELS-1:0][pt.PMP_ENTRIES-1:0] region_perm_check;</span></span>
@@ -352,7 +352,7 @@
 <span id="L248"><span class="lineNum">     248</span> <span class="tlaGNC tlaBgGNC">          48 :       always_comb begin</span></span>
 <span id="L249"><span class="lineNum">     249</span> <span class="tlaGNC">          48 :         region_match_all[c][r] = 1'b0;</span></span>
 <span id="L250"><span class="lineNum">     250</span> <span class="tlaGNC">          48 :         unique case (pmp_pmpcfg[r].mode)</span></span>
-<span id="L251"><span class="lineNum">     251</span> <span class="tlaGNC">       13536 :           OFF:     region_match_all[c][r] = 1'b0;</span></span>
+<span id="L251"><span class="lineNum">     251</span> <span class="tlaGNC">       13584 :           OFF:     region_match_all[c][r] = 1'b0;</span></span>
 <span id="L252"><span class="lineNum">     252</span> <span class="tlaUNC tlaBgUNC">           0 :           NA4:     region_match_all[c][r] = region_match_eq[c][r];</span></span>
 <span id="L253"><span class="lineNum">     253</span> <span class="tlaUNC">           0 :           NAPOT:   region_match_all[c][r] = region_match_eq[c][r];</span></span>
 <span id="L254"><span class="lineNum">     254</span> <span class="tlaUNC">           0 :           TOR: begin</span></span>

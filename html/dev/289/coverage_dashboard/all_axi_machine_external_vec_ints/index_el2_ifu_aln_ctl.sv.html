@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    12-12-2024
+                    13-12-2024
                 </td>
                 <td></td>
                 
@@ -133,7 +133,7 @@
 <span id="L29"><span class="lineNum">      29</span>              :    /*verilator coverage_off*/</span>
 <span id="L30"><span class="lineNum">      30</span>              :    input logic                                    scan_mode,                // Flop scan mode control</span>
 <span id="L31"><span class="lineNum">      31</span>              :    /*verilator coverage_on*/</span>
-<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC tlaBgGNC">           1 :    input logic                                    rst_l,                    // reset, active low</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC tlaBgGNC">           2 :    input logic                                    rst_l,                    // reset, active low</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">         563 :    input logic                                    clk,                      // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
 <span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">         563 :    input logic                                    active_clk,               // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
 <span id="L35"><span class="lineNum">      35</span>              : </span>
@@ -151,7 +151,7 @@
 <span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC">           6 :    input logic [31:0]                             ifu_fetch_data_f,         // fetch data in memory format - not right justified</span></span>
 <span id="L48"><span class="lineNum">      48</span>              : </span>
 <span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">          48 :    input logic [1:0]                              ifu_fetch_val,            // valids on a 2B boundary, right justified</span></span>
-<span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC">           1 :    input logic [31:1]                             ifu_fetch_pc,             // starting pc of fetch</span></span>
+<span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC">           2 :    input logic [31:1]                             ifu_fetch_pc,             // starting pc of fetch</span></span>
 <span id="L51"><span class="lineNum">      51</span>              : </span>
 <span id="L52"><span class="lineNum">      52</span>              : </span>
 <span id="L53"><span class="lineNum">      53</span>              : </span>
@@ -273,8 +273,8 @@
 <span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">          34 :    logic [1:0]                                    rdptr, rdptr_in;</span></span>
 <span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">          38 :    logic [2:0]                                    qwen;</span></span>
 <span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">           2 :    logic [31:0]                                   q2,q1,q0;</span></span>
-<span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">          15 :    logic                                          q2off_in, q2off;</span></span>
-<span id="L173"><span class="lineNum">     173</span> <span class="tlaGNC">          25 :    logic                                          q1off_in, q1off;</span></span>
+<span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">          16 :    logic                                          q2off_in, q2off;</span></span>
+<span id="L173"><span class="lineNum">     173</span> <span class="tlaGNC">          26 :    logic                                          q1off_in, q1off;</span></span>
 <span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC">          20 :    logic                                          q0off_in, q0off;</span></span>
 <span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC">          30 :    logic                                          f0_shift_2B;</span></span>
 <span id="L176"><span class="lineNum">     176</span>              : </span>
@@ -285,8 +285,8 @@
 <span id="L181"><span class="lineNum">     181</span>              : </span>
 <span id="L182"><span class="lineNum">     182</span> <span class="tlaGNC">           6 :    logic [31:0]                                   q1eff;</span></span>
 <span id="L183"><span class="lineNum">     183</span> <span class="tlaGNC">           6 :    logic [15:0]                                   q1final;</span></span>
-<span id="L184"><span class="lineNum">     184</span> <span class="tlaGNC">          15 :    logic                                          q1ptr;</span></span>
-<span id="L185"><span class="lineNum">     185</span> <span class="tlaGNC">          15 :    logic [1:0]                                    q1sel;</span></span>
+<span id="L184"><span class="lineNum">     184</span> <span class="tlaGNC">          16 :    logic                                          q1ptr;</span></span>
+<span id="L185"><span class="lineNum">     185</span> <span class="tlaGNC">          16 :    logic [1:0]                                    q1sel;</span></span>
 <span id="L186"><span class="lineNum">     186</span>              : </span>
 <span id="L187"><span class="lineNum">     187</span> <span class="tlaGNC">          34 :    logic [2:0]                                    qren;</span></span>
 <span id="L188"><span class="lineNum">     188</span>              : </span>
@@ -342,7 +342,7 @@
 <span id="L238"><span class="lineNum">     238</span>              :                                                         );</span>
 <span id="L239"><span class="lineNum">     239</span>              : end</span>
 <span id="L240"><span class="lineNum">     240</span>              : </span>
-<span id="L241"><span class="lineNum">     241</span> <span class="tlaGNC tlaBgGNC">           1 :   logic [31:1] q2pc, q1pc, q0pc;</span></span>
+<span id="L241"><span class="lineNum">     241</span> <span class="tlaGNC tlaBgGNC">           2 :   logic [31:1] q2pc, q1pc, q0pc;</span></span>
 <span id="L242"><span class="lineNum">     242</span>              : </span>
 <span id="L243"><span class="lineNum">     243</span>              :    rvdffe #(31)           q2pcff        (.*, .clk(clk), .en(qwen[2]),        .din(ifu_fetch_pc[31:1]),     .dout(q2pc[31:1]));</span>
 <span id="L244"><span class="lineNum">     244</span>              :    rvdffe #(31)           q1pcff        (.*, .clk(clk), .en(qwen[1]),        .din(ifu_fetch_pc[31:1]),     .dout(q1pc[31:1]));</span>
@@ -585,7 +585,7 @@
 <span id="L481"><span class="lineNum">     481</span>              :    assign q1final[15:0]      = ({16{q1sel[0]}} &amp; q1eff[15:0] ) |</span>
 <span id="L482"><span class="lineNum">     482</span>              :                                ({16{q1sel[1]}} &amp; q1eff[31:16]);</span>
 <span id="L483"><span class="lineNum">     483</span> <span class="tlaGNC">           2 :    logic [31:1] q0pceff, q0pcfinal;</span></span>
-<span id="L484"><span class="lineNum">     484</span> <span class="tlaGNC">           1 :    logic [31:1] q1pceff;</span></span>
+<span id="L484"><span class="lineNum">     484</span> <span class="tlaGNC">           2 :    logic [31:1] q1pceff;</span></span>
 <span id="L485"><span class="lineNum">     485</span>              : </span>
 <span id="L486"><span class="lineNum">     486</span>              :    assign {q1pceff[31:1],q0pceff[31:1]} = (({62{qren[0]}} &amp; {q1pc[31:1],q0pc[31:1]}) |</span>
 <span id="L487"><span class="lineNum">     487</span>              :                                            ({62{qren[1]}} &amp; {q2pc[31:1],q1pc[31:1]}) |</span>

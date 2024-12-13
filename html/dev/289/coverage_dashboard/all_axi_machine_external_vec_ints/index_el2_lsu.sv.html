@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    12-12-2024
+                    13-12-2024
                 </td>
                 <td></td>
                 
@@ -221,7 +221,7 @@
 <span id="L117"><span class="lineNum">     117</span> <span class="tlaGNC">           9 :    input  logic                            lsu_axi_awready,</span></span>
 <span id="L118"><span class="lineNum">     118</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [pt.LSU_BUS_TAG-1:0]       lsu_axi_awid,</span></span>
 <span id="L119"><span class="lineNum">     119</span> <span class="tlaUNC">           0 :    output logic [31:0]                     lsu_axi_awaddr,</span></span>
-<span id="L120"><span class="lineNum">     120</span> <span class="tlaGNC tlaBgGNC">           1 :    output logic [3:0]                      lsu_axi_awregion,</span></span>
+<span id="L120"><span class="lineNum">     120</span> <span class="tlaGNC tlaBgGNC">           2 :    output logic [3:0]                      lsu_axi_awregion,</span></span>
 <span id="L121"><span class="lineNum">     121</span>              :    /* exclude signals that are tied to constant value in el2_lsu_bus_buffer.sv */</span>
 <span id="L122"><span class="lineNum">     122</span>              :    /*verilator coverage_off*/</span>
 <span id="L123"><span class="lineNum">     123</span>              :    output logic [7:0]                      lsu_axi_awlen,</span>
@@ -232,7 +232,7 @@
 <span id="L128"><span class="lineNum">     128</span>              :    output logic [1:0]                      lsu_axi_awburst,</span>
 <span id="L129"><span class="lineNum">     129</span>              :    output logic                            lsu_axi_awlock,</span>
 <span id="L130"><span class="lineNum">     130</span>              :    /*verilator coverage_on*/</span>
-<span id="L131"><span class="lineNum">     131</span> <span class="tlaGNC tlaBgGNC">           2 :    output logic [3:0]                      lsu_axi_awcache,</span></span>
+<span id="L131"><span class="lineNum">     131</span> <span class="tlaGNC tlaBgGNC">           3 :    output logic [3:0]                      lsu_axi_awcache,</span></span>
 <span id="L132"><span class="lineNum">     132</span>              :    /* exclude signals that are tied to constant value in el2_lsu_bus_buffer.sv */</span>
 <span id="L133"><span class="lineNum">     133</span>              :    /*verilator coverage_off*/</span>
 <span id="L134"><span class="lineNum">     134</span>              :    output logic [2:0]                      lsu_axi_awprot,</span>
@@ -258,7 +258,7 @@
 <span id="L154"><span class="lineNum">     154</span> <span class="tlaGNC tlaBgGNC">           1 :    input  logic                            lsu_axi_arready,</span></span>
 <span id="L155"><span class="lineNum">     155</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [pt.LSU_BUS_TAG-1:0]       lsu_axi_arid,</span></span>
 <span id="L156"><span class="lineNum">     156</span> <span class="tlaUNC">           0 :    output logic [31:0]                     lsu_axi_araddr,</span></span>
-<span id="L157"><span class="lineNum">     157</span> <span class="tlaGNC tlaBgGNC">           1 :    output logic [3:0]                      lsu_axi_arregion,</span></span>
+<span id="L157"><span class="lineNum">     157</span> <span class="tlaGNC tlaBgGNC">           2 :    output logic [3:0]                      lsu_axi_arregion,</span></span>
 <span id="L158"><span class="lineNum">     158</span>              :    /* exclude signals that are tied to constant value in el2_lsu_bus_buffer.sv */</span>
 <span id="L159"><span class="lineNum">     159</span>              :    /*verilator coverage_off*/</span>
 <span id="L160"><span class="lineNum">     160</span>              :    output logic [7:0]                      lsu_axi_arlen,</span>
@@ -269,7 +269,7 @@
 <span id="L165"><span class="lineNum">     165</span>              :    output logic [1:0]                      lsu_axi_arburst,</span>
 <span id="L166"><span class="lineNum">     166</span>              :    output logic                            lsu_axi_arlock,</span>
 <span id="L167"><span class="lineNum">     167</span>              :    /*verilator coverage_on*/</span>
-<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC tlaBgGNC">           2 :    output logic [3:0]                      lsu_axi_arcache,</span></span>
+<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC tlaBgGNC">           3 :    output logic [3:0]                      lsu_axi_arcache,</span></span>
 <span id="L169"><span class="lineNum">     169</span>              :    /* exclude signals that are tied to constant value in el2_lsu_bus_buffer.sv */</span>
 <span id="L170"><span class="lineNum">     170</span>              :    /*verilator coverage_off*/</span>
 <span id="L171"><span class="lineNum">     171</span>              :    output logic [2:0]                      lsu_axi_arprot,</span>
@@ -312,7 +312,7 @@
 <span id="L208"><span class="lineNum">     208</span>              :    /*verilator coverage_on*/</span>
 <span id="L209"><span class="lineNum">     209</span> <span class="tlaGNC tlaBgGNC">         563 :    input logic                             clk,                 // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.</span></span>
 <span id="L210"><span class="lineNum">     210</span> <span class="tlaGNC">         563 :    input logic                             active_clk,          // Clock only while core active.  Through two clock headers. For flops without second clock header built in.</span></span>
-<span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC">           1 :     input logic                             rst_l,               // reset, active low</span></span>
+<span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC">           2 :     input logic                             rst_l,               // reset, active low</span></span>
 <span id="L212"><span class="lineNum">     212</span>              : </span>
 <span id="L213"><span class="lineNum">     213</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic [31:0] lsu_pmp_addr_start,</span></span>
 <span id="L214"><span class="lineNum">     214</span> <span class="tlaUNC">           0 :     output logic [31:0] lsu_pmp_addr_end,</span></span>
@@ -371,7 +371,7 @@
 <span id="L267"><span class="lineNum">     267</span> <span class="tlaGNC tlaBgGNC">           2 :    logic        addr_in_dccm_d, addr_in_dccm_m, addr_in_dccm_r;</span></span>
 <span id="L268"><span class="lineNum">     268</span> <span class="tlaGNC">           8 :    logic        addr_in_pic_d, addr_in_pic_m, addr_in_pic_r;</span></span>
 <span id="L269"><span class="lineNum">     269</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        ldst_dual_d, ldst_dual_m, ldst_dual_r;</span></span>
-<span id="L270"><span class="lineNum">     270</span> <span class="tlaGNC tlaBgGNC">          11 :    logic        addr_external_m;</span></span>
+<span id="L270"><span class="lineNum">     270</span> <span class="tlaGNC tlaBgGNC">          12 :    logic        addr_external_m;</span></span>
 <span id="L271"><span class="lineNum">     271</span>              : </span>
 <span id="L272"><span class="lineNum">     272</span> <span class="tlaGNC">           2 :    logic                          stbuf_reqvld_any;</span></span>
 <span id="L273"><span class="lineNum">     273</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                          stbuf_reqvld_flushed_any;</span></span>
