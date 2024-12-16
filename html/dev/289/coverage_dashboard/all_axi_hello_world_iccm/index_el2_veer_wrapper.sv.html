@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    13-12-2024
+                    16-12-2024
                 </td>
                 <td></td>
                 
@@ -131,7 +131,7 @@
 <span id="L27"><span class="lineNum">      27</span>              : `include "el2_param.vh"</span>
 <span id="L28"><span class="lineNum">      28</span>              : )</span>
 <span id="L29"><span class="lineNum">      29</span>              : (</span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">        6174 :    input logic                             clk,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">        5992 :    input logic                             clk,</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           3 :    input logic                             rst_l,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           1 :    input logic                             dbg_rst_l,</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:1]                      rst_vec,</span></span>
@@ -480,7 +480,7 @@
 <span id="L376"><span class="lineNum">     376</span>              :    output logic                            dma_hresp,</span>
 <span id="L377"><span class="lineNum">     377</span>              : `endif</span>
 <span id="L378"><span class="lineNum">     378</span>              :    // clk ratio signals</span>
-<span id="L379"><span class="lineNum">     379</span> <span class="tlaGNC">          51 :    input logic                             lsu_bus_clk_en, // Clock ratio b/w cpu core clk &amp; AHB master interface</span></span>
+<span id="L379"><span class="lineNum">     379</span> <span class="tlaGNC">          31 :    input logic                             lsu_bus_clk_en, // Clock ratio b/w cpu core clk &amp; AHB master interface</span></span>
 <span id="L380"><span class="lineNum">     380</span> <span class="tlaGNC">           1 :    input logic                             ifu_bus_clk_en, // Clock ratio b/w cpu core clk &amp; AHB master interface</span></span>
 <span id="L381"><span class="lineNum">     381</span> <span class="tlaGNC">           1 :    input logic                             dbg_bus_clk_en, // Clock ratio b/w cpu core clk &amp; AHB master interface</span></span>
 <span id="L382"><span class="lineNum">     382</span> <span class="tlaGNC">           1 :    input logic                             dma_bus_clk_en, // Clock ratio b/w cpu core clk &amp; AHB slave interface</span></span>
@@ -528,8 +528,8 @@
 <span id="L424"><span class="lineNum">     424</span> <span class="tlaGNC">           2 :    output logic                            o_cpu_halt_ack,      // core response to halt</span></span>
 <span id="L425"><span class="lineNum">     425</span> <span class="tlaGNC">           2 :    output logic                            o_cpu_halt_status,   // 1'b1 indicates core is halted</span></span>
 <span id="L426"><span class="lineNum">     426</span> <span class="tlaGNC">           2 :    output logic                            o_debug_mode_status, // Core to the PMU that core is in debug mode. When core is in debug mode, the PMU should refrain from sendng a halt or run request</span></span>
-<span id="L427"><span class="lineNum">     427</span> <span class="tlaGNC">           4 :    input logic                             i_cpu_run_req, // Async restart req to CPU</span></span>
-<span id="L428"><span class="lineNum">     428</span> <span class="tlaGNC">           4 :    output logic                            o_cpu_run_ack, // Core response to run req</span></span>
+<span id="L427"><span class="lineNum">     427</span> <span class="tlaGNC">           2 :    input logic                             i_cpu_run_req, // Async restart req to CPU</span></span>
+<span id="L428"><span class="lineNum">     428</span> <span class="tlaGNC">           2 :    output logic                            o_cpu_run_ack, // Core response to run req</span></span>
 <span id="L429"><span class="lineNum">     429</span>              : </span>
 <span id="L430"><span class="lineNum">     430</span>              :    // Excluding scan_mode and mbist_mode from coverage as their usage is determined by the integrator of the VeeR core.</span>
 <span id="L431"><span class="lineNum">     431</span>              :    /* verilator coverage_off */</span>
@@ -548,8 +548,8 @@
 <span id="L444"><span class="lineNum">     444</span>              :    /* verilator coverage_on */</span>
 <span id="L445"><span class="lineNum">     445</span>              : );</span>
 <span id="L446"><span class="lineNum">     446</span>              : </span>
-<span id="L447"><span class="lineNum">     447</span> <span class="tlaGNC">        6174 :    logic                             active_l2clk;</span></span>
-<span id="L448"><span class="lineNum">     448</span> <span class="tlaGNC">        6174 :    logic                             free_l2clk;</span></span>
+<span id="L447"><span class="lineNum">     447</span> <span class="tlaGNC">        5992 :    logic                             active_l2clk;</span></span>
+<span id="L448"><span class="lineNum">     448</span> <span class="tlaGNC">        5992 :    logic                             free_l2clk;</span></span>
 <span id="L449"><span class="lineNum">     449</span>              : </span>
 <span id="L450"><span class="lineNum">     450</span>              :    // DCCM ports</span>
 <span id="L451"><span class="lineNum">     451</span> <span class="tlaUNC tlaBgUNC">           0 :    logic         dccm_wren;</span></span>

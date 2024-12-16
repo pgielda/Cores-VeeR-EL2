@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    13-12-2024
+                    16-12-2024
                 </td>
                 <td></td>
                 
@@ -122,18 +122,18 @@
 <span id="L18"><span class="lineNum">      18</span>              : )</span>
 <span id="L19"><span class="lineNum">      19</span>              : (</span>
 <span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC tlaBgGNC">           1 : input               trst,</span></span>
-<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">      641290 : input               tck,</span></span>
-<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">       38544 : input               tms,</span></span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">       50056 : input               tdi,</span></span>
-<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">       48578 : output   reg        tdo,</span></span>
-<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">       19270 : output              tdoEnable,</span></span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">      685640 : input               tck,</span></span>
+<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">       41224 : input               tms,</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">       53512 : input               tdi,</span></span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">       51112 : output   reg        tdo,</span></span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">       20610 : output              tdoEnable,</span></span>
 <span id="L26"><span class="lineNum">      26</span>              : </span>
-<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">          32 : output [31:0]       wr_data,</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">          34 : output [31:0]       wr_data,</span></span>
 <span id="L28"><span class="lineNum">      28</span> <span class="tlaUNC tlaBgUNC">           0 : output [AWIDTH-1:0] wr_addr,</span></span>
-<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC tlaBgGNC">        2664 : output              wr_en,</span></span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">        4366 : output              rd_en,</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC tlaBgGNC">        2836 : output              wr_en,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">        4688 : output              rd_en,</span></span>
 <span id="L31"><span class="lineNum">      31</span>              : </span>
-<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">          38 : input   [31:0]      rd_data,</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">          48 : input   [31:0]      rd_data,</span></span>
 <span id="L33"><span class="lineNum">      33</span>              : /*verilator coverage_off*/</span>
 <span id="L34"><span class="lineNum">      34</span>              : input   [1:0]       rd_status,</span>
 <span id="L35"><span class="lineNum">      35</span>              : /*verilator coverage_on*/</span>
@@ -160,22 +160,22 @@
 <span id="L56"><span class="lineNum">      56</span>              : localparam USER_DR_LENGTH = AWIDTH + 34;</span>
 <span id="L57"><span class="lineNum">      57</span>              : </span>
 <span id="L58"><span class="lineNum">      58</span>              : </span>
-<span id="L59"><span class="lineNum">      59</span> <span class="tlaGNC tlaBgGNC">         180 : reg [USER_DR_LENGTH-1:0] sr, nsr, dr;</span></span>
+<span id="L59"><span class="lineNum">      59</span> <span class="tlaGNC tlaBgGNC">         224 : reg [USER_DR_LENGTH-1:0] sr, nsr, dr;</span></span>
 <span id="L60"><span class="lineNum">      60</span>              : </span>
 <span id="L61"><span class="lineNum">      61</span>              : ///////////////////////////////////////////////////////</span>
 <span id="L62"><span class="lineNum">      62</span>              : //                      Tap controller</span>
 <span id="L63"><span class="lineNum">      63</span>              : ///////////////////////////////////////////////////////</span>
-<span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC">       19270 : logic[3:0] state, nstate;</span></span>
+<span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC">       20610 : logic[3:0] state, nstate;</span></span>
 <span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC">           1 : logic [4:0] ir;</span></span>
 <span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC">           4 : wire jtag_reset;</span></span>
-<span id="L67"><span class="lineNum">      67</span> <span class="tlaGNC">       12230 : wire shift_dr;</span></span>
+<span id="L67"><span class="lineNum">      67</span> <span class="tlaGNC">       13076 : wire shift_dr;</span></span>
 <span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC">           2 : wire pause_dr;</span></span>
-<span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC">       12230 : wire update_dr;</span></span>
-<span id="L70"><span class="lineNum">      70</span> <span class="tlaGNC">       12230 : wire capture_dr;</span></span>
-<span id="L71"><span class="lineNum">      71</span> <span class="tlaGNC">        7040 : wire shift_ir;</span></span>
+<span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC">       13076 : wire update_dr;</span></span>
+<span id="L70"><span class="lineNum">      70</span> <span class="tlaGNC">       13076 : wire capture_dr;</span></span>
+<span id="L71"><span class="lineNum">      71</span> <span class="tlaGNC">        7534 : wire shift_ir;</span></span>
 <span id="L72"><span class="lineNum">      72</span> <span class="tlaUNC tlaBgUNC">           0 : wire pause_ir ;</span></span>
-<span id="L73"><span class="lineNum">      73</span> <span class="tlaGNC tlaBgGNC">        7040 : wire update_ir ;</span></span>
-<span id="L74"><span class="lineNum">      74</span> <span class="tlaGNC">        7040 : wire capture_ir;</span></span>
+<span id="L73"><span class="lineNum">      73</span> <span class="tlaGNC tlaBgGNC">        7534 : wire update_ir ;</span></span>
+<span id="L74"><span class="lineNum">      74</span> <span class="tlaGNC">        7534 : wire capture_ir;</span></span>
 <span id="L75"><span class="lineNum">      75</span> <span class="tlaGNC">           3 : wire[1:0] dr_en;</span></span>
 <span id="L76"><span class="lineNum">      76</span> <span class="tlaGNC">           2 : wire devid_sel;</span></span>
 <span id="L77"><span class="lineNum">      77</span> <span class="tlaUNC tlaBgUNC">           0 : wire [5:0] abits;</span></span>
