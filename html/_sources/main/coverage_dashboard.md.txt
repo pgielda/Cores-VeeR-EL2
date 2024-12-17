@@ -17,7 +17,6 @@
  * [ahb_ecc](external:coverage_dashboard/all_ahb_ecc/index.html)
  * [ahb_hello_world](external:coverage_dashboard/all_ahb_hello_world/index.html)
  * [ahb_hello_world_dccm](external:coverage_dashboard/all_ahb_hello_world_dccm/index.html)
- * [ahb_hello_world_iccm](external:coverage_dashboard/all_ahb_hello_world_iccm/index.html)
  * [ahb_icache](external:coverage_dashboard/all_ahb_icache/index.html)
  * [ahb_insns](external:coverage_dashboard/all_ahb_insns/index.html)
  * [ahb_irq](external:coverage_dashboard/all_ahb_irq/index.html)

@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    12-12-2024
+                    17-12-2024
                 </td>
                 <td></td>
                 
@@ -124,7 +124,7 @@
 <span id="L20"><span class="lineNum">      20</span>              : `include "el2_param.vh"</span>
 <span id="L21"><span class="lineNum">      21</span>              : )</span>
 <span id="L22"><span class="lineNum">      22</span>              :   (</span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">     7365555 :    input logic          clk,                                           // Top level clock</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">     7365560 :    input logic          clk,                                           // Top level clock</span></span>
 <span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           1 :    input logic          rst_l,                                         // Reset</span></span>
 <span id="L25"><span class="lineNum">      25</span>              :    // Excluding scan_mode from coverage as its usage is determined by the integrator of the VeeR core.</span>
 <span id="L26"><span class="lineNum">      26</span>              :    /*verilator coverage_off*/</span>
@@ -145,15 +145,15 @@
 <span id="L41"><span class="lineNum">      41</span>              : </span>
 <span id="L42"><span class="lineNum">      42</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic  [31:0]  lsu_result_m,                                  // Load result M-stage</span></span>
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC tlaBgGNC">           6 :    input logic  [31:0]  lsu_nonblock_load_data,                        // nonblock load data</span></span>
-<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">      182750 :    input logic          dec_i0_rs1_en_d,                               // Qualify GPR RS1 data</span></span>
+<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">      182751 :    input logic          dec_i0_rs1_en_d,                               // Qualify GPR RS1 data</span></span>
 <span id="L45"><span class="lineNum">      45</span> <span class="tlaGNC">       10542 :    input logic          dec_i0_rs2_en_d,                               // Qualify GPR RS2 data</span></span>
 <span id="L46"><span class="lineNum">      46</span> <span class="tlaGNC">          12 :    input logic  [31:0]  gpr_i0_rs1_d,                                  // DEC data gpr</span></span>
 <span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC">          74 :    input logic  [31:0]  gpr_i0_rs2_d,                                  // DEC data gpr</span></span>
 <span id="L48"><span class="lineNum">      48</span> <span class="tlaGNC">        1490 :    input logic  [31:0]  dec_i0_immed_d,                                // DEC data immediate</span></span>
 <span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">          62 :    input logic  [31:0]  dec_i0_result_r,                               // DEC result in R-stage</span></span>
 <span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC">         168 :    input logic  [12:1]  dec_i0_br_immed_d,                             // Branch immediate</span></span>
-<span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC">      351414 :    input logic          dec_i0_alu_decode_d,                           // Valid to X-stage ALU</span></span>
-<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">      341031 :    input logic          dec_i0_branch_d,                               // Branch in D-stage</span></span>
+<span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC">      351415 :    input logic          dec_i0_alu_decode_d,                           // Valid to X-stage ALU</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">      341032 :    input logic          dec_i0_branch_d,                               // Branch in D-stage</span></span>
 <span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">        1602 :    input logic          dec_i0_select_pc_d,                            // PC select to RS1</span></span>
 <span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">           2 :    input logic  [31:1]  dec_i0_pc_d,                                   // Instruction PC</span></span>
 <span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">           4 :    input logic  [3:0]   dec_i0_rs1_bypass_en_d,                        // DEC bypass select  1 - X-stage, 0 - dec bypass data</span></span>

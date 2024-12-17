@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    12-12-2024
+                    17-12-2024
                 </td>
                 <td></td>
                 
@@ -142,7 +142,7 @@
 <span id="L38"><span class="lineNum">      38</span> <span class="tlaUNC">           0 :       input logic                                   ic_debug_tag_array, // Debug tag array</span></span>
 <span id="L39"><span class="lineNum">      39</span> <span class="tlaUNC">           0 :       input logic [pt.ICACHE_NUM_WAYS-1:0]          ic_debug_way,       // Debug way. Rd or Wr.</span></span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC tlaBgGNC">         154 :       input logic [63:0]                            ic_premux_data,     // Premux data to be muxed with each way of the Icache.</span></span>
-<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">      499927 :       input logic                                   ic_sel_premux_data, // Select the pre_muxed data</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">      499928 :       input logic                                   ic_sel_premux_data, // Select the pre_muxed data</span></span>
 <span id="L42"><span class="lineNum">      42</span>              : </span>
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">          30 :       input  logic [pt.ICACHE_BANKS_WAY-1:0][70:0]  ic_wr_data,         // Data to fill to the Icache. With ECC</span></span>
 <span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">         154 :       output logic [63:0]                           ic_rd_data ,        // Data read from Icache. 2x64bits + parity bits. F2 stage. With ECC</span></span>
@@ -241,7 +241,7 @@
 <span id="L137"><span class="lineNum">     137</span> <span class="tlaUNC">           0 :       input logic                            ic_debug_tag_array,  // Debug tag array</span></span>
 <span id="L138"><span class="lineNum">     138</span> <span class="tlaUNC">           0 :       input logic [pt.ICACHE_NUM_WAYS-1:0]   ic_debug_way,        // Debug way. Rd or Wr.</span></span>
 <span id="L139"><span class="lineNum">     139</span> <span class="tlaGNC tlaBgGNC">         154 :       input logic [63:0]                     ic_premux_data,      // Premux data to be muxed with each way of the Icache.</span></span>
-<span id="L140"><span class="lineNum">     140</span> <span class="tlaGNC">      499927 :       input logic                            ic_sel_premux_data,  // Select the pre_muxed data</span></span>
+<span id="L140"><span class="lineNum">     140</span> <span class="tlaGNC">      499928 :       input logic                            ic_sel_premux_data,  // Select the pre_muxed data</span></span>
 <span id="L141"><span class="lineNum">     141</span>              : </span>
 <span id="L142"><span class="lineNum">     142</span> <span class="tlaUNC tlaBgUNC">           0 :       input logic [pt.ICACHE_NUM_WAYS-1:0]ic_rd_hit,</span></span>
 <span id="L143"><span class="lineNum">     143</span>              :       el2_mem_if.veer_icache_data         icache_export,</span>
