@@ -7,6 +7,14 @@
    
    * [Documentation](external:dev/254/docs_rendered/html/index.html)
    
+ * 293
+   * [Coverage](293_coverage_dashboard)
+
+   * [Verification tests](external:dev/293/verification_dashboard.html)
+
+   
+   * [Documentation](external:dev/293/docs_rendered/html/index.html)
+   
  * 271
    * [Coverage](271_coverage_dashboard)
 
