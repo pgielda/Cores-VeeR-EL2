@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    17-12-2024
+                    18-12-2024
                 </td>
                 <td></td>
                 
@@ -431,7 +431,7 @@
 <span id="L327"><span class="lineNum">     327</span> <span class="tlaUNC">           0 :                   cmd_done        = buf_state_en &amp; ~master_valid;                     // last one of the stream should not send a htrans</span></span>
 <span id="L328"><span class="lineNum">     328</span> <span class="tlaUNC">           0 :                   bypass_en       = master_ready &amp; master_valid &amp; (buf_nxtstate == STREAM_RD) &amp; buf_state_en;</span></span>
 <span id="L329"><span class="lineNum">     329</span> <span class="tlaUNC">           0 :                   buf_cmd_byte_ptr[2:0] = bypass_en ? master_addr[2:0] : buf_addr[2:0];</span></span>
-<span id="L330"><span class="lineNum">     330</span> <span class="tlaUNC">           0 :                   ahb_htrans[1:0] = 2'b10 &amp; {2{~((buf_nxtstate != STREAM_RD) &amp; buf_state_en)}};</span></span>
+<span id="L330"><span class="lineNum">     330</span> <span class="tlaUNC">           0 :                   ahb_htrans[1:0] = {2{~((buf_nxtstate != STREAM_RD) &amp; buf_state_en)}};</span></span>
 <span id="L331"><span class="lineNum">     331</span> <span class="tlaUNC">           0 :                   slvbuf_wr_en    = buf_wr_en;                                         // shifting the contents from the buf to slv_buf for streaming cases</span></span>
 <span id="L332"><span class="lineNum">     332</span>              :          end // case: STREAM_RD</span>
 <span id="L333"><span class="lineNum">     333</span> <span class="tlaUNC">           0 :          STREAM_ERR_RD: begin</span></span>
